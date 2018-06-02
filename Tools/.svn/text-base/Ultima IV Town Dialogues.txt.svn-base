@@ -1,0 +1,3388 @@
+Ultima IV town script
+
+Version 2.0.0 copyright 2000 Andrew Schultz(schultza@earthlink.net)
+
+Ultima IV is copyright Origin 1987.  This script is not endorsed by 
+Origin in any way.  This script is part of my efforts to preserve the 
+memory of certain great classic Apple games.  Although the algorithm to 
+reproduce the scripts from disk images/data files is not terribly 
+complex, this document took some effort to produce, so please do not 
+reproduce it for profit without my prior consent.
+
+Oh, U-4-ria!  This script contains information on pretty much everything 
+an NPC can say.  There is a basic format for meeting them, as follows:
+
+You see [description.]  [sex] says:  my name is [name].
+
+You can ask anyone in Brittania about his name, job, and health.  In 
+addition, each person has two things they will talk about.  After the 
+first one, they ask no questions, but they may ask a question after the 
+second one.  If so, you may answer yes or no, and they will answer 
+differently based on that.  So, in the first example, ask Joshua for 
+HELP and he will say "The riddle!"  Ask Joshua for RIDDLE and he will 
+tell the first part and ask "More?"  Note that any response or query of 
+"A" in this script means that the NPC has nothing else to say.
+
+This script is intended as reference--it's most useful for searching for 
+a specific item, i.e. "Rune" or "Compassion" or "Skull."  It has the 
+NPC's sorted by town name.  All conversations are in CAPS because that 
+is how they were in the file, and I didn't quite have the time for an 
+algorithm to change that.  Maybe later.
+
+Enjoy, and send any comments, positive or negative, to 
+schultza@earthlink.net.
+
+This can accompany my beginning-of-game questions and FAQ/walkthrough 
+proper.
+
+Look for other classic game information on my page:
+http://www.geocities.com/SoHo/Exhibit/2762/games/games.htm
+....as well as tips on how to produce this sort of script.
+
+----------------------------------------------------------
+Outline
+
+Census Results
+
+Towns
+  Moonglow
+  Britain
+  Jhelom
+  Yew
+  Minoc
+  Trinsic
+  Skara Brae
+  Magincia
+Castles
+  Lord British's Castle, Level 2
+  Lord British's Castle, Level 1
+  Lycaeum
+  Empath Abbey
+  Serpants Hold
+Villages
+  Cove
+  Buccaneers' Den
+  Paws
+  Vesper
+
+-----------------------------------------------------------
+
+****
+Census Results
+****
+
+Well, since the US's Census 2000 has just passed, it's time for a truly 
+senseless census.  Introducing the Census of Britannia for Ultima IV!
+
+The population of Britannia is difficult to determine exactly, even with 
+knowledge of all standard dialogs.  Lord British and Hawkwind, for 
+instance, do not turn up there.  Neither do innkeepers.  However, an 
+initial inspection(GREP this file on UNIX) shows the talkative 
+population of Britannia breaks down as follows:
+
+BY SEX
+Male:  176
+Female:  55
+Neuter:  24 (This includes ankhs, horses, ghosts, skeletons, and a bull-
+-I may categorize these later given the time.  The game refers to them 
+as "it.")
+Child:  1 (This child's sex was indeterminate.  "It" lives in Britain.)
+Total:  256
+
+BY PROFESSION
+This includes the main eight professions of Britannia.  The totals do 
+not sum to 258, as there are beggars, children, and guards.  In the 
+future, the number of guards will be tabulated--there is more than one 
+guard per town, but each talks the same.  This count includes potential 
+PC's.
+
+This is an initial pass at the census, because it is not always clear 
+from the text who is what.  When I walk through the game again, this 
+will be sharpened.
+
+Mage:  17
+Bard:  9
+Fighter:  14
+Druid:  15
+Tinker:  6.  "Dan the Tinker Man" is possibly a tinker.  This will need 
+further investigation.  Census officials are still proofreading this!  
+It's taking longer than a US election to decide, too!
+Paladin:  8
+Ranger:  15
+Shepherd:  14
+Total:  98
+  OTHER PROFESSIONS:
+Jester:  7
+Beggar:  8
+  JUST PLAIN OTHER:
+Viper:  1
+Orc:  1
+Troll:  1
+Reaper:  1
+Boy:  2
+Girl:  2 (+Sue?)
+To be tabulated:  ordinary people, children and other miscellany.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Moonglow
++++++++++++++++++++++++++++++++++++++
+
+Name: Mariah
+Sex: She
+Description: A young mage
+Job: I seek adventure!
+Health: Quite good.
+ADVE: Yes, I hope to go on a great quest!
+QUES: The quest of the avatar is noble indeed!
+  Art thou on a quest?
+    Yes: I wish I could join thee!
+    No: Wish thou were!
+
+Name: Tracie
+Sex: She
+Description: Starving journalist
+Job: I am a writer.
+Health: I feel fine... if I could just quit smoking!
+WRIT: It's low paid, but glamorous!
+SMOK: Cough...cough...
+  Do you smoke?
+    Yes: I can tell by the smell!
+    No: Don't start!
+
+Name: Cromwell
+Sex: He
+Description: A regal paladin.
+Job: I speak of the virtues of honesty!
+Health: Well indeed.
+HONE: A few honest men are better than numbers!
+MANT: The mantra of the shrine of honesty is 'AHM'.
+  Dost thou strive to be honest?
+    Yes: Then you will need the mantra.
+    No: Shame!
+
+Name: Rebelias
+Sex: He
+Description: A mystic wizard.
+Job: I live an honest life.
+Health: I've been better
+HONE: Speak the truth and shame the evil forces!
+EVIL: Evil still exists in our hearts and souls!
+  Dost thou seek to conquer thine own evil?
+    Yes: The quest of a lifetime!
+    No: Wretch!
+
+Name: Christen
+Sex: She
+Description: A playful child.
+Job: I am your friend.
+Health: Feeling good.
+FRIE: Honest friends are few!
+HONE: My friend William knows where the rune of honesty is.
+  Art thou my friend?
+    Yes: That makes me happy.
+    No: I am sad.
+
+Name: Patric the Humble Shepherd
+Sex: He
+Description: A meek shepherd.
+Job: I am shepherd.
+Health: Pretty good.
+HUMB: Humility is not derived from the direct combination of truth, love 
+or courage.
+HUMI: Humility is to act and be humble.
+  Art thou totally humble?
+    Yes: Doubtful!
+    No: Strive to be.
+
+Name: Shazom
+Sex: He
+Description: A dying young wizard.
+Job: I am apprentice to the great wizard Nigel!
+Health: I will soon die.
+NIGE: I will soon need to use the spell he calls 'recall'.
+DIE : Pass on.
+  Hast thou met Nigel?
+    Yes: Seek him out for he will teach thee.
+    No: He lives at the Lycaeum.
+
+Name: Shakespeare
+Sex: He
+Description: A wise wizard.
+Job: I create tales of honesty.
+Health: Getting on.
+HONE: Remember, there is no terror in threats for I am strong in 
+honesty!
+CORR: Corruption wins not more than honesty!
+  Dost thou strive to be honest?
+    Yes: Beware corruption!
+    No: Fool!
+
+Name: Browning
+Sex: He
+Description: A tall mage.
+Job: I strive to live an honest life!
+Health: Been better.
+HONE: An honest soul need remember no lies!
+TRUT: Truth is the root of honesty!
+  Hast thou never lied?
+    Yes: That seems unlikely!
+    No: Truth never hurts the teller!
+
+Name: Cosima
+Sex: She
+Description: An elderly woman
+Job: I am an alchemist.
+Health: Tired, so tired.
+ALCH: I know how best to mix reagents!
+REAG: A sleep spell actually requires but one part spider silk!
+  Dost thou know how to best mix spells?
+    Yes: Good!
+    No: The secret's in the reagents!
+
+Name: Daranor
+Sex: He
+Description: A hunched, insane looking man!
+Job: I move the sun!
+Health: Health?
+SUN : The moons are my enemies!
+MOON: When I die the world will end!
+  Do you believe my story!?!?...
+    Yes: Then we must fell the moons!
+    No: Idiot, you must think I am insane!
+
+Name: Inoo
+Sex: She
+Description: An old gypsy.
+Job: I am a fortune teller, I read palms.
+Health: I predict I will be fine today!
+PALM: Palms tell fortunes!
+FORT: Give thy palm.
+  Dost thou wish thy destiny?
+    Yes: A great quest will lead thee into the abyss where the codex 
+awaits!
+    No: Wise choice.
+
+Name: Calabrini
+Sex: He
+Description: A tall mage.
+Job: I bear greetings from the fair city of Moonglow.
+Health: Fine.
+INN : We have an excellent inn.
+HEAL: Our healer is one of the best!
+  Dost thou seek an inn or healing?
+    Yes: Which?
+    No: Perhaps, the shrine which lies on an isle to the north!
+
+Name: Dekker
+Sex: He
+Description: A bouncy jester
+Job: I earn an honest living, jesting!
+Health: Very good.
+HONE: Honest labor bears a lovely face!
+JEST: I love a good jest.
+  Dost thou?
+    Yes: We ought to exchange jokes sometime!
+    No: Thou art probably a sourpuss!
+
+Name: William
+Sex: He
+Description: A child eating a sandwich.
+Job: Oh, not much.
+Health: Pretty good.
+SAND: It's a peanut butter and grape jelly on lightly toasted bread!
+RUNE: Search for the rune of honesty by Mariah's gold!
+  Wouldst thou like a bite?
+    Yes: Yummy, huh!
+    No: It's awful yummy!
+
+Name: Tyrone
+Sex: He
+Description: A battered mage.
+Job: I used to search for the blue stone.
+Health: Fading.
+STON: The stone of honesty is found on an altar in the dungeon of 
+Deceit.
+USE : It is used within the dungeon altar rooms and in the abyss.
+  Wilt thou search?
+    Yes: Know its uses!
+    No: Hmm.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Britain
++++++++++++++++++++++++++++++++++++++
+
+Name: Iolo
+Sex: He
+Description: Charming bard
+Job: I play for the people.
+Health: Good.
+PLAY: I play my lute and receive the good wishes of the people.
+COMP: If you treat someone else well then they will have reason to do 
+the same.
+  Do you like my music?
+    Yes: I would join thee!
+    No: A shame.
+
+Name: Gweno
+Sex: She
+Description: a charming jester
+Job: I dance and sing for the children.
+Health: Very well.
+DANC: Dance is good for the soul.
+BEGG: To give to a beggar shows compassion.
+  Do you give to the needy?
+    Yes: Beggars are thankful for small donations.
+    No: Alas.
+
+Name: a child
+Sex: The child
+Description: a small child
+Job: Singing
+Health: Very happy.
+SING: The song goes: Ho eyo he hum!
+HO E: It means: Love to one and all!
+  Do you like the song?
+    Yes: Then help us spread the word!
+    No: Too bad.
+
+Name: a guard
+Sex: He
+Description: A guard
+Job: I guard the bridge.
+Health: Good.
+BRID: Across the bridge our people dance and sing!
+GUAR: Yep.
+  Would thou like to join them?
+    Yes: Remember, an open heart is the first step on the path to 
+wisdom!
+    No: Then you have no business across the bridge.
+
+Name: Pepper
+Sex: She
+Description: A spicy woman.
+Job: I am a fighting bard.
+Health: Healthy.
+BARD: Bards know many things.
+RUNE: The rune of compassion lies at the end of a hall somewhere in this 
+towne.
+  Dost thou seek something?
+    Yes: What might that be?
+    No: Alas, I may have been able to help.
+
+Name: Thevel
+Sex: He
+Description: A seasoned fighter.
+Job: I search for the mystery of the magic orbs.
+Health: Fairly well.
+ORBS: A one-handed beggar knows their secrets!
+MAGI: Magic orbs.
+  Hast thou seen him?
+    Yes: Only he knows the orb's gift!
+    No: Find him in Serpent castle for he knows of orbs!
+
+Name: Joe
+Sex: He
+Description: A drunken fighter
+Job: Yo ho ho... and a bottle... of rum... hic...
+Health: And a bottle of...
+STON: The yellow stone is in the dungeon Despise...
+RUM : Rum... hic...
+  Give me rum?...
+    Yes: Thanxth... my friend Joe can help with the stones... hic...
+    No: Ah, be a joe!
+
+Name: Cricket
+Sex: He
+Description: A bard in green
+Job: Shhh, I'm playing!
+Health: Shhh
+SHHH: Yes, shhh!
+MANT: The mantra for the shrine of compassion is 'MU'!
+  Now wilt thou be quiet?
+    Yes: Thanks.
+    No: I am going to call the guards!
+
+Name: a guard
+Sex: He
+Description: A cheerful guard.
+Job: I am a guard of course!
+Health: I am fully healed.
+GUAR: We guards have a lot of compassion.
+COMP: We always say: Let all others' troubles be as thine own!
+  Dost thou kill non-evil creatures?
+    Yes: That does not show compassion!
+    No: Good.
+
+Name: a child
+Sex: He
+Description: A small child
+Job: I am learning compassion.
+Health: O.K.
+LEAR: The solution to ones problems often lies in solving others!
+COMP: Never care so much for thyself that thou cannot care for others!
+  Know ye the mantra of compassion?
+    Yes: Good.
+    No: Ask Cricket!
+
+Name: Shalimar
+Sex: He
+Description: A tired shepherd
+Job: I watch over the children.
+Health: Good.
+CHIL: It takes a good deal of compassion to deal with children!
+COMP: Compassion strengthens the soul as knowledge tempers the mind!
+  Have any kids?
+    Yes: Thou dost know what I mean!
+    No: Too bad.
+
+Name: Sebastian
+Sex: He
+Description: An injured person.
+Job: I know a terrible secret!
+Health: Not so well.
+SECR: Mondain's influence has not left the world!
+MOND: An artifact remains! I heard at Buccaneer's Den!
+  Wilt thou find and destroy it?
+    Yes: Then ask at the pub there of the skull!
+    No: Oh.
+
+Name: Shapero
+Sex: He
+Description: A druid.
+Job: I am looking for Julio.
+Health: All right.
+JULI: He knows the true nature of compassion.
+COMP: Seek out Julio and ask him of compassion!
+  Art thou on the Quest of the Avatar?
+    Yes: Find the shrine of compassion east across 2 bridges!
+    No: Too bad.
+
+Name: Julio
+Sex: He
+Description: A solemn bard.
+Job: I seek the true nature of things!
+Health: Solemn.
+NATU: All things have a true nature!
+COMP: Compassion derives itself from unending love!
+  Dost thou know the true nature of all things?
+    Yes: Thou art a liar and a braggart.
+    No: No mortal can.
+
+Name: Mentor
+Sex: He
+Description: A wise shepherd.
+Job: I escaped Magincia!
+Health: I am well.
+MAGI: Pride was too great in Magincia!
+PRID: The city was destroyed by daemons for its pride!
+  Art thou proud?
+    Yes: That is not a virtue!
+    No: Pride exists without truth, love, or courage!
+
+Name: Sprite
+Sex: She
+Description: A poor beggar.
+Job: I have no job so now I beg!
+Health: I fear I shall die of starvation!
+STAR: I have not eaten in a week!
+BEG : Please! Help me!
+  Wilt thou help me?
+    Yes: In return I shall tell thee that Pepper knows of the rune!
+    No: I shall starve to death!
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Jhelom
++++++++++++++++++++++++++++++++++++++
+
+Name: Geoffrey
+Sex: He
+Description: A 6 foot 5, great warrior.
+Job: I lead into battle!
+Health: I am good and strong!
+WARR: A great warrior is a valiant warrior!
+BATT: I desire to fight again in battle!
+  Art thou valiant!
+    Yes: Perhaps I could someday join thee!
+    No: To flee battle shows cowardice!
+
+Name: Lord Robert
+Sex: He
+Description: A mysterious warrior.
+Job: I battle for Lord British!
+Health: Outstanding!
+WARR: Thou must battle long and hard to be a warrior.
+BATT: Battles are few and too many!
+  Are you a valiant warrior?
+    Yes: Thou dost deserve the rune, ask Nostro!
+    No: Thou art a wimp!
+
+Name: Lady Donna
+Sex: She
+Description: A 5 foot pregnant woman
+Job: I watch over my sheep.
+Health: Fine, all but the lump in my stomach.
+PREG: It's no fun to be pregnant.
+SHEE: I can't stand sheep!
+  Why, art thou the father?
+    Yes: Wait till I tell my husband!
+    No: Thank god!
+
+Name: Bengrod
+Sex: He
+Description: A wounded fighter!
+Job: I search the dungeons!
+Health: Poor.
+DUNG: I fell in the dungeon 'Destard'.
+ROOM: Therein use the stones found in the connecting dungeons!
+  Hast thou found its altar room?
+    Yes: It connects with Covetous, Shame and Hythloth!
+    No: Find it!
+
+Name: Sir William
+Sex: He
+Description: A noble fighter.
+Job: I search for valiant fighters!
+Health: Very well.
+EVIL: Kill not non-evil creatures but still always stand thy ground!
+KILL: Let them flee instead. never flee uninjured!
+  Art thou valiant?
+    Yes: Strive ye to defeat all evil!
+    No: I see.
+
+Name: Sir Hrothgar
+Sex: He
+Description: A mighty warrior!
+Job: I fight for valor!
+Health: Excellent.
+VALO: The valiant soul fears not its own visage!
+SHRI: The mantra need be known, ask Aesop!
+  Art thou the most valiant of souls?
+    Yes: This is not likely!
+    No: Thou should seek the shrine of valor!
+
+Name: a guard
+Sex: He
+Description: A stern guard.
+Job: We guard the gates and these passages!
+Health: Well.
+GATE: The gates of Jhelom.
+PASS: These passages are restricted.
+  A
+    Yes: A
+    No: A
+
+Name: Aesop
+Sex: He
+Description: A small man.
+Job: I search for valor!
+Health: Well enough.
+VALO: I find that 'tis easy to be brave from a safe distance!
+MANT: The mantra of valor is 'RA' use it in the shrine on the next isle!
+  Know what I mean?
+    Yes: Thats my problem.
+    No: Thou art brave!
+
+Name: Gravnor
+Sex: He
+Description: A grave fighter.
+Job: I search the dungeons.
+Health: So so.
+DUNG: I seek the red stone.
+STON: It is found on an altar!
+  Dost thou have it?
+    Yes: No wonder I can't find it!
+    No: It lies in the dungeon Destard!
+
+Name: Senora
+Sex: She
+Description: A beautiful mage
+Job: I am locked up in this tower.
+Health: Well enough.
+TOWE: I am being punished for my crimes.
+CRIM: Does not matter, I can help thee!
+  Dost thou have a ship?
+    Yes: Then thou dost need a sextant ask the barkeep for he knows 
+more!
+    No: Too bad.
+
+Name: Nostro
+Sex: He
+Description: A withering soul
+Job: I built these passages and they walled me in!
+Health: Very near death!
+PASS: This passage runs around the city!
+RUNE: The rune is buried in a tower!
+  Wilt thou lead me out?
+    Yes: I am saved!
+    No: Thou art a cad! and I will still follow!
+
+Name: Luke
+Sex: He
+Description: A ranger with a far away look.
+Job: I seek the inner light!
+Health: Quite well.
+LIGH: I come from Skara Brae and am on my way to Yew.
+YEW : 'tis a city based in the virtue of justice!
+  Hast thou been to Skara Brae?
+    Yes: A fine city!
+    No: 'tis a spiritual city!
+
+Name: Max
+Sex: He
+Description: The housekeeper.
+Job: I am the housekeeper.
+Health: Good!
+HOUS: I clean the rooms.
+ROOM: That's a strange one at the end. People often disappear.
+  Is there some problem with thy room?
+    Yes: I am very sorry I will correct it right away!
+    No: Oh, thou had me worried!
+
+Name: X
+Sex: He
+Description: A strange person
+Job: I seek the stone
+Health: O.K.
+STON: The red stone.
+RED : Red is for valor a virtue of the avatar!
+  Art thou an avatar?
+    Yes: Wow!
+    No: Then thou shalt need the red stone in one altar room to get the 
+third part of a key!
+
+Name: Slithe
+Sex: He
+Description: A valiant warrior.
+Job: I fight battles!
+Health: Only minor wounds!
+BATT: True valor is seen not in the force of arms, but in the force of 
+will!
+VALO: I display my valor in battle.
+  Art thou valiant?
+    Yes: Then never flee unless the need is dire!
+    No: Coward.
+
+Name: Timrod
+Sex: He
+Description: A thin fighter.
+Job: I fight with valor!
+Health: Couldn't be better!
+VALO: There is no holier spot of ground than where defeated valor lies.
+BRAV: Be brave for there is much to dare!
+  Art thou brave?
+    Yes: Fortune helps the brave!
+    No: Coward.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Yew
++++++++++++++++++++++++++++++++++++++
+
+Name: Jaana
+Sex: She
+Description: A quiet druid
+Job: I strive to understand justice.
+Health: I am well.
+JUST: True justice satisfies all, false none.
+UNDE: Let justice be thy calling not thy excuse!
+  Art thou just?
+    Yes: Many a grave has been unjustly filled in the name of justice.
+    No: Alas.
+
+Name: a guard
+Sex: She
+Description: A tall guard
+Job: To guard the court.
+Health: Yes.
+JUST: A good life is inspired by love and guided by knowledge.
+COUR: Within this chamber justice is served.
+  Dost thou have business before the court?
+    Yes: Then enter.
+    No: Then do not disturb the proceedings!
+
+Name: a guard
+Sex: He
+Description: A big guard.
+Job: We guard the jail.
+Health: Fit.
+MISD: That'll be the left cell.
+FELO: That'll be the right hand cell. careful in there!
+  Hast thou come to turn thyself in?
+    Yes: In which cell dost thou belong, felonies or misdemeanors.
+    No: Just visiting, eh.
+
+Name: Calumny
+Sex: He
+Description: A solemn druid.
+Job: I make spells.
+Health: Well.
+SPEL: I invented quickness!
+MAND: Mandrake root is found only in the Fens of the Dead and in the 
+Bloody Plains where the ground is always damp.
+  Can thou cast it?
+    Yes: It requires but one bloodmoss!
+    No: Adept.
+
+Name: Talfourd
+Sex: He
+Description: A wise judge.
+Job: I decide justice.
+Health: Well.
+JUST: Justice is truth in action!
+RUNE: It is hidden well!
+  Can thou honestly claim to be guilty of no crime ever?
+    Yes: Doubtful.
+    No: Then do thy penance in a cell, and with the felon search ye 
+well.
+
+Name: Flamis
+Sex: It
+Description: A burning fire.
+Job: I hold the fabric of the true nature of justice.
+Health: Bright.
+JUST: The virtue of justice draws its nature from the principles of 
+truth and love!
+FABR: Of justice.
+  Hast thou always been just?
+    Yes: Unlikely.
+    No: At least thou art honest.
+
+Name: Silent
+Sex: He
+Description: A chanting druid
+Job: Beh... Beh...
+Health: Beh... Beh...
+BEH.: Beh... Beh...
+BEH : Beh... Beh...
+  A
+    Yes: A
+    No: A
+
+Name: Dwp
+Sex: He
+Description: A wise druid.
+Job: Welcome thee to Yew city of justice!
+Health: I am well.
+JUST: Love no one more than the truth, for justice seeks no favors. 
+Temper thy justice with understanding.
+YEW : Yes 'tis a fair city!
+  Dost thou like it?
+    Yes: Let it be as thine!
+    No: A pity.
+
+Name: a poor beggar.
+Sex: He
+Description: A poor beggar.
+Job: I have sinned.
+Health: Well treated.
+SINE: I have gotten chests in the townes and killed non-evil creatures.
+FELO: He is a mean nasty ugly villain!
+  Should thou be in with the felon?
+    Yes: Thou art in the wrong cell.
+    No: Good.
+
+Name: Vorpal
+Sex: He
+Description: A mean nasty ugly villain!
+Job: I eat people who bug me!
+Health: Hungry!
+VILL: That's me alright!
+PEOP: Like thee!
+  Art thou here to bug me?
+    Yes: Eat death, scum puppy!
+    No: Well thou art!
+
+Name: a ranger
+Sex: She
+Description: A sleek ranger.
+Job: I search for a home.
+Health: O.K.
+HOME: On the range!
+RANG: Where the deer and the antelope play.
+  Ever heard of such a place?
+    Yes: Seldom is heard a discouraging word!
+    No: Ah, what'ya have to ruin it for!
+
+Name: Short Round
+Sex: He
+Description: A small child
+Job: I work for Jones.
+Health: I am fine.
+JONE: I think Indi's on a quest!
+QUES: I'm not so sure, but it should be fun!
+  Art thou having fun?
+    Yes: Write to Lord British and tell him!!!
+    No: I am so sorry we all wish you would!
+
+Name: Frida
+Sex: She
+Description: A withered form.
+Job: See my poor baby I beg for him.
+Health: I am starving and sick.
+BABY: Oh, no, my baby is dying!
+JUST: Jaana may join thee!
+  Wilt thou give me money so that I can get my baby healed?
+    Yes: Thou art kind and just!
+    No: Evil wretch, curse thee!
+
+Name: Pinrod
+Sex: He
+Description: A thin man.
+Job: I take council.
+Health: Fine.
+COUN: On justice.
+JUST: Justice is hardest to find at the point of a sword, the steel is 
+an agent of justice, humanity the perpetrator!
+  Fight ye for justice?
+    Yes: Good, the druids chant the mantra!
+    No: Cad.
+
+Name: a guard
+Sex: He
+Description: A big guard
+Job: To preserve the peace and insure justice!
+Health: O.K.
+PEAC: A good life is inspired by love and guided by truth!
+JUST: Justice means not only to punish the bad but also to reward the 
+good!
+  Art thou always just?
+    Yes: Unlikely!
+    No: Strive to be!
+
+Name: Druid
+Sex: She
+Description: A wandering druid.
+Job: I seek justice.
+Health: Well.
+JUST: Learn at the shrine!
+SHRI: The shrine is to the east then north!
+  Dost thou have the rune?
+    Yes: Now learn the mantra, and seek the green stone in 'Wrong'!
+    No: Ask Talfourd for he knows of the rune.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Minoc
++++++++++++++++++++++++++++++++++++++
+
+Name: Julia
+Sex: She
+Description: An agile tinker.
+Job: I care for the poor.
+Health: Well.
+CARE: Self preservation is the first law of nature; self sacrifice the 
+highest rule of grace.
+POOR: Within this house are many poor and destitute souls.
+  Wilt thou help?
+    Yes: I would join thee.
+    No: Bum.
+
+Name: Zircon
+Sex: He
+Description: A seasoned blacksmith.
+Job: I forge weapons.
+Health: Quite well.
+WEAP: I make the very best!
+MYST: Ah, yes, the mystic weapons, and armour, my greatest work! Those I 
+gave unto Sir Simon and Lady Tessa.
+  Seek thee a weapon?
+    Yes: Ask at the counter!
+    No: Hmmm.
+
+Name: Bob the Beggar
+Sex: He
+Description: A sickly little man.
+Job: I have none, help me.
+Health: I am very sick, help me!
+HELP: I need money to cure my sickness.
+SICK: I have terminal leg rot.
+  Hast thou any money?
+    Yes: Then please share it with me!
+    No: Then join me and we can beg together!
+
+Name: Linda Sue
+Sex: She
+Description: A small muddy girl.
+Job: I'm an undernourished beggar girl.
+Health: I am hungry.
+HUNG: I have not eaten in days.
+FOOD: Oh, thou art a kind soul!
+  Could thou spare a nibble of food?
+    Yes: I would greatly appreciate that.
+    No: Oh, I see.
+
+Name: Gimble
+Sex: He
+Description: A fading man.
+Job: I shall die soon.
+Health: I am barely conscious.
+DIE : I suffer from a tsetse byte!
+CONS: I will soon sleep forever.
+  Could thou spare a gold piece so I may buy a last drink?
+    Yes: Remember Azure knows of the rune!
+    No: I am saddened.
+
+Name: Jude
+Sex: He
+Description: A ragged soul.
+Job: To redeem myself!
+Health: Ailing.
+REDE: I will not speak of my sin!
+SKUL: I used it!
+  If I help thee wilt thou swear to only use it at the mouth of the 
+abyss to destroy it?
+    Yes: It can be found at lat-P'F" long-M'F" on the darkest night!
+    No: Oh.
+
+Name: Alkerion
+Sex: He
+Description: An old ragged man.
+Job: I am a peasant, I hear many things.
+Health: I am old and weak.
+HEAR: What does thou wish to know?
+STON: The stone of sacrifice is orange in color and used in the altar 
+rooms of love and courage!
+  Seeketh thou?
+    Yes: Good luck.
+    No: Oh.
+
+Name: Mike Ward
+Sex: He
+Description: A stocky ranger.
+Job: I am trying to get a room.
+Health: Well enough.
+ROOM: I have travelled clear from Skara Brae.
+SKAR: The rune of our city is missing!
+  Know thee of the rune?
+    Yes: It is the key to the shrine of spirituality!
+    No: It is not in Skara Brae.
+
+Name: Alex
+Sex: He
+Description: A teenage boy.
+Job: I give out flowers. Here you are!
+Health: Fine, thanks.
+FLOW: The way I figure it, if thou art kind to others they will have 
+reason to be kind in return!
+KIND: Yes, give all that thou can unto the needy!
+  Wilt thou give?
+    Yes: Good.
+    No: Alas.
+
+Name: Shentis
+Sex: He
+Description: A rotund tinker.
+Job: I welcome thee unto Minoc, city of sacrifice!
+Health: OK.
+SACR: Self-sacrifice is a needed virtue!
+VIRT: Avatars strive to be virtuous.
+  Dost thou strive for virtue?
+    Yes: Then perhaps thou shalt become an avatar!
+    No: An avatar thou art not!
+
+Name: Singsong
+Sex: She
+Description: A cute bard.
+Job: I sing songs!
+Health: Very well indeed!
+SING: I sing songs!
+SONG: Very well, the raven sings, the raven saw and in the corn he 
+sayeth 'CAH'.
+  Dost thou like it?
+    Yes: Thanks.
+    No: Too bad...
+
+Name: Damon
+Sex: He
+Description: A meek shepherd.
+Job: I stand here and think.
+Health: Fine.
+THIN: Oh, just about things.
+MANT: Listen to the bard's song for in its verse lies the key!
+  Can't a man just think to himself?
+    Yes: Well I hope so!
+    No: Oh, yes I can thou bandersnatch!
+
+Name: Mischief
+Sex: She
+Description: A happy tinker.
+Job: This and that.
+Health: O.K. I guess.
+THIS: And that...
+RUNE: The rune of sacrifice is hard to get. It lies within the fires of 
+the forge!
+  Hast thou the rune?
+    Yes: Then ask Alkerion of the stone!
+    No: Return when thou dost find it!
+
+Name: Azure
+Sex: He
+Description: A tinker at the table.
+Job: I carve runes.
+Health: O.K.
+RUNE: I carve runes for passage into the shrines!
+SACR: Ask my sister, Mischief.
+  Dost thou seek a rune?
+    Yes: Which?
+    No: I see.
+
+Name: Merida
+Sex: He
+Description: A wandering tinker.
+Job: I seek the wisdom of the shrine of sacrifice.
+Health: Been better.
+SHRI: But first I need the mantra!
+MANT: I am told that a hidden shepherd knows the mantra.
+  Know ye the mantra?
+    Yes: Good!
+    No: The shrine is on a lake to the east!
+
+Name: a guard
+Sex: He
+Description: A massive guard.
+Job: To guard of course.
+Health: Quite.
+GUAR: I often wonder if I will ever have to give my life in the line of 
+duty.
+LIFE: One life for many!
+  Understand my dilemma?
+    Yes: Of course, if it came down to it, I hope I would do it!
+    No: Too bad.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Trinsic
++++++++++++++++++++++++++++++++++++++
+
+Name: Dupre
+Sex: He
+Description: Handsome fighter
+Job: I am towne leader
+Health: Very well.
+LEAD: 'tis an honor!
+HONO: It gives life meaning!
+  Dost thou try to live honorably?
+    Yes: It is a constant quest. Honor is like finely polished armour. 
+Without constant care, it will soon tarnish!
+    No: Fool!
+
+Name: Virgil
+Sex: He
+Description: A mystic wizard.
+Job: I create magical fields.
+Health: I am well.
+FIEL: Poison is my favorite.
+NIGH: Nightshade may be found only near lat-J'F" long-C'O" only on the 
+darkest of nights!
+  'tis it thine?
+    Yes: Bravo!
+    No: Well I don't care!
+
+Name: Publius
+Sex: He
+Description: A sleepy fighter
+Job: I drink a toast to honor!
+Health: Tired.
+HONO: What is left when honor is lost?
+NOTH: Right, take honor from me and my life is done!
+  Dost thou strive to live an honorable life?
+    Yes: Honor gives greatness.
+    No: No honor, no meaning!
+
+Name: Skitle
+Sex: It
+Description: A bony skeleton
+Job: I hail from dungeon deep.
+Health: What do you mean?
+DUNG: I come from the dungeon 'Shame'!
+STON: I have seen the purple stone used in the altars of truth and 
+courage!
+  Ever been there?
+    Yes: Good.
+    No: It holds items thou shalt need.
+
+Name: Sailor Sam
+Sex: He
+Description: An ugly sailor.
+Job: I sail the the seas of Britannia!
+Health: A bit waterlogged.
+SEAS: My specialty is navigation!
+SEXT: Go to the pub in Jhelom and ask of sextants.
+  Is it thy specialty?
+    Yes: Good show mate!
+    No: Thou must not own a sextant, eh?
+
+Name: Aristotle
+Sex: He
+Description: A dignified paladin.
+Job: I search for honor.
+Health: I am well.
+HONO: Dignity consists not in possessing honors, but in deserving them.
+DIGN: Honor no one, but honor itself!
+  Art thou honorable at all times?
+    Yes: That is impressive.
+    No: Strive to be as such.
+
+Name: Terrin
+Sex: He
+Description: A cowering child
+Job: I ran from the bull!
+Health: Scared!
+BULL: A big one, with long, pointy horns!
+RUNE: It is buried in the southwest corner of towne.
+  Is it gone yet?
+    Yes: Whew, I thought it would get me!
+    No: Save me!
+
+Name: Rigmore
+Sex: He
+Description: A strong paladin.
+Job: I am the welcomer.
+Health: Extra good.
+WELC: Yes, welcome to Trinsic city of honor!
+HONO: Wisdom on the virtue of honor is found throughout this towne.
+  Dost thou seek this wisdom?
+    Yes: Enter and find thy path.
+    No: This is the wrong place!
+
+Name: Winthrop
+Sex: He
+Description: A scruffy merchant.
+Job: A trade in rumors.
+Health: A bit ragged out.
+RUMO: About what?
+RUNE: There is a small child who knew named... Terrin.
+  Dost thou know him?
+    Yes: Ask him of the rune.
+    No: Find him and ask of the rune!
+
+Name: Swindrik
+Sex: He
+Description: A tall wizard.
+Job: I cast spells.
+Health: Fully healed.
+SPEL: Spells of great power.
+MAND: Ask at the Folley tavern of mandrake.
+  Dost thou cast spells of great power?
+    Yes: What is the most powerful reagent?
+    No: Dost thou know their main ingredient?
+
+Name: Kline
+Sex: He
+Description: A searching paladin!
+Job: I seek entry to the shrine of honor!
+Health: Well.
+MANT: The mantra is 'SUMM'.
+RUNE: A man named Winthrop knows of the rune!
+  Know ye the two requirements to enter and use the shrine?
+    Yes: What are they?
+    No: What dost thou think?
+
+Name: Lexington
+Sex: He
+Description: A shining paladin.
+Job: I am warlord of Trinsic.
+Health: Superb.
+WARL: I have solved many quests!
+QUES: The solving of quests brings ye honor!
+  Strive ye for honor?
+    Yes: Then solve quests but attack not non-evil creatures, and get 
+not others gold!
+    No: Oh.
+
+Name: Dergin
+Sex: He
+Description: A soulful fighter.
+Job: I seek a place to rest.
+Health: Tired.
+REST: I have quested long and hard.
+QUES: I seek enlightenment at the shrine of honor!
+  Art thou enlightened in honor?
+    Yes: Good.
+    No: The shrine lies to the south and west beyond the swamps!
+
+Name: a guard
+Sex: He
+Description: A big guard.
+Job: We guard the gate.
+Health: Excellent.
+GATE: Into and out of Trinsic.
+GUAR: 'tis an honorable job!
+  Dost thou strive to bring honor upon the peers?
+    Yes: Dupre, the leader of our towne, joins many honorable quests!
+    No: Dolt.
+
+Name: Quix
+Sex: She
+Description: A wandering mage
+Job: I seek the skeleton!
+Health: Adequate.
+SKEL: It knows a great secret.
+SECR: About the purple stone of honor!
+  Dost thou have the purple stone?
+    Yes: Use it wisely!
+    No: Seek it for it is very useful!
+
+Name: a guard
+Sex: She
+Description: A strong guard.
+Job: To guard.
+Health: Guarded.
+GUAR: Guarding.
+STRO: Guard
+  A
+    Yes: A
+    No: A
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Skara Brae
++++++++++++++++++++++++++++++++++++++
+
+Name: Shamino
+Sex: He
+Description: A solemn ranger.
+Job: I seek the inner light.
+Health: I am well.
+LIGH: I seek the "one great truth"!
+TRUT: That which lies within the codex!
+  Dost thou seek this "truth"?
+    Yes: Some things take forever but brick by brick mountains can be 
+built!
+    No: Alas.
+
+Name: Emerson
+Sex: He
+Description: An injured man.
+Job: I seek the spiritual path.
+Health: I am grievously wounded.
+SPIR: Spiritual is stronger than any material force.
+WOUN: Nothing can bring thee peace but the triumph of principles!
+  Art thou good in spirit?
+    Yes: A good path.
+    No: An evil path!
+
+Name: Santayana
+Sex: He
+Description: A tall ranger.
+Job: I carry the light within my heart.
+Health: I am alive.
+LIGH: The light of philosophy.
+PHIL: In philosophical minds the familiar excites wonder!
+  Dost thou always tread the right path?
+    Yes: Doubtful!
+    No: Few can, but strive to do so!
+
+Name: Presto
+Sex: He
+Description: A very small wizard.
+Job: I cast great big spells!
+Health: Superior!
+SPEL: I can cast: jinx, kill, and view!
+NIGH: Yes, ask the barkeep at 'The Axe-n-Ale' in Vesper about 
+nightshade.
+  Dost thou know what these spells have in common?
+    Yes: What?
+    No: Guess!
+
+Name: Granted
+Sex: She
+Description: A hungry beggar.
+Job: I beg for food and money.
+Health: I am not at all well.
+FOOD: To eat!
+MONE: To buy food!
+  Wilt thou give me food or money?
+    Yes: In return I will tell thee that the ankh knows of the rune and 
+my friend Ambule knows the mantra!
+    No: Jerk!
+
+Name: Mitre
+Sex: She
+Description: A radiant ranger.
+Job: I am reading the wizard's journal.
+Health: I am fine.
+JOUR: It tells of the white stone.
+STON: It is no longer in the dungeon Hythloth, it is gone!
+  Wilt thou try to recover it?
+    Yes: Ask of the stone at the Tap in Trinsic!
+    No: Too bad.
+
+Name: Buddha
+Sex: He
+Description: A great philosopher.
+Job: I teach.
+Health: I am well.
+TEAC: When one has pity on all living creatures then is one noble.
+NOBL: If one speaks or acts with pure thought, happiness will follow 
+like a shadow that never leaves.
+  A
+    Yes: A
+    No: A
+
+Name: Michaelangelo
+Sex: He
+Description: A skilled ranger
+Job: I strive along the path.
+Health: Well.
+PATH: Success is a journey, not a destination.
+JOUR: May thou always desire more than thou can accomplish!
+  Art thou far along the path?
+    Yes: This is good.
+    No: Fear not thou shalt be.
+
+Name: Romasco
+Sex: He
+Description: A short dumpy man with a book.
+Job: I am a teacher, I enrich young minds.
+Health: I am fine.
+TEAC: I teach of the abyss.
+WORD: Seek Zair the Wise in Paws for more on the word.
+  Know ye of the abyss?
+    Yes: A word of passage is needed at the last gate!
+    No: Learn!
+
+Name: Carlyle
+Sex: He
+Description: A wise mage.
+Job: I write magic.
+Health: Fine.
+MAGI: One lives by believing in something.
+BELI: Great discoveries are made by those whose feelings run ahead of 
+their thinking.
+  Dost thou believe in magic?
+    Yes: Magic missiles need but 1 part ash!
+    No: I see.
+
+Name: Dickens
+Sex: He
+Description: A wise bard.
+Job: I write stories.
+Health: O.K.
+STOR: Stories are good for the spirit!
+SPIR: Remember, no one is useless in this world who lightens the burdens 
+of others!
+  Art thou good in nature?
+    Yes: Be sure thy net good well exceeds thy net evil!
+    No: I see.
+
+Name: White
+Sex: He
+Description: A gallant fighter.
+Job: I quest.
+Health: Excellent!
+QUES: Many quests are very dangerous!
+DANG: I am not afraid of tomorrow; I have seen yesterday and I love 
+today.
+  Art thou fearless in all thing?
+    Yes: Boastful fool!
+    No: Danger is real!
+
+Name: the Ankh of Spirituality
+Sex: It
+Description: A silver ankh.
+Job: I keep the secret of the rune.
+Health: Strong.
+RUNE: Mantra?
+OM  : Search for the rune of spirituality in the treasure chamber of 
+Britannia!
+  Hast thou found the shrine?
+    Yes: Good!
+    No: Enter the gate of full moons!
+
+Name: Ambule
+Sex: She
+Description: A grimy beggar.
+Job: I beg for but for a single gold piece!
+Health: So-so.
+BEG : Oh, please... Oh, please...
+MANT: Ask the child named Barren.
+  Wilt thou please give me a gold piece?
+    Yes: Dear kind soul.
+    No: Stingy, I know thou hast many!
+
+Name: Barren
+Sex: He
+Description: A small child.
+Job: No job.
+Health: O.K.
+MANT: I know it well, it is 'OM'.
+A   : A
+  A
+    Yes: A
+    No: A
+
+Name: Isaac
+Sex: He
+Description: A ghostly figure
+Job: I haunt this inn!
+Health: I am many years dead.
+HAUN: The quest is not complete!
+STON: The white stone sits atop the Serpent's Spine. It can only be 
+reached by one who floats within the clouds.
+  Art thou on the quest?
+    Yes: Hope!
+    No: Alas.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Magincia
++++++++++++++++++++++++++++++++++++++
+
+Name: Katrina
+Sex: She
+Description: A shepherd.
+Job: A survivor.
+Health: Well.
+SURV: Magincia was destroyed by its pride.
+PRID: Pride flourishes in the absence of truth, love and courage.
+  Art thou proud?
+    Yes: Thy efforts are meaningless.
+    No: Humility is the virtue that must overcome pride!
+
+Name: Ghostly
+Sex: It
+Description: A shadowy ghost.
+Job: I haunt Magincia
+Health: Undead in search of peace.
+PEAC: Peace I can never find, forever banished unto the realm of 
+earthbound spirits.
+SPIR: Be not proud of thy little deeds lest ye too fall from the light!
+  A
+    Yes: A
+    No: A
+
+Name: Skullface
+Sex: It
+Description: A jabbering skeleton.
+Job: I am a nobleman of great birth.
+Health: Most superb.
+NOBL: Me and my brother are the last two of the great Meridid family.
+A   : A
+  Thou hast heard of us of course, yes?
+    Yes: I thought so.
+    No: You must not be from near these parts!
+
+Name: Casperin
+Sex: It
+Description: A small ghost.
+Job: To haunt this shop.
+Health: Feeling a bit translucent.
+HAUN: A lot of haunting goes on round here.
+PRID: Seek ye the mantra for humility, ask ye Heywood!
+  Know thee why?
+    Yes: Pride is the surest measure of goals never attained!
+    No: Pride!
+
+Name: Faultless
+Sex: It
+Description: A tall ghost.
+Job: Oh, I just hang around!
+Health: Been better.
+HANG: I was hung for my sin of pride!
+MANT: The mantra for pride, being the antithesis of humility, is 'MUL'.
+  Art thou proud?
+    Yes: A grave sin!
+    No: Pride is evil's favorite sin!
+
+Name: Heywood
+Sex: It
+Description: A tall ghost.
+Job: Haunt eternally.
+Health: As well as can be expected.
+HAUN: Pride goeth before, shame cometh after!
+MANT: Faultless knows the mantra of pride ask him!
+  Art thou proud?
+    Yes: Thou shalt find shame!
+    No: A proud soul surely knows not its worth!
+
+Name: Slim
+Sex: It
+Description: A skinny skeleton.
+Job: I rattle my bones.
+Health: A bit on the thin side.
+BONE: I did value myself far too greatly, that pride was my downfall.
+PRID: A terrible thing!
+  Art thou always humble?
+    Yes: Doubtful.
+    No: Take no pride in humility, lest ye destroy it!
+
+Name: Banter
+Sex: It
+Description: A crumbling skeleton.
+Job: I once held the silver horn.
+Health: A bit bony.
+HORN: The silver horn must be used to pass the daemon guard of the 
+shrine.
+SHRI: Wierdrum has been to the shrine of humility!
+  Seek ye the horn?
+    Yes: Ask Demitry!
+    No: Oh.
+
+Name: Demitry
+Sex: It
+Description: A thin skeleton.
+Job: I rattle my bones.
+Health: 'bout the same as yesterday.
+BONE: Bones, them bones, them dry bones...
+HORN: The queen of love has a lady in waiting, she can tell thee more of 
+the horn!
+  Art thou dead?
+    Yes: Ah, too bad!
+    No: Watch out for Nate!
+
+Name: Wierdrum
+Sex: It
+Description: Rattling bones.
+Job: I haunt, and I haunt, and I haunt!
+Health: Haunted.
+HAUN: A haunting job takes more than a lifetime, it takes forever!
+SHRI: Yes, I have been to the shrine, it lies on the north bank in the 
+isle of the abyss!
+  A
+    Yes: A
+    No: A
+
+Name: Boozer
+Sex: It
+Description: A dumpy ghost.
+Job: I was once a powerful merchant!
+Health: Hic...
+MERC: My wealth was boundless, I held great power!
+POWE: A proud soul surely knows not it's worth!
+  Dost thou see?
+    Yes: The world goes on without me.
+    No: The world goes on without me.
+
+Name: Bulbous
+Sex: It
+Description: A fat skeleton.
+Job: I run this shop.
+Health: Couldn't be better.
+SHOP: Why, the food shop of course.
+SPOI: Well, we're expecting more any day!
+  Can I interest thee in some rations?
+    Yes: Hmmm, our stock seems to have spoiled....
+    No: I sell only the very best.
+
+Name: Splot
+Sex: It
+Description: A weeping skeleton.
+Job: I regret.
+Health: Been better.
+REGR: I was proud, strip thyself of conceits, only the humble are pure!
+HUMB: The root from which all virtues grow!
+  Dost thou seek purity?
+    Yes: Then ask the snake of the rune and stone!
+    No: Fool!
+
+Name: Ruskin
+Sex: It
+Description: A blue ghost.
+Job: I now try to understand humility.
+Health: Not well.
+HUMI: The first test of a great soul is humility!
+RUNE: Ask the snake of the rune, just before it strikes!
+  Dost thou seek to know humility?
+    Yes: Thou shalt need the rune!
+    No: A shame.
+
+Name: Nate
+Sex: He
+Description: A mean looking viper!
+Job: I bring death to all life in Magincia!
+Health: Bloodthirsty!
+STON: Those who seek the black stone need ask at the pub in Britain!
+RUNE: The sacred rune of humility was banished from this city. Ask 
+Barren in Paws!
+  A
+    Yes: A
+    No: A
+
+Name: Virtuebane
+Sex: It
+Description: A horrible ghastly devil!
+Job: I welcome thee to Magincia! Proud city of the high seas!
+Health: Devilish!
+MAGI: Magincia fell unto the realm of darkness for the foundation of 
+their virtue was ill-placed in pride!
+A   : A
+  Art thou proud?
+    Yes: Good!
+    No: Ah.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Lord British's Castle
++++++++++++++++++++++++++++++++++++++
+
+**************LEVEL 2**************
+
+Name: Joshua
+Sex: He
+Description: A wise mage.
+Job: I can help.
+Health: Well.
+HELP: The riddle!
+RIDD: If the eight philosophies of avatarhood combine into and are made 
+from truth, love & courage...
+  More?
+    Yes: What one thing creates and is created by all truths, all love & 
+all courage?
+    No: Oh.
+
+Name: Juliet
+Sex: She
+Description: A fair maiden.
+Job: I can help thee.
+Health: Fine thanks.
+HELP: Seek ye to know how the eight virtues form into the three 
+principles.
+ONE : Seek ye to know what one thing the three principles of virtue 
+combine into!
+  Know ye this?
+    Yes: Now the one!
+    No: Seek it!
+
+Name: Jester Twin
+Sex: He
+Description: A dancing jester
+Job: To entertain.
+Health: Perfectly hoppy!
+JEST: A jester needs a good bard!
+BARD: Our bard is very good.
+  Dost thou like the music?
+    Yes: Then you should go to Britain for there lives the best!
+    No: A shame, we do!
+
+Name: a guard
+Sex: He
+Description: A burly guard
+Job: I guard the castle and my liege!
+Health: Great!
+GUAR: A guard must be a valiant warrior!
+LIEG: I serve Lord British!
+  Art thou the most valiant warrior?
+    Yes: Then thou should be a guard!
+    No: Still flee not from battle!
+
+Name: Le Chef
+Sex: He
+Description: A person with a white hat.
+Job: I am the chef.
+Health: Well.. All but my finger, which I cut!
+FOOD: Food, glorious food, to cook is my life!
+COOK: Cooking is a practiced art.
+  Do you eat?
+    Yes: Then thou should try my soup!
+    No: Then thou must be a spiritualist!
+
+Name: a reaper
+Sex: It
+Description: A reaper
+Job: I kill adventurers!
+Health: Not so good, no one to eat in here!
+KILL: There is a thing which can kill many!
+THIN: Knowledge of it is found at Buccaneer's Den!
+  Will you seek this thing?
+    Yes: It brings great power!
+    No: Then thou must be stupid.
+
+Name: a nameless prisoner
+Sex: He
+Description: A ragged soul.
+Job: I have none.
+Health: Very poor.
+CRIM: Crime is an evil thing!
+PRIS: Here I pay for my crimes!
+  Are you a pirate?
+    Yes: You may never complete thy quests, for evil makes not an 
+avatar!
+    No: I hope that this is true!
+
+Name: Zorin
+Sex: He
+Description: A wise mage
+Job: I am here to help thee.
+Health: I am old, very old....
+HELP: Seek help in the castles!
+CAST: Seek: the Lycaeum, Empath Abbey, Serpent's Castle!
+  Wilt thou go hither?
+    Yes: Find therein all named Antos and ask of the bell, book, and 
+candle!
+    No: Alas.
+
+**************LEVEL 1**************
+
+Name: a guard
+Sex: He
+Description: A burly guard
+Job: I guard the castle and all within.
+Health: Couldn't be better!
+GUAR: I guard the castle!
+CAST: The castle is fair and strong!
+  Do you seek Lord British?
+    Yes: He is on the upper level in the throne room.
+    No: He will aid you if you are in need!
+
+Name: Water
+Sex: It
+Description: Water
+Job: I hold a secret.
+Health: Fine.
+SECR: To what?
+ALTA: There are three altar rooms which connect the bottom levels of all 
+eight dungeons!
+  More?
+    Yes: If the correct colors of stones are used in the altars, a key 
+of three parts can be gained!
+    No: Oh.
+
+Name: Shawn
+Sex: She
+Description: A shepherdess both strong and beautiful.
+Job: I watch the water.
+Health: Well.
+WATE: It brings me peace.
+PEAC: I come from a proud city.
+  Art thou proud?
+    Yes: Hmmm.
+    No: My towne was destroyed for its pride. The ruins lie on an isle 
+at lat-K'J" long-L'L"!
+
+Name: Seesha
+Sex: She
+Description: An injured fighter
+Job: I fight for my country.
+Health: I have a grievous wound.
+WOUN: Deep.
+COUN: Britannia.
+  Fight ye for Britannia?
+    Yes: Then seek out the smith named Zircon in Minoc for he made the 
+mystic arms, only they will save thee in the abyss!
+    No: Hmm.
+
+Name: Chuckles
+Sex: He
+Description: A bouncing jester
+Job: I am the royal jester
+Health: Good, thanks.
+JEST: Welcome unto the castle Britannia!
+CLUE: Speak ye unto the waters of the well and ask of altars!
+  Hast thou an ankh?
+    Yes: Then enter in peace!
+    No: Then why art thou here?
+
+Name: a guard
+Sex: He
+Description: A guard
+Job: A guard
+Health: Excellent
+GUAR: We guard the castle and its treasures.
+TREA: That is not your business.
+  Do you mean to steal?
+    Yes: I believe you will find that an unfruitful venture.
+    No: Then please leave at once!
+
+Name: Sheila
+Sex: She
+Description: A solemn ranger
+Job: I search for the inner light.
+Health: I am well.
+LIGH: Seek inner light in the shrines!
+SHRI: Runes are needed to enter shrines!
+  Dost thou know of mantra?
+    Yes: Good.
+    No: The mantra are chants needed to focus thy thoughts while 
+meditating.
+
+Name: Landri
+Sex: He
+Description: A grim shepherd
+Job: I am here to warn thee!
+Health: I am fine, but thou must go back!
+WARN: Ahead lies a perilous place!
+PERI: Once thou enters thou may not return whence thee came!
+  Wilt thou go on?
+    Yes: Then thou art doomed!
+    No: That is good.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Lycaeum
++++++++++++++++++++++++++++++++++++++
+
+Name: Robert Frasier
+Sex: He
+Description: A stately baron
+Job: I rule this province.
+Health: Very well.
+PROV: My Lady Beth can tell thee more!
+WORD: I know but one of three syllables.
+  Dost thou wish to know it now?
+    Yes: It is 'ver'! Seek ye now the other parts!
+    No: Perhaps another time.
+
+Name: Beth Frasier
+Sex: She
+Description: A charming lady
+Job: I rule with my Lord.
+Health: Well.
+RULE: This province.
+PROV: Our people believe in truth as a way of life and live it to the 
+fullest!
+  Dost thou seek truth?
+    Yes: Then may thou find it!
+    No: Then thou shalt not find it!
+
+Name: a guard
+Sex: He
+Description: A sleepy guard
+Job: Guard the gate, guard the baron, guard the baroness, watch the 
+towers....
+Health: Very sleepy.
+GUAR: I have been here for hours!
+HOUR: Yes, many hours!
+  See why I'm tired?
+    Yes: It's hard work and long hours in the baronial guard!
+    No: Bum!
+
+Name: Palamar
+Sex: He
+Description: A wise old sage
+Job: I am an old wizard, but have much to show!
+Health: My bones ache but my mind is sharp!
+SHOW: Here in my telescope!
+TELE: Search there by the end, thou shalt find a knob.
+  Dost thou see where?
+    Yes: Set the dial and thou shalt see!
+    No: Look!!!
+
+Name: Father Antos
+Sex: He
+Description: An old druid, who looks strangely familiar.
+Job: I hold great knowledge.
+Health: Old and frail, I've seen many quests!
+KNOW: What is it you seek?
+BOOK: Seek ye the book of truth where other books lie.
+  Art thou on the quest?
+    Yes: May thou succeed!
+    No: Oh.
+
+Name: Jon
+Sex: He
+Description: A brawny guard.
+Job: I guard the throne room.
+Health: Bit tired.
+THRO: Throne of truth!
+TRUT: There are four townes that follow the principle of truth.
+  Know which?
+    Yes: Good!
+    No: There are eight possible combinations of the three principles, 
+there are eight cities!
+
+Name: Scatu
+Sex: He
+Description: A tall mage wearing strange armour.
+Job: I advise.
+Health: Well!
+ADVI: Thou would be well advised to visit the Seer often!
+ARMO: I wear mystic armour.
+  Art thou a partial avatar?
+    Yes: When thou art 8 parts avatar, seek Zircon in Minoc and ask of 
+mystics!
+    No: Alas.
+
+Name: Estro
+Sex: He
+Description: A short druid
+Job: Research
+Health: Why I am fine, you too I hope.
+REAS: I am looking for the book of justice!
+JUST: It must be here somewhere!
+  Hast thou never committed *any* crime!?
+    Yes: I believe thou art boasting a lie!
+    No: Then speak to the judge in Yew!
+
+Name: Tymus
+Sex: He
+Description: A stately wizard
+Job: To welcome thee!
+Health: Very well, thanks!
+WELC: Yes, welcome to the Lycaeum, the keep of truth!
+FOUR: The dungeon altar rooms need 4 stones each!
+  Know ye how many cities follow the principles of truth?
+    Yes: How many?
+    No: Travel and learn!
+
+Name: a truth seeker.
+Sex: He
+Description: A person lost in thought.
+Job: I seek to know truth.
+Health: I am in a meditative state.
+TRUT: The principle upon which I meditate.
+MEDI: Meditate at each shrine for 1, 2 and 3 minutes, then shalt thou 
+know the paths of goodness!
+  A
+    Yes: A
+    No: A
+
+Name: a fighter
+Sex: He
+Description: An injured warrior.
+Job: None now!
+Health: My wounds are grievous!
+WARR: No more!
+WOUN: I lost in a dungeon altar room!
+  Hast thou seen one?
+    Yes: Notice that each of the three rooms connect to four dungeons 
+each!
+    No: They connect the dungeons unto each other!
+
+Name: Lord Terence
+Sex: He
+Description: A tall agile man
+Job: I am the librarian.
+Health: I am well.
+LIBR: Herein is the largest store of knowledge in Britannia except the 
+codex!
+TRUT: Look under 't'
+  Art thou looking for a particular book?
+    Yes: Which book?
+    No: Feel free to browse.
+
+Name: Zajac
+Sex: He
+Description: A flighty jester
+Job: To entertain!
+Health: Unhappy.
+ENTE: Ah, not now.
+UNHA: Because my friend Chuckles won't tell me his secret!
+  Dost thou know chuckles?
+    Yes: Why dost thou not ask him for his clue!
+    No: He lives in the castle Britannia ask him of his clue!
+
+Name: Catriona
+Sex: She
+Description: A strong guard.
+Job: To watch the treasures.
+Health: Very good.
+TREA: The treasures are of great value!
+VALU: Yes, much gold.
+  Dost thou intend to steal?
+    Yes: I shan't stop thee
+    No: Good, you had me worried!
+
+Name: Nigel, at thy service.
+Sex: He
+Description: A noble wizard
+Job: I teach magical spells.
+Health: Good enough.
+SPEL: I have a specialty!
+RECA: Yes, resurrection it takes: ash, ginseng, garlic, silk, bloodmoss, 
+and mandrake!
+  Dost thou know what it is?
+    Yes: What do I call the spell?
+    No: Sorry.
+
+Name: Shylock the Meek
+Sex: He
+Description: A pitiful beggar
+Job: I sit and beg oh... please...
+Health: I am cold and sick! oh... please...
+BEG : Yes, please give me money! oh... please...
+SICK: I have the black plague!
+  Wilt thou help me? Oh... please...
+    Yes: Oh... please...
+    No: Oh... please...
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Empath Abbey
++++++++++++++++++++++++++++++++++++++
+
+Name: Lord Robert
+Sex: He
+Description: A stately baron
+Job: I rule this province.
+Health: Very well.
+PROV: My Lady Marcy can tell thee more!
+WORD: I know but one of three syllables.
+  Dost thou wish to know it now?
+    Yes: It is 'amo' seek ye now the other parts!
+    No: Perhaps another time.
+
+Name: Lady Marcy
+Sex: She
+Description: A charming lady
+Job: I rule with my Lord.
+Health: Well.
+RULE: This province.
+PROV: Our people believe in love as a way of life and live it to the 
+fullest!
+  Dost thou seek love?
+    Yes: Then may thou find it!
+    No: Then thou shalt not find it!
+
+Name: Suzanna
+Sex: She
+Description: A lovely lady
+Job: I am a lady in waiting.
+Health: Overworked!
+LADY: I serve Marcy.
+HORN: There is a paladin by the name of Malchor. He can lead thee to the 
+silver horn!
+  Art thou allowed to be in here?
+    Yes: I doubt it! Thou should leave!
+    No: Thou should leave!
+
+Name: Life.
+Sex: It
+Description: An ankh
+Job: I resonate thoughts.
+Health: I exist.
+RESO: What are thy thoughts?
+LOVE: Seek ye the candle of love for only with it and two other parts 
+might thou enter the abyss!
+  Dost thou have it?
+    Yes: Good.
+    No: Ask the bard beyond the secret passage!
+
+Name: the pass guard
+Sex: She
+Description: A guard
+Job: I guard the passages.
+Health: Fine.
+PASS: There is no danger.
+DANG: Well not compared to a dungeon altar room!
+  Hast thou solved the altars?
+    Yes: Good.
+    No: From them a three part key is gained, needed to enter the 
+chamber of the codex!
+
+Name: a gate guard
+Sex: He
+Description: A guard
+Job: A gate guard
+Health: Top notch.
+GATE: To the abbey.
+ABBE: Here, in the oak grove many find the meaning of peace and love!
+  Art thou saturated with love?
+    Yes: Then thou need not be here!
+    No: Visit the small shrine within the abbey!
+
+Name: Derek the Bard
+Sex: He
+Description: A young bard playing a lute.
+Job: I am a bard, I sing songs.
+Health: Pretty good.
+SONG: Oh, all types.
+CAND: The candle of love is found in a secret place hidden off Lock 
+Lake!
+  Dost thou like this one?
+    Yes: Thanks, I just wrote it!
+    No: Alas, it was new.
+
+Name: Chinup
+Sex: He
+Description: A small but stately child.
+Job: I welcome thee unto the Abbey!
+Health: Very well, thank you!
+GROV: A grove of oak.
+OAK : There four profession types seek truth!
+  Art thou here in search of love?
+    Yes: Perhaps then the oak grove!
+    No: Perhaps then the oak grove.
+
+Name: Diane
+Sex: She
+Description: A tall woman.
+Job: I counsel those who enter the grove.
+Health: Good.
+COUN: Herein thou may find insights into love, within thyself or the 
+others here in the grove.
+LOVE: Ask the others.
+  Art thou the most loving person?
+    Yes: Doubtful!
+    No: Strive for love!
+
+Name: Benjamin
+Sex: He
+Description: A solemn bard.
+Job: I relate love and compassion.
+Health: Fine.
+LOVE: When the three combine in eight ways love alone is compassion.
+COMP: Of the eight avatar attributes compassion is derived from love 
+alone.
+  Art thou well?
+    Yes: Very good.
+    No: Too bad...
+
+Name: Deirdre
+Sex: She
+Description: A druid, lost in thought.
+Job: I ponder love and justice.
+Health: Fine.
+LOVE: When three build eight, truth tempered by love becomes justice!
+JUST: Justice is one of the eight avatar virtues and derives from truth 
+and love.
+  Art thou?
+    Yes: Most good.
+    No: I see.
+
+Name: Thomas
+Sex: He
+Description: A hearty tinker.
+Job: I am thinking of love's part in sacrifice.
+Health: Fine
+LOVE: Love of others and the courage to face even death is self-
+sacrifice.
+SACR: Sacrifice is built upon the motive of love and the ability of 
+courage.
+  Thyself?
+    Yes: Good.
+    No: Shame.
+
+Name: Lastro
+Sex: He
+Description: A solemn ranger.
+Job: I follow the spiritual path.
+Health: Most well.
+SPIR: My spirituality is not a religion, but a searching to know and 
+improve my own inner being.
+BEIN: My being is based on my own truth, love and courage.
+  And thee?
+    Yes: Good.
+    No: So sad.
+
+Name: Humlock
+Sex: He
+Description: A mumbling beggar.
+Job: I seek salvation
+Health: Not so good.
+MUMB: The...ankh... spoke to me!
+SALV: I am but a poor destitute beggar I have nothing!
+  Will you give me some money?
+    Yes: I would be soooo grateful....
+    No: But I am in most dire need!
+
+Name: Malchor
+Sex: He
+Description: A bold paladin.
+Job: I solve quests
+Health: Just now fully healed!
+QUES: My last quest took me near Spiritwood.
+HORN: Some say that the silver horn is buried on a small isle off the 
+tip of Spiritwood.
+  Art thou on a quest?
+    Yes: Best of luck to thee!
+    No: Oh.
+
+Name: Brother Antos
+Sex: He
+Description: A wise druid.
+Job: I hold great wisdom.
+Health: I am getting old and frail.
+WISD: What dost thou ask of me?
+CAND: Thou dost need the candle of love to enter the abyss.
+  Dost thou know where to find it?
+    Yes: Very good.
+    No: Meditate on love at our shrine.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Serpants Hold
++++++++++++++++++++++++++++++++++++++
+
+Name: Sentri
+Sex: He
+Description: A stately baron
+Job: I rule this province.
+Health: Very well.
+PROV: Yes, these islands and much more.
+WORD: I know but one of three syllables-'cor'.
+  Dost thou know the four cities of courage?
+    Yes: Very good.
+    No: They are Jhelom, Minoc, Trinsic and Skara Brae.
+
+Name: the gate guard.
+Sex: He
+Description: A very big guard.
+Job: Guard the gates, of course.
+Health: Very strong!
+GATE: These are the gates to Serpent castle.
+GUAR: Guard, watch, protect.
+  Art thou here to find courage?
+    Yes: Then thou art at the right place.
+    No: Then perhaps to become a guard!
+
+Name: Lassorn
+Sex: He
+Description: A wounded sailor
+Job: I am a sailor.
+Health: I alone survived the shipwreck.
+SHIP: The H.M.S. Cape.
+WHEE: She went down in the deep waters of the bay in the Cape of Heroes!
+  Ever heard of her?
+    Yes: She was a mighty vessel!
+    No: She was a mighty vessel!
+
+Name: Roark
+Sex: He
+Description: A seasoned fighter.
+Job: I fight for Britannia!
+Health: Just healed.
+ABYS: The Great Stygian Abyss holds the codex of ultimate wisdom!
+CODE: I know little.
+  Art thou well?
+    Yes: Then strive to find the secrets of the abyss.
+    No: Thou hast come to the right place.
+
+Name: a ranger.
+Sex: He
+Description: A ranger engrossed in training.
+Job: I am training!
+Health: Excellent.
+TRAI: I train so that I might survive the dungeons!
+DUNG: I plan to conquer the secret of the altar rooms.
+  Dost thou?
+    Yes: Ask our teacher about the rooms for she knowns much!
+    No: Wimp.
+
+Name: Shyra
+Sex: She
+Description: The training master.
+Job: I train warriors to fight with courage!
+Health: Prime.
+TRAI: Train well and thy courage can grow with confidence.
+ROOM: In the altar room of courage use the red, orange, purple and white 
+stones!
+  Wilt thou train?
+    Yes: Bravo!
+    No: Pity.
+
+Name: a baronial guard
+Sex: She
+Description: A stern guard.
+Job: I guard our lord
+Health: Most good.
+LORD: Sentri rules this castle.
+CAST: This castle is built on courage.
+  Dost thou wish an audience with Sentri?
+    Yes: Granted, enter.
+    No: Then do not disturb him.
+
+Name: a treasure guard
+Sex: He
+Description: A burly guard
+Job: We guard our lord's treasure.
+Health: Excellent.
+TREA: This treasure is not for thee
+DUNG: Seek out Durham for knowledge of dungeons.
+  Dost thou intend to steal our lord's treasure?
+    Yes: Fool!
+    No: Wise move!
+
+Name: Garam
+Sex: He
+Description: A bold fighter.
+Job: I fight with courage!
+Health: Quite well.
+COUR: Courage makes kings out of knaves!
+BELL: The bell of courage lies at the bottom of a deep well at sea found 
+at lat-N'A" long-L'A"
+  Dost thou?
+    Yes: Good.
+    No: Then train!
+
+Name: Durham
+Sex: He
+Description: A tall fighter.
+Job: I quest for glory!
+Health: Fairly well.
+QUES: I feel that when on a quest my life has purpose!
+DUNG: The altar room of courage gives the third part of a key.
+  Art thou on a quest?
+    Yes: Then thy life has meaning!
+    No: What a loss.
+
+Name: Lori
+Sex: She
+Description: A buxom guard.
+Job: I guard this passage.
+Health: So far, so good.
+GARA: He is in the west chamber.
+DURH: He is in the east chamber.
+  Art thou looking for someone?
+    Yes: Who?
+    No: Then be on thy way!
+
+Name: Samuel
+Sex: He
+Description: A handsome guard
+Job: I guard this passage.
+Health: So far, so good.
+GARA: He is in the west chamber.
+DURH: He is in the east chamber.
+  Art thou looking for someone?
+    Yes: Who?
+    No: Then be on thy way!
+
+Name: Roderick
+Sex: He
+Description: A destitute, stinking beggar.
+Job: I cannot work.
+Health: I've lost a hand!
+HAND: It was eaten by a zorn.
+ORBS: An orb of blue light will raise thy strength, dexterity or 
+intelligence, but at a cost!
+  Wilt thou give me gold?
+    Yes: Thou art kind.
+    No: Stingy!
+
+Name: Sister Antos
+Sex: She
+Description: A wise druid.
+Job: I have important information.
+Health: Well enough.
+INFO: On what subject?
+BELL: The bell of courage is needed to enter the abyss.
+  Dost thou have it?
+    Yes: Very good.
+    No: Then ask the fighter Garam for he knows where it lies!
+
+Name: Noxum
+Sex: He
+Description: A spiny nixie!
+Job: I swim the seas!
+Health: Nice and wet!
+SEAS: There are many ships at the bottom!
+SHIP: A survivor would know where to search.
+  Hast thou heard of the H.M.S. Cape?
+    Yes: She had a magical wheel that would strengthen her hull!
+    No: A great ship!
+
+Name: Michelle
+Sex: She
+Description: A beautiful paladin!
+Job: I welcome thee unto Serpent Castle!
+Health: Very well.
+SENT: He is the lord here, take the west passage.
+HEAL: Take the east passage.
+  Art thou well?
+    Yes: Very good, perhaps thou seeks Sentri.
+    No: Then thou should visit our healer!
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Cove
++++++++++++++++++++++++++++++++++++++
+
+Name: Allen
+Sex: He
+Description: A small boy.
+Job: I know how to enter the abyss!
+Health: I am fine.
+ABYS: The abyss may only be approached by ship!
+SHIP: The ship must have a magically strengthened hull!
+  Hast thou such a vessel?
+    Yes: Ask Blissful of the abyss.
+    No: Ask Blissful of the abyss.
+
+Name: Frontis
+Sex: He
+Description: A small druid.
+Job: Welcome to Cove, the hidden city of wisdom.
+Health: I am well.
+WISD: Herein is found much wisdom and peace.
+PEAC: Find peace in our shrine.
+  Art thou well?
+    Yes: Very good.
+    No: Visit our healers, I am sure they can help thee!
+
+Name: Sloven
+Sex: He
+Description: An old hermit.
+Job: I am a recluse.
+Health: I am well.
+RECL: I have withdrawn from society.
+STON: Only the ghost of Isaac who haunts the inn at Skara Brae can tell 
+thee.
+  Hast thou seen him?
+    Yes: Ask him!
+    No: Stay at the inn until he shows himself!
+
+Name: Mentorian
+Sex: He
+Description: A tall wizard.
+Job: I study the magical arts.
+Health: Well indeed.
+ARTS: There is truth in magic!
+GATE: Since thou dost bear the ankh I shall tell thee. A gate spell 
+requires ash, pearl, and mandrake root!
+  Dost thou disagree?
+    Yes: Well then, begone!
+    No: Good.
+
+Name: the ankh
+Sex: It
+Description: A shining ankh!
+Job: I resonate with thoughts.
+Health: Bright.
+CODE: To enter the codex chamber.
+CHAM: One must be 8 parts avatar, have the key of 3 parts, the word of 
+passage and know the pure axiom!
+  Dost thou seek help?
+    Yes: What are thy thoughts?
+    No: Oh.
+
+Name: Paul
+Sex: He
+Description: A strangely familiar bard.
+Job: I play of love.
+Health: I am well.
+LOVE: I light a candle to our love, in love our problems disappear.
+PROB: But all in all we soon discover that one and one is all we long to 
+hear!
+  Wilt thou listen?
+    Yes: About love.
+    No: Too bad.
+
+Name: Linda
+Sex: She
+Description: A singer.
+Job: I sing of the children.
+Health: Fine.
+CHIL: All round the world, little children being born to the world.
+WORL: Got to give them all we can 'til the quest is won, then will the 
+work be done!
+  Wilt thou help?
+    Yes: Teach them songs of joy!
+    No: Hmm.
+
+Name: Merlin
+Sex: He
+Description: A mystical wizard.
+Job: I use magic.
+Health: Fine.
+STON: The black stone is caught in a moon gate!
+GATE: Stand where the gate of both moons dark shall appear. Search when 
+the moons go dark!
+  Dost thou study magic?
+    Yes: Best of luck with thy studies!
+    No: Too bad.
+
+Name: Draconian
+Sex: He
+Description: An old druid.
+Job: I teach the relation.
+Health: I am well.
+RELA: There are eight possible combinations of truth, love and courage. 
+Each of the eight virtues is one of those combinations!
+A   : A
+  Knew ye this?
+    Yes: Very good!
+    No: Learn the towns and castles!
+
+Name: Blissful
+Sex: She
+Description: A majestic seahorse!
+Job: I know much of the codex!
+Health: I am doing well.
+CODE: The shrine ankh knows how to enter the chamber of the codex!
+ABYS: Meditate at the shrines of honesty, compassion and valor for 3 
+cycles to know how to enter!
+  A
+    Yes: A
+    No: A
+
+Name: Rabindranath tagore
+Sex: He
+Description: A wise man.
+Job: I speak of love.
+Health: I am old but strong!
+LOVE: In love, all life's contradictions dissolve and disappear.
+HEAR: Carry love within it!
+  Dost thou seek to carry love in thy heart?
+    Yes: Thou art a good soul.
+    No: Thou art a fool.
+
+Name: Brother Zair
+Sex: He
+Description: An old druid.
+Job: I sit and watch the river.
+Health: I am well.
+RIVE: It flows endlessly.
+WORD: The kings of the castles which represent the three principles of 
+virtue each know but one syllable of the word of passage!
+  Agree?
+    Yes: Good.
+    No: Indeed.
+
+Name: Spellbind
+Sex: She
+Description: A slender mage.
+Job: I know of the codex.
+Health: Well indeed.
+CODE: One must know the combination of the three principles of virtue!
+COMB: The combination of the three principles of virtue equals the 
+measure of time and space!
+  A
+    Yes: A
+    No: A
+
+Name: Shaman
+Sex: He
+Description: A tall mage.
+Job: I study the 'one' thing that is the secret to the codex!
+Health: Quite well.
+STUD: I study of the codex!
+CODE: The one pure axiom is more endless than the changing tides, more 
+eternal than day and night!
+  A
+    Yes: A
+    No: A
+
+Name: Charm
+Sex: She
+Description: A fair sorceress.
+Job: I ponder the key to the axiom.
+Health: Well enough.
+KEY : To the axiom.
+AXIO: The 1 pure axiom encompasses all things.
+  Know ye what they are?
+    Yes: Good.
+    No: The truths of the universe, the love of the heart, and the 
+courage of the soul!
+
+Name: Circe
+Sex: He
+Description: A wise mage.
+Job: I teach of the axiom!
+Health: Well.
+AXIO: The whole of the axiom is greater than all its parts!
+PART: The measure of unending love, the limitless courage needed to face 
+all obstacles,the truth which encompasses all things!
+  A
+    Yes: A
+    No: A
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Buccaneers' Den
++++++++++++++++++++++++++++++++++++++
+
+Name: Roofus
+Sex: He
+Description: A mean looking guard.
+Job: We guard the bridge slime!
+Health: What's it to ya scumpuppy!
+BRID: This bridge ya stupid jerk!
+A   : A
+  Art thou a wise &##!?
+    Yes: Thou had best ditch it then!
+    No: Then just buzz off!
+
+Name: Rankbreath
+Sex: He
+Description: A tall, muscular, impressive guard.
+Job: I am a guard.
+Health: Very hungry!
+GUAR: I guard the city!
+HUNG: Yes, I am very hungry!
+  Art thou here to feed me?
+    Yes: I am grateful.
+    No: Then thou had better run!!!
+
+Name: Sailor
+Sex: He
+Description: A scruffy sailor
+Job: I am a sailor!
+Health: Salty.
+SAIL: Oh, a sailor's life is the life for me,
+LIFE: As I sail across the bounding sea!
+  The rest?
+    Yes: And never ever ever do I worry 'bout the weather, for the 
+weather never ever did a thing for me!
+    No: Oh.
+
+Name: Silver John
+Sex: He
+Description: A tall sailor.
+Job: I'm a pirate matey!
+Health: Good enough, eh!
+PIRA: We raid the coasts of Britannia, fun eh!
+RAID: Pillage and burn!
+  Art thou a pirate?
+    Yes: Good matey!
+    No: Thou had best leave this place 'fore there's any trouble!
+
+Name: Slysam
+Sex: He
+Description: A nimble thief.
+Job: What's it to thee?
+Health: As good as I need be!
+THIE: Yea, and clever too.
+CLEV: Thou dost ask too many questions!
+  Art thou a thief?
+    Yes: Oh, I'd better watch out!
+    No: Just as I thought
+
+Name: Ragnar
+Sex: He
+Description: A solemn ranger
+Job: I travel.
+Health: O.K.
+TRAV: The lands of Britannia.
+SKUL: Be warned that if thou dost ever use the skull, except to destroy 
+it, all thy virtues will be lost!
+  Art thou here looking for information?
+    Yes: On what?
+    No: Then buzz off.
+
+Name: Seanna
+Sex: She
+Description: A slinky mage.
+Job: I am a sorceress
+Health: I am well.
+MAGI: How about the sleep spell... sleep... sleep....
+SLEE: A sleep spell requires but one part silk! sleep... sleep... 
+sleep...
+  My dear friend, may I help you?
+    Yes: How about with thy magic?
+    No: Ah
+
+Name: Jeremy James Scirlock
+Sex: He
+Description: A sneaky thief!
+Job: At thy service!
+Health: Very well!
+SERV: How about information?
+HYTH: The dungeon Hythloth can only be reached by a secret entrance in 
+the great castle.
+  Dost thou seek a special dungeon?
+    Yes: Which?
+    No: I cannot help thee.
+
+Name: Starlight
+Sex: He
+Description: A mage dressed all in black.
+Job: I use black magic!
+Health: Dark indeed.
+MAGI: I cast powerful magic missile spells.
+MIX : Try one black pearl and one part sulfurous ash!
+  Dost thou?
+    Yes: Thou should try my mix of reagents!
+    No: Too bad.
+
+Name: Brigant
+Sex: It
+Description: A big fat troll.
+Job: Aw, buzz off!
+Health: Shove it!
+IT  : Thy face!
+A   : A
+  Did thou hear me?
+    Yes: Then do it!
+    No: I said shove it!
+
+Name: Boris
+Sex: It
+Description: An ugly orc!
+Job: I smuggle black market items.
+Health: Good'n smelly.
+ITEM: Magic keys, magic gems, that sort of thing.
+A   : A
+  Dost thou need such an item?
+    Yes: I just gave the guild shop a new supply!
+    No: Ah well, maybe next time.
+
+Name: Ignap
+Sex: He
+Description: A towering wizard.
+Job: I must warn thee!
+Health: Adequate.
+WARN: To step into those woods will seal thy doom!
+DOOM: In there lies the dark side, enter not!
+  Shalt thou go on?
+    Yes: Evil shall consume thee!
+    No: Wise decision!
+
+Name: Green Beard
+Sex: He
+Description: A tall pirate with a green beard!
+Job: I'm buying armour for my crew!
+Health: Jolly good mate!
+ARMO: I hope to get some magical plate!
+NOWH: Oh, I see.
+  Know where to buy mystic armour?
+    Yes: Where?
+    No: Wish I did!
+
+Name: Marsor
+Sex: He
+Description: A plump merchant
+Job: I sell wine!
+Health: Great!
+WINE: I have some good vintages.
+VINT: I own my own vineyards, they are on an isle northeast of here!
+  Dost thou like wine?
+    Yes: Ah, then join me in a glass!
+    No: Don't know what thou art missing!
+
+Name: Dancek
+Sex: He
+Description: A jolly old soul.
+Job: I am a tinker by trade.
+Health: Jolly good, thanks.
+TINK: I create projectile machinery.
+MACH: Primarily ship cannons!
+  Dost thou own a ship!
+    Yes: Good odds I built the cannons!
+    No: Thou really should get one!
+
+Name: Sniflet
+Sex: He
+Description: A cowering man.
+Job: I am hiding.
+Health: O.K. for now.
+HIDE: I know something others want!
+SOME: I... I...
+  Wilt thou promise to use it only to aid the powers of good?
+    Yes: The lighter than air device that was stolen lies near the 
+dungeon Hythloth!
+    No: Oh, no.
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Paws
++++++++++++++++++++++++++++++++++++++
+
+Name: Wilmoore
+Sex: He
+Description: A very big guard.
+Job: I am the chief guard in the village of Paws!
+Health: Excellent.
+GUAR: Paws is a great village and we keep it safe!
+TROU: Pirates come from an isle to the east!
+  Dost thou mean to cause trouble?
+    Yes: Then thou had best leave!
+    No: Good.
+
+Name: Francesca
+Sex: She
+Description: A tough girl.
+Job: I am the stable hand.
+Health: Right good.
+STAB: I saw the way ya dealt with ol' Red Eye!
+SMIT: The talking horse!
+  Ya haven't come to steal a horse I hope?
+    Yes: Well the master ain't gonna like that much!
+    No: Then must be to see Smith!
+
+Name: Sven
+Sex: He
+Description: A tall burly man.
+Job: I'm a lumberjack, ya.
+Health: Fine, thanks.
+LUMB: Wit' my axe, I can chop'm down quick, ya.
+AXE : It's a big axe, ya.
+  Art ya a lumberjack?
+    Yes: Good for you, ya.
+    No: Build up those arms, ya!
+
+Name: Zair the Wise
+Sex: He
+Description: A man of many years.
+Job: I've been near the codex!
+Health: Well.
+CODE: Its secrets are boundless!
+WORD: A three part key and a word of passage are needed to enter the 
+chamber. Ask my brother beyond Lock Lake of the word!
+  Seen it?
+    Yes: Wow!
+    No: Seek it!
+
+Name: Sal
+Sex: She
+Description: A very large woman.
+Job: I am the barmaid I serve the ale!
+Health: Stronger every day!
+ALE : We have the finest brew in Britannia!
+BREW: We serve only Folley on tap!
+  Dost thou favor Folley?
+    Yes: A great mug if I may say so!
+    No: Too bad, it's the best!
+
+Name: Jingles
+Sex: He
+Description: A young mage!
+Job: I seek the wisdom of magic.
+Health: Fine.
+MAGI: My master knows the gate travel spell!
+MAST: My master is Mentorian.
+  Dost thou know him?
+    Yes: Good.
+    No: He lives in a hidden village in Lock Lake reachable only by 
+ship, ask of the gate spell!
+
+Name: Sir Hobie
+Sex: He
+Description: A tall muscular knight.
+Job: I serve Lord British.
+Health: Tired and hungry but always faithful.
+FAIT: I quest always for Britannia!
+QUES: My quest is to defeat the evils of the world.
+  'tis thy quest also?
+    Yes: We are as one.
+    No: A shame it is!
+
+Name: Damsel
+Sex: She
+Description: A small druid.
+Job: I am here to buy food.
+Health: A bit hungry.
+FOOD: Yes, I hear they have the best rations here.
+RATI: Rations are used in dungeons.
+  Dost thou travel in the depths?
+    Yes: In the great castle there is a secret entrance!
+    No: Probably a wimp.
+
+Name: Wheatpin
+Sex: He
+Description: A meek shepherd.
+Job: I just sit here.
+Health: Fine.
+RUNE: Around there in the nook of the mountains!
+A   : A
+  Art thou looking for something?
+    Yes: What?
+    No: I see.
+
+Name: Barren
+Sex: He
+Description: A hooded ranger.
+Job: I travel the land.
+Health: I am well.
+LAND: Britannia.
+RUNE: Search the hills in the south-east corner of town!
+  Art thou dim?
+    Yes: I thought so.
+    No: We shall see.
+
+Name: Pix
+Sex: She
+Description: A small girl.
+Job: What's a job?
+Health: Good, thanks.
+A   : A
+A   : A
+  And thee?
+    Yes: Good.
+    No: Too bad.
+
+Name: Sir Simon
+Sex: He
+Description: A wise lord.
+Job: I am the keeper.
+Health: I am fine.
+KEEP: Of what I cannot say!
+MYST: Mystics can be found by an eight parts avatar!
+  Hast thou attained enlightenment in all eight virtues?
+    Yes: The mystic armour lies in the center of the oak grove!
+    No: Alas.
+
+Name: Lady Tessa
+Sex: She
+Description: A wise lady.
+Job: I am the keeper.
+Health: Well.
+KEEP: I cannot say.
+MYST: Mystics can be found by an eight parts avatar!
+  Hast thou attained enlightenment in all eight virtues?
+    Yes: The mystic weapons lie in the training room of Serpent castle!
+    No: Alas.
+
+Name: Asemly
+Sex: He
+Description: A short jester.
+Job: I am here to serve thee.
+Health: Jolly good.
+SERV: Well, I can dance and sing!
+DANC: And sing, tra la la...
+  Does that interest thee?
+    Yes: Good!
+    No: Well then, I guess I'm no help at all then.
+
+Name: Little Jon
+Sex: He
+Description: A singing bard.
+Job: I sing of Britannia.
+Health: Quite well indeed!
+BRIT: Britannia is a land so fair, to other lands I would not dare!
+EART: I hope someday thou may return!
+  I hear that thou art from another world?
+    Yes: What is it called?
+    No: Just a rumor.
+
+Name: Smith
+Sex: He
+Description: A white stallion
+Job: Oh, not much.
+Health: Good, good.
+A   : A
+A   : A
+  A
+    Yes: A
+    No: A
+
++++++++++++++++++++++++++++++++++++++
+Dialog for location:  Vesper
++++++++++++++++++++++++++++++++++++++
+
+Name: Twin Gates
+Sex: He
+Description: A tall mage.
+Job: We welcome thee to Vesper.
+Health: Well.
+VESP: Yes, Vesper is a fair village.
+WELC: Welcome, unto Vesper!
+  Hast thou come a long way?
+    Yes: We are honored by the visit of one on the quest!
+    No: We are honored by the visit of one on the quest!
+
+Name: Guard
+Sex: It
+Description: A hulk.
+Job: Ug, me tough!
+Health: Ug, me tough!
+TOUG: Ug, me tough!
+UG  : Me tough!
+  Ug, thee tough?
+    Yes: Ug, thee tough!
+    No: Ug, me tough!
+
+Name: Servile
+Sex: He
+Description: A meek shepherd.
+Job: I can help thee!
+Health: Well for now.
+HELP: I know of the skull of Mondain the Wizard!
+SKUL: To use it for any reason is a sign of great evil, and no virtue!
+  Hast thou heard of it?
+    Yes: It is an evil artifact!
+    No: It is an evil artifact!
+
+Name: Traveling Dan
+Sex: He
+Description: Short rotund man with a hat and vest.
+Job: Traveling dan, the tinker man.
+Health: I am fine, thank thee.
+TINK: I am here to repair goods at the guild shop.
+TRAV: I know the world is round!
+  Been to the guild shop?
+    Yes: Great selection!
+    No: Best prices!
+
+Name: Balthasar
+Sex: He
+Description: A sturdy peasant.
+Job: I am a serf.
+Health: I'm pooped.
+SERF: Serfs work hard for little pay!
+WORK: I work the fields for my master!
+  Dost thou have a master?
+    Yes: I hope he or she is a kind one!
+    No: Thou art lucky indeed!
+
+Name: Plain
+Sex: He
+Description: A small man.
+Job: I seek humility.
+Health: I am fully healed.
+HUMI: When the 3 principles of virtue combine in eight ways pride has no 
+virtue!
+PRID: To be proud is not a virtue, and so Magincia was destroyed! 
+Humility is the virtue that remains!
+  A
+    Yes: A
+    No: A
+
+Name: Simple
+Sex: She
+Description: A slender shepherdess.
+Job: I seek the shrine.
+Health: I am fine.
+SHRI: The shrine of humility!
+HUMI: The shrine lies on the north bank of the isle of the abyss and is 
+guarded by endless hoards of daemons!
+  Know the isle?
+    Yes: Good.
+    No: Southeast of Britannia!
+
+Name: Gem
+Sex: She
+Description: A fair woman.
+Job: I do humble works.
+Health: I am doing well.
+WORK: I can help thee with the mantra!
+MANT: Since humility is the opposite of pride, so is its mantra!
+  Know ye the mantra of pride?
+    Yes: Then reverse it for humility!
+    No: When thou dost, reverse it!
+
+Name: Joseph
+Sex: He
+Description: A wise shepherd.
+Job: I am but a humble shepherd.
+Health: I am well.
+SHEP: I am on a pilgrimage unto the shrine of humility!
+SHRI: It is on the dark island!
+  Did thou know that there is no shrine of pride?
+    Yes: Very good.
+    No: Pride is not a virtue of the avatar!
+
+Name: Friday
+Sex: She
+Description: A beautiful and impressive guard.
+Job: I shall warn thee against taking this gold!
+Health: I am well enough!
+GOLD: It is not thine!
+WARN: It is not thine!
+  Dost thou intend to take it?
+    Yes: That would not reflect well upon thy virtues!
+    No: That is good.
+
+Name: Randal
+Sex: He
+Description: A solemn ranger.
+Job: I teach of the shrines.
+Health: I am well.
+SHRI: One >must< visit each shrine for 1, 2 & 3 cycles each for thy 
+paths to be clear!
+A   : A
+  Dost thou visit them often?
+    Yes: Very good.
+    No: Make that the first goal along thy path to avatarhood!
+
+Name: Dirgen
+Sex: He
+Description: A wise man.
+Job: I give wise counsel.
+Health: Well.
+COUN: Strive ye to know and develop the virtue within thee.
+VIRT: The Seer Hawkwind should be consulted >often< for he can see 
+within thee!
+  Dost thou?
+    Yes: Good!
+    No: Thou shalt surely stray from the path!
+
+Name: Shazbot
+Sex: She
+Description: A funny jester.
+Job: Thou thinks I'm funny!
+Health: I've a slight tickle!
+FUNN: I dare thee to ask me about Nate the snake!
+NATE: Well, it's a long story and we haven't the time.
+  Don't thou?
+    Yes: Well good, I try to be!
+    No: Ah, too bad, I thought I was.
+
+Name: Flatbush
+Sex: He
+Description: A slender youth.
+Job: I am an apprentice mage!
+Health: I am very powerful!
+MAGE: I am the Calumny's favorite!
+CALU: He lives in Yew!
+  Hast thou been to Yew?
+    Yes: Calumny knows the quickness spell!
+    No: Calumny knows the quickness spell! Seek him out!
+
+Name: Corkrin
+Sex: He
+Description: A bold paladin.
+Job: I travel these fair lands to spread the virtues!
+Health: I am fully healed!
+VIRT: To know thy progress on the paths of virtue one >must< visit the 
+Seer Hawkwind often!
+A   : A
+  Dost thou do this?
+    Yes: Good.
+    No: Thou must or thou may stray!
+
+Name: Dyka
+Sex: He
+Description: A tall nimble man.
+Job: I am a thief, I like to borrow!
+Health: I am very well!
+BORR: My favorite things to borrow are horses!
+HORS: You can steal horses in the towne Paws!
+  Art thou a thief?
+    Yes: Watch out for the bull in the corral!
+    No: Likely, thou art a wimp!
+
+------------------------------------ End of script ---------------------
+---------------
+Version information:
+2.0.0 Reformatted and managed to de-caps lock so it looks cleaner 
+overall.  11/23/2000
+1.0.0 Initial town information posted, with initial "census" results. 
+5/8/2000
+
+Credits: http://www.kahei.com is a HEX editor that helped me determine 
+which bytes went where.
+http://www.moongates.com is a WONDERFUL site that I didn't discover 
+until after I'd done my first draft of this script. It's interactive and 
+also helped me determine initially that Allan was in Cove and not 
+Vesper. In a way, they do everything I do and more, but this plain e-
+text version may be a quicker reference, and besides, parsing the file 
+was a small personal project of mine.
+
+          ----
+         /  / \
+        ----   \
+       / -- \   \
+      / /  \ \   \
+     /  ----  \   \
+    /          \   \
+   /  --------  \   \
+  /  /        \  \   |
+ /  /          \  \ / 
+----            ----
+
+Copyright 2000 Andrew Schultz (schultza@earthlink.net)
+
+Restore Page
+
+// Menu
+//
+
+  * Home <https://gamefaqs.gamespot.com/>
+  * Answers <https://gamefaqs.gamespot.com/answers>
+  * Boards <https://gamefaqs.gamespot.com/boards>
+  * Community <https://gamefaqs.gamespot.com/community>
+  * Contribute <https://gamefaqs.gamespot.com/contribute>
+  * Games <https://gamefaqs.gamespot.com/games>
+  * What’s New <https://gamefaqs.gamespot.com/new>
+  * Systems <https://gamefaqs.gamespot.com/games/systems>
+      o Android <https://gamefaqs.gamespot.com/android>
+      o 3DS <https://gamefaqs.gamespot.com/3ds>
+      o DS <https://gamefaqs.gamespot.com/ds>
+      o iOS <https://gamefaqs.gamespot.com/iphone>
+      o PC <https://gamefaqs.gamespot.com/pc>
+      o PlayStation 3 <https://gamefaqs.gamespot.com/ps3>
+      o PlayStation 4 <https://gamefaqs.gamespot.com/ps4>
+      o PSP <https://gamefaqs.gamespot.com/psp>
+      o Switch <https://gamefaqs.gamespot.com/switch>
+      o Vita <https://gamefaqs.gamespot.com/vita>
+      o Wii U <https://gamefaqs.gamespot.com/wii-u>
+      o Xbox 360 <https://gamefaqs.gamespot.com/xbox360>
+      o Xbox One <https://gamefaqs.gamespot.com/xboxone>
+
+3DS <https://gamefaqs.gamespot.com/3ds>Android
+<https://gamefaqs.gamespot.com/android>iOS
+<https://gamefaqs.gamespot.com/iphone>PC
+<https://gamefaqs.gamespot.com/pc>PS3
+<https://gamefaqs.gamespot.com/ps3>PS4
+<https://gamefaqs.gamespot.com/ps4>Switch
+<https://gamefaqs.gamespot.com/switch>Vita
+<https://gamefaqs.gamespot.com/vita>Xbox 360
+<https://gamefaqs.gamespot.com/xbox360>Xbox One
+<https://gamefaqs.gamespot.com/xboxone>More Systems ////
+<https://gamefaqs.gamespot.com/games/systems>
+
+  * Android <https://gamefaqs.gamespot.com/android>
+  * Arcade <https://gamefaqs.gamespot.com/arcade>
+  * DS <https://gamefaqs.gamespot.com/ds>
+  * Dreamcast <https://gamefaqs.gamespot.com/dreamcast>
+  * Game Boy Advance <https://gamefaqs.gamespot.com/gba>
+  * GameCube <https://gamefaqs.gamespot.com/gamecube>
+  * Genesis <https://gamefaqs.gamespot.com/genesis>
+  * iOS <https://gamefaqs.gamespot.com/iphone>
+  * NES <https://gamefaqs.gamespot.com/nes>
+  * Nintendo 64 <https://gamefaqs.gamespot.com/n64>
+  * PlayStation <https://gamefaqs.gamespot.com/ps>
+  * PlayStation 2 <https://gamefaqs.gamespot.com/ps2>
+  * PlayStation 3 <https://gamefaqs.gamespot.com/ps3>
+  * PSP <https://gamefaqs.gamespot.com/psp>
+  * Super Nintendo <https://gamefaqs.gamespot.com/snes>
+  * Vita <https://gamefaqs.gamespot.com/vita>
+  * Wii <https://gamefaqs.gamespot.com/wii>
+  * Wii U <https://gamefaqs.gamespot.com/wii-u>
+  * Xbox 360 <https://gamefaqs.gamespot.com/xbox360>
+  * Xbox <https://gamefaqs.gamespot.com/xbox>
+  * And 99 More... <https://gamefaqs.gamespot.com/games/systems>
+
+//Log In <https://gamefaqs.gamespot.com/user/login> Sign Up
+<https://gamefaqs.gamespot.com/user/register>
+
+
+Log In to GameFAQs
+
+Keep me logged in on this device
+Forgot your username or password?
+<https://gamefaqs.gamespot.com/user/recover>
+
+Don't have an account? Sign up for free!
+<https://gamefaqs.gamespot.com/user/register>
+
+GameFAQs
+
+<https://gamefaqs.gamespot.com/>
+//
+
+Answers <https://gamefaqs.gamespot.com/answers>Boards
+<https://gamefaqs.gamespot.com/boards>Community
+<https://gamefaqs.gamespot.com/community>Contribute
+<https://gamefaqs.gamespot.com/contribute>Games
+<https://gamefaqs.gamespot.com/games>What’s New
+<https://gamefaqs.gamespot.com/new>//
+
+ 1. PC <https://gamefaqs.gamespot.com/pc>
+ 2. Role-Playing <https://gamefaqs.gamespot.com/pc/category/48-role-playing>
+ 3. Western-Style
+    <https://gamefaqs.gamespot.com/pc/category/72-role-playing-western-style>
+
+
+  Ultima IV: Quest of the Avatar
+  <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar> –
+  Guides and FAQs
+
+FAQs
+
+<https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs>
+Answers
+
+<https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/answers>
+Board
+
+<https://gamefaqs.gamespot.com/boards/562660-ultima-iv-quest-of-the-avatar>
+More
+
+ 1. Home
+
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar>
+     1. Summary
+
+        <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar>
+     2. Release Data
+
+        <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/data>
+     3. Game Credits
+
+        <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/credit>
+     4. Also Playing
+
+        <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/playing>
+     5. Collection Stats
+
+        <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/stats>
+ 2. FAQs
+
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs>
+ 3. Reviews
+
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/reviews>
+ 4. Images
+
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/images>
+ 5. Videos
+
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/videos>
+ 6. Answers
+
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/answers>
+ 7. Board
+
+    <https://gamefaqs.gamespot.com/boards/562660-ultima-iv-quest-of-the-avatar>
+
+//
+
+Town Script by *ASchultz* <https://gamefaqs.gamespot.com/community/ASchultz>
+
+*More for Ultima IV: Quest of th... (PC):*
+
+  * FAQs and Walkthroughs (12)
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs>
+  * Moongate FAQ by Earthshaker
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs/6063>
+  * //Beginner's Guide by action52
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs/45830>
+  * Pre-Game Questions Guide by ASchultz
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs/7807>
+  * See all FAQs
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs>
+  * Answers (2)
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/answers>
+  * *Ask your own question!*
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/answers>
+  * Reviews (4)
+    <https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/reviews>
+  * Message Board
+    <https://gamefaqs.gamespot.com/boards/562660-ultima-iv-quest-of-the-avatar>
+
+Search
+hide results
+
+GameFAQs <https://gamefaqs.gamespot.com/>» FAQs
+<https://gamefaqs.gamespot.com/pc/562660-ultima-iv-quest-of-the-avatar/faqs>
+
+Would you recommend this
+Recommend this
+FAQ? Yes No
+Comment No Thanks
+/
+
+/
+/
+
+/
+/
+
+/
+// Back to Top
+
+
+    Town Script by ASchultz
+    <https://gamefaqs.gamespot.com/community/ASchultz>
+
+*Version:* 2.0.0 | *Updated:* 11/24/00 | Search Guide | Bookmark Guide
+
+View in: Text Mode
+
+GameFAQs <https://gamefaqs.gamespot.com/>//facebook.com/GFAQs
+<http://www.facebook.com/GFAQs>//twitter.com/GameFAQs
+<http://www.twitter.com/GameFAQs>Help / Contact Us
+<https://gamefaqs.gamespot.com/help>Change Colors //
+<https://gamefaqs.gamespot.com/features/change_color>
+
+  * Blue (Default)
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=blue>
+  * Blue on Black
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=dark-blue>
+  * Red <https://gamefaqs.gamespot.com/user/change_color?site_color=red>
+  * Red on Black
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=dark-red>
+  * Green <https://gamefaqs.gamespot.com/user/change_color?site_color=green>
+  * Green on Black
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=dark-green>
+  * Orange
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=orange>
+  * Orange on Black
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=dark-orange>
+  * Purple
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=purple>
+  * Purple on Black
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=dark-purple>
+  * Cloudy Blue
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=cloudy>
+  * Grayscale
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=grayscale>
+  * Sepia <https://gamefaqs.gamespot.com/user/change_color?site_color=sepia>
+  * Cotton Candy
+    <https://gamefaqs.gamespot.com/user/change_color?site_color=cottoncandy>
+
+gamespot.com
+<https://www.gamespot.com/?utm_source=gamefaqs&utm_medium=partner&utm_content=footer&utm_campaign=footer>giantbomb.com
+<http://www.giantbomb.com/>metacritic.com
+<http://www.metacritic.com/>gamerankings.com <http://www.gamerankings.com/>
+
+Sitemap <http://sitemap.gamefaqs.com/>Advertise
+<http://www.cbsinteractive.com/advertise>Partnerships
+<https://gamefaqs.gamespot.com/feedback?type=61>Careers
+<https://cbs.avature.net/cbsinteractivecareers/SearchJobs/?3_56_3=%22260%22>Privacy
+Policy <http://legalterms.cbsinteractive.com/privacy>Ad Choice
+<http://legalterms.cbsinteractive.com/adchoice>Terms of Use
+<http://legalterms.cbsinteractive.com/terms-of-use>Report Ad
+
+© 2018 CBS Interactive Inc. All rights reserved.
+

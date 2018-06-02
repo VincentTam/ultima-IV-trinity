@@ -1,0 +1,101 @@
+This disk contains updates to the Windows libraries that were shipped with
+the Microsoft Windows Software Development Kit (050-150) version 1.01. These
+new libraries are compatible for use with the Microsoft C Compiler (version
+4.0).  The old Windows libraries are only compatible with the previous version
+(v. 3.0) of the Microsoft C Compiler.
+
+This disk also contains a new version (5.00.12) of LINK4.EXE that is
+compatible with the object module format (.OBJ) produced by the new
+Microsoft C Compiler.
+
+In order to convert to the new compiler, there are several things
+you need to do:
+  - edit your make files to change the name of the compiler from CC
+    to CL
+  - edit your LINK4 command lines to remove all references to the
+    ?WLIBC.LIB libraries and any use of the /NODEFAULT switch.
+  - be aware that CODEVIEW does NOT work with Windows applications
+    and that you must continue to use the SYMDEB program shipped
+    with the Windows 1.01 ISV Toolkit.
+
+The following files are included on this disk:
+
+SWINLIBC.LIB - small model library for building Windows library executables.
+MWINLIBC.LIB - medium model library for building Windows library executables.
+CWINLIBC.LIB - compact model library for building Windows library executables.
+LWINLIBC.LIB - large model library for building Windows library executables.
+SLIBW.LIB - small model library for building Windows application executables.
+MLIBW.LIB - medium model library for building Windows application executables.
+CLIBW.LIB - compact model library for building Windows application executables.
+LLIBW.LIB - large model library for building Windows application executables.
+LINK4.EXE - Segmented-Executable Linker for Windows applications and libraries.
+
+These should be used to replace the corresponding library files in your
+Microsoft Windows Software Development Kit.  CLIBW.LIB, LLIBW.LIB, CWINLIBC.
+LIB and LWINLIBC.LIB are new library files.  All data segments must be fixed
+(DATA FIXED specified in .DEF file) when using compact and large model with
+Windows.  The old files SWLIB??.LIB, MWLIB??.LIB and LWLIB??.LIB library
+files are no longer required since the standard C 4.0 libraries are to be used
+instead.  All other Microsoft C runtime libraries that were distributed with
+the Microsoft Windows Software Development Kit are superseded by those
+included in the version 4.0 C runtime libraries.  The -FPa compiler switch is
+still required for floating point support.
+
+The new application libraries (SLIBW.LIB, MLIBW.LIB, CLIBW.LIB, LLIBW.LIB)
+support the _setargv and _setenvp interfaces.  The default versions of these
+procedures, in the C runtime libraries, fill in the __argc, __argv and
+environ variables.  If your application does not reference these variables,
+then you can eliminate them by defining your own near versions in the _TEXT
+segment that do nothing except return to the caller.  Not only will this save
+code space, but it will eliminate making a copy of the command line and
+environment block in your data segment.  If you do use these variables, but
+want to reclaim the data space, then the following will work for a Windows
+application:
+
+        environ = free ( environ );
+        __argv  = free ( __argv );
+        __argc  = 0;
+
+Note that because all Windows applications do NOT receive a copy of the
+environment block, but rather a pointer to the environment allocated for the
+initial load of WIN100.BIN, the __argv(0) value always points to a string
+that contains WIN100.BIN as the file name of the program being run.
+
+Also included on this disk are the sources for a modified version of the
+HELLO application that was contained in the Windows 1.01 ISV Toolkit.  The
+files listed below give examples of how to build a Windows application for
+each of the four memory models (small, medium, compact and large). The HELLO.C
+source file contains test code that calls various parts of the standard
+Microsoft C runtime library.
+
+HELLO.      - make file that generates SHELLO.EXE, MHELLO.EXE, CHELLO.EXE,
+              and LHELLO.EXE,
+HELLO.H     - private include file
+HELLO.C     - main source file
+HELLO.RC    - resource file
+HELLO.ICO   - icon
+SHELLO.DEF  - small model definitions file
+MHELLO.DEF  - medium model definitions file
+CHELLO.DEF  - compact model definitions file
+LHELLO.DEF  - large model definitions file
+
+If you are using PASCAL to develop your Windows application, then you should
+continue to use the C runtime libraries and the PASLIBW.LIB libraries that
+were included with the Windows 1.01 ISV Toolkit.
+
+Finally, be aware that the WINDOWS.H file distributed with the Windows 1.01
+ISV Toolkit generates two warning messages when compiled with the new
+Microsoft C 4.0 compiler.  These warning messages are not fatal, but can be
+eliminated by making the following edits to WINDOWS.H:
+
+Replace the definition of NULL on line 62 with the following:
+
+#if (!defined(M_I86CM) && !defined(M_I86LM))
+#define  NULL    0
+#else
+#define  NULL    0L
+#endif
+
+Replace the #ifndef on line 1065 with the following:
+
+#ifndef NOWNDCLASS

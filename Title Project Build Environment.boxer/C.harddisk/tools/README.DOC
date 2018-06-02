@@ -1,0 +1,1175 @@
+                   (C) Copyright Microsoft Corporation, 1986
+                     Microsoft(R) C Compiler  Version 4.0
+
+                                 Release Notes
+
+
+This document contains information related to Version 4.0 of the Microsoft C
+Compiler and libraries for MS-DOS(R).  The information contained in this
+document is more up to date than the printed manuals.  As a result, where
+information in the manuals conflicts with information in this document, this
+document should be assumed to contain the correct information.
+
+
+                                 General Notes
+
+
+NOTE TO WINDOWS DEVELOPERS
+
+This version of the Microsoft C Compiler includes updated libraries.  These
+supersede the libraries that are included with the Microsoft Windows Software
+Development Kit Version 1.01.  The Windows-specific libraries can be found on
+the start-up source code disk in a subdirectory named WINLIB.  These libraries
+should be used to replace the corresponding files in your Windows Development
+Toolkit.  The README.DOC file in the WINLIB subdirectory on the Startup Source
+Code disk provides more information on the use of these libraries.
+
+
+
+FLOATING-POINT OPERATIONS UNDER DOS 3.2
+
+If you are running IBM(R) PC-DOS 3.20 and trapping floating-point exceptions in
+your program, you may find it necessary to patch PC-DOS 3.20 to get proper
+operation when floating-point exceptions occur.  Please refer to the file named
+PATCH.DOC in the PATCH subdirectory on the Utilities disk for instructions on
+making this patch.
+
+
+
+                           New and Changed Features
+
+
+The following lists describe important new and changed features in the
+Microsoft C Compiler.  In some cases, the changes fix errors in the previous
+compiler and may change the behavior of programs that relied on the erroneous
+behavior of the previous compiler.
+
+
+
+PACKAGE CONTENTS
+
+
+A large-model version of C3.EXE named C3L.EXE has been included for users whose
+programs have functions that cannot be optimized by the normal (small-model)
+C3.EXE because they are too big to fit in 64K of memory.  If you rename C3L.EXE
+to C3.EXE and install it with the other compiler passes, you should be able to
+optimize much larger functions (depending on your available memory).
+
+The sources for the C start-up are included in the release, along with a MAKE
+file and a readme file.  PLEASE NOTE:  These sources are included as a
+convenience for users who wish to modify them for some special purpose.
+However, Microsoft Technical Support WILL NOT be able to provide support for
+questions about modifying these routines, nor do we make any claims of future
+compatibility with this code.
+
+New versions of the MOUSE.COM and MOUSE.SYS files are included in the release
+for users who use a mouse with the CodeView debugger.  These new versions allow
+the CodeView debugger to save the previous state of the mouse cursor whenever
+the user changes screens.  Be sure that you substitute the versions of
+MOUSE.SYS or MOUSE.COM provided in the release for any earlier versions of
+these files.
+
+
+MSC AND CL DRIVER CHANGES
+
+
+"Source listing" Prompt
+
+The "Source listing" prompt and its corresponding place in the MSC command line
+are new for Microsoft C Version 4.0.  If you are upgrading from Version 3.0,
+MSC command lines in batch files or MAKE description files may need to be
+revised to work correctly with Version 4.0.  Specifically, if a Version 3.0
+command line specifies an object listing, it will produce a source listing
+instead with Version 4.0.
+
+
+
+/Ze and /Za Options
+
+The /Ze option (enable extended keywords) is now the default, while the /Za
+option has been added to explicitly disable extended keywords.  If the /Za
+option is used, a new default define is emitted (NO_EXT_KEYS) to indicate that
+extended keywords are disabled.
+
+Do not use the /Za option in conjunction with the /Gc option.  If you do so, a
+new start-up will be required, and you will not be able to reference C library
+functions in your program.
+
+
+
+/Gc Option
+
+If you compile with the /Gc option, either you must declare the main function
+with the cdecl keyword in your program, or you must change the start-up so that
+it uses the correct naming and function-calling conventions when calling
+main().
+
+
+
+/Zi Option
+
+The /Zi option causes the compiler to emit symbolic-debugging information for
+use with the CodeView(TM) debugger.  Note that this information causes a
+substantial increase in the size of the corresponding object- and executable-
+file sizes.
+
+Optimizations involving code motion or code removal can cause the CodeView
+debugger to think that some local symbols are no longer in scope when, in fact,
+they are.  As a result, the CodeView debugger treats references to these
+symbols as unknown-symbol references.  To avoid this problem, compile your
+program with the /Zi option, and do not specify any optimization (/O) options.
+Since optimization is enabled by default, this combination of options disables
+only code-motion and code-removal optimizations.  If you explicitly specify any
+optimization options, all optimizations that are enabled or disabled by those
+options are performed.
+
+
+
+/D Option
+
+The MSC and CL drivers can now handle more /D options (the maximum is still 20,
+but the practical limit used to be much less) and have more directories
+specified in the INCLUDE environment variable on the command line without
+running into command-line-length limits.  Note that this does not have any
+effect on the length of the command line you type when invoking MSC or CL.  The
+command line is still bound by the DOS limit of 127 characters.
+
+
+
+NEW AND CHANGED ERROR MESSAGES
+
+
+
+Bad "FILE=" Parameter in CONFIG.SYS
+
+You should set the "FILES=" parameter in your CONFIG.SYS file to a value
+greater than or equal to 20.  If you specify a value less than 20, you may run
+out of file handles during compilation.  In some cases, if the compiler tries
+to open an include file and is out of file handles, it displays a "Cannot find
+file" error message instead of a "No more file handles" error message.
+
+
+
+New Error Messages
+
+We have modified the parser to try and correct the "cascade errors" (long lists
+of pseudo-errors caused by a single error such as a missing right parenthesis
+(")") or semicolon (";") generated by the previous version of the compiler.
+This is done using a "token insertion" technique, which tries to insert a valid
+token at the point at which the error is detected, in order to recover and
+continue in a reasonable manner. Whenever this occurs, the compiler emits one
+of the following error messages:
+
+     143: syntax error: missing <token> before <token>
+     144: syntax error: missing <token> before type <type_id>
+     145: syntax error: missing <token> before identifier
+     146: syntax error: missing <token> before identifier <name>
+
+In all cases, the parser inserts the <token> and continues parsing.  This is
+still an error, even if the parser inserts the correct token.     The program
+will not attempt to generate code after such an error is detected.     The user
+must fix the error and recompile.
+
+Another new error message, 147, has been added:
+
+     147 : array : unknown size
+
+This error is similar to error 133, but it handles the case where the array
+name is not known, as in the following example:
+
+     extern char (*p)[];
+     p++;
+
+Since in this example p is a pointer to an unnamed array of unknown size, p++
+cannot be calculated.
+
+
+
+Internal and Unknown Error Messages
+
+Fatal, error, and warning messages that should not occur (such as internal
+compiler errors and "UNKNOWN ERROR" warning or fatal errors) have been changed
+to indicate that the user should contact Microsoft Technical Support.  In the
+case of internal compiler errors, the compiler displays the following line:
+
+     (compiler file '<name>', line <number>)
+
+The <name> and <number> values indicate the name of the compiler module in
+which the internal error was detected and the line number in that module where
+the error was detected.  This information MUST be included in any report to
+Microsoft Technical Support.  Note that the line number at which the error is
+detected in the user's file is given in the usual place, in parentheses
+following the source file name.
+
+
+New Warning Messages
+
+The following new warning messages have been added:
+
+     warning 73 : Scoping too deep, deepest scoping merged when
+     debugging
+
+     warning 74 : non-standard extension used - '<description>'
+     
+     warning 75 : type of switch expression cannot be long - converted to int
+
+Warning 73 is issued when /Zi is used and the static nesting level is greater
+than 13.  Any items declared at levels below this will act as if they are in
+the same scope in the program.  Thus, if a variable name is redeclared in a
+deep level, you will not be able to access all instances of that variable in
+the debugger.
+
+In Microsoft C Version 3.0, several constructs were allowed where the construct
+was syntactically illegal but not caught, or where the construct was intended
+to be compatible with a part of the then-current draft of the ANSI C standard.
+Some of these constructs have been kept in the language but are allowed ONLY if
+the Microsoft-specific extensions are enabled (/Ze).
+
+In these cases, if warning level 3 is specified, warning 74 is emitted to
+indicate that a nonstandard extension is being used.  Note that this warning is
+not displayed for ALL Microsoft-specific extensions (specifically, usage of the
+extended keywords), but only for items whose behavior is different from that in
+Version 3.0 when extensions are not enabled.  We strongly advise you to rewrite
+code that uses any of these extensions, since some of them may be removed in
+future versions of Microsoft C.  This will enhance the portability of your
+programs now and in the future.
+
+The following six cases produce this warning:
+
+1.   Use of a cast to produce an lvalue, as in the following example:
+
+          int *p;
+          ((long *)p)++;
+
+     This construct was allowed in Version 3.0 because of a compiler bug that
+     has since been detected.  However, in many cases this is a reasonable (and
+     useful) construct, so Microsoft C allows it if the /Ze option is used and
+     gives an error otherwise.  Note that your code will be more portable if
+     the construct in the example is rewritten as shown below:
+
+          p = (int *)p + sizeof(long);
+
+
+     In Microsoft C, the code generated for both examples is identical.  Note
+     that certain casts that were previously allowed are no longer allowed,
+     even with -Ze.  Specifically, casts that would increase the size of an
+     object are disallowed, as in the following examples:
+
+          int i;
+          (long)i = 0xffff0000L;
+
+
+          char near *p;
+          &((char far *)p)
+
+     However, you can freely cast values to shorter types or cast pointers to
+     be pointers (of the same size) to different types and still maintain the
+     "lvalueness" of the item.
+
+2.   Redefinition of an extern item as static, as in the following example:
+
+          extern int foo();
+          static int foo()
+          {}
+
+     This is not allowed by the draft standard, but it is benign in our
+     compiler and has some history behind it in the UNIX(TM) world, so we have
+     maintained support for it under /Ze.
+
+3.   Use of a trailing comma (",") in a function declaration to indicate
+     variable-length argument lists, as in the following example:
+
+          int printf(char *,);
+
+     The draft standard changed after the release of Microsoft C Version 3.0 to
+     the ellipsis form (,...).  Microsoft C Version 4.0 supports the new form
+     but, for compatibility, also allows the old form to be used if the /Ze
+     option is given.
+
+4.   Benign typedef redefinition, as in the following examples:
+
+          typedef int INT;
+          typedef int INT;
+
+     The current draft of the ANSI C standard does not allow redefinition of a
+     typedef name in the same scope (although it is allowed in inner scopes).
+     Microsoft C Version 4.0 allows redefinition in the same scope if the
+     typedefs are identical.
+     
+5.   Macro formal parameters in strings and character constants, as in the
+     following example:
+
+          #define print(x) printf("x")
+
+     Use of this feature generates a warning at level 1 (not level 3), as this
+     feature will be replaced in the future by an alternative method that is
+     provided the ANSI C standard.
+     
+6.   Mixed character and string constants in an initializer, as in the
+     following example:
+
+          char arr[5] = {'a', 'b', "cde"};
+
+     This is the only form of mixed-string initialization that is allowed.  You
+     cannot use multiple strings or a string followed by character constants.
+
+
+
+New Fatal Error Message
+
+There is one new fatal error message:
+
+     fatal error 50 : code segment '<segment>' too large
+
+This message is displayed whenever a code segment gets within 36 bytes of 64K
+in size during compilation.  A 36-byte pad is used because of an bug in some
+80286 chips that can cause programs to exhibit strange behavior when, among
+other conditions, the size of a code segment is within 36 bytes of 64K.  The
+linker outputs a similar message if combining segments causes the size of a
+code segment to fall into this range.
+
+
+
+LANGUAGE CHANGES
+
+
+Keywords
+
+You should not use "const" or "volatile" as variable names in your programs.
+These words are reserved for future expansion as keywords.
+
+
+
+Structure/Union Nesting
+
+The maximum legal number of nested structures/unions has been increased from 5
+to 10.
+
+
+
+Converting Short Pointers to Long Ints
+
+The conversion of short pointers to long ints has changed to reflect the way
+that other values are converted to longer types. In Microsoft C Version 3.0,
+the following code would cause p to be converted to a short int, then to a long
+int:
+
+          char *p = NULL;
+          long i;
+
+          i = (long)p;
+          if (i == 0L) {
+               . . .
+               }
+
+However, all other length-increasing conversions first convert the size, then
+convert the mode.  (For example, converting char to unsigned long first
+converts the char to signed long, then to unsigned long.)  As a result, in
+Microsoft C Version 3.0, the "if" expression in the example was true in this
+case.
+
+As a result of the change for Version 4.0, the code in the example first
+converts p to a far pointer (by loading the appropriate segment register
+value), then changes that to a pointer.  Thus, the "if" expression in the
+example would likely fail, since the segment registers do not usually contain
+0.
+
+
+
+NEW AND CHANGED RUN-TIME LIBRARY FEATURES
+
+
+Model-Independent Code Helpers
+
+Mixed-model programming support has been enhanced by adding model- independent
+code helpers.  That is, calls to long arithmetic helpers such as __lmul and
+__ldiv now use model-specific names so that you can mix objects compiled in
+different models without running into problems when, for example, one object
+expects __lmul to be a near function and one expects it to be far.
+
+Note that this DOES NOT apply to the regular library routines -- they are
+always model specific, and you must be wary of how they are used in mixed-model
+programs.
+
+
+
+Start-Up Code
+
+The start-up has been changed so that it does not use the stack to store the
+environment array.  This change will prevent stack-overflow errors on start-up
+when very large environments are being used.
+
+
+
+Changes to Library Functions
+
+
+printf and scanf
+
+The printf and scanf families of functions have been extended with new formats.
+These new formats include formats from the draft ANSI C standard and Microsoft-
+specific formats that allow you to specify pointer/address sizes for formats
+that correspond to pointer/address arguments. For example, in a small-model
+program, you can pass a far pointer to a string into printf to print the string
+as shown in the following example:
+
+
+     foo(s)
+     char far *s;
+
+     {
+     printf("%Fs\n", s);
+     }
+
+One consequence of this is that, in the scanf family of functions, the %F and
+%E formats are no longer supported.  Since these formats were equivalent to the
+%f and %e formats, respectively, you can replace them directly without changing
+program input or functioning.
+
+
+
+rename
+
+The arguments to the rename function have been reversed, so that the function
+interface is now defined as shown below:
+
+          int rename(oldname, newname);
+
+This change was adopted in order to conform to the definition in the current
+ANSI draft C standard.  The Microsoft version of the rename function was
+originally defined before the rename function was included in the library
+section of the draft.  You must change any uses of rename in your code and
+recompile them before you link with the newest libraries.
+
+
+signal
+
+The signal function can now trap floating-point exceptions.  There are several
+new support routines that can be used by the signal-handling function to clean
+up the 8087 or emulator so the program can then be continued (see _fpreset,
+_clear87, _status87, and  _control87 in the library reference manual).
+
+
+
+spawn
+
+The spawnxx functions have been changed to avoid loading the execxx functions
+also unless the P_OVERLAY flag is actually referenced in the source code.  This
+change should reduce code size by 2K to 3K for most users of the spawnxx
+functions.  If you have code that uses the P_OVERLAY feature, you must
+recompile this code before linking it with the newest libraries.
+
+
+
+                           Changes to Documentation
+
+
+The following section describes features that were added or changed after the
+documentation was printed.
+
+
+
+USER'S GUIDE
+
+
+Assembly-Listing Files (p. 68)
+
+
+Assembly-listing files (generated by the /Fa option) cannot be assembled
+directly when the C sources include C-common (uninitialized global) variables.
+These are denoted in the .ASM listing by a comment line starting ";.comm ..."
+Current versions of MASM do not support this concept, and so they are converted
+to extern references in the .ASM file.  Simply initializing these options to 0
+in the C source code and recompiling with /Fa will fix this problem.
+
+
+
+Removing In-Line 8087 Instructions (p. 80)
+
+
+The Microsoft C Compiler does not have "true" in-line 8087 in the sense that
+the code generates software interrupts to library code, which then fixes up the
+interrupt to either use the emulator or the 8087.  This can be removed by
+simply assembling the following program and linking it with the C program:
+
+     public FIARQQ, FICRQQ, FIDRQQ, FIERQQ, FISRQQ, FIWRQQ
+     public FJARQQ, FJCRQQ, FJSRQQ
+
+     FIARQQ    EQU  0
+     FICRQQ    EQU  0
+     FIDRQQ    EQU  0
+     FIERQQ    EQU  0
+     FISRQQ    EQU  0
+     FIWRQQ    EQU  0
+     FJARQQ    EQU  0
+     FJCRQQ    EQU  0
+     FJSRQQ    EQU  0
+
+     END
+
+Assembling and linking this program with your C program will save execution
+time (the time required to patch all the interrupts the first time).  However,
+the program will run only if an 8087/287 is present.
+
+
+
+Using NULL in Medium and Compact Memory Models (p. 175)
+
+Note that in medium and compact models, NULL must be used carefully in certain
+situations.  NULL actually represents a NULL data pointer.  In memory models
+where code and data pointers are the same size, it can be used with either.
+However, in memory models where code and data pointers are different sizes,
+this is not the case.  The example
+
+     func1(dp)
+     char *dp;
+     {
+     ...
+     }
+
+     func2(fp)
+     char (*fp)();
+     {
+     ...
+     }
+
+     main()
+     {
+     func1(NULL);
+     func2(NULL);
+     }
+
+passes a 16-bit pointer to both func1 and func2 if compiled in medium model,
+and a 32-bit pointer to both func1 and func2 if compiled in compact model,
+UNLESS function declarations are added to the beginning of the program to
+indicate the types, or an explicit cast is used on the argument to func1
+(compact model) or func2 (medium model).
+
+
+
+Customized Memory Models with Near and Far Functions (p. 185)
+
+If you use a customized memory model when compiling a program that uses both
+far and near functions, you should be aware of the following issues:
+
+o    The chkstk function should be called ONLY in functions that are compiled
+     in the same model as the libraries being used.  For compatibility with
+     XENIX(R), the chkstk function name cannot be model encoded.
+
+o    The float-calls interfaces (generated when the /FPc, /FPa, and /FPc87
+     options are used in compiling) are not model encoded, so the same
+     restriction is placed on functions containing floating-point calls:  they
+     must be compiled in the same model as the libraries being used.
+
+
+
+XENIX/DOS Portability for Version 4.0 (p. 347)
+
+If you move code between XENIX and DOS, Microsoft C Version 4.0 raises several
+issues.  Because the names of code helpers (for example, __almul) have been
+changed, users who port objects compiled under Version 4.0 will also have to
+move copies of the relevant helper functions from LIBH.LIB to XENIX, since the
+current XENIX C compiler and cross-development libraries are from a different
+version.
+
+Beware of porting object files that reference the setjmp or longjmp functions
+from XENIX to DOS, unless you compiled the object file with the  -dos option.
+The DOS versions of these functions use a larger buffer size and may cause
+memory to be overwritten.  You can port such object files from DOS to XENIX
+without problems, and you can successfully port the corresponding source files
+in either direction.
+
+
+
+Compiler Limits (p. 409)
+
+Section H.3.5, "Compiler Limits," states that there is a limit of eight actual
+arguments to a macro.  This is not true.  There is no fixed limit on the number
+of actual arguments to a macro.  However, there are practical limits due to
+limitations on macro definition size and expansion.
+
+
+
+RUN-TIME LIBRARY REFERENCE MANUAL
+
+
+
+SHARE.COM Program
+
+The Library Reference sometimes refers to the DOS program SHARE.COM.  This may
+be SHARE.EXE in some versions of DOS.
+
+
+
+_amblksiz (p. 31)
+
+The description of this variable should note that adjusting this value affects
+only far-heap allocation (for example, standard malloc calls in compact, large,
+and huge models, and _fmalloc calls in small and medium models).  However,
+adjusting this value has NO effect on halloc or _nmalloc in any model.
+
+
+
+chdir (p. 120)
+
+For the chdir function, the current working directory is always relative to the
+current default drive.  Thus, if the current working directory is A:\BIN, the
+following call does NOT change the current working directory, since DOS does
+not change the current default drive when chdir is called:
+
+     chdir ("c:\temp");
+
+To change the current default drive to drive C, call the system function as
+shown below:
+
+     system("c:");
+
+
+
+chsize (p. 123)
+
+A bug in DOS may cause CHKDSK to report an allocation error after a file is
+truncated.  The following sequence of steps causes CHKDSK to report this error:
+
+1.   The file has x + 1 clusters allocated.
+
+2.   It is truncated to x clusters.
+
+3.   A seek is performed to somewhere in cluster x + 1, followed by a write.
+     After the file is closed, CHKDSK reports the allocation error.
+
+The only way to avoid this problem from C is to read or write at least 1 byte
+before performing a seek.  If the file has read/write access, simply reading a
+single character after the truncation is sufficient.  If the file has write-
+only access, a 1-byte write can be performed, although this makes the file 1
+byte larger.
+
+Note that this error occurs only if the seek past the end-of-file is the first
+operation performed on the file after truncation.
+
+
+
+fcvt (p. 163), gcvt (p. 221), ltoa (p. 272), memcpy (p. 280), and strlwr (p.
+380)
+
+These functions return pointers, so the declarations of these functions under
+the "Summary" headings should read
+
+     char *fcvt(value, ndec, decptr, signptr);
+
+     char *gcvt(value, ndec, buffer);
+
+     char *ltoa(value, string, radix);
+
+     char *memcpy(dest, src, cnt);
+
+     char *strlwr(string);
+
+respectively.
+
+
+
+fmod (p. 186)
+
+The return value from this function (the floating-point remainder) is not
+compatible with the draft ANSI C standard.  However, it is consistent with the
+current UNIX System V definition, and it will be changed when the Microsoft C
+Compiler fully conforms with the ANSI draft C standard or when the System V
+definition is changed.
+
+
+
+halloc (p. 236)
+
+The halloc function also returns NULL if the allocation request cannot be
+satisfied for reasons other than lack of available memory, such as an illegally
+specified huge array (for example, trying to allocate a 50000-element array of
+6-byte items).
+
+
+
+int86x (p. 243) and intdosx (p. 248)
+
+In the descriptions of the int86x and intdosx functions, change the line
+
+     After the interrupt returns, the function copies the current register
+     values to outregs and restores DS.
+
+so that it reads
+
+     After the interrupt returns, the function copies the current register
+     values to outregs, copies the current ES and DS values to segregs, and
+     restores DS.
+
+
+
+lfind and lsearch (p. 259)
+
+In the descriptions of these functions, change the "Return Values" section to
+read as follows:
+
+     If the key is found, both lsearch and lfind return a pointer to that
+     element of the array pointed to by base.  Otherwise, lsearch returns a
+     pointer to a newly added item at the end of the array, and lfind returns
+     NULL.
+
+
+
+malloc (p. 273)
+
+The malloc(0) fragment does NOT return NULL, but instead allocates a zero-
+length item (that is, a header only) in the heap.  The resulting pointer may be
+passed to the realloc function to adjust the size at any time.
+
+
+
+memicmp (p. 281), stricmp (p. 373), and strnicmp (p. 381)
+
+
+These functions all convert alphabetic characters to lowercase before
+performing comparisons.  Thus, the following fragment returns a value greater
+than 0:
+
+     stricmp("A", "_")
+
+
+
+movedata (p. 288)
+
+In the "Summary," the srcseg, scrcoff, destseg, and destoff arguments should
+all be declared as unsigned int, not int.
+
+
+
+_nmsize (p. 295)
+
+The ptr argument should be declared as "char near *ptr", not "char near ptr".
+
+
+
+open (p. 298)
+
+Because of a bug in DOS Versions 2.0 and 2.1, attempts to open a device (such
+as CON) sometimes succeed and sometimes fail.  This inconsistent behavior also
+occurs if the stdio-level file-open functions (such as fopen) are used.  The
+bug is fixed in DOS Version 3.0 and subsequent versions.
+
+When opening a file with open, one of the access modes (O_RDONLY, O_WRONLY, or
+O_RDWR) MUST be specified.  It does NOT default.
+
+When a file is opened in text mode, ^Z is interpreted as an end-of-file file
+character on input.  Also, when files are opened for writing (or
+reading/writing) in text mode, the run time checks for a ^Z at the end of the
+file and removes it if possible.  Using the fseek and ftell functions in
+combination to move around a ^Z-terminated text file can cause improper
+behavior in fseek near the end of the file.
+
+
+
+perror (p. 303) and strerror (p. 377)
+
+In the "Summary" for both of these functions, the sys_errlist argument should
+be declared as follows:
+
+     char *sys_errlist[sys_nerr];
+
+
+
+pow (p. 305)
+
+Under "Return Value," change the sentence
+
+     If x is 0 and y is negative, pow sets errno to ERANGE...
+
+so that it reads
+
+     If x is 0 and y is negative, pow sets errno to EDOM...
+
+This change reflects the current ANSI draft C standard.
+
+Also change the sentence
+
+     If x is negative and y is is not an integer, the function prints...
+
+so that it reads
+
+
+     If both x and y are 0, or if x is negative and y is is not an integer, the
+     function prints...
+
+
+
+
+The pow function does not recognize integral, floating-point values greater
+than 2 to the 64th power.  (For example, 1.0E100 is NOT recognized as an
+integral value.)  The return value has been changed to be compatible with the
+ANSI draft C standard.
+
+
+
+printf (p. 306)
+
+If printf is called with a floating-point format specifier and the
+corresponding argument is infinite, indefinite, or not-a-number, the output
+from printf will look as follows:
+
+          Value               Output
+          -----               ------
+          +infinity           1.#INF<random digits>
+          -infinity           -1.#INF<random digits>
+          indefinite          <digit>.#IND<random digits>
+          not-a-number        <digit>.#NAN<random digits>
+
+The Microsoft C version of the printf function is incompatible with the draft
+ANSI C standard, since it does not allow negative field-width and precision
+specifiers.
+
+
+
+putenv (p. 316)
+
+Note that the environment manipulated by putenv is local to the process
+currently running.  You cannot enter new items in your command-level
+environment using putenv.  When the program terminates, the environment reverts
+to the environment of the parent process (the DOS level, in most cases).
+However, this environment is passed on to any child processes that are spawned
+(exec'ed), and they set any new items added by putenv.
+
+
+
+rename (p. 329)
+
+The capability to rename directories is available only when running DOS 3.x.
+
+
+
+scanf (p. 336)
+
+The input for a %x format specifier is always interpreted as a hex number; the
+leading 0x (0X) is not needed as it is in the language.  Thus, if the input is
+0xffff, the result returned from scanf is 0, since x is not a valid hex
+character.  The correct input would be ffff.  If the data file contains leading
+0x (0X) characters, the correct format specifier is "...0x%x".
+
+
+
+signal (p. 350)
+
+Change the function declaration under the "Summary" heading so that it reads as
+follows:
+
+     int (*signal(sig,func))();
+
+
+
+sopen (p. 354)
+
+Contrary to the list under "Return Values," this function does NOT return
+EINVAL if SHARE is not installed.  It does not detect whether SHARE is
+installed.  If SHARE is not installed, DOS simply ignores the sharing mode.
+
+
+
+spawnl - spawnvpe (p. 358)
+
+Contrary to the "Note" under the "Return Value" heading, the spawn functions DO
+pass on to the child process all information on open files, including the
+translation mode, through the environment passed to the child.  A special entry
+called ";C_FILE_INFO" is passed to the child.  It is normally processed and
+deleted from the environment by the C start-up code.  However, if spawnxx is
+used to spawn a non-C process (such as COMMAND.COM) this entry will still be in
+the environment.  Also, since the information is passed in binary form,
+printing the environment will show graphics characters in the definition string
+for this entry. It should not have any other effect on normal operations.
+
+
+
+strcspn (p. 373) and strspn (p. 388)
+
+These functions return unsigned integer values, not integer values, so the
+declarations of these functions under the "Summary" headings should read
+
+     unsigned int strcspn(string1, string2);
+
+     unsigned int strspn(string1, string2);
+
+respectively.
+
+
+
+strerror (p. 378)
+
+In the example for this function, change the lines
+
+     strerror ("open failed on input file");
+
+     strerror ("open failed on output file");
+
+so that they read
+
+     printf("%s\n",strerror ("open failed on input file"));
+
+     printf("%s\n",strerror ("open failed on output file"));
+
+respectively.
+
+
+
+strstr (p. 389)
+
+The "Description" and "Return Value" sections should read as follows:
+
+     Description
+     
+     The strstr function returns a pointer to the first occurrence of string2
+     in string1.
+     
+     Return Value
+     
+     The strstr function returns a pointer to the first occurrence of string2
+     in string1, and NULL if it does not find string2 in string1.
+
+
+
+tmpnam - tempnam (p. 401)
+
+In the description of these functions, line 2 of the first paragraph of the
+"Description" section should read as follows:
+
+     If string is NULL, then tmpnam leaves the result in an internal static
+     buffer.  Thus, any subsequent calls will destroy this value.
+
+In the "Condition/Directory" list, if P_tmpdir does not exist, tempnam uses the
+current working directory as a last-resort place to create the temporary file.
+
+A note should be added that tempnam uses malloc to allocate space for the
+created file name, and the user is responsible for freeing this space when it
+is no longer needed.
+
+
+
+tzset (p. 407)
+
+In declaration of this function under "Summary," change the line
+
+     char *tzname[2]l
+
+so that it reads
+
+     char *tzname[2];
+
+
+
+va_arg - va_start (p. 419)
+
+Under the "Summary" heading, add the following #include directive to the
+header:
+
+     #include <stdio.h>
+
+
+
+CODEVIEW REFERENCE MANUAL
+
+
+Using the CodeView Debugger with the IBM PC Convertible
+
+To use the CodeView debugger with the IBM PC Convertible, you must start the
+CodeView debugger with the /D, /W, and /M options.  (The /D option is described
+under "New Options" below.)
+
+
+Using the CodeView Debugger with Assembly-Language Programs
+
+When writing stand-alone assembler programs that will be debugged with the
+CodeView debugger, the class type for the code segment must be 'CODE'. For
+example, declare segments as follows:
+
+     sseg   SEGMENT para stack 'STACK'
+     sseg   ENDS
+
+     dseg   SEGMENT word public 'DATA'
+     dseg   ENDS
+
+     cseg   SEGMENT byte public 'CODE'
+     cseg   ENDS
+
+
+The CodeView debugger is more limited when debugging assembler programs than
+when debugging C programs. The following limitations apply:
+
+o    The assembler does not write line numbers to the object file. Therefore,
+     assembled programs cannot be debugged in source mode. The source file can
+     be loaded and viewed in source mode, but you must switch to assembly mode
+     to debug.
+
+o    The assembler does not write information on the type size of each variable
+     to the object file. Therefore, you cannot use variables in CodeView
+     expressions (you can still use constants). This means that the Display
+     Expression command, the Watchpoint command, and the expression versions of
+     the Watch and Tracepoint commands do not work for assembled programs.
+     Instead, use the Dump command and the memory versions of the Watch and
+     Tracepoint commands.
+
+     For example, assume your program has the following declaration:
+
+          var_a   DW  30d
+
+     You can use the following commands with this variable:
+
+          DI var_a L 1  ;* Dump var_a as an integer
+          WI var_a L 1  ;* Watch var_a as an integer
+          TPI var_a     ;* Break when var_a changes (length 1 is default)
+
+o    Symbol names are normally converted to uppercase when assembled. If
+     symbols in your source file are lowercase, you may want to turn off Case
+     Sense from the Options menu.
+
+o    Procedures will be shown on the Calls menu or with the Stack Trace command
+     only if they use the Microsoft calling conventions (see Chapter 10 of the
+     Microsoft C Compiler User's Guide). Similarly, local variables can only be
+     accessed if they are stored in the same way as in Microsoft high-level
+     languages.
+
+o    To view global symbols, you must specify the module. For example, use
+     "X?<module>.*" rather than "X?*".
+
+
+New Options
+
+The following new CodeView options have been added:
+
+
+    Option                        Purpose
+    ------                        -------
+
+     /2                 Allows two video adapters. You must have two video
+                        adapters and two monitors. The program display appears
+                        on the current default adapter and monitor, while the
+                        debugging display appears on the other adapter and
+                        monitor. For example, if you have both a Color Graphics
+                        Adapter and a Monochrome Adapter, you might want to set
+                        the CGA up as the default adapter. You could then debug
+                        a graphics program with the graphics display appearing
+                        on the graphics monitor and the debugging display
+                        appearing on the monochrome adapter. Microsoft Mouse
+                        support will be disabled on the debugging display if
+                        you use this option.
+     
+     /D                 Turns off certain IBM-specific functions, including NMI
+                        trapping and 8259 masking. This option is required for
+                        IBM-compatible machines that do not support these
+                        functions, such as the IBM PC Convertible, the Tandy
+                        1000, and the AT&T 6300 Plus. CONTROL-C and CONTROL-
+                        BREAK do not work if this option is used. Sequential
+                        mode is set automatically; use /W with /D to enable
+                        window mode.
+     /I                 Forces the debugger to handle certain IBM-specific
+                        functions, including NMI trapping and 8259 masking.
+                        This option can be used to enable CONTROL-C and
+                        CONTROL-BREAK handling on computers that the debugger
+                        does not recognize as being IBM compatible, such as the
+                        Eagle PC. Window mode is set automatically; you do not
+                        have to specify /W.
+
+
+Compatibility With Other Programs
+
+     Sidekick
+          
+          There is a problem with Sidekick that may cause improper operation
+          while running in the CodeView debugger.  Sidekick improperly restores
+          the video parameters on return; using the Redraw command (@) after
+          returning from Sidekick may correct the problem.
+
+     Superkey
+
+          The CodeView debugger traps the keyboard interrupt so that the
+          CONTROL-C,  CONTROL-BREAK, and SYS REQ keys will function as
+          interactive breakpoints. As a result, Superkey does not work in the
+          CodeView debugger. The same problem may occur with other  keyboard-
+          enhancer programs.
+
+
+
+Control Keys
+
+Control-S will not work on non-IBM machines, since the CodeView debugger does
+not perform its output through DOS.
+
+
+
+Display
+
+The CodeView debugger does not recognize symbols for C labels, and it does not
+work correctly for include files that contain executable code.
+
+
+
+Breakpoint on No-Code Lines
+
+The manual indicates that the CodeView debugger will attempt to set a
+breakpoint on the next-closest line if the specified line has no executable
+code associated with it. The CodeView debugger will actually display an error
+message.
+
+
+
+Case-Sensitivity Option
+
+The Case Sense item from the Options menu only applies to symbol-table lookup.
+It does not apply to regular expression searches using the Search menu.
+
+
+
+Assembly and Unassembly
+
+Occasionally when code is displayed in assembly mode or with the  Unassemble
+command, code similar to the following will be shown:
+
+     FE30 ??? Byte Ptr [DI]
+
+These are instructions that Intel(R) recommends against using, since there are
+equivalent opcodes and the instruction may not work properly on all machines.
+You should not see this type of code under normal circumstances, unless you are
+disassembling data.
+
+The CodeView debugger cannot assemble 8087/80287 instructions.
+
+
+
+Stack Trace
+
+To make it easier to debug assembly-language programs, the stack-trace function
+(and Calls menu) try to display the stack frame in assembly-language routines.
+As a result, the last function in the stack trace is __astart rather than
+_main, as described in the manual.
+
+
+
+                          Reporting Compiler Problems
+
+
+When reporting problems with the compiler we ask that you please provide the
+following information to help us in tracking down the problem:
+
+o    The compiler version number (from the logo that is printed out when you
+     invoke the compiler using the MSC or CL command)
+
+o    The version of DOS you are running (use the DOS VER command)
+
+o    Your system configuration (which machine, total memory, total free memory
+     at compiler execution time)
+
+o    The command line used in the compilation
+
+o    A preprocessed listing of the program (produced using the /E, /P, or /EP
+     option), or if the problem appears to be in the preprocessor, the C
+     source(s) and ALL include files referenced
+
+o    All objects/libraries (except standard ones, but please state which
+     standard objects/libraries you are using) needed to link, if necessary
+
+Having that information will be of immense help to us in solving your problem
+quickly.
+

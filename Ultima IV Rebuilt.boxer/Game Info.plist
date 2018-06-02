@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BXCloseAfterDefaultProgram</key>
+	<false/>
+	<key>BXDefaultProgramPath</key>
+	<string>ULTIMA.COM</string>
+	<key>BXGameIdentifier</key>
+	<string>9169A8DE5790FBED53D9A309E46638D8AC2DE9DE</string>
+	<key>BXGameIdentifierType</key>
+	<integer>2</integer>
+</dict>
+</plist>

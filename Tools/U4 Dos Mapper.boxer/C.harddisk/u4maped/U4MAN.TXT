@@ -1,0 +1,102 @@
+Ultima 4 World Map Editor v1.0
+	by Ram Dragon
+	(a.k.a Matthew Duncan)
+
+
+The zip file should contain the following:
+	u4maped.exe	- world map editor program
+	u4map.exe	- world map display program
+	u4tile.exe	- graphic tile display program
+	egavga.bgi	- graphics driver
+	comp.chr	- font driver
+	u4man.txt	- this file
+
+(I had to include the graphic and fonts drivers as files because I
+still can't get @#$%! Borlandc 3.1 to link these in.  <sigh> time
+for Watcom 10.0 I guess).
+
+These programs are freeware copyright by Matthew Duncan 1995.  As such
+you are free to use them at no cost.  Any charge for access to these
+programs cannot exceed the cost of distribution.  I accept no
+responsibility for anything that results as a consequence of using
+these programs.  If you distribute these programs, please keep all
+the files together.
+
+World Map Editor
+
+You must have the following two Ultima 4 files in the directory you run
+this program from:
+
+	world.map
+	shapes.ega
+
+When you run this program, you will see a 256x256 map window on the left,
+a 16x16 tile edit window on the right, and two rows of tiles on the bottom.
+The tiles displayed in the edit window represent the area within the red
+cursor in the map window.  The two rows of tiles on the bottom are the
+26 tiles associated with the keys a to z.  There an additional 26 tiles
+associated with the keys A to Z.  You can flip between the two sets of
+tiles (see below).
+
+Editing the map:  Simply press the letter key associated with the tile
+you want and it will be painted in the edit window where the purple cursor
+is.
+
+Moving the cursors:  The arrow keys are used move either the map or edit
+cursor.  A red border will appear around the window of whichever cursor
+is currently active.  You can toggle between the two cursors by pressing
+the space bar.  Only when you move from the map cursor to the edit cursor
+will the contents of the map cursor be updated in the edit window (i.e.,
+the edit window is not updated "on the fly" as you move the map cursor).
+
+Edit tiles:  Only 26 of the 52 tiles you can paint are presented at a time.
+You can flip between the tiles for keys a to z and keys A to Z by pressing
+either the comma key or the period key.  It is not necessary for the tiles
+to be displayed before you can paint them (i.e., if the tiles for keys
+a to z are displayed, you can still paint tiles with keys A to Z).
+
+Updating and redrawing the map:  Updating the map will save the current
+state of the map to an internal buffer.  Redrawing the map will restore
+the state of the map from this internal buffer (i.e., from the most recent
+update).  You can update or redraw by pressing the number 3 or 4 keys
+respectively.  If you've made changes to the map that have not been
+updated, an anhk symbol will appear in the bottom right corner.  Updating
+or redrawing will clear this symbol.
+
+Saving and exiting:  You can save to disk when exit the program.  To quit
+and save press the number 2 key.  To quit without saving press the number
+1 key.  The program saves from the most recent update.  If you've made
+changes since the last update, you will be asked if you want to include
+the non-updated changes in the save.
+
+Warning about map "hot spots":  The places on the map where townes,
+shrines, and dungeons are can be edited.  However, if you change
+these tiles to something that cannot be entered, you won't be able to
+enter them when playing.  Likewise, if you put a towne where none
+exists in the game, unpredictable things could happen.  At this time I
+would like to remind everyone that I take no responsibility for
+anything that happens as a direct or indirect consequence of using
+these programs.
+
+Key definitions:
+	1		- quit without saving
+	2		- quit with saving
+	3		- update current map
+	4		- redraw map from last update
+	a..z, A..Z	- paint map tiles
+	,		- display tiles for letters a..z
+	.		- display tiles for letters A..Z
+	arrows		- move cursors
+	space		- toggle between map and edit cursor
+
+U4map.exe and u4tile.exe:  I wrote these as debugging tools for the
+map editor.  Thought I'd include them for the heck of it.  U4map.exe
+displays the 256x256 pixel world map (it requires world.map to be the
+same directory).  U4tile.exe displays all 256 graphic tiles in the
+shapes.ega file (ditto for the shapes.ega file).
+
+That's it.  Have fun!  If you find any bugs or have any comments, let
+me know.  My email is duncan@psych.utoronto.edu.  See Ya.
+
+ Ram Dragon
+--=(UDIC)=--

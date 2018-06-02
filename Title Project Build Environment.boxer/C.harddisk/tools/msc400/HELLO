@@ -1,0 +1,30 @@
+shello.obj: hello.c hello.h
+    cl -d -c -AS -Gsw -Oas -Zpe -FPa -Foshello.obj hello.c
+
+mhello.obj: hello.c hello.h
+    cl -d -c -AM -Gsw -Oas -Zpe -FPa -Fomhello.obj hello.c
+
+chello.obj: hello.c hello.h
+    cl -d -c -AC -Gsw -Oas -Zpe -FPa -Fochello.obj hello.c
+
+lhello.obj: hello.c hello.h
+    cl -d -c -AL -Gsw -Oas -Zpe -FPa -Folhello.obj hello.c
+
+hello.res: hello.rc hello.ico hello.h
+    rc -r hello.rc
+
+shello.exe: shello.obj shello.def hello.res
+    link4 shello,shello/align:16,shello/map,slibw,shello.def
+    rc hello.res shello.exe
+
+mhello.exe: mhello.obj mhello.def hello.res
+    link4 mhello,mhello/align:16,mhello/map,mlibw,mhello.def
+    rc hello.res mhello.exe
+
+chello.exe: chello.obj chello.def hello.res
+    link4 chello,chello/align:16,chello/map,clibw,chello.def
+    rc hello.res chello.exe
+
+lhello.exe: lhello.obj lhello.def hello.res
+    link4 lhello,lhello/align:16,lhello/map,llibw,lhello.def
+    rc hello.res lhello.exe

@@ -1,0 +1,15 @@
+NAME    LHello
+
+DESCRIPTION 'Simple Microsoft Windows Application (large model)'
+
+STUB    'WINSTUB.EXE'
+
+CODE PRELOAD MOVEABLE DISCARDABLE
+DATA PRELOAD FIXED MULTIPLE
+
+HEAPSIZE  2048
+STACKSIZE 4096
+
+EXPORTS
+    HelloWndProc @1
+    About        @2
