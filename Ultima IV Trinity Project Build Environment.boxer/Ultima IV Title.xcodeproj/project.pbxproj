@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8884AB3920C37D020012C494 /* BEEP.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2820C37D020012C494 /* BEEP.ASM */; };
+		8884AB3A20C37D020012C494 /* DATA.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2920C37D020012C494 /* DATA.ASM */; };
+		8884AB3B20C37D020012C494 /* DATA.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2A20C37D020012C494 /* DATA.C */; };
+		8884AB3C20C37D020012C494 /* ERRMSG.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2B20C37D020012C494 /* ERRMSG.ASM */; };
+		8884AB3D20C37D020012C494 /* ERRMSG.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2C20C37D020012C494 /* ERRMSG.C */; };
+		8884AB3E20C37D020012C494 /* FILE.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2D20C37D020012C494 /* FILE.C */; };
+		8884AB3F20C37D020012C494 /* GRAPH.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2E20C37D020012C494 /* GRAPH.ASM */; };
+		8884AB4020C37D020012C494 /* INFLATE.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB2F20C37D020012C494 /* INFLATE.ASM */; };
+		8884AB4120C37D020012C494 /* LOW.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB3120C37D020012C494 /* LOW.ASM */; };
+		8884AB4220C37D020012C494 /* TITLE_X.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB3220C37D020012C494 /* TITLE_X.C */; };
+		8884AB4320C37D020012C494 /* UTIL2.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB3520C37D020012C494 /* UTIL2.ASM */; };
+		8884AB4420C37D020012C494 /* VAR.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB3620C37D020012C494 /* VAR.ASM */; };
+		8884AB4520C37D020012C494 /* TITLE_0.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB3720C37D020012C494 /* TITLE_0.C */; };
+		8884AB4620C37D020012C494 /* TITLE_1.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AB3820C37D020012C494 /* TITLE_1.C */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88F6C1F820B9A252003DBBEA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8884AB2820C37D020012C494 /* BEEP.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = BEEP.ASM; path = E.harddisk/BEEP.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB2920C37D020012C494 /* DATA.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = DATA.ASM; path = E.harddisk/DATA.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB2A20C37D020012C494 /* DATA.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DATA.C; path = E.harddisk/DATA.C; sourceTree = SOURCE_ROOT; };
+		8884AB2B20C37D020012C494 /* ERRMSG.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = ERRMSG.ASM; path = E.harddisk/ERRMSG.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB2C20C37D020012C494 /* ERRMSG.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ERRMSG.C; path = E.harddisk/ERRMSG.C; sourceTree = SOURCE_ROOT; };
+		8884AB2D20C37D020012C494 /* FILE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FILE.C; path = E.harddisk/FILE.C; sourceTree = SOURCE_ROOT; };
+		8884AB2E20C37D020012C494 /* GRAPH.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = GRAPH.ASM; path = E.harddisk/GRAPH.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB2F20C37D020012C494 /* INFLATE.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = INFLATE.ASM; path = E.harddisk/INFLATE.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB3020C37D020012C494 /* joe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = joe.h; path = E.harddisk/joe.h; sourceTree = SOURCE_ROOT; };
+		8884AB3120C37D020012C494 /* LOW.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = LOW.ASM; path = E.harddisk/LOW.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB3220C37D020012C494 /* TITLE_X.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TITLE_X.C; path = E.harddisk/TITLE_X.C; sourceTree = SOURCE_ROOT; };
+		8884AB3320C37D020012C494 /* TITLE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TITLE.H; path = E.harddisk/TITLE.H; sourceTree = SOURCE_ROOT; };
+		8884AB3420C37D020012C494 /* U4_SCAN.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_SCAN.H; path = E.harddisk/U4_SCAN.H; sourceTree = SOURCE_ROOT; };
+		8884AB3520C37D020012C494 /* UTIL2.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = UTIL2.ASM; path = E.harddisk/UTIL2.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB3620C37D020012C494 /* VAR.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = VAR.ASM; path = E.harddisk/VAR.ASM; sourceTree = SOURCE_ROOT; };
+		8884AB3720C37D020012C494 /* TITLE_0.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TITLE_0.C; path = E.harddisk/TITLE_0.C; sourceTree = SOURCE_ROOT; };
+		8884AB3820C37D020012C494 /* TITLE_1.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TITLE_1.C; path = E.harddisk/TITLE_1.C; sourceTree = SOURCE_ROOT; };
+		88F6C1FA20B9A252003DBBEA /* Ultima IV Title */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ultima IV Title"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88F6C1F720B9A252003DBBEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88F6C1F120B9A252003DBBEA = {
+			isa = PBXGroup;
+			children = (
+				88F6C1FC20B9A252003DBBEA /* Ultima IV Title */,
+				88F6C1FB20B9A252003DBBEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88F6C1FB20B9A252003DBBEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88F6C1FA20B9A252003DBBEA /* Ultima IV Title */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88F6C1FC20B9A252003DBBEA /* Ultima IV Title */ = {
+			isa = PBXGroup;
+			children = (
+				8884AB2820C37D020012C494 /* BEEP.ASM */,
+				8884AB2920C37D020012C494 /* DATA.ASM */,
+				8884AB2A20C37D020012C494 /* DATA.C */,
+				8884AB2B20C37D020012C494 /* ERRMSG.ASM */,
+				8884AB2C20C37D020012C494 /* ERRMSG.C */,
+				8884AB2D20C37D020012C494 /* FILE.C */,
+				8884AB2E20C37D020012C494 /* GRAPH.ASM */,
+				8884AB2F20C37D020012C494 /* INFLATE.ASM */,
+				8884AB3020C37D020012C494 /* joe.h */,
+				8884AB3120C37D020012C494 /* LOW.ASM */,
+				8884AB3220C37D020012C494 /* TITLE_X.C */,
+				8884AB3320C37D020012C494 /* TITLE.H */,
+				8884AB3420C37D020012C494 /* U4_SCAN.H */,
+				8884AB3520C37D020012C494 /* UTIL2.ASM */,
+				8884AB3620C37D020012C494 /* VAR.ASM */,
+				8884AB3720C37D020012C494 /* TITLE_0.C */,
+				8884AB3820C37D020012C494 /* TITLE_1.C */,
+			);
+			path = "Ultima IV Title";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88F6C1F920B9A252003DBBEA /* Ultima IV Title */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88F6C20120B9A252003DBBEA /* Build configuration list for PBXNativeTarget "Ultima IV Title" */;
+			buildPhases = (
+				88F6C1F620B9A252003DBBEA /* Sources */,
+				88F6C1F720B9A252003DBBEA /* Frameworks */,
+				88F6C1F820B9A252003DBBEA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ultima IV Title";
+			productName = "Ultima IV Title";
+			productReference = 88F6C1FA20B9A252003DBBEA /* Ultima IV Title */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88F6C1F220B9A252003DBBEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Jesse;
+				TargetAttributes = {
+					88F6C1F920B9A252003DBBEA = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 88F6C1F520B9A252003DBBEA /* Build configuration list for PBXProject "Ultima IV Title" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88F6C1F120B9A252003DBBEA;
+			productRefGroup = 88F6C1FB20B9A252003DBBEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88F6C1F920B9A252003DBBEA /* Ultima IV Title */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88F6C1F620B9A252003DBBEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8884AB4520C37D020012C494 /* TITLE_0.C in Sources */,
+				8884AB3920C37D020012C494 /* BEEP.ASM in Sources */,
+				8884AB4620C37D020012C494 /* TITLE_1.C in Sources */,
+				8884AB3E20C37D020012C494 /* FILE.C in Sources */,
+				8884AB3F20C37D020012C494 /* GRAPH.ASM in Sources */,
+				8884AB4420C37D020012C494 /* VAR.ASM in Sources */,
+				8884AB4120C37D020012C494 /* LOW.ASM in Sources */,
+				8884AB4320C37D020012C494 /* UTIL2.ASM in Sources */,
+				8884AB3C20C37D020012C494 /* ERRMSG.ASM in Sources */,
+				8884AB3B20C37D020012C494 /* DATA.C in Sources */,
+				8884AB4020C37D020012C494 /* INFLATE.ASM in Sources */,
+				8884AB4220C37D020012C494 /* TITLE_X.C in Sources */,
+				8884AB3D20C37D020012C494 /* ERRMSG.C in Sources */,
+				8884AB3A20C37D020012C494 /* DATA.ASM in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		88F6C1FF20B9A252003DBBEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		88F6C20020B9A252003DBBEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		88F6C20220B9A252003DBBEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88F6C20320B9A252003DBBEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88F6C1F520B9A252003DBBEA /* Build configuration list for PBXProject "Ultima IV Title" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88F6C1FF20B9A252003DBBEA /* Debug */,
+				88F6C20020B9A252003DBBEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88F6C20120B9A252003DBBEA /* Build configuration list for PBXNativeTarget "Ultima IV Title" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88F6C20220B9A252003DBBEA /* Debug */,
+				88F6C20320B9A252003DBBEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88F6C1F220B9A252003DBBEA /* Project object */;
+}

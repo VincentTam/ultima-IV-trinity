@@ -265,7 +265,7 @@ int /*bp04*/_range;
 		sound(4);
 	hit_tile = 0;
 	u4_puts(/*D_2042*/"Missed!\n");
-	if(Party.chara[activeChara]._weapon == 9 && hit_x < 11 && hit_y < 11 && Combat_MAP(hit_y, hit_x) >= TIL_03)
+	if(Party.chara[activeChara]._weapon == 9 && hit_x < 11 && hit_y < 11 && Combat_MAP(hit_y, hit_x) >= TIL_Swamp_03)
 		Combat_MAP(hit_y, hit_x) = TIL_46;
 	C_3C54();
 	DrawBlow(_range);
@@ -293,7 +293,7 @@ int /*bp04*/_range;
 	}
 	/*success*/
 	loc_B = &(Combat_MAP(Combat._npcY[_npcId], Combat._npcX[_npcId]));
-	if(loc_C->_weapon == 9 && *loc_B >= TIL_03)
+	if(loc_C->_weapon == 9 && *loc_B >= TIL_Swamp_03)
 		*loc_B = TIL_46;
 	/*damage points*/
 	loc_A = loc_C->_str;

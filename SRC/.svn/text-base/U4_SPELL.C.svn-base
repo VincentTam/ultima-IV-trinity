@@ -168,7 +168,7 @@ int bp04;
 	int loc_A, loc_B;
 	unsigned char loc_C, loc_D;
 
-	if(Party._tile >= TIL_14 && Party._tile != TIL_18) {
+	if(Party._tile >= TIL_HorseW_14 && Party._tile != TIL_18) {
 		if(!C_6409())
 			return;
 		AskDir(/*D_20EA*/"Dir: ", &loc_A, &loc_B);
@@ -322,7 +322,7 @@ int bp04;
 {
 	register int si;
 
-	if(Party._tile < TIL_14 || Party._tile == TIL_18) {
+	if(Party._tile < TIL_HorseW_14 || Party._tile == TIL_18) {
 		w_Failed();
 		return;
 	}

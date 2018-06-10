@@ -245,7 +245,7 @@ C_058C() {
 		u4_puts(D_0100);
 		return;
 	}
-	if(Party._loc != 0 || Party._tile > TIL_13 || Party._ship != 50) {
+	if(Party._loc != 0 || Party._tile > TIL_ShipS_13 || Party._ship != 50) {
 		u4_puts(D_00EE);
 		return;
 	}

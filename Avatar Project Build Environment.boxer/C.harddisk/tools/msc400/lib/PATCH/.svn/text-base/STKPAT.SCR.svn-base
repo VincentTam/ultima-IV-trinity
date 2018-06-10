@@ -1,5 +1,0 @@
-a c48
-jmp short c64
-
-w
-q

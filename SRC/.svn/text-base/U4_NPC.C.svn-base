@@ -48,7 +48,7 @@ unsigned char bp04;
 	if(di == TIL_8E || di == TIL_94 || di == TIL_B4 || di == TIL_F0 || di == TIL_F8 || di == TIL_FC)
 		return (bp04 <= TIL_SWater_02) || C_2999(bp04);
 	if(di == TIL_EC || di == TIL_9C)
-		return (bp04 >= TIL_03) && (bp04 != TIL_45);
+		return (bp04 >= TIL_Swamp_03) && (bp04 != TIL_45);
 	return C_2999(bp04);
 }
 
@@ -450,7 +450,7 @@ C_5851()
 					if(D_8742._npc._gtile[si] == TIL_82)
 						D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_80;
 				}
-			} else if(*loc_B >= TIL_04 && *loc_B < TIL_08) {/*on earth*/
+			} else if(*loc_B >= TIL_Grass_04 && *loc_B < TIL_Mount_08) {/*on earth*/
 				unsigned bp_0a;
 
 				D_8742._npc._x[si] = loc_A + D_95A5.x*16;

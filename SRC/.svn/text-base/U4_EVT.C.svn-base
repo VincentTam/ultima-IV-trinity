@@ -52,7 +52,7 @@ Random_Encounter()
 		if(Fighters._chtile[activeChara] == 0)
 			return;
 		switch(Combat_MAP(Combat._charaY[activeChara], Combat._charaX[activeChara])) {
-			case TIL_03: case TIL_44:
+			case TIL_Swamp_03: case TIL_44:
 				if(Party.chara[activeChara]._stat == 'G') {
 					Party.chara[activeChara]._stat = 'P';
 					C_09D9(activeChara);
@@ -94,7 +94,7 @@ Random_Encounter()
 		return;
 	}
 	switch(tile_cur) {
-		case TIL_03: case TIL_44: Poison(); break;
+		case TIL_Swamp_03: case TIL_44: Poison(); break;
 		case TIL_46: case TIL_4C: Party_Damage(); break;
 		case TIL_47: Sleep(); break;
 	}

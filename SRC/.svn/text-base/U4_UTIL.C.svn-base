@@ -268,7 +268,7 @@ unsigned char bp04;
 	u4_putl(Party._food / 100, 4, '0');
 	u4_putc(' ');
 	u4_putc(spell_sta);
-	if(Party._tile < TIL_14) {
+	if(Party._tile < TIL_HorseW_14) {
 		u4_puts(" SHP:");
 		u4_putl(Party._ship, 2, '0');
 	} else {
@@ -703,7 +703,7 @@ Party_Damage()
 	shakefx();
 	for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --)
 		Gra_11(loc_B);
-	if(CurMode >= MOD_COMBAT || Party._tile > TIL_13) {
+	if(CurMode >= MOD_COMBAT || Party._tile > TIL_ShipS_13) {
 		/*normal case*/
 		for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
 			if(U4_RND1(1) && isCharaAlive(loc_B)) {

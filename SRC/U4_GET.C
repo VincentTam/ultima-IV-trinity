@@ -146,7 +146,7 @@ char D_22C8[] = "Broadsides Only!\n";
 	int loc_A, loc_B, loc_C, loc_D, loc_E, loc_F;
 
 	u4_puts(/*D_22B2*/"Fire ");
-	if(Party._tile < TIL_10 || Party._tile > TIL_13) {
+	if(Party._tile < TIL_ShipW_10 || Party._tile > TIL_ShipS_13) {
 		w_What();
 		return;
 	}
@@ -155,12 +155,12 @@ char D_22C8[] = "Broadsides Only!\n";
 	if(!(loc_C|loc_D))
 		return;
 	if(loc_C != 0) {
-		if(Party._tile != TIL_11 && Party._tile != TIL_13) {
+		if(Party._tile != TIL_ShipN_11 && Party._tile != TIL_ShipS_13) {
 			u4_puts(D_22C8);
 			sound(2);
 			return;
 		}
-	} else if(Party._tile != TIL_10 && Party._tile != TIL_12) {
+	} else if(Party._tile != TIL_ShipW_10 && Party._tile != TIL_ShipE_12) {
 		u4_puts(D_22C8);
 		sound(2);
 		return;

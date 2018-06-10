@@ -1,2 +1,0 @@
-nulbody crt0 crt0dat crt0msg nmsghdr chksum +
-setargv stdalloc stdenvp /NOD /DOSSEG /m;

@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8884AAFC20C37A180012C494 /* ERRMSG.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AACD20C37A180012C494 /* ERRMSG.C */; };
+		8884AAFD20C37A180012C494 /* LOW.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AACE20C37A180012C494 /* LOW.ASM */; };
+		8884AAFE20C37A180012C494 /* U4_3D.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AACF20C37A180012C494 /* U4_3D.C */; };
+		8884AAFF20C37A180012C494 /* U4_AI.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD020C37A180012C494 /* U4_AI.C */; };
+		8884AB0020C37A180012C494 /* U4_ANIM.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD120C37A180012C494 /* U4_ANIM.C */; };
+		8884AB0120C37A180012C494 /* U4_COMBA.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD220C37A180012C494 /* U4_COMBA.C */; };
+		8884AB0220C37A180012C494 /* U4_COMBB.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD320C37A180012C494 /* U4_COMBB.C */; };
+		8884AB0320C37A180012C494 /* U4_COMBC.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD420C37A180012C494 /* U4_COMBC.C */; };
+		8884AB0420C37A180012C494 /* U4_CSTES.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD520C37A180012C494 /* U4_CSTES.C */; };
+		8884AB0520C37A180012C494 /* U4_DNG.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD620C37A180012C494 /* U4_DNG.C */; };
+		8884AB0620C37A180012C494 /* U4_DOS.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD720C37A180012C494 /* U4_DOS.ASM */; };
+		8884AB0720C37A180012C494 /* U4_END.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAD920C37A180012C494 /* U4_END.C */; };
+		8884AB0820C37A180012C494 /* U4_EVT.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AADA20C37A180012C494 /* U4_EVT.C */; };
+		8884AB0920C37A180012C494 /* U4_EXPLO.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AADB20C37A180012C494 /* U4_EXPLO.C */; };
+		8884AB0A20C37A180012C494 /* U4_FILE.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AADC20C37A180012C494 /* U4_FILE.C */; };
+		8884AB0B20C37A180012C494 /* U4_GET.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AADE20C37A180012C494 /* U4_GET.C */; };
+		8884AB0C20C37A180012C494 /* U4_GRAPH.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AADF20C37A180012C494 /* U4_GRAPH.ASM */; };
+		8884AB0D20C37A180012C494 /* U4_HOLE.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE120C37A180012C494 /* U4_HOLE.C */; };
+		8884AB0E20C37A180012C494 /* U4_INIT.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE220C37A180012C494 /* U4_INIT.C */; };
+		8884AB0F20C37A180012C494 /* U4_LB.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE320C37A180012C494 /* U4_LB.C */; };
+		8884AB1020C37A180012C494 /* U4_LOCAT.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE520C37A180012C494 /* U4_LOCAT.C */; };
+		8884AB1120C37A180012C494 /* U4_MAIN.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE620C37A180012C494 /* U4_MAIN.C */; };
+		8884AB1220C37A180012C494 /* U4_MAIN2.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE720C37A180012C494 /* U4_MAIN2.C */; };
+		8884AB1320C37A180012C494 /* U4_MAP.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE820C37A180012C494 /* U4_MAP.C */; };
+		8884AB1420C37A180012C494 /* U4_MIX.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAE920C37A180012C494 /* U4_MIX.C */; };
+		8884AB1520C37A180012C494 /* U4_NPC.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAEA20C37A180012C494 /* U4_NPC.C */; };
+		8884AB1620C37A180012C494 /* U4_PEER.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAEB20C37A180012C494 /* U4_PEER.C */; };
+		8884AB1720C37A180012C494 /* U4_Q_N_V.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAEC20C37A180012C494 /* U4_Q_N_V.C */; };
+		8884AB1820C37A180012C494 /* U4_SHOPS.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAEF20C37A180012C494 /* U4_SHOPS.C */; };
+		8884AB1920C37A180012C494 /* U4_SHRIN.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF020C37A180012C494 /* U4_SHRIN.C */; };
+		8884AB1A20C37A180012C494 /* U4_SOUND.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF120C37A180012C494 /* U4_SOUND.ASM */; };
+		8884AB1B20C37A180012C494 /* U4_SPELL.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF220C37A180012C494 /* U4_SPELL.C */; };
+		8884AB1C20C37A180012C494 /* U4_SRCH.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF320C37A180012C494 /* U4_SRCH.C */; };
+		8884AB1D20C37A180012C494 /* U4_SRCH2.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF420C37A180012C494 /* U4_SRCH2.C */; };
+		8884AB1E20C37A180012C494 /* U4_TALK.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF520C37A180012C494 /* U4_TALK.C */; };
+		8884AB1F20C37A180012C494 /* U4_USE.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF620C37A180012C494 /* U4_USE.C */; };
+		8884AB2020C37A180012C494 /* U4_UTIL.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF720C37A180012C494 /* U4_UTIL.C */; };
+		8884AB2120C37A180012C494 /* U4_VAR.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF820C37A180012C494 /* U4_VAR.ASM */; };
+		8884AB2220C37A180012C494 /* U4_Z.C in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAF920C37A180012C494 /* U4_Z.C */; };
+		8884AB2320C37A180012C494 /* UTIL2.ASM in Sources */ = {isa = PBXBuildFile; fileRef = 8884AAFB20C37A180012C494 /* UTIL2.ASM */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88F6C1F820B9A252003DBBEA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8884AACD20C37A180012C494 /* ERRMSG.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ERRMSG.C; path = C.harddisk/ERRMSG.C; sourceTree = SOURCE_ROOT; };
+		8884AACE20C37A180012C494 /* LOW.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = LOW.ASM; path = C.harddisk/LOW.ASM; sourceTree = SOURCE_ROOT; };
+		8884AACF20C37A180012C494 /* U4_3D.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_3D.C; path = C.harddisk/U4_3D.C; sourceTree = SOURCE_ROOT; };
+		8884AAD020C37A180012C494 /* U4_AI.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_AI.C; path = C.harddisk/U4_AI.C; sourceTree = SOURCE_ROOT; };
+		8884AAD120C37A180012C494 /* U4_ANIM.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_ANIM.C; path = C.harddisk/U4_ANIM.C; sourceTree = SOURCE_ROOT; };
+		8884AAD220C37A180012C494 /* U4_COMBA.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_COMBA.C; path = C.harddisk/U4_COMBA.C; sourceTree = SOURCE_ROOT; };
+		8884AAD320C37A180012C494 /* U4_COMBB.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_COMBB.C; path = C.harddisk/U4_COMBB.C; sourceTree = SOURCE_ROOT; };
+		8884AAD420C37A180012C494 /* U4_COMBC.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_COMBC.C; path = C.harddisk/U4_COMBC.C; sourceTree = SOURCE_ROOT; };
+		8884AAD520C37A180012C494 /* U4_CSTES.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_CSTES.C; path = C.harddisk/U4_CSTES.C; sourceTree = SOURCE_ROOT; };
+		8884AAD620C37A180012C494 /* U4_DNG.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_DNG.C; path = C.harddisk/U4_DNG.C; sourceTree = SOURCE_ROOT; };
+		8884AAD720C37A180012C494 /* U4_DOS.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = U4_DOS.ASM; path = C.harddisk/U4_DOS.ASM; sourceTree = SOURCE_ROOT; };
+		8884AAD820C37A180012C494 /* U4_DOS.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_DOS.H; path = C.harddisk/U4_DOS.H; sourceTree = SOURCE_ROOT; };
+		8884AAD920C37A180012C494 /* U4_END.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_END.C; path = C.harddisk/U4_END.C; sourceTree = SOURCE_ROOT; };
+		8884AADA20C37A180012C494 /* U4_EVT.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_EVT.C; path = C.harddisk/U4_EVT.C; sourceTree = SOURCE_ROOT; };
+		8884AADB20C37A180012C494 /* U4_EXPLO.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_EXPLO.C; path = C.harddisk/U4_EXPLO.C; sourceTree = SOURCE_ROOT; };
+		8884AADC20C37A180012C494 /* U4_FILE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_FILE.C; path = C.harddisk/U4_FILE.C; sourceTree = SOURCE_ROOT; };
+		8884AADD20C37A180012C494 /* U4_FILE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_FILE.H; path = C.harddisk/U4_FILE.H; sourceTree = SOURCE_ROOT; };
+		8884AADE20C37A180012C494 /* U4_GET.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_GET.C; path = C.harddisk/U4_GET.C; sourceTree = SOURCE_ROOT; };
+		8884AADF20C37A180012C494 /* U4_GRAPH.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = U4_GRAPH.ASM; path = C.harddisk/U4_GRAPH.ASM; sourceTree = SOURCE_ROOT; };
+		8884AAE020C37A180012C494 /* U4_GRAPH.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_GRAPH.H; path = C.harddisk/U4_GRAPH.H; sourceTree = SOURCE_ROOT; };
+		8884AAE120C37A180012C494 /* U4_HOLE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_HOLE.C; path = C.harddisk/U4_HOLE.C; sourceTree = SOURCE_ROOT; };
+		8884AAE220C37A180012C494 /* U4_INIT.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_INIT.C; path = C.harddisk/U4_INIT.C; sourceTree = SOURCE_ROOT; };
+		8884AAE320C37A180012C494 /* U4_LB.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_LB.C; path = C.harddisk/U4_LB.C; sourceTree = SOURCE_ROOT; };
+		8884AAE420C37A180012C494 /* U4_LOC.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_LOC.H; path = C.harddisk/U4_LOC.H; sourceTree = SOURCE_ROOT; };
+		8884AAE520C37A180012C494 /* U4_LOCAT.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_LOCAT.C; path = C.harddisk/U4_LOCAT.C; sourceTree = SOURCE_ROOT; };
+		8884AAE620C37A180012C494 /* U4_MAIN.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_MAIN.C; path = C.harddisk/U4_MAIN.C; sourceTree = SOURCE_ROOT; };
+		8884AAE720C37A180012C494 /* U4_MAIN2.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_MAIN2.C; path = C.harddisk/U4_MAIN2.C; sourceTree = SOURCE_ROOT; };
+		8884AAE820C37A180012C494 /* U4_MAP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_MAP.C; path = C.harddisk/U4_MAP.C; sourceTree = SOURCE_ROOT; };
+		8884AAE920C37A180012C494 /* U4_MIX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_MIX.C; path = C.harddisk/U4_MIX.C; sourceTree = SOURCE_ROOT; };
+		8884AAEA20C37A180012C494 /* U4_NPC.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_NPC.C; path = C.harddisk/U4_NPC.C; sourceTree = SOURCE_ROOT; };
+		8884AAEB20C37A180012C494 /* U4_PEER.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_PEER.C; path = C.harddisk/U4_PEER.C; sourceTree = SOURCE_ROOT; };
+		8884AAEC20C37A180012C494 /* U4_Q_N_V.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_Q_N_V.C; path = C.harddisk/U4_Q_N_V.C; sourceTree = SOURCE_ROOT; };
+		8884AAED20C37A180012C494 /* U4_SCAN.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_SCAN.H; path = C.harddisk/U4_SCAN.H; sourceTree = SOURCE_ROOT; };
+		8884AAEE20C37A180012C494 /* U4_SHAPE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_SHAPE.H; path = C.harddisk/U4_SHAPE.H; sourceTree = SOURCE_ROOT; };
+		8884AAEF20C37A180012C494 /* U4_SHOPS.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_SHOPS.C; path = C.harddisk/U4_SHOPS.C; sourceTree = SOURCE_ROOT; };
+		8884AAF020C37A180012C494 /* U4_SHRIN.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_SHRIN.C; path = C.harddisk/U4_SHRIN.C; sourceTree = SOURCE_ROOT; };
+		8884AAF120C37A180012C494 /* U4_SOUND.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = U4_SOUND.ASM; path = C.harddisk/U4_SOUND.ASM; sourceTree = SOURCE_ROOT; };
+		8884AAF220C37A180012C494 /* U4_SPELL.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_SPELL.C; path = C.harddisk/U4_SPELL.C; sourceTree = SOURCE_ROOT; };
+		8884AAF320C37A180012C494 /* U4_SRCH.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_SRCH.C; path = C.harddisk/U4_SRCH.C; sourceTree = SOURCE_ROOT; };
+		8884AAF420C37A180012C494 /* U4_SRCH2.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_SRCH2.C; path = C.harddisk/U4_SRCH2.C; sourceTree = SOURCE_ROOT; };
+		8884AAF520C37A180012C494 /* U4_TALK.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_TALK.C; path = C.harddisk/U4_TALK.C; sourceTree = SOURCE_ROOT; };
+		8884AAF620C37A180012C494 /* U4_USE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_USE.C; path = C.harddisk/U4_USE.C; sourceTree = SOURCE_ROOT; };
+		8884AAF720C37A180012C494 /* U4_UTIL.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_UTIL.C; path = C.harddisk/U4_UTIL.C; sourceTree = SOURCE_ROOT; };
+		8884AAF820C37A180012C494 /* U4_VAR.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = U4_VAR.ASM; path = C.harddisk/U4_VAR.ASM; sourceTree = SOURCE_ROOT; };
+		8884AAF920C37A180012C494 /* U4_Z.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_Z.C; path = C.harddisk/U4_Z.C; sourceTree = SOURCE_ROOT; };
+		8884AAFA20C37A180012C494 /* U4.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4.H; path = C.harddisk/U4.H; sourceTree = SOURCE_ROOT; };
+		8884AAFB20C37A180012C494 /* UTIL2.ASM */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = UTIL2.ASM; path = C.harddisk/UTIL2.ASM; sourceTree = SOURCE_ROOT; };
+		88F6C1FA20B9A252003DBBEA /* Ultima IV Title */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Ultima IV Title"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88F6C1F720B9A252003DBBEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88F6C1F120B9A252003DBBEA = {
+			isa = PBXGroup;
+			children = (
+				88F6C1FC20B9A252003DBBEA /* Ultima IV Avatar */,
+				88F6C1FB20B9A252003DBBEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88F6C1FB20B9A252003DBBEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88F6C1FA20B9A252003DBBEA /* Ultima IV Title */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88F6C1FC20B9A252003DBBEA /* Ultima IV Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				8884AACD20C37A180012C494 /* ERRMSG.C */,
+				8884AACE20C37A180012C494 /* LOW.ASM */,
+				8884AACF20C37A180012C494 /* U4_3D.C */,
+				8884AAD020C37A180012C494 /* U4_AI.C */,
+				8884AAD120C37A180012C494 /* U4_ANIM.C */,
+				8884AAD220C37A180012C494 /* U4_COMBA.C */,
+				8884AAD320C37A180012C494 /* U4_COMBB.C */,
+				8884AAD420C37A180012C494 /* U4_COMBC.C */,
+				8884AAD520C37A180012C494 /* U4_CSTES.C */,
+				8884AAD620C37A180012C494 /* U4_DNG.C */,
+				8884AAD720C37A180012C494 /* U4_DOS.ASM */,
+				8884AAD820C37A180012C494 /* U4_DOS.H */,
+				8884AAD920C37A180012C494 /* U4_END.C */,
+				8884AADA20C37A180012C494 /* U4_EVT.C */,
+				8884AADB20C37A180012C494 /* U4_EXPLO.C */,
+				8884AADC20C37A180012C494 /* U4_FILE.C */,
+				8884AADD20C37A180012C494 /* U4_FILE.H */,
+				8884AADE20C37A180012C494 /* U4_GET.C */,
+				8884AADF20C37A180012C494 /* U4_GRAPH.ASM */,
+				8884AAE020C37A180012C494 /* U4_GRAPH.H */,
+				8884AAE120C37A180012C494 /* U4_HOLE.C */,
+				8884AAE220C37A180012C494 /* U4_INIT.C */,
+				8884AAE320C37A180012C494 /* U4_LB.C */,
+				8884AAE420C37A180012C494 /* U4_LOC.H */,
+				8884AAE520C37A180012C494 /* U4_LOCAT.C */,
+				8884AAE620C37A180012C494 /* U4_MAIN.C */,
+				8884AAE720C37A180012C494 /* U4_MAIN2.C */,
+				8884AAE820C37A180012C494 /* U4_MAP.C */,
+				8884AAE920C37A180012C494 /* U4_MIX.C */,
+				8884AAEA20C37A180012C494 /* U4_NPC.C */,
+				8884AAEB20C37A180012C494 /* U4_PEER.C */,
+				8884AAEC20C37A180012C494 /* U4_Q_N_V.C */,
+				8884AAED20C37A180012C494 /* U4_SCAN.H */,
+				8884AAEE20C37A180012C494 /* U4_SHAPE.H */,
+				8884AAEF20C37A180012C494 /* U4_SHOPS.C */,
+				8884AAF020C37A180012C494 /* U4_SHRIN.C */,
+				8884AAF120C37A180012C494 /* U4_SOUND.ASM */,
+				8884AAF220C37A180012C494 /* U4_SPELL.C */,
+				8884AAF320C37A180012C494 /* U4_SRCH.C */,
+				8884AAF420C37A180012C494 /* U4_SRCH2.C */,
+				8884AAF520C37A180012C494 /* U4_TALK.C */,
+				8884AAF620C37A180012C494 /* U4_USE.C */,
+				8884AAF720C37A180012C494 /* U4_UTIL.C */,
+				8884AAF820C37A180012C494 /* U4_VAR.ASM */,
+				8884AAF920C37A180012C494 /* U4_Z.C */,
+				8884AAFA20C37A180012C494 /* U4.H */,
+				8884AAFB20C37A180012C494 /* UTIL2.ASM */,
+			);
+			name = "Ultima IV Avatar";
+			path = "Ultima IV Title";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88F6C1F920B9A252003DBBEA /* Ultima IV Title */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88F6C20120B9A252003DBBEA /* Build configuration list for PBXNativeTarget "Ultima IV Title" */;
+			buildPhases = (
+				88F6C1F620B9A252003DBBEA /* Sources */,
+				88F6C1F720B9A252003DBBEA /* Frameworks */,
+				88F6C1F820B9A252003DBBEA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ultima IV Title";
+			productName = "Ultima IV Title";
+			productReference = 88F6C1FA20B9A252003DBBEA /* Ultima IV Title */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88F6C1F220B9A252003DBBEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Jesse;
+				TargetAttributes = {
+					88F6C1F920B9A252003DBBEA = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 88F6C1F520B9A252003DBBEA /* Build configuration list for PBXProject "Ultima IV Avatar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88F6C1F120B9A252003DBBEA;
+			productRefGroup = 88F6C1FB20B9A252003DBBEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88F6C1F920B9A252003DBBEA /* Ultima IV Title */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88F6C1F620B9A252003DBBEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8884AB1020C37A180012C494 /* U4_LOCAT.C in Sources */,
+				8884AB2020C37A180012C494 /* U4_UTIL.C in Sources */,
+				8884AB1220C37A180012C494 /* U4_MAIN2.C in Sources */,
+				8884AB0D20C37A180012C494 /* U4_HOLE.C in Sources */,
+				8884AB1B20C37A180012C494 /* U4_SPELL.C in Sources */,
+				8884AB0720C37A180012C494 /* U4_END.C in Sources */,
+				8884AB0B20C37A180012C494 /* U4_GET.C in Sources */,
+				8884AAFE20C37A180012C494 /* U4_3D.C in Sources */,
+				8884AB0E20C37A180012C494 /* U4_INIT.C in Sources */,
+				8884AB1A20C37A180012C494 /* U4_SOUND.ASM in Sources */,
+				8884AB2120C37A180012C494 /* U4_VAR.ASM in Sources */,
+				8884AB0420C37A180012C494 /* U4_CSTES.C in Sources */,
+				8884AB1120C37A180012C494 /* U4_MAIN.C in Sources */,
+				8884AB1620C37A180012C494 /* U4_PEER.C in Sources */,
+				8884AB1720C37A180012C494 /* U4_Q_N_V.C in Sources */,
+				8884AB0A20C37A180012C494 /* U4_FILE.C in Sources */,
+				8884AB0920C37A180012C494 /* U4_EXPLO.C in Sources */,
+				8884AB1C20C37A180012C494 /* U4_SRCH.C in Sources */,
+				8884AB0220C37A180012C494 /* U4_COMBB.C in Sources */,
+				8884AB0820C37A180012C494 /* U4_EVT.C in Sources */,
+				8884AB0F20C37A180012C494 /* U4_LB.C in Sources */,
+				8884AB1820C37A180012C494 /* U4_SHOPS.C in Sources */,
+				8884AB1420C37A180012C494 /* U4_MIX.C in Sources */,
+				8884AB1E20C37A180012C494 /* U4_TALK.C in Sources */,
+				8884AB1F20C37A180012C494 /* U4_USE.C in Sources */,
+				8884AB0120C37A180012C494 /* U4_COMBA.C in Sources */,
+				8884AB2220C37A180012C494 /* U4_Z.C in Sources */,
+				8884AB1920C37A180012C494 /* U4_SHRIN.C in Sources */,
+				8884AB0620C37A180012C494 /* U4_DOS.ASM in Sources */,
+				8884AAFD20C37A180012C494 /* LOW.ASM in Sources */,
+				8884AB1D20C37A180012C494 /* U4_SRCH2.C in Sources */,
+				8884AB0020C37A180012C494 /* U4_ANIM.C in Sources */,
+				8884AB2320C37A180012C494 /* UTIL2.ASM in Sources */,
+				8884AAFF20C37A180012C494 /* U4_AI.C in Sources */,
+				8884AAFC20C37A180012C494 /* ERRMSG.C in Sources */,
+				8884AB0520C37A180012C494 /* U4_DNG.C in Sources */,
+				8884AB1520C37A180012C494 /* U4_NPC.C in Sources */,
+				8884AB0C20C37A180012C494 /* U4_GRAPH.ASM in Sources */,
+				8884AB0320C37A180012C494 /* U4_COMBC.C in Sources */,
+				8884AB1320C37A180012C494 /* U4_MAP.C in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		88F6C1FF20B9A252003DBBEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		88F6C20020B9A252003DBBEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		88F6C20220B9A252003DBBEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88F6C20320B9A252003DBBEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88F6C1F520B9A252003DBBEA /* Build configuration list for PBXProject "Ultima IV Avatar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88F6C1FF20B9A252003DBBEA /* Debug */,
+				88F6C20020B9A252003DBBEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88F6C20120B9A252003DBBEA /* Build configuration list for PBXNativeTarget "Ultima IV Title" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88F6C20220B9A252003DBBEA /* Debug */,
+				88F6C20320B9A252003DBBEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88F6C1F220B9A252003DBBEA /* Project object */;
+}

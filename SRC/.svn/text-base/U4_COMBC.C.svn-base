@@ -79,11 +79,11 @@ C_7C65()
 {
 	register int si;
 
-	if(Party._tile <= TIL_13 || (tile_cur & ~3) == TIL_10) {
+	if(Party._tile <= TIL_ShipS_13 || (tile_cur & ~3) == TIL_ShipW_10) {
 		if(D_96F8 == TIL_80) {
 			D_9452 = TIL_C8;
 			si = 11;
-		} else if(D_946C < TIL_03) {
+		} else if(D_946C < TIL_Swamp_03) {
 			si = 8;
 		} else {
 			si = 9;
@@ -92,15 +92,15 @@ C_7C65()
 		if(D_96F8 == TIL_80) {
 			D_9452 = TIL_C8;
 			si = 12;
-		} else if(D_946C < TIL_03) {
+		} else if(D_946C < TIL_Swamp_03) {
 			si = 10;
 		} else {
 			switch(tile_cur) {
-				case TIL_03: si = 7; break;
-				case TIL_05: si = 6; break;
-				case TIL_06: si = 5; break;
-				case TIL_07: si = 4; break;
-				case TIL_09: si = 3; break;
+				case TIL_Swamp_03: si = 7; break;
+				case TIL_Scrub_05: si = 6; break;
+				case TIL_Forest_06: si = 5; break;
+				case TIL_Hills_07: si = 4; break;
+				case TIL_Dung_09: si = 3; break;
 				case TIL_3E: si = 2; break;
 				case TIL_17:
 				case TIL_19:
@@ -371,7 +371,7 @@ C_8283()
 		si = C_8228();
 		D_8742._npc._x[si] = D_9772;
 		D_8742._npc._y[si] = D_9140;
-		D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_10;
+		D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_ShipW_10;
 	} else
 	if(D_95CC == MOD_DUNGEON) {
 		/*monster leaves chest?*/
@@ -380,7 +380,7 @@ C_8283()
 				D_8742._map.x8x8x8[Party._z][Party._y][Party._x] = 0x40;
 		}
 	} else
-	if(D_95CC != MOD_COM_CAMP || tile_cur < TIL_10 || tile_cur > TIL_13) {
+	if(D_95CC != MOD_COM_CAMP || tile_cur < TIL_ShipW_10 || tile_cur > TIL_ShipS_13) {
 		/*monster leaves chest?*/
 		if(
 			si >= TIL_90 ||

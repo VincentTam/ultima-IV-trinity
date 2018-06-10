@@ -138,8 +138,8 @@ unsigned char bp04;/*pos_y*/
 	D_96F9[si] = bp_04;
 	/*opaque tiles*/
 	if(
-		bp_04 == TIL_06 ||
-		bp_04 == TIL_08 ||
+		bp_04 == TIL_Forest_06 ||
+		bp_04 == TIL_Mount_08 ||
 		bp_04 == TIL_7E ||
 		bp_04 == TIL_49 ||
 		bp_04 == TIL_7F
@@ -248,6 +248,7 @@ unsigned char D_1664 = 0;
 unsigned char D_1665 = 0;/*trammel counter*/
 unsigned char D_1666 = 0;/*felucca counter*/
 
+
 C_3A4F()
 {
 	D_9445 = D_0814[(D_1665 & 0xe0) >> 5];
@@ -317,7 +318,7 @@ C_3B83()
 				((int)Party._x + si < 0) || ((int)Party._x + si > 0x1f) ||
 				((int)Party._y + di < 0) || ((int)Party._y + di > 0x1f)
 			) {
-				Combat_MAP(di+5, si+5) = TIL_04;
+				Combat_MAP(di+5, si+5) = TIL_Grass_04;
 			} else {
 				Combat_MAP(di+5, si+5) = D_8742._map.x32x32[Party._y + di][Party._x + si];
 			}

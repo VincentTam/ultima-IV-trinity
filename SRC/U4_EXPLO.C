@@ -225,20 +225,20 @@ EXP_Enter_Abyss()
 	Party.out_x = Party._x;
 	Party.out_y = Party._y;
 	switch(D_8742._map.x32x32[D_959C.y][D_959C.x]) {
-		case TIL_09:
+		case TIL_Dung_09:
 			u4_puts(/*D_176C*/"dungeon!\n\n");
 			u4_puts(D_Locations[Party._loc - 1]);
 			Enter_Dungeon();
 		break;
-		case TIL_0A:
+		case TIL_Town_0A:
 			u4_puts(/*D_1777*/"towne!\n\n");
 			Enter_Towne();
 		break;
-		case TIL_0B: case TIL_0E:
+		case TIL_Castle_0B: case TIL_CasEn_0E:
 			u4_puts(/*D_1780*/"castle!\n\n");
             Enter_Towne();
 		break;
-		case TIL_0C:
+		case TIL_Village_0C:
             if(Party._loc > 0x20) {
                 u4_puts("hamlet!\n\n");
                 Enter_Towne();
@@ -301,7 +301,7 @@ EXP_OnFoot()
 /*C_41C0*/CMD_X_it()
 {
 	u4_puts("X-it ");
-	if(Party._tile < TIL_14) {
+	if(Party._tile < TIL_HorseW_14) {
 		ship_x = Party._x;
 		ship_y = Party._y;
 		EXP_OnFoot();
@@ -310,7 +310,7 @@ EXP_OnFoot()
         if(CurMode == MOD_BUILDING){
             Party._tile = TIL_1F;
             DoublePace = 0;
-            D_8742._npc._tile[0] = D_8742._npc._gtile[0] = TIL_15;
+            D_8742._npc._tile[0] = D_8742._npc._gtile[0] = TIL_HorseE_15;
             D_8742._npc._x[0] = Party._x;
             D_8742._npc._y[0] = Party._y;
             Horse_x = Party._x;
@@ -334,7 +334,7 @@ EXP_OnFoot()
 
 EXP_Restore_Horse()
 {
-    D_8742._npc._tile[0] = D_8742._npc._gtile[0] = TIL_15;
+    D_8742._npc._tile[0] = D_8742._npc._gtile[0] = TIL_HorseE_15;
     D_8742._npc._x[0] = Horse_x;
     D_8742._npc._y[0] = Horse_y;
     D_8742._npc._var[0] = 1;
@@ -364,14 +364,14 @@ unsigned bp04;
 		w_Cant_t();
 		return;
 	}
-	if(tile_cur == TIL_14 || tile_cur == TIL_15) {
+	if(tile_cur == TIL_HorseW_14 || tile_cur == TIL_HorseE_15) {
         if(CurMode == MOD_BUILDING){
-            C_4206(TIL_14);
+            C_4206(TIL_HorseW_14);
             D_8742._npc._tile[0] = 0;
             u4_puts(/*D_17BA*/"Mount Horse!\n");
             return;        }
         else {
-            C_4206(TIL_14);
+            C_4206(TIL_HorseW_14);
             u4_puts(/*D_17BA*/"Mount Horse!\n");
             return;
         }
@@ -383,11 +383,11 @@ unsigned bp04;
 		Party.f_1dc = 0;
 		return;
 	}
-	if(tile_cur < TIL_10 || tile_cur > TIL_13) {
+	if(tile_cur < TIL_ShipW_10 || tile_cur > TIL_ShipS_13) {
 		w_What();
 		return;
 	}
-	C_4206(TIL_10);
+	C_4206(TIL_ShipW_10);
 	u4_puts(/*D_17D9*/"Frigate!\n");
 	if(ship_x != Party._x || ship_y != Party._y)
 		Party._ship = 50;
@@ -396,7 +396,7 @@ unsigned bp04;
 /*C_42E8*/CMD_Yell()
 {
 	u4_puts(/*D_17E3*/"Yell ");
-	if(Party._tile == TIL_14 || Party._tile == TIL_15) {
+	if(Party._tile == TIL_HorseW_14 || Party._tile == TIL_HorseE_15) {
 		if(DoublePace ^= 1)
 			u4_puts(/*D_17E9*/"Giddyup!\n");
 		else
@@ -547,7 +547,7 @@ C_431D()
     
 	if(Party._tile == TIL_18) {
 		u4_puts(/*D_1867*/"Land Balloon\n");
-		if(tile_cur != TIL_04) {
+		if(tile_cur != TIL_Grass_04) {
 			sound(1);
 			w_NotHere();
 			return;

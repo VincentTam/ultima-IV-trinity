@@ -44,7 +44,7 @@ register int si;
 		Party._y = 0x4e;
 		sound(11);
 		Party_Damage();
-		Party._tile = TIL_10;
+		Party._tile = TIL_ShipW_10;
 		hit_tile = 0;
 		C_26B6();
 	}

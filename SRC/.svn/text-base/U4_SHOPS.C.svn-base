@@ -760,7 +760,7 @@ C_D2F8()
 	}
 	Party._gold -= 100 * Party.f_1d8; dspl_Gold();
 	u4_puts(/*D_4EF9*/"\nHere, a better breed thou shalt not find ever!\n");
-	Party._tile  = TIL_14;
+	Party._tile  = TIL_HorseW_14;
 }
 
 /*----------------------------------------*/
