@@ -1,7 +1,7 @@
 10
 
 dir
-27
+37
 file:///Users/jesse/Documents/Ultima%20IV%20SVN/SRC-TITLE
 file:///Users/jesse/Documents/Ultima%20IV%20SVN
 
@@ -25,74 +25,6 @@ jesse
 
 
 6a58e5c9-86af-4e46-9fb9-a5b54b3c574c
-
-LOW.ASM
-file
-
-
-
-
-2018-05-23T10:46:23.000000Z
-08ca6655c2811d771301de7e04bce053
-2018-05-21T13:36:29.134738Z
-4
-jesse
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5361
-
-GRAPH.ASM
-file
-
-
-
-
-2018-05-23T10:46:23.000000Z
-766e1e2d761f49407e676a20d44796aa
-2018-05-21T13:36:29.134738Z
-4
-jesse
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-35134
 
 ERRMSG.C
 file
@@ -128,6 +60,74 @@ has-props
 
 268
 
+GRAPH.ASM
+file
+
+
+
+
+2018-05-23T10:46:23.000000Z
+766e1e2d761f49407e676a20d44796aa
+2018-05-21T13:36:29.134738Z
+4
+jesse
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+35134
+
+LOW.ASM
+file
+
+
+
+
+2018-05-23T10:46:23.000000Z
+08ca6655c2811d771301de7e04bce053
+2018-05-21T13:36:29.134738Z
+4
+jesse
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5361
+
 TITLE_0.C
 file
 
@@ -162,40 +162,6 @@ has-props
 
 10710
 
-U4_SCAN.H
-file
-
-
-
-
-2018-05-23T10:46:23.000000Z
-9b3e5af049795f60ef0dbe2f87385335
-2018-05-21T13:36:29.134738Z
-4
-jesse
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1372
-
 TITLE_1.C
 file
 
@@ -229,6 +195,40 @@ has-props
 
 
 24935
+
+U4_SCAN.H
+file
+
+
+
+
+2018-05-23T10:46:23.000000Z
+9b3e5af049795f60ef0dbe2f87385335
+2018-05-21T13:36:29.134738Z
+4
+jesse
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1372
 
 DATA.ASM
 file
@@ -298,40 +298,6 @@ has-props
 
 191
 
-DATA.C
-file
-
-
-
-
-2018-05-23T10:46:23.000000Z
-17ec9529e6a07182d087657811b9defe
-2018-05-21T13:36:29.134738Z
-4
-jesse
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-13553
-
 BEEP.ASM
 file
 
@@ -365,6 +331,40 @@ has-props
 
 
 500
+
+DATA.C
+file
+
+
+
+
+2018-05-23T10:46:23.000000Z
+17ec9529e6a07182d087657811b9defe
+2018-05-21T13:36:29.134738Z
+4
+jesse
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13553
 
 README.md
 file

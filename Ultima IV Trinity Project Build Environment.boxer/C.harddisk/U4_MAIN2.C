@@ -43,7 +43,7 @@ char *Second_Floor[] = {
     /*D_071B*/"MINOC2.ULT",
     /*D_0725*/"TRINSIC2.ULT",
     /*D_0731*/"SKARA2.ULT",
-    /*D_073B*/"MAGINCIA2.ULT"
+    /*D_073B*/"MAGINCI2.ULT"
 };
 
 /*towns/castles files*/

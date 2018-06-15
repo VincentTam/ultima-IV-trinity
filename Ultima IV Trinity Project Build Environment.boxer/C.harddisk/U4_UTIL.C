@@ -376,7 +376,8 @@ Death_Revive()
 	if(Load("LCB_2.ULT", sizeof(struct t_500), &D_8742) == -1)
 		exit(3);
 	File_TLK = dopen("LCB.TLK", 0);
-    File_TLK_2 = dopen("LCB.TLK", 0);
+    File_TLK_2 = File_TLK;
+    File_TLK_Buff = File_TLK;
 	CurMode = MOD_BUILDING;
 	Party._loc = 0x01;
 	Party.f_1dc = 0;

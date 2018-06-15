@@ -1,7 +1,7 @@
 10
 
 dir
-27
+37
 file:///Users/jesse/Documents/Ultima%20IV%20SVN/SRC
 file:///Users/jesse/Documents/Ultima%20IV%20SVN
 
@@ -536,40 +536,6 @@ has-props
 
 5030
 
-U4_MAIN2.C
-file
-
-
-
-
-2018-05-31T12:01:31.000000Z
-660320f55fd30e8c477776eb7ec77ccb
-2018-06-02T07:43:04.439702Z
-20
-jesse
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3479
-
 U4_GRAPH.H
 file
 
@@ -604,16 +570,16 @@ has-props
 
 1388
 
-U4_MAP.C
+U4_MAIN2.C
 file
 
 
 
 
-2018-06-02T13:23:29.000000Z
-42fe8539cf703dc76bada841a71a23c4
-2018-06-03T02:39:44.567094Z
-25
+2018-05-31T12:01:31.000000Z
+660320f55fd30e8c477776eb7ec77ccb
+2018-06-02T07:43:04.439702Z
+20
 jesse
 has-props
 
@@ -636,7 +602,7 @@ has-props
 
 
 
-11567
+3479
 
 U4_UTIL.C
 file
@@ -672,14 +638,14 @@ has-props
 
 14412
 
-U4_GET.C
+U4_MAP.C
 file
 
 
 
 
-2018-06-02T13:22:22.000000Z
-3b6fbfba18f9d0e564f63999cefd5ae9
+2018-06-02T13:23:29.000000Z
+42fe8539cf703dc76bada841a71a23c4
 2018-06-03T02:39:44.567094Z
 25
 jesse
@@ -704,7 +670,7 @@ has-props
 
 
 
-4801
+11567
 
 U4_SPELL.C
 file
@@ -740,14 +706,14 @@ has-props
 
 12038
 
-U4_COMBA.C
+U4_GET.C
 file
 
 
 
 
-2018-06-02T13:11:25.000000Z
-2799c54205c329b3881f87c69952628b
+2018-06-02T13:22:22.000000Z
+3b6fbfba18f9d0e564f63999cefd5ae9
 2018-06-03T02:39:44.567094Z
 25
 jesse
@@ -772,7 +738,7 @@ has-props
 
 
 
-9805
+4801
 
 U4_CSTES.C
 file
@@ -808,16 +774,16 @@ has-props
 
 5153
 
-U4_LOC.H
+U4_COMBA.C
 file
 
 
 
 
-2018-05-23T11:00:31.000000Z
-a864bb648a180354a0d87d5e21fb3110
-2018-05-23T11:38:32.300897Z
-6
+2018-06-02T13:11:25.000000Z
+2799c54205c329b3881f87c69952628b
+2018-06-03T02:39:44.567094Z
+25
 jesse
 has-props
 
@@ -840,7 +806,7 @@ has-props
 
 
 
-1684
+9805
 
 U4_COMBB.C
 file
@@ -876,16 +842,16 @@ has-props
 
 4534
 
-U4_COMBC.C
+U4_LOC.H
 file
 
 
 
 
-2018-06-02T13:22:22.000000Z
-72579492dbde63e7f5d780ae978a1d03
-2018-06-03T02:39:44.567094Z
-25
+2018-05-23T11:00:31.000000Z
+a864bb648a180354a0d87d5e21fb3110
+2018-05-23T11:38:32.300897Z
+6
 jesse
 has-props
 
@@ -908,7 +874,7 @@ has-props
 
 
 
-11846
+1684
 
 U4_DOS.ASM
 file
@@ -944,16 +910,16 @@ has-props
 
 1991
 
-U4.H
+U4_COMBC.C
 file
 
 
 
 
-2018-05-31T12:18:25.000000Z
-f84114647851392da0ddbfecc515baf8
-2018-06-02T07:43:04.439702Z
-20
+2018-06-02T13:22:22.000000Z
+72579492dbde63e7f5d780ae978a1d03
+2018-06-03T02:39:44.567094Z
+25
 jesse
 has-props
 
@@ -976,7 +942,7 @@ has-props
 
 
 
-12387
+11846
 
 UTIL2.ASM
 file
@@ -1011,6 +977,40 @@ has-props
 
 
 7653
+
+U4.H
+file
+
+
+
+
+2018-05-31T12:18:25.000000Z
+f84114647851392da0ddbfecc515baf8
+2018-06-02T07:43:04.439702Z
+20
+jesse
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12387
 
 U4_VAR.ASM
 file

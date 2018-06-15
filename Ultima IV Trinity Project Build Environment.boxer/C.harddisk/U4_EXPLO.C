@@ -83,7 +83,7 @@ char *Talk_Files_2[] ={
     /*D_16D9*/"MINOC2.TLK",
     /*D_16E3*/"TRINSIC2.TLK",
     /*D_16EF*/"SKARA2.TLK",
-    /*D_16F9*/"MAGINCIA.TLK"
+    /*D_16F9*/"MAGINCI2.TLK"
 };
 
 
@@ -122,6 +122,17 @@ unsigned bp04;
     File_TLK_Buff = File_TLK;
     File_TLK = File_TLK_2;
 
+}
+
+Load_Towne_Sub(bp04)
+unsigned bp04;
+{
+    
+    if(Load(Second_Floor[bp04 - 0x01], sizeof(struct t_500), &D_8742) == -1)
+        exit(3);
+    File_TLK_Buff = File_TLK;
+    File_TLK = File_TLK_2;
+    
 }
 
 /*load dungeon files*/
@@ -557,6 +568,13 @@ C_431D()
         w_OnlyOnFoot();
         return;
     }
+    if(Party._loc == 12 && tile_cur == TIL_1B) {
+        u4_puts("to ground floor!\n");
+        Load_Towne_1st(Party._loc);
+        EXP_Clear_PartyNPC();
+        EXP_Restore_Horse();
+        return;
+    }
     if(tile_cur == TIL_1B) {
         u4_puts("to second floor!\n");
         Load_Towne_2nd(Party._loc);
@@ -609,6 +627,12 @@ C_431D()
 		EXP_Set_Dungeon();
 		return;
 	}
+    if(Party._loc == 12 && tile_cur == TIL_1C) {
+        u4_puts("to basement!\n");
+        Load_Towne_Sub(Party._loc);
+        EXP_Clear_PartyNPC();
+        return;
+    }
     if(tile_cur == TIL_1C) {
         u4_puts("to first floor!\n");
         Load_Towne_1st(Party._loc);
