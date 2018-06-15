@@ -81,49 +81,49 @@ D_346E	db 054h,0BDh,055h,0BCh,057h,0BCh,059h,0BCh,05Bh,0BCh,05Ch,0BDh,05Ch,0BEh,
 
 ;====---- tile map data? ----====
 PUBLIC D_3683
-D_3683	db 06h,06h,06h,04h,04h,04h,01h,01h,00h,00h,00h,00h,01h,04h,04h,0Dh,0Eh,0Fh,04h
-	db 06h,06h,04h,04h,04h,01h,01h,01h,01h,00h,00h,01h,01h,04h,04h,04h,04h,04h,04h
-	db 06h,04h,04h,01h,01h,01h,02h,02h,01h,01h,01h,01h,01h,01h,0Ah,04h,04h,04h,06h
-	db 06h,04h,04h,01h,01h,02h,02h,01h,01h,09h,08h,01h,01h,01h,01h,04h,06h,06h,06h
-	db 04h,04h,04h,04h,01h,01h,01h,01h,04h,04h,08h,08h,01h,01h,01h,01h,01h,06h,06h
+D_3683	db 08h,08h,07h,06h,06h,06h,01h,01h,00h,00h,00h,00h,01h,04h,04h,0Dh,0Eh,0Fh,06h
+    db 08h,07h,06h,06h,06h,01h,01h,00h,00h,00h,00h,01h,01h,04h,04h,04h,04h,04h,04h
+    db 07h,04h,06h,01h,01h,01h,00h,00h,01h,01h,01h,01h,01h,01h,0Ah,04h,04h,04h,07h
+    db 07h,04h,04h,01h,01h,00h,00h,01h,01h,09h,08h,02h,01h,02h,04h,04h,07h,07h,08h
+    db 1Eh,07h,04h,04h,01h,01h,01h,01h,03h,03h,08h,08h,02h,02h,02h,07h,08h,08h,08h
 
 PUBLIC D_36E2
 D_36E2	db 88h,20h,11h,80h,20h,31h,80h,20h,51h,80h,20h,71h,88h,27h
-	db 11h,84h,27h,10h,84h,17h,10h,84h,07h,10h,84h,77h,88h,20h,51h,80h
-	db 20h,31h,80h,20h,11h,80h,70h,88h,01h,66h,84h,11h,66h,84h,07h,10h
-	db 84h,17h,10h,82h,11h,46h,82h,17h,0Fh,82h,11h,47h,82h,17h,0Eh,82h
-	db 11h,48h,27h,0Eh,84h,11h,49h,77h,84h,11h,4Ah,88h,27h,0Eh,84h,17h
-	db 0Eh,84h,17h,0Dh,84h,28h,0Eh,84h,18h,0Eh,84h,11h,2Ah,80h,1Ch,0Bh
-	db 80h,1Ch,0Ch,80h,7Ch,1Dh,0Dh,81h,7Dh,84h,1Eh,0Dh,80h,1Eh,0Ch,80h
-	db 1Eh,0Bh,80h,1Eh,0Ah,81h,7Eh,84h,11h,4Ah,84h,11h,4Bh,07h,0Dh,84h
-	db 11h,4Ch,07h,0Eh,84h,15h,0Ch,84h,15h,0Dh,84h,05h,0Dh,16h,0Ch,84h
-	db 16h,0Dh,84h,0Dh,0Eh,81h,7Dh,84h,1Dh,0Eh,81h,7Dh,84h,0Dh,0Dh,81h
-	db 7Dh,84h,1Ch,0Dh,81h,7Ch,84h,0Dh,0Eh,81h,7Dh,84h,1Dh,0Eh,81h,7Dh
-	db 84h,0Dh,0Dh,81h,7Dh,75h,03h,0Dh,84h,1Dh,0Dh,81h,7Dh,84h,1Ch,0Eh
-	db 81h,7Ch,84h,1Dh,0Dh,81h,7Dh,76h,14h,0Dh,88h,18h,0Dh,84h,18h,0Ch
-	db 17h,0Eh,84h,78h,17h,0Dh,84h,17h,0Ch,84h,77h,88h,71h,12h,4Ch,84h
-	db 12h,6Ch,84h,12h,0Ch,84h,4Bh,00h,73h,82h,3Bh,01h,82h,2Bh,02h,12h
-	db 0Bh,82h,2Bh,03h,82h,12h,0Ah,1Bh,04h,74h,82h,1Bh,05h,82h,1Bh,06h
-	db 12h,6Ah,82h,1Bh,07h,82h,1Ch,09h,80h,1Ch,08h,80h,7Ch,1Dh,07h,81h
-	db 7Dh,88h,1Bh,08h,82h,1Ch,09h,80h,7Ch,1Dh,08h,81h,7Dh,7Bh,84h,3Ah
-	db 09h,84h,4Ah,09h,84h,4Ah,08h,12h,0Ah,84h,12h,09h,84h,12h,08h,84h
-	db 2Ch,08h,80h,3Ch,08h,80h,7Ch,4Dh,08h,81h,7Dh,7Ah,88h,12h,68h,84h
-	db 22h,68h,84h,32h,68h,84h,32h,08h,84h,32h,07h,84h,32h,67h,84h,42h
-	db 67h,88h,47h,07h,84h,47h,08h,84h,47h,09h,48h,07h,84h,37h,09h,48h
-	db 08h,84h,77h,48h,09h,84h,38h,09h,84h,78h,88h,37h,09h,84h,47h,09h
-	db 84h,47h,08h,38h,09h,84h,47h,07h,48h,09h,84h,77h,48h,08h,84h,48h
-	db 07h,84h,78h,88h,42h,07h,84h,42h,06h,84h,42h,05h,84h,42h,04h,84h
-	db 42h,24h,84h,32h,24h,84h,32h,04h,84h,32h,03h,88h,37h,03h,84h,37h
-	db 02h,84h,37h,01h,38h,03h,84h,47h,01h,38h,02h,82h,09h,09h,82h,47h
-	db 00h,48h,02h,19h,08h,82h,29h,07h,82h,47h,01h,39h,06h,82h,3Eh,05h
-	db 80h,3Eh,04h,80h,3Eh,03h,81h,7Eh,72h,82h,39h,05h,82h,39h,04h,48h
-	db 03h,37h,01h,82h,39h,03h,82h,3Eh,03h,37h,02h,81h,7Eh,83h,4Dh,03h
-	db 81h,7Dh,78h,44h,03h,84h,3Dh,03h,81h,7Dh,82h,3Dh,02h,81h,7Dh,82h
-	db 3Dh,03h,81h,7Dh,79h,88h,47h,02h,84h,47h,03h,74h,88h,20h,01h,80h
-	db 20h,21h,80h,20h,41h,80h,20h,61h,85h,47h,02h,84h,37h,02h,84h,27h
-	db 02h,84h,27h,01h,84h,77h,88h,20h,61h,80h,20h,41h,80h,20h,21h,80h
-	db 20h,01h,80h,70h,88h
-	db 0FFh
+    db 11h,84h,27h,10h,84h,17h,10h,84h,07h,10h,84h,77h,88h,20h,51h,80h
+    db 20h,31h,80h,20h,11h,80h,70h,88h,01h,66h,84h,11h,66h,84h,07h,10h
+    db 84h,17h,10h,82h,11h,46h,82h,17h,0Fh,82h,11h,47h,82h,17h,0Eh,82h
+    db 11h,48h,27h,0Eh,84h,11h,49h,77h,84h,11h,4Ah,88h,27h,0Eh,84h,17h
+    db 0Eh,84h,17h,0Dh,84h,28h,0Eh,84h,18h,0Eh,84h,11h,2Ah,80h,1Ch,0Bh
+    db 80h,1Ch,0Ch,80h,7Ch,1Dh,0Dh,81h,7Dh,84h,1Eh,0Dh,80h,1Eh,0Ch,80h
+    db 1Eh,0Bh,80h,1Eh,0Ah,81h,7Eh,84h,11h,4Ah,84h,11h,4Bh,07h,0Dh,84h
+    db 11h,4Ch,07h,0Eh,84h,15h,0Ch,84h,15h,0Dh,84h,05h,0Dh,16h,0Ch,84h
+    db 16h,0Dh,84h,0Dh,0Eh,81h,7Dh,84h,1Dh,0Eh,81h,7Dh,84h,0Dh,0Dh,81h
+    db 7Dh,84h,1Ch,0Dh,81h,7Ch,84h,0Dh,0Eh,81h,7Dh,84h,1Dh,0Eh,81h,7Dh
+    db 84h,0Dh,0Dh,81h,7Dh,75h,03h,0Dh,84h,1Dh,0Dh,81h,7Dh,84h,1Ch,0Eh
+    db 81h,7Ch,84h,1Dh,0Dh,81h,7Dh,76h,14h,0Dh,88h,18h,0Dh,84h,18h,0Ch
+    db 17h,0Eh,84h,78h,17h,0Dh,84h,17h,0Ch,84h,77h,88h,71h,12h,4Ch,84h
+    db 12h,6Ch,84h,12h,0Ch,84h,4Bh,00h,73h,82h,3Bh,01h,82h,2Bh,02h,12h
+    db 0Bh,82h,2Bh,03h,82h,12h,0Ah,1Bh,04h,74h,82h,1Bh,05h,82h,1Bh,06h
+    db 12h,6Ah,82h,1Bh,07h,82h,1Ch,09h,80h,1Ch,08h,80h,7Ch,1Dh,07h,81h
+    db 7Dh,88h,1Bh,08h,82h,1Ch,09h,80h,7Ch,1Dh,08h,81h,7Dh,7Bh,84h,3Ah
+    db 09h,84h,4Ah,09h,84h,4Ah,08h,12h,0Ah,84h,12h,09h,84h,12h,08h,84h
+    db 2Ch,08h,80h,3Ch,08h,80h,7Ch,4Dh,08h,81h,7Dh,7Ah,88h,12h,68h,84h
+    db 22h,68h,84h,32h,68h,84h,32h,08h,84h,32h,07h,84h,32h,67h,84h,42h
+    db 67h,88h,47h,07h,84h,47h,08h,84h,47h,09h,48h,07h,84h,37h,09h,48h
+    db 08h,84h,77h,48h,09h,84h,38h,09h,84h,78h,88h,37h,09h,84h,47h,09h
+    db 84h,47h,08h,38h,09h,84h,47h,07h,48h,09h,84h,77h,48h,08h,84h,48h
+    db 07h,84h,78h,88h,42h,07h,84h,42h,06h,84h,42h,05h,84h,42h,04h,84h
+    db 42h,24h,84h,32h,24h,84h,32h,04h,84h,32h,03h,88h,37h,03h,84h,37h
+    db 02h,84h,37h,01h,38h,03h,84h,47h,01h,38h,02h,82h,09h,09h,82h,47h
+    db 00h,48h,02h,19h,08h,82h,29h,07h,82h,47h,01h,39h,06h,82h,3Eh,05h
+    db 80h,3Eh,04h,80h,3Eh,03h,81h,7Eh,72h,82h,39h,05h,82h,39h,04h,48h
+    db 03h,37h,01h,82h,39h,03h,82h,3Eh,03h,37h,02h,81h,7Eh,83h,4Dh,03h
+    db 81h,7Dh,78h,44h,03h,84h,3Dh,03h,81h,7Dh,82h,3Dh,02h,81h,7Dh,82h
+    db 3Dh,03h,81h,7Dh,79h,88h,47h,02h,84h,47h,03h,74h,88h,20h,01h,80h
+    db 20h,21h,80h,20h,41h,80h,20h,61h,85h,47h,02h,84h,37h,02h,84h,27h
+    db 02h,84h,27h,01h,84h,77h,88h,20h,61h,80h,20h,41h,80h,20h,21h,80h
+    db 20h,01h,80h,70h,88h
+    db 0FFh
 
 
 CONST	ENDS

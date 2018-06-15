@@ -415,16 +415,16 @@ NPC_Mesm_Out()
 NPC_Turn()
 {
 	if(CurMode == MOD_BUILDING)
-        if(spell_sta != 'R')
-            NPC_Move_Town();
-        else
+        if(spell_sta == 'R')
             NPC_Mesm_Town();
+        else
+            NPC_Move_Town();
     
 	else if(CurMode == MOD_OUTDOORS)
-        if(spell_sta != 'R')
-            NPC_Move_Out();
-        else
+        if(spell_sta == 'R')
             NPC_Mesm_Out();
+        else
+            NPC_Move_Out();
 }
 
 /*spawn creatures?*/

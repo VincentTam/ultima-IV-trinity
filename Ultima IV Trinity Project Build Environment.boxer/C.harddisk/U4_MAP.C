@@ -115,6 +115,14 @@ C_2747()
 		dclose(File_TLK);
 		File_TLK = 0;
 	}
+    if(File_TLK_2) {
+        dclose(File_TLK_2);
+        File_TLK_2 = 0;
+    }
+    if(File_TLK_Buff) {
+        dclose(File_TLK_Buff);
+        File_TLK_Buff = 0;
+    }
 	Party._x = Party.out_x;
 	Party._y = Party.out_y;
 	C_26B6();

@@ -40,6 +40,8 @@ extern unsigned char D_344A[];
 extern unsigned char D_345C[];
 extern unsigned char D_346E[];
 extern unsigned char D_3683[19*5];
+extern unsigned char D_OLD[19*5];
+
 extern unsigned char D_36E2[];
 
 /*====---- ----====*/

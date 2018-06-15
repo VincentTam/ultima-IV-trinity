@@ -37,9 +37,7 @@ seed_2	dd ?	;D_873A
 seed_3	dd ?	;D_873E
 ;-- struct t_500 --
 PUBLIC D_8742
-PUBLIC Lone_NPC
 D_8742	db 500h dup(?)
-Lone_NPC    db 500h dup(?)
 ;--
 D_8C42	db ?	;cursor state {0, 1, 2, 3}
 D_8C43	dw ?	;cursor update counter

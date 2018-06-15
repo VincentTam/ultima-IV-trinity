@@ -17,13 +17,6 @@ char D_010E[] = {/*colors masks*/
 	(1<<6)|(1<<5)|(1<<4)|(1<<2) /*courage*/
 };
 
-/*C_6399*/w_Failed2()
-{
-    u4_puts(/*D_20A6*/"Failed!\n");
-    hit_tile = 0;
-    sound(8);
-}
-
 void C_01E1()
 {
 	int bp_10, bp_02;
@@ -254,15 +247,13 @@ USE_Ring() {
         u4_puts("The Ring glows brighter and lets out a flash of light!\n");
     
         /* All Party Damage */
-        Party_Drain(30);
+        Party_Drain(100);
         MP_drain();
         Gra_09();
-        
-        C_C403();
-    
         spell_sta = 'R';
         spell_cnt = 7;
         dspl_Stats();
+        
     } else {
         u4_puts("\nYou cast the Ring of Exodus into the Abyss!\n");
         SET_MSK(Party.mItems, 1);
@@ -357,10 +348,10 @@ USE_Wand() {
         return;
     }
     if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
-        u4_puts("\nYou hold the enscorled Wand of Minax the Enchantress aloft....\n");
+        u4_puts("\nYou raise the enscorled Wand of Minax the Enchantress before thee....\n");
         USE_WandMagic();
+        /* do we need this callback? */
         t_callback();
-
     } else {
         u4_puts("\nYou cast the Wand of Minax into the Abyss!\n");
         SET_MSK(Party.mItems, 1);
@@ -393,26 +384,38 @@ USE_WandMagic() {
     if(!C_6409())
         return;
 
-    lat1 = AskLetter2("Incantation:\n", 'A', 'P');
+    lat1 = AskLetter2("\nIncantation:\n", 'A', 'P');
     lat1 -= 'A';
+    if(lat1 < 0 || lat1 > 16){
+        return;
+    } else {
     u4_puts(D_Incantations[lat1]);
-    if(lat1 < 0)
-        return;
-    lat2 = AskLetter2(" ", 'A', 'P');
+    }
+
+    lat2 = AskLetter2("", 'A', 'P');
     lat2 -= 'A';
+    if(lat2 < 0 || lat2 > 16){
+        return;
+    } else {
     u4_puts(D_Incantations[lat2]);
-    if(lat2 < 0)
-        return;
-    long1 = AskLetter2(" ", 'A', 'P');
+    }
+
+    long1 = AskLetter2("", 'A', 'P');
     long1 -= 'A';
-    u4_puts(D_Incantations[long1]);
-    if(long1 < 0)
+    if(long1 < 0 || long1 > 16){
         return;
-    long2 = AskLetter2(" ", 'A', 'P');
+    } else {
+        u4_puts(D_Incantations[long1]);
+    }
+
+    long2 = AskLetter2("", 'A', 'P');
     long2 -= 'A';
-    u4_puts(D_Incantations[long2]); u4_puts("\n");
-    if(long2 < 0)
+    if(long2 < 0 || long2 > 16){
         return;
+    } else {
+        u4_puts(D_Incantations[long2]); u4_puts("\n");
+    }
+
     
     wandy = ((lat1 * 16) + lat2);
     wandx = ((long1 * 16) + long2);
@@ -426,20 +429,20 @@ USE_WandMagic() {
         return;
     
     Party_Drain(spell_power * 4);
+    MP_drain();
     
     Party._y = wandy;
     Party._x = wandx;
     u4_puts(/*D_1777*/"\nTeleported!\n\n");
     C_26B6();
     return;
-    
 }
 
 USE_WandCast(spell_pow) {
     sound(10, spell_pow);
     Gra_09(); sound(9, 7+0x60); Gra_09();
     if(spell_sta == 'N') {
-        w_Failed2();
+        w_Failed();
         return 0;
     }
     return 1;

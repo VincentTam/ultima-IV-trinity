@@ -1,225 +1,225 @@
 
 
  Start  Stop   Length Name                   Class
- 00000H 03FC4H 03FC5H _TEXT                  CODE
- 03FC5H 03FC5H 00000H C_ETEXT                ENDCODE
- 03FD0H 04005H 00036H NULL                   BEGDATA
- 04006H 07289H 03284H _DATA                  DATA
- 0728AH 07297H 0000EH CDATA                  DATA
- 07298H 07298H 00000H XIB                    DATA
- 07298H 07298H 00000H XI                     DATA
- 07298H 07298H 00000H XIE                    DATA
- 07298H 07298H 00000H XPB                    DATA
- 07298H 07298H 00000H XP                     DATA
- 07298H 07298H 00000H XPE                    DATA
- 07298H 07298H 00000H XCB                    DATA
- 07298H 07298H 00000H XC                     DATA
- 07298H 07298H 00000H XCE                    DATA
- 07298H 0790EH 00677H CONST                  CONST
- 0790FH 07916H 00008H HDR                    MSG
- 07917H 079E7H 000D1H MSG                    MSG
- 079E8H 079E9H 00002H PAD                    MSG
- 079EAH 079EAH 00001H EPAD                   MSG
- 079ECH 0AE41H 03456H _BSS                   BSS
- 0AE42H 0AE42H 00000H XOB                    BSS
- 0AE42H 0AE42H 00000H XO                     BSS
- 0AE42H 0AE42H 00000H XOE                    BSS
- 0AE50H 0B05FH 00210H C_COMMON               BSS
- 0B060H 0B85FH 00800H STACK                  STACK
+ 00000H 0411FH 04120H _TEXT                  CODE
+ 04120H 04120H 00000H C_ETEXT                ENDCODE
+ 04120H 04155H 00036H NULL                   BEGDATA
+ 04156H 073D9H 03284H _DATA                  DATA
+ 073DAH 073E7H 0000EH CDATA                  DATA
+ 073E8H 073E8H 00000H XIB                    DATA
+ 073E8H 073E8H 00000H XI                     DATA
+ 073E8H 073E8H 00000H XIE                    DATA
+ 073E8H 073E8H 00000H XPB                    DATA
+ 073E8H 073E8H 00000H XP                     DATA
+ 073E8H 073E8H 00000H XPE                    DATA
+ 073E8H 073E8H 00000H XCB                    DATA
+ 073E8H 073E8H 00000H XC                     DATA
+ 073E8H 073E8H 00000H XCE                    DATA
+ 073E8H 07A5EH 00677H CONST                  CONST
+ 07A5FH 07A66H 00008H HDR                    MSG
+ 07A67H 07B37H 000D1H MSG                    MSG
+ 07B38H 07B39H 00002H PAD                    MSG
+ 07B3AH 07B3AH 00001H EPAD                   MSG
+ 07B3CH 0AF91H 03456H _BSS                   BSS
+ 0AF92H 0AF92H 00000H XOB                    BSS
+ 0AF92H 0AF92H 00000H XO                     BSS
+ 0AF92H 0AF92H 00000H XOE                    BSS
+ 0AFA0H 0B1AFH 00210H C_COMMON               BSS
+ 0B1B0H 0B9AFH 00800H STACK                  STACK
 
  Origin   Group
- 03FD:0   DGROUP
+ 0412:0   DGROUP
 
   Address         Publics by Name
 
  0000:0010       CONSOLE
- 03FD:31B4       CURSOR_RATE
+ 0412:31B4       CURSOR_RATE
  0000:02A3       C_02A3
  0000:02D1       C_02D1
  0000:034D       C_034D
  0000:041A       C_041A
  0000:05A4       C_05A4
  0000:068C       C_068C
- 0000:0B1E       C_0B1E
- 0000:0B45       C_0B45
- 0000:0BCA       C_0BCA
- 0000:217E       C_217E
- 0000:2656       C_2656
- 0000:271D       C_271D
- 0000:273E       C_273E
- 0000:27E0       C_27E0
- 0000:2883       C_2883
- 0000:2B2A       C_2B2A
- 0000:2B6D       C_2B6D
- 0000:2C12       C_2C12
- 0000:2E04       C_2E04
- 0000:2F07       C_2F07
- 0000:2FB8       C_2FB8
- 0000:3030       C_3030
- 0000:3290       C_3290
- 0000:3299       C_3299
- 0000:32AB       C_32AB
- 0000:32CB       C_32CB
- 0000:331E       C_331E
- 03FD:0036       D_0036
- 03FD:0038       D_0038
- 03FD:00C0       D_00C0
- 03FD:00C2       D_00C2
- 03FD:00C4       D_00C4
- 03FD:00C6       D_00C6
- 03FD:00C8       D_00C8
- 03FD:2EDE       D_2EE6
- 03FD:300A       D_3012
- 03FD:3076       D_307E
- 03FD:30AA       D_30B2
- 03FD:30B2       D_30BA
- 03FD:30BA       D_30C2
- 03FD:30C2       D_30CA
- 03FD:30D4       D_30DC
- 03FD:30DC       D_30E4
- 03FD:31B8       D_31C0
- 03FD:3378       D_3380
- 03FD:33F0       D_33F8
- 03FD:3430       D_3438
- 03FD:3442       D_344A
- 03FD:3454       D_345C
- 03FD:3466       D_346E
- 03FD:367B       D_3683
- 03FD:36DA       D_36E2
- 03FD:696E       D_6976
- 03FD:6E80       D_6E80
- 03FD:7078       D_7078
- 03FD:7082       D_7082
- 03FD:6929       EQUIP_FLAGS
- 03FD:0414       FAR_PSP
- 0000:1190       GRA_2
- 0000:119F       Gra_5
- 0000:11AE       GRA_ANIMFLAG
- 0000:11A9       GRA_ANIMFLOW
- 0000:11B8       GRA_CLRSCR
- 0000:11A4       GRA_INIT
- 0000:11B3       GRA_PUTCHAR
+ 0000:0C4F       C_0B1E
+ 0000:0C76       C_0B45
+ 0000:0CFB       C_0BCA
+ 0000:22D9       C_217E
+ 0000:27B1       C_2656
+ 0000:2878       C_271D
+ 0000:2899       C_273E
+ 0000:293B       C_27E0
+ 0000:29DE       C_2883
+ 0000:2C85       C_2B2A
+ 0000:2CC8       C_2B6D
+ 0000:2D6D       C_2C12
+ 0000:2F5F       C_2E04
+ 0000:3062       C_2F07
+ 0000:3113       C_2FB8
+ 0000:318B       C_3030
+ 0000:33EB       C_3290
+ 0000:33F4       C_3299
+ 0000:3406       C_32AB
+ 0000:3426       C_32CB
+ 0000:3479       C_331E
+ 0412:0036       D_0036
+ 0412:0038       D_0038
+ 0412:00C0       D_00C0
+ 0412:00C2       D_00C2
+ 0412:00C4       D_00C4
+ 0412:00C6       D_00C6
+ 0412:00C8       D_00C8
+ 0412:2EDE       D_2EE6
+ 0412:300A       D_3012
+ 0412:3076       D_307E
+ 0412:30AA       D_30B2
+ 0412:30B2       D_30BA
+ 0412:30BA       D_30C2
+ 0412:30C2       D_30CA
+ 0412:30D4       D_30DC
+ 0412:30DC       D_30E4
+ 0412:31B8       D_31C0
+ 0412:3378       D_3380
+ 0412:33F0       D_33F8
+ 0412:3430       D_3438
+ 0412:3442       D_344A
+ 0412:3454       D_345C
+ 0412:3466       D_346E
+ 0412:367B       D_3683
+ 0412:36DA       D_36E2
+ 0412:696E       D_6976
+ 0412:6E80       D_6E80
+ 0412:7078       D_7078
+ 0412:7082       D_7082
+ 0412:6929       EQUIP_FLAGS
+ 0412:0414       FAR_PSP
+ 0000:12EB       GRA_2
+ 0000:12FA       Gra_5
+ 0000:1309       GRA_ANIMFLAG
+ 0000:1304       GRA_ANIMFLOW
+ 0000:1313       GRA_CLRSCR
+ 0000:12FF       GRA_INIT
+ 0000:130E       GRA_PUTCHAR
  0000:0051       LOAD
- 0000:2551       LOW_CLEAN
- 0000:2583       LOW_GRA
- 0000:244E       LOW_INIT
- 03FD:38FE       MSG_DSKERR
- 03FD:3926       MSG_SYSERR
- 03FD:707E       PANIM
- 03FD:6E82       PARTY
- 03FD:692B       patch_tandy
- 03FD:7084       PCHARSET
- 03FD:30E4       PKARMAS
- 03FD:707A       PSHAPES
- 03FD:708C       PTITLE
+ 0000:26AC       LOW_CLEAN
+ 0000:26DE       LOW_GRA
+ 0000:25A9       LOW_INIT
+ 0412:38FE       MSG_DSKERR
+ 0412:3926       MSG_SYSERR
+ 0412:707E       PANIM
+ 0412:6E82       PARTY
+ 0412:692B       patch_tandy
+ 0412:7084       PCHARSET
+ 0412:30E4       PKARMAS
+ 0412:707A       PSHAPES
+ 0412:708C       PTITLE
  0000:0110       SAVE
- 03FD:695E       seed_0
- 03FD:6962       seed_1
- 03FD:6966       seed_2
- 03FD:696A       seed_3
- 0000:20B4       sizzleCharset
- 0000:210C       SIZZLESHAPES
- 0000:21BF       SOUND_1
- 03FD:6926       SPEED_INFO
- 03FD:7088       TXT_X
- 03FD:708A       TXT_Y
+ 0412:695E       seed_0
+ 0412:6962       seed_1
+ 0412:6966       seed_2
+ 0412:696A       seed_3
+ 0000:220F       sizzleCharset
+ 0000:2267       SIZZLESHAPES
+ 0000:231A       SOUND_1
+ 0412:6926       SPEED_INFO
+ 0412:7088       TXT_X
+ 0412:708A       TXT_Y
  0000:019A       T_CALLBACK
  0000:027A       U4_PUTC
- 0000:261D       U4_PUTS
- 0000:3280       U_KBFLUSH
- 0000:3241       U_KBHIT
- 0000:3270       U_KBREAD
- 0000:31ED       U_RAND_A
- 0000:321E       U_RAND_B
- 0000:3BE3       _brkctl
- 0000:339A       _close
- 0000:3CC3       _creat
- 0000:23C3       _C_23C3
- 03FD:3A1C       _edata
- 03FD:7090       _end
- 03FD:324E       _environ
- 03FD:322A       _errno
- 0000:3507       _exit
- 0000:36FF       _free
- 0000:1186       _Gra_0
- 0000:1195       _Gra_3
- 0000:11C2       _Gra_B
- 0000:11BD       _Gra_C
- 0000:118B       _Gra_dot
- 0000:119A       _Gra_inflate
- 0000:361B       _lseek
- 0000:0EAA       _main
- 0000:370D       _malloc
- 0000:368F       _memcpy
- 0000:36E1       _movedata
- 0000:3753       _open
- 0000:38A4       _read
- 0000:396A       _strcpy
- 0000:398F       _strlen
- 0000:3149       _u_delay
- 0000:39AA       _write
- 03FD:3210       __abrkp
- 03FD:31C0       __abrktb
- 03FD:3210       __abrktbe
+ 0000:2778       U4_PUTS
+ 0000:33DB       U_KBFLUSH
+ 0000:339C       U_KBHIT
+ 0000:33CB       U_KBREAD
+ 0000:3348       U_RAND_A
+ 0000:3379       U_RAND_B
+ 0000:3D3E       _brkctl
+ 0000:34F5       _close
+ 0000:3E1E       _creat
+ 0000:251E       _C_23C3
+ 0412:3A1C       _edata
+ 0412:7090       _end
+ 0412:324E       _environ
+ 0412:322A       _errno
+ 0000:3662       _exit
+ 0000:385A       _free
+ 0000:12E1       _Gra_0
+ 0000:12F0       _Gra_3
+ 0000:131D       _Gra_B
+ 0000:1318       _Gra_C
+ 0000:12E6       _Gra_dot
+ 0000:12F5       _Gra_inflate
+ 0000:3776       _lseek
+ 0000:1005       _main
+ 0000:3868       _malloc
+ 0000:37EA       _memcpy
+ 0000:383C       _movedata
+ 0000:38AE       _open
+ 0000:39FF       _read
+ 0000:3AC5       _strcpy
+ 0000:3AEA       _strlen
+ 0000:32A4       _u_delay
+ 0000:3B05       _write
+ 0412:3210       __abrkp
+ 0412:31C0       __abrktb
+ 0412:3210       __abrktbe
  0000:9876  Abs  __acrtmsg
  0000:9876  Abs  __acrtused
- 03FD:321E       __aintdiv
- 0000:3A87       __amalloc
- 0000:3BC4       __amallocbrk
- 03FD:32A0       __amblksiz
- 0000:3B68       __amexpand
- 0000:3BA2       __amlink
- 0000:344D       __amsg_exit
- 0000:3F77       __aNFblmul
- 0000:3F99       __aNlmul
- 0000:3F77       __aNNalmul
- 0000:3F99       __aNulmul
- 03FD:329A       __aseg1
- 03FD:325E       __asegds
- 03FD:329C       __asegn
- 03FD:329E       __asegr
- 03FD:31BC       __asizds
- 0000:33AE       __astart
- 03FD:31BE       __atopsp
- 03FD:3293       __cappend
- 03FD:3250       __child
- 0000:3458       __cinit
- 0000:344A       __cintDIV
- 0000:3758       __copensub
- 0000:3CDF       __csetmode
- 03FD:3252       __csigtab
- 0000:354A       __ctermsub
- 0000:3D36       __cXENIXtoDOSmode
- 03FD:3234       __doserrno
- 0000:3D49       __dosret0
- 0000:3D51       __dosretax
- 03FD:3232       __dosvermajor
- 03FD:3233       __dosverminor
- 0000:351E       __exit
- 03FD:3222       __fac
- 0000:3572       __ffree
- 0000:3581       __fmalloc
- 03FD:31BA       __fmode
- 03FD:32BC       __fpinit
- 03FD:31BA       __iomode
- 0000:3D5D       __maperror
- 0000:3F35       __myalloc
- 0000:36FF       __nfree
- 0000:370D       __nmalloc
- 0000:3D91       __NMSG_TEXT
- 0000:3DC1       __NMSG_WRITE
- 0000:3CA7       __nullcheck
- 03FD:3234       __oserr
- 03FD:3236       __osfile
- 03FD:3232       __osmajor
- 03FD:3233       __osminor
- 03FD:3230       __psp
- 03FD:322E       __pspadr
- 0000:3DEA       __setargv
- 0000:3ECF       __setenvp
- 03FD:322C       __umaskval
- 03FD:324A       ___argc
- 03FD:324C       ___argv
+ 0412:321E       __aintdiv
+ 0000:3BE2       __amalloc
+ 0000:3D1F       __amallocbrk
+ 0412:32A0       __amblksiz
+ 0000:3CC3       __amexpand
+ 0000:3CFD       __amlink
+ 0000:35A8       __amsg_exit
+ 0000:40D2       __aNFblmul
+ 0000:40F4       __aNlmul
+ 0000:40D2       __aNNalmul
+ 0000:40F4       __aNulmul
+ 0412:329A       __aseg1
+ 0412:325E       __asegds
+ 0412:329C       __asegn
+ 0412:329E       __asegr
+ 0412:31BC       __asizds
+ 0000:3509       __astart
+ 0412:31BE       __atopsp
+ 0412:3293       __cappend
+ 0412:3250       __child
+ 0000:35B3       __cinit
+ 0000:35A5       __cintDIV
+ 0000:38B3       __copensub
+ 0000:3E3A       __csetmode
+ 0412:3252       __csigtab
+ 0000:36A5       __ctermsub
+ 0000:3E91       __cXENIXtoDOSmode
+ 0412:3234       __doserrno
+ 0000:3EA4       __dosret0
+ 0000:3EAC       __dosretax
+ 0412:3232       __dosvermajor
+ 0412:3233       __dosverminor
+ 0000:3679       __exit
+ 0412:3222       __fac
+ 0000:36CD       __ffree
+ 0000:36DC       __fmalloc
+ 0412:31BA       __fmode
+ 0412:32BC       __fpinit
+ 0412:31BA       __iomode
+ 0000:3EB8       __maperror
+ 0000:4090       __myalloc
+ 0000:385A       __nfree
+ 0000:3868       __nmalloc
+ 0000:3EEC       __NMSG_TEXT
+ 0000:3F1C       __NMSG_WRITE
+ 0000:3E02       __nullcheck
+ 0412:3234       __oserr
+ 0412:3236       __osfile
+ 0412:3232       __osmajor
+ 0412:3233       __osminor
+ 0412:3230       __psp
+ 0412:322E       __pspadr
+ 0000:3F45       __setargv
+ 0000:402A       __setenvp
+ 0412:322C       __umaskval
+ 0412:324A       ___argc
+ 0412:324C       ___argv
 
   Address         Publics by Value
 
@@ -234,182 +234,182 @@
  0000:041A       C_041A
  0000:05A4       C_05A4
  0000:068C       C_068C
- 0000:0B1E       C_0B1E
- 0000:0B45       C_0B45
- 0000:0BCA       C_0BCA
- 0000:0EAA       _main
- 0000:1186       _Gra_0
- 0000:118B       _Gra_dot
- 0000:1190       GRA_2
- 0000:1195       _Gra_3
- 0000:119A       _Gra_inflate
- 0000:119F       Gra_5
- 0000:11A4       GRA_INIT
- 0000:11A9       GRA_ANIMFLOW
- 0000:11AE       GRA_ANIMFLAG
- 0000:11B3       GRA_PUTCHAR
- 0000:11B8       GRA_CLRSCR
- 0000:11BD       _Gra_C
- 0000:11C2       _Gra_B
- 0000:20B4       sizzleCharset
- 0000:210C       SIZZLESHAPES
- 0000:217E       C_217E
- 0000:21BF       SOUND_1
- 0000:23C3       _C_23C3
- 0000:244E       LOW_INIT
- 0000:2551       LOW_CLEAN
- 0000:2583       LOW_GRA
- 0000:261D       U4_PUTS
- 0000:2656       C_2656
- 0000:271D       C_271D
- 0000:273E       C_273E
- 0000:27E0       C_27E0
- 0000:2883       C_2883
- 0000:2B2A       C_2B2A
- 0000:2B6D       C_2B6D
- 0000:2C12       C_2C12
- 0000:2E04       C_2E04
- 0000:2F07       C_2F07
- 0000:2FB8       C_2FB8
- 0000:3030       C_3030
- 0000:3149       _u_delay
- 0000:31ED       U_RAND_A
- 0000:321E       U_RAND_B
- 0000:3241       U_KBHIT
- 0000:3270       U_KBREAD
- 0000:3280       U_KBFLUSH
- 0000:3290       C_3290
- 0000:3299       C_3299
- 0000:32AB       C_32AB
- 0000:32CB       C_32CB
- 0000:331E       C_331E
- 0000:339A       _close
- 0000:33AE       __astart
- 0000:344A       __cintDIV
- 0000:344D       __amsg_exit
- 0000:3458       __cinit
- 0000:3507       _exit
- 0000:351E       __exit
- 0000:354A       __ctermsub
- 0000:3572       __ffree
- 0000:3581       __fmalloc
- 0000:361B       _lseek
- 0000:368F       _memcpy
- 0000:36E1       _movedata
- 0000:36FF       _free
- 0000:36FF       __nfree
- 0000:370D       _malloc
- 0000:370D       __nmalloc
- 0000:3753       _open
- 0000:3758       __copensub
- 0000:38A4       _read
- 0000:396A       _strcpy
- 0000:398F       _strlen
- 0000:39AA       _write
- 0000:3A87       __amalloc
- 0000:3B68       __amexpand
- 0000:3BA2       __amlink
- 0000:3BC4       __amallocbrk
- 0000:3BE3       _brkctl
- 0000:3CA7       __nullcheck
- 0000:3CC3       _creat
- 0000:3CDF       __csetmode
- 0000:3D36       __cXENIXtoDOSmode
- 0000:3D49       __dosret0
- 0000:3D51       __dosretax
- 0000:3D5D       __maperror
- 0000:3D91       __NMSG_TEXT
- 0000:3DC1       __NMSG_WRITE
- 0000:3DEA       __setargv
- 0000:3ECF       __setenvp
- 0000:3F35       __myalloc
- 0000:3F77       __aNFblmul
- 0000:3F77       __aNNalmul
- 0000:3F99       __aNulmul
- 0000:3F99       __aNlmul
- 03FD:0036       D_0036
- 03FD:0038       D_0038
- 03FD:00C0       D_00C0
- 03FD:00C2       D_00C2
- 03FD:00C4       D_00C4
- 03FD:00C6       D_00C6
- 03FD:00C8       D_00C8
- 03FD:0414       FAR_PSP
- 03FD:2EDE       D_2EE6
- 03FD:300A       D_3012
- 03FD:3076       D_307E
- 03FD:30AA       D_30B2
- 03FD:30B2       D_30BA
- 03FD:30BA       D_30C2
- 03FD:30C2       D_30CA
- 03FD:30D4       D_30DC
- 03FD:30DC       D_30E4
- 03FD:30E4       PKARMAS
- 03FD:31B4       CURSOR_RATE
- 03FD:31B8       D_31C0
- 03FD:31BA       __iomode
- 03FD:31BA       __fmode
- 03FD:31BC       __asizds
- 03FD:31BE       __atopsp
- 03FD:31C0       __abrktb
- 03FD:3210       __abrktbe
- 03FD:3210       __abrkp
- 03FD:321E       __aintdiv
- 03FD:3222       __fac
- 03FD:322A       _errno
- 03FD:322C       __umaskval
- 03FD:322E       __pspadr
- 03FD:3230       __psp
- 03FD:3232       __dosvermajor
- 03FD:3232       __osmajor
- 03FD:3233       __osminor
- 03FD:3233       __dosverminor
- 03FD:3234       __oserr
- 03FD:3234       __doserrno
- 03FD:3236       __osfile
- 03FD:324A       ___argc
- 03FD:324C       ___argv
- 03FD:324E       _environ
- 03FD:3250       __child
- 03FD:3252       __csigtab
- 03FD:325E       __asegds
- 03FD:3293       __cappend
- 03FD:329A       __aseg1
- 03FD:329C       __asegn
- 03FD:329E       __asegr
- 03FD:32A0       __amblksiz
- 03FD:32BC       __fpinit
- 03FD:3378       D_3380
- 03FD:33F0       D_33F8
- 03FD:3430       D_3438
- 03FD:3442       D_344A
- 03FD:3454       D_345C
- 03FD:3466       D_346E
- 03FD:367B       D_3683
- 03FD:36DA       D_36E2
- 03FD:38FE       MSG_DSKERR
- 03FD:3926       MSG_SYSERR
- 03FD:3A1C       _edata
+ 0000:0C4F       C_0B1E
+ 0000:0C76       C_0B45
+ 0000:0CFB       C_0BCA
+ 0000:1005       _main
+ 0000:12E1       _Gra_0
+ 0000:12E6       _Gra_dot
+ 0000:12EB       GRA_2
+ 0000:12F0       _Gra_3
+ 0000:12F5       _Gra_inflate
+ 0000:12FA       Gra_5
+ 0000:12FF       GRA_INIT
+ 0000:1304       GRA_ANIMFLOW
+ 0000:1309       GRA_ANIMFLAG
+ 0000:130E       GRA_PUTCHAR
+ 0000:1313       GRA_CLRSCR
+ 0000:1318       _Gra_C
+ 0000:131D       _Gra_B
+ 0000:220F       sizzleCharset
+ 0000:2267       SIZZLESHAPES
+ 0000:22D9       C_217E
+ 0000:231A       SOUND_1
+ 0000:251E       _C_23C3
+ 0000:25A9       LOW_INIT
+ 0000:26AC       LOW_CLEAN
+ 0000:26DE       LOW_GRA
+ 0000:2778       U4_PUTS
+ 0000:27B1       C_2656
+ 0000:2878       C_271D
+ 0000:2899       C_273E
+ 0000:293B       C_27E0
+ 0000:29DE       C_2883
+ 0000:2C85       C_2B2A
+ 0000:2CC8       C_2B6D
+ 0000:2D6D       C_2C12
+ 0000:2F5F       C_2E04
+ 0000:3062       C_2F07
+ 0000:3113       C_2FB8
+ 0000:318B       C_3030
+ 0000:32A4       _u_delay
+ 0000:3348       U_RAND_A
+ 0000:3379       U_RAND_B
+ 0000:339C       U_KBHIT
+ 0000:33CB       U_KBREAD
+ 0000:33DB       U_KBFLUSH
+ 0000:33EB       C_3290
+ 0000:33F4       C_3299
+ 0000:3406       C_32AB
+ 0000:3426       C_32CB
+ 0000:3479       C_331E
+ 0000:34F5       _close
+ 0000:3509       __astart
+ 0000:35A5       __cintDIV
+ 0000:35A8       __amsg_exit
+ 0000:35B3       __cinit
+ 0000:3662       _exit
+ 0000:3679       __exit
+ 0000:36A5       __ctermsub
+ 0000:36CD       __ffree
+ 0000:36DC       __fmalloc
+ 0000:3776       _lseek
+ 0000:37EA       _memcpy
+ 0000:383C       _movedata
+ 0000:385A       _free
+ 0000:385A       __nfree
+ 0000:3868       _malloc
+ 0000:3868       __nmalloc
+ 0000:38AE       _open
+ 0000:38B3       __copensub
+ 0000:39FF       _read
+ 0000:3AC5       _strcpy
+ 0000:3AEA       _strlen
+ 0000:3B05       _write
+ 0000:3BE2       __amalloc
+ 0000:3CC3       __amexpand
+ 0000:3CFD       __amlink
+ 0000:3D1F       __amallocbrk
+ 0000:3D3E       _brkctl
+ 0000:3E02       __nullcheck
+ 0000:3E1E       _creat
+ 0000:3E3A       __csetmode
+ 0000:3E91       __cXENIXtoDOSmode
+ 0000:3EA4       __dosret0
+ 0000:3EAC       __dosretax
+ 0000:3EB8       __maperror
+ 0000:3EEC       __NMSG_TEXT
+ 0000:3F1C       __NMSG_WRITE
+ 0000:3F45       __setargv
+ 0000:402A       __setenvp
+ 0000:4090       __myalloc
+ 0000:40D2       __aNFblmul
+ 0000:40D2       __aNNalmul
+ 0000:40F4       __aNulmul
+ 0000:40F4       __aNlmul
+ 0412:0036       D_0036
+ 0412:0038       D_0038
+ 0412:00C0       D_00C0
+ 0412:00C2       D_00C2
+ 0412:00C4       D_00C4
+ 0412:00C6       D_00C6
+ 0412:00C8       D_00C8
+ 0412:0414       FAR_PSP
+ 0412:2EDE       D_2EE6
+ 0412:300A       D_3012
+ 0412:3076       D_307E
+ 0412:30AA       D_30B2
+ 0412:30B2       D_30BA
+ 0412:30BA       D_30C2
+ 0412:30C2       D_30CA
+ 0412:30D4       D_30DC
+ 0412:30DC       D_30E4
+ 0412:30E4       PKARMAS
+ 0412:31B4       CURSOR_RATE
+ 0412:31B8       D_31C0
+ 0412:31BA       __iomode
+ 0412:31BA       __fmode
+ 0412:31BC       __asizds
+ 0412:31BE       __atopsp
+ 0412:31C0       __abrktb
+ 0412:3210       __abrktbe
+ 0412:3210       __abrkp
+ 0412:321E       __aintdiv
+ 0412:3222       __fac
+ 0412:322A       _errno
+ 0412:322C       __umaskval
+ 0412:322E       __pspadr
+ 0412:3230       __psp
+ 0412:3232       __dosvermajor
+ 0412:3232       __osmajor
+ 0412:3233       __osminor
+ 0412:3233       __dosverminor
+ 0412:3234       __oserr
+ 0412:3234       __doserrno
+ 0412:3236       __osfile
+ 0412:324A       ___argc
+ 0412:324C       ___argv
+ 0412:324E       _environ
+ 0412:3250       __child
+ 0412:3252       __csigtab
+ 0412:325E       __asegds
+ 0412:3293       __cappend
+ 0412:329A       __aseg1
+ 0412:329C       __asegn
+ 0412:329E       __asegr
+ 0412:32A0       __amblksiz
+ 0412:32BC       __fpinit
+ 0412:3378       D_3380
+ 0412:33F0       D_33F8
+ 0412:3430       D_3438
+ 0412:3442       D_344A
+ 0412:3454       D_345C
+ 0412:3466       D_346E
+ 0412:367B       D_3683
+ 0412:36DA       D_36E2
+ 0412:38FE       MSG_DSKERR
+ 0412:3926       MSG_SYSERR
+ 0412:3A1C       _edata
  0000:9876  Abs  __acrtmsg
  0000:9876  Abs  __acrtused
- 03FD:6926       SPEED_INFO
- 03FD:6929       EQUIP_FLAGS
- 03FD:692B       patch_tandy
- 03FD:695E       seed_0
- 03FD:6962       seed_1
- 03FD:6966       seed_2
- 03FD:696A       seed_3
- 03FD:696E       D_6976
- 03FD:6E80       D_6E80
- 03FD:6E82       PARTY
- 03FD:7078       D_7078
- 03FD:707A       PSHAPES
- 03FD:707E       PANIM
- 03FD:7082       D_7082
- 03FD:7084       PCHARSET
- 03FD:7088       TXT_X
- 03FD:708A       TXT_Y
- 03FD:708C       PTITLE
- 03FD:7090       _end
+ 0412:6926       SPEED_INFO
+ 0412:6929       EQUIP_FLAGS
+ 0412:692B       patch_tandy
+ 0412:695E       seed_0
+ 0412:6962       seed_1
+ 0412:6966       seed_2
+ 0412:696A       seed_3
+ 0412:696E       D_6976
+ 0412:6E80       D_6E80
+ 0412:6E82       PARTY
+ 0412:7078       D_7078
+ 0412:707A       PSHAPES
+ 0412:707E       PANIM
+ 0412:7082       D_7082
+ 0412:7084       PCHARSET
+ 0412:7088       TXT_X
+ 0412:708A       TXT_Y
+ 0412:708C       PTITLE
+ 0412:7090       _end
 
-Program entry point at 0000:33AE
+Program entry point at 0000:3509

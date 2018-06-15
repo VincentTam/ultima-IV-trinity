@@ -500,7 +500,8 @@ C_9F7B()
 	t_callback();
     
     if(spell_sta == 'R'){
-        
+        /*Added to 'mesmerize' foes with the ring of Exodus*/
+        /*It's blank because the creatures do nothing when mesmerized */
     }
     else {
         for(loc_A = 15; loc_A >= 0; loc_A --) {

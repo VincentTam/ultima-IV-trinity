@@ -353,10 +353,18 @@ Death_Revive()
 	Party.out_x = 0x56;
 	Party.out_y = 0x6c;
 
-	if(File_TLK) {
-		dclose(File_TLK);
-		File_TLK = 0;
-	}
+    if(File_TLK) {
+        dclose(File_TLK);
+        File_TLK = 0;
+    }
+    if(File_TLK_2) {
+        dclose(File_TLK_2);
+        File_TLK_2 = 0;
+    }
+    if(File_TLK_Buff) {
+        dclose(File_TLK_Buff);
+        File_TLK_Buff = 0;
+    }
 	if(File_DNG) {
 		dclose(File_DNG);
 		File_TLK = 0;/*bug??*/
@@ -368,6 +376,7 @@ Death_Revive()
 	if(Load("LCB_2.ULT", sizeof(struct t_500), &D_8742) == -1)
 		exit(3);
 	File_TLK = dopen("LCB.TLK", 0);
+    File_TLK_2 = dopen("LCB.TLK", 0);
 	CurMode = MOD_BUILDING;
 	Party._loc = 0x01;
 	Party.f_1dc = 0;
@@ -495,11 +504,12 @@ char bp04;
                 si = -1;
             else
                 si = -2;
+            Gra_CR();
             break;
         }
         si &= 0xff;
         u4_toupper2(si);
-        if(si > ' ' && si < 0x7f)
+        if((si > ' ' && si < 0x7f) && (bp06 <= si && si <= bp04))
             u4_putc(si);
         if(bp06 <= si && si <= bp04)
             break;

@@ -354,6 +354,7 @@ extern int /*D_080A*/activeCharaX;
 extern char D_080C[], D_0810[];
 extern char D_0814[], D_081C[];/*moongates positions*/
 extern char *Towne_Castle_Village[];
+extern char *Second_Floor[];
 extern char D_0844[]; /*x-coordinate for locations*/
 extern char D_0864[]; /*y-coordinate for locations*/
 extern char *Shrines[];
@@ -385,7 +386,6 @@ extern unsigned /*D_8728*/speed_info;
 extern unsigned /*D_872B*/equip_flags;
 extern void far *patch_tandy;/*D_872D*/
 extern struct t_500 D_8742;
-extern struct t_500 Lone_NPC;
 
 
 /*====---- c_common ----====*/
@@ -453,6 +453,8 @@ extern int /*D_96F0*/File_MAP;
 extern unsigned /*D_96F2*/WindDir;
 extern char D_96F4;
 extern int /*D_96F6*/File_TLK;
+extern int /*D_96F6*/File_TLK_2;
+extern int /*D_96F6*/File_TLK_Buff;
 extern unsigned char D_96F8;
 extern unsigned char D_96F9[11*11];
 extern unsigned char D_9772;

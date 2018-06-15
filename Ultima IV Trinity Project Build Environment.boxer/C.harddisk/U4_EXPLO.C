@@ -69,6 +69,25 @@ char *Talk_Files[] ={
 
 };
 
+char *Talk_Files_2[] ={
+    /*Castles*/
+    /*D_1682*/"LCB.TLK",
+    /*D_168A*/"LYCAEUM.TLK",
+    /*D_1696*/"EMPATH.TLK",
+    /*D_16A1*/"SERPENT.TLK",
+    /*Townes*/
+    /*D_16AD*/"MOONGLO2.TLK",
+    /*D_16BA*/"BRITAIN2.TLK",
+    /*D_16C6*/"JHELOM2.TLK",
+    /*D_16D1*/"YEW2.TLK",
+    /*D_16D9*/"MINOC2.TLK",
+    /*D_16E3*/"TRINSIC2.TLK",
+    /*D_16EF*/"SKARA2.TLK",
+    /*D_16F9*/"MAGINCIA.TLK"
+};
+
+
+
 /*load casle/towne/village files*/
 Load_Towne(bp04)
 unsigned bp04;
@@ -78,7 +97,31 @@ unsigned bp04;
 	if(Load(Towne_Castle_Village[bp04 - 0x01], sizeof(struct t_500), &D_8742) == -1)
 		exit(3);
 	File_TLK = dopen(Talk_Files[Party._loc - 1], 0);
+    File_TLK_2 = dopen(Talk_Files_2[Party._loc - 1], 0);
 	CurMode = MOD_BUILDING;
+}
+
+Load_Towne_1st(bp04)
+unsigned bp04;
+{
+
+    if(Load(Towne_Castle_Village[bp04 - 0x01], sizeof(struct t_500), &D_8742) == -1)
+        exit(3);
+    File_TLK_2 = File_TLK;
+    File_TLK = File_TLK_Buff;
+    File_TLK_Buff = File_TLK_2;
+
+}
+
+Load_Towne_2nd(bp04)
+unsigned bp04;
+{
+
+    if(Load(Second_Floor[bp04 - 0x01], sizeof(struct t_500), &D_8742) == -1)
+        exit(3);
+    File_TLK_Buff = File_TLK;
+    File_TLK = File_TLK_2;
+
 }
 
 /*load dungeon files*/
@@ -142,7 +185,11 @@ Enter_Towne()
 	Gra_CR();
     
     /*added to give new towns unique start coords*/
-    if ((Party._loc) < 5) {
+    if (Party._loc == 0x24){
+        Party._y = D_959C.y = 0x0f;
+        Party._x = D_959C.x = 0x01;
+    }
+    else if ((Party._loc) < 5) {
         Party._y = D_959C.y = 0x1e;
         Party._x = D_959C.x = 0x0f;
     }
@@ -510,31 +557,9 @@ C_431D()
         w_OnlyOnFoot();
         return;
     }
-	if(Party._loc == 1 && tile_cur == TIL_1B) {
-		u4_puts(/*D_184B*/"to second floor!\n");
-		if(Load(/*D_185D*/"LCB_2.ULT", sizeof(struct t_500), &D_8742) == -1)
-			exit(3);
-        return;
-	}
-    if(Party._loc == 6 && tile_cur == TIL_1B) {
-        u4_puts(/*D_184B*/"to second floor!\n");
-        if(Load(/*D_185D*/"Britain2.ULT", sizeof(struct t_500), &D_8742) == -1)
-            exit(3);
-        File_TLK = dopen("Britain2.TLK", 0);
-        return;
-    }
-    if(Party._loc == 9 && tile_cur == TIL_1B) {
-        u4_puts(/*D_184B*/"to second floor!\n");
-        if(Load(/*D_185D*/"Minoc2.ULT", sizeof(struct t_500), &D_8742) == -1)
-            exit(3);
-        File_TLK = dopen("Minoc2.TLK", 0);
-        return;
-    }
-    if(Party._loc == 10 && tile_cur == TIL_1B) {
-        u4_puts(/*D_184B*/"to second floor!\n");
-        if(Load(/*D_185D*/"Trinsic2.ULT", sizeof(struct t_500), &D_8742) == -1)
-            exit(3);
-        File_TLK = dopen("Trinsic2.TLK", 0);
+    if(tile_cur == TIL_1B) {
+        u4_puts("to second floor!\n");
+        Load_Towne_2nd(Party._loc);
         return;
     }
     else {
@@ -544,6 +569,9 @@ C_431D()
 
 /*C_44EE*/CMD_Descend()
 {
+    int position,talkfile;
+    position = Towne_Castle_Village[Party._loc - 1];
+    talkfile = Talk_Files[Party._loc - 1];
     while(D_17FE)
         C_431D();
     u4_puts(/*D_1886*/"Descend ");
@@ -572,33 +600,6 @@ C_431D()
         w_OnlyOnFoot();
         return;
     }
-    if(Party._loc == 6 && tile_cur == TIL_1C) {
-        u4_puts("to first floor!\n");
-        if(Load("Britain.ULT", sizeof(struct t_500), &D_8742) == -1)
-            exit(3);
-        File_TLK = dopen("Britain.TLK", 0);
-        EXP_Clear_PartyNPC();
-        EXP_Restore_Horse();
-        return;
-    }
-    if(Party._loc == 9 && tile_cur == TIL_1C) {
-        u4_puts("to first floor!\n");
-        if(Load("Minoc.ULT", sizeof(struct t_500), &D_8742) == -1)
-            exit(3);
-        File_TLK = dopen("Minoc.TLK", 0);
-        EXP_Clear_PartyNPC();
-        EXP_Restore_Horse();
-        return;
-    }
-    if(Party._loc == 10 && tile_cur == TIL_1C) {
-        u4_puts("to first floor!\n");
-        if(Load("TRINSIC.ULT", sizeof(struct t_500), &D_8742) == -1)
-            exit(3);
-        File_TLK = dopen("Trinsic.TLK", 0);
-        EXP_Clear_PartyNPC();
-        EXP_Restore_Horse();
-        return;
-    }
 	if(Party._y == 2 && Party._loc == 0x01 && tile_cur == TIL_1C) {
 		u4_puts("into the depths!\n");
 		Party.out_x = 0xef;
@@ -608,10 +609,10 @@ C_431D()
 		EXP_Set_Dungeon();
 		return;
 	}
-    if(Party._loc == 0x01 && tile_cur == TIL_1C) {
+    if(tile_cur == TIL_1C) {
         u4_puts("to first floor!\n");
-        if(Load("LCB_1.ULT", sizeof(struct t_500), &D_8742) == -1)
-        exit(3);
+        Load_Towne_1st(Party._loc);
+        EXP_Clear_PartyNPC();
         EXP_Restore_Horse();
         return;
     }

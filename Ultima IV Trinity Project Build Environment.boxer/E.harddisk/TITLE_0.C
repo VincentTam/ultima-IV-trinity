@@ -229,11 +229,33 @@ C_068C()
 		Gra_3(15,  5, 14,  0, pTitle, 33, -1, 14);
 	}
 	/*"quest of the avatar"*/
-	for(loc_A = 1; loc_A <= 6; loc_A ++) {
-		Gra_3(35, loc_A, 3,      81, pTitle, 86 - loc_A, -1, 3);
-		Gra_3(35, loc_A, 3, 93 - loc_A, pTitle,      86, -1, 3);
-		C_02A3((long)4000);
-	}
+    if(!u_kbhit()) {
+        for(loc_A = 1; loc_A <= 6; loc_A ++) {
+            Gra_3(33, loc_A, 3,      81, pTitle, 86 - loc_A, -1, 3);
+            Gra_3(33, loc_A, 3, 93 - loc_A, pTitle,      86, -1, 3);
+            C_02A3((long)4000);
+        }
+        u_delay(1, 1);
+        for(loc_A = 57; loc_A > 1; loc_A --) {
+            if(u_kbhit())
+                loc_A = 2;
+            Gra_B(33, 12, 3, 81, pTitle, 80, loc_A, 3);
+            if(speed_info > 4)
+                Gra_B(33, 12, 3, 81, pTitle, 80, loc_A, 3);
+            C_02A3((long)2000);
+        }
+        for(loc_A = 2; loc_A < 57; loc_A ++) {
+            if(u_kbhit())
+                loc_A = 56;
+            Gra_B(35, 12, 3, 111, pTitle, 80, loc_A, 3);
+            if(speed_info > 4)
+                Gra_B(35, 12, 3, 111, pTitle, 80, loc_A, 3);
+            C_02A3((long)2000);
+        }
+    } else {
+        Gra_B(35, 12, 3, 111, pTitle, 80, 56, 3);
+    }
+    u_delay(1, 1);
 	/*open view like scroll*/
 	for(loc_A = 1; loc_A <= 20; loc_A ++) {
 		if(u_kbhit())
@@ -330,10 +352,13 @@ C_0BCA()
 	Gra_3(21,  9,  9, 21, pTitle, 21, -1, 9);
 	Gra_3(30, 45,  5, 34, pTitle, 34, -1, 5);
 	Gra_3(15,  5, 14,  0, pTitle, 33, -1, 14);
-	Gra_3(33,  6,  3, 81, pTitle, 80, -1, 3);
-	Gra_3(33,  6,  3, 87, pTitle, 86, -1, 3);
+    Gra_3(33,  6,  3, 81, pTitle, 80, -1, 3);
+    Gra_3(33,  6,  3, 87, pTitle, 86, -1, 3);
+	Gra_3(35,  12,  3, 111, pTitle, 80, -1, 3);
 	Gra_3(40, 96,  0, 96, pTitle, 96, -1, 0);
 	_ffree(pTitle);
+    
+
 
 	if((pAnim = _fmalloc((D_7078 == 1)?0x4000:0x8000)) == 0)
 		exit(0x3b);

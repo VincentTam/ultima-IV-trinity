@@ -167,6 +167,8 @@ C_C51C()
 		exit(3);
 	}
 	File_TLK = 0;
+    File_TLK_2 = 0;
+    File_TLK_Buff = 0;
 	D_9445 = D_0814[(((Party._trammel >> 5)) & 7)];
 	D_9448 = D_081C[(((Party._felucca >> 5)) & 7)];
 	C_213B();/*draw game screen frame*/

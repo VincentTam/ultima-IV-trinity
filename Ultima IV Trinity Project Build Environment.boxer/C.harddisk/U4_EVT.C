@@ -46,7 +46,7 @@ Random_Encounter()
 		C_7DBC();
 		return;
 	}
-    if(CurMode == MOD_OUTDOORS && tile_cur == TIL_Mount_08) {
+    if(CurMode == MOD_OUTDOORS && Party._tile != TIL_18 && tile_cur == TIL_Mount_08) {
         u4_puts(/*D_1777*/"\nMountains!\n\n");
         sound(6); shakefx();
         Gra_09();
@@ -55,7 +55,7 @@ Random_Encounter()
         Death_Revive();
         return;
     }
-    if(CurMode == MOD_OUTDOORS && tile_cur == TIL_DWater_00 || tile_cur == TIL_MWater_01 || tile_cur == TIL_SWater_02) {
+    if(CurMode == MOD_OUTDOORS && (Party._tile >= TIL_HorseW_14 && Party._tile != TIL_18) && (tile_cur == TIL_DWater_00 || tile_cur == TIL_MWater_01 || tile_cur == TIL_SWater_02)) {
         u4_puts(/*D_1777*/"\nWater!\n\n");
         sound(6); shakefx();
         Gra_09();
