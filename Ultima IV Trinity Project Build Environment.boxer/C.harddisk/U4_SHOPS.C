@@ -160,7 +160,7 @@ unsigned char D_4190[][6] = {
 	{2, 4, 9, 6, 4, 8},
 	{3, 4, 2, 9, 6, 7},
 	{6, 7, 9, 9, 9, 1},
-    {3, 2, 3, 2, 4, 5}
+    {8, 2, 3, 2, 4, 5}
 };
 
 /*SHOP #5 - reagents*/
@@ -1012,7 +1012,7 @@ unsigned char D_567A[] = {30,60,90, 0};
 /*----------------------------------------*/
 
 /*shops indexes*/
-unsigned char D_5788[16] = {1, 2, 3, 4, 5, 6, 7, 8, 0, 0, 9, 0, 0, 0, 0, 10};
+unsigned char D_5788[40] = {1, 2, 3, 4, 5, 6, 7, 8, 0, 0, 9, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0};
 
 char *D_5798[] = {
 	/*D_567E*/"The Royal Healer",
@@ -1024,7 +1024,8 @@ char *D_5798[] = {
 	/*D_56D8*/"Heal and Health",
 	/*D_56E8*/"Just Healing",
 	/*D_56F5*/"The Mystic Heal",
-	/*D_5705*/"The Healer Shop"
+	/*D_5705*/"The Healer Shop",
+    "Mountain Healing"
 };
 
 char *D_57AC[] = {
@@ -1037,7 +1038,8 @@ char *D_57AC[] = {
 	/*D_5749*/"Triplet",
 	/*D_5751*/"Justin",
 	/*D_5758*/"Spiran",
-	/*D_575F*/"Quat"
+	/*D_575F*/"Quat",
+    "Demeter"
 };
 
 C_DA05()
@@ -1439,16 +1441,17 @@ C_E004:
 /*----------------------------------------*/
 
 /*shops indexes*/
-unsigned char D_636C[16] = {0, 0, 0, 0, 1, 2, 0, 3, 0, 0, 4, 0, 5, 0, 0, 0};
+unsigned char D_636C[40] = {0, 0, 0, 0, 1, 2, 0, 3, 0, 0, 4, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0};
 
-int D_637C[] = {25, 40, 35, 20, 30};
+int D_637C[] = {25, 40, 35, 20, 30, 20};
 
 char *D_6386[] = {
 	/*D_61A4*/"The Sage Deli",
 	/*D_61B2*/"Adventure Food",
 	/*D_61C1*/"The Dry Goods",
 	/*D_61CF*/"Food for Thought",
-	/*D_61E0*/"The Market"
+	/*D_61E0*/"The Market",
+    "The Farmer's Market"
 };
 
 char *D_6390[] = {
@@ -1456,7 +1459,8 @@ char *D_6390[] = {
 	/*D_61F2*/"Windrick",
 	/*D_61FB*/"Donnar",
 	/*D_6102*/"Mintol",
-	/*D_6109*/"Max"
+	/*D_6109*/"Max",
+    "Gunthrie"
 };
 
 /*SHOP #3 - food*/
