@@ -1,0 +1,140 @@
+bye
+1
+Take care my friend.
+name
+1
+He says:My name is:Lord British:Sovereign of:all Britannia!
+job
+1
+He says:I rule all Britannia and:shall do my best:to help thee!
+look
+1
+Thou see the:King:with the:Royal Sceptre.
+truth
+1
+He says:Many truths can:be learned at the Lycaeum.:It lies on the:north western:shore of Verity Isle!
+love
+1
+He says:Look for the:meaning of Love:at Empath Abbey.:The Abbey sits:on the western*edge of the Deep Forest!
+courage
+1
+He says:Serpent's Castle:on the Isle of:Deeds:is where:Courage should be sought!
+honesty
+1
+He says:The fair towne:of Moonglow on:Verity Isle is:where the virtue:of Honesty thrives!
+compassion
+1
+He says:The bards in the:towne of Britain: are well versed:in the virtue of:Compassion!
+valor
+1
+He says:Many valiant fighters:come from Jhelom in:the Valarian Isles!
+justice
+1
+He says:In the city of:Yewin the Deep:ForestJustice is served!
+sacrifice
+1
+He says:Minoc towne of:self-sacrifice lies:on the eastern shores:of Lost Hope Bay!
+honor
+1
+He says:The Paladins who:strive for Honor:are oft seen in Trinsic:north of the Cape of:Heroes!
+spirituality
+1
+He says:In Skara Brae the:Spiritual path is taught:Find it on an isle:near Spiritwood!
+humility
+2
+He says:Humility is the:foundation of Virtue!:The ruins of proud Magincia:are a testimony unto the:Virtue of Humility!*
+Find the Ruins of:Magincia far off the:shores of Britannia:on a small isle in:the vast Ocean!
+pride
+2
+He says:Of the eight:combinations of Truth Love:and Courage that which:contains neither TruthLove:nor Courage is Pride.*
+Pride being not a Virtue:must be shunned in favor:of Humility the Virtue:which is the antithesis:of Pride!
+avatar
+2
+Lord British says:To be:an Avatar is to be the:embodiment of:the Eight Virtues.:It is to live a:life constantly and forever:in the Quest to*
+better thyself and the:world in which we live.
+quest
+2
+Lord British says:The Quest of:the Avatar is to know:and become the embodiment:of the Eight Virtues:of Goodness!*
+It is known that all:who take on this:Quest must prove:themselves by conquering:the Abyss and Viewing the:Codex of Ultimate Wisdom!
+britannia
+1
+He says:Even though the:Great Evil Lords have:been routed evil yet:remains in Britannia.:If but one soul could*complete the Quest of:the Avatar our people:would have a new hope:a new goal for life.
+ankh
+1
+He says:The Ankh is the:symbol of one who:strives for Virtue.:Keep it with thee at:all times for by this:mark thou shalt be known!
+abyss
+2
+He says:The Great Stygian:Abyss is the darkest:pocket of evil remaining:in Britannia!:It is said that in:the deepest recesses of*
+the Abyss is the:Chamber of the Codex!:It is also said that:only one of highest Virtue:may enter this Chamber
+mondain
+1
+He says:Mondain is dead!
+minax
+1
+He says:Minax is dead!
+exodus
+1
+He says:Exodus is dead!
+virtue
+2
+He says:The Eight Virtues:of the Avatar are:Honesty-Compassion:Valor-Justice*
+Sacrifice-Honor:Spirituality:and Humility!
+health
+2
+He says:I am well thank ye.
+Let me heal thy wounds.
+heal
+1
+He says:Let me heal thy wounds.
+help
+2
+To hear all 9 parts:of my help,:type the help keyword followed:by the help #(1-9).*
+For example to listen:to help #1, type help1
+help1
+2
+He says:To survive in this hostile:land thou must first:know thy self! Seek ye:to master thy weapons and:thy magical ability!*
+Take great care in:these thy first travels:in Britannia.*
+help2
+2
+Until thou dost well:know thyself travel not:far from the safety of:the townes!*
+Travel not the open:lands alone.:There are many worthy:people in the diverse:townes whom it would:be wise to ask:to Join thee!
+help3
+2
+Build thy party unto:eight travellers for:only a true leader can:win the Quest!*
+Learn ye the paths of virtue.:Seek to gain entry unto:the eight shrines!
+help4
+2
+Find ye the Runes needed:for entry into each shrine:and learn each chant:or "Mantra" used to focus:thy meditations.*
+Within the Shrines thou:shalt learn of the deeds:which show thy inner:virtue or vice!
+help5
+2
+Choose thy path wisely:for all thy deeds of:good and evil are:remembered and can:return to hinder thee!*
+Visit the Seer Hawkwind:often and use his wisdom:to help thee:prove thy virtue.
+help6
+2
+When thou art ready:Hawkwind will advise thee:to seek the Elevation:unto partial Avatarhood:in a virtue.*
+Seek ye to become a:partial Avatar in all:eight virtues for only:then shalt thou be:ready to seek the codex!
+help7
+2
+Go ye now into the:depths of the dungeons.:Therein recover the 8 colored:stones from the altar:pedestals in the halls of:the dungeons.*
+Find the uses of these:stones for they can:help thee in the Abyss!
+help8
+2
+Find ye the Bell Book:and Candle!:With these three things:one may enter the:Great Stygian Abyss!*
+Before thou dost enter:the Abyss thou shalt need:the Key of Three Parts:and the Word of Passage.
+help9
+2
+Then might thou enter:the Chamber of the Codex:of Ultimate Wisdom!*
+The hearts and souls:of all Britannia:go with thee now.
+white stone
+1
+If thou dost seek the:White Stone search ye:not under the ground:but in Serpent's Spine!
+black stone
+1
+If thou dost seek the:Black Stone search ye:at the Time and Place of:the Gate on the darkest:of all nights!
+bell
+1
+Ring the Bell of Courage:at the entrance to:the Great Stygian Abyss!
+eof
+1
+blah

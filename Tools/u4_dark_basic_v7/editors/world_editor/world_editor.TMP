@@ -1,0 +1,645 @@
+ver$= "version 3.0525"
+gosub init
+gosub bitmapload
+gosub readworld
+gosub show_splash
+gosub load_icons_on_mainpage
+gosub load_main_screen
+gosub special_things_to_display
+`starting coords*
+starty=0:startx=0:animation=0:current_icon=0
+`****************
+
+do
+gosub keyhit
+gosub mouse_event
+gosub time_scheduler
+gosub paste_icon_selected
+gosub mouse_paste_event
+sync
+loop
+end
+
+
+mouse_event:
+`check to see if mouse is over any icon
+xx=mousex():yy=mousey():button=mouseclick()
+`***************************************************************************************************************
+`load icon page
+`***************************************************************************************************************
+if (xx>638 AND xx<732) AND (yy>34 AND yy<60) AND button=1
+play sound 2
+
+cls:load image fln$,5002:paste image 5002,0,0:sync
+
+gosub clear_left_click
+SET TEXT OPAQUE
+button=0
+while button=0
+xx=mousex():yy=mousey():button=mouseclick()
+icon_x=xx/32:if icon_x>24 then icon_x=24
+icon_y=yy/32:if icon_y>14 then icon_y=14
+current_icon=(icon_x*15)+icon_y
+sync
+endwhile
+
+gosub clear_left_click:cls:paste image 1024,0,0
+endif
+`***************************************************************************************************************
+`save module World
+`***************************************************************************************************************
+if (xx>638 AND xx<732) AND (yy>85 AND yy<114) AND button=1
+   gosub clear_left_click:play sound 2
+   DELETE FILE "..\..\u4_maps\world.map"
+   OPEN TO write 1, "..\..\u4_maps\world.map"
+remstart
+   `start at block 1 out of 64
+   blockx=0:blocky=1
+   for b=1 to 64
+   blockx=blockx+1:if blockx=9 then blockx=1:blocky=blocky+1
+   gosub blockwrite
+   next b
+   CLOSE FILE 1
+   return
+
+   blockwrite:
+   for y=0 to 31:for x=0 to 31
+   byte_val=world(y+((blocky-1)*32),x+((blockx-1)*32)):WRITE BYTE 1, byte_val
+   next x:next y
+
+remend
+for y=0 to 255
+for x=0 to 255
+
+word_val=world(y,x)
+write word 1,word_val
+next x : next y
+close file 1
+return
+endif
+`***************************************************************************************************************
+`More Water in World
+if (xx>648 AND xx<738) AND (yy>160 AND yy<182) AND button=1
+   gosub clear_left_click:play sound 2
+   for y=0 to 255:for x=0 to 255
+   byte_val=world(y,x)
+   done=0
+      if byte_val<=2 AND (x>0 AND y>0)
+      if rnd(5)=0
+         if world(y,x-1)>2 AND done=0 then world(y,x-1)=current_icon:done=1
+         if world(y,x+1)>2 AND done=0 then world(y,x+1)=current_icon:done=1
+         if world(y-1,x)>2 AND done=0 then world(y-1,x)=current_icon:done=1
+         if world(y+1,x)>2 AND done=0 then world(y+1,x)=current_icon:done=1
+         if world(y-1,x-1)>2 AND done=0 then world(y-1,x-1)=current_icon:done=1
+         if world(y-1,x+1)>2 AND done=0 then world(y-1,x+1)=current_icon:done=1
+         if world(y+1,x-1)>2 AND done=0 then world(y+1,x-1)=current_icon:done=1
+         if world(y+1,x+1)>2 AND done=0 then world(y+1,x+1)=current_icon:done=1
+      endif
+      endif
+   next x:next y
+endif
+
+`***************************************************************************************************************
+`More Land in World
+if (xx>648 AND xx<738) AND (yy>196 AND yy<220) AND button=1
+   gosub clear_left_click:play sound 2
+   for y=0 to 255:for x=0 to 255
+   byte_val=world(y,x)
+   done=0
+   tile=current_icon
+      if byte_val>2 AND (x>0 AND y>0)
+      if rnd(5)=0
+         if world(y,x-1)<=2 AND done=0 then world(y,x-1)= tile:done=1
+         if world(y,x+1)<=2 AND done=0 then world(y,x+1)= tile:done=1
+         if world(y-1,x)<=2 AND done=0 then world(y-1,x)= tile:done=1
+         if world(y+1,x)<=2 AND done=0 then world(y+1,x)= tile:done=1
+         if world(y-1,x-1)<=2 AND done=0 then world(y-1,x-1)= tile:done=1
+         if world(y-1,x+1)<=2 AND done=0 then world(y-1,x+1)= tile:done=1
+         if world(y+1,x-1)<=2 AND done=0 then world(y+1,x-1)= tile:done=1
+         if world(y+1,x+1)<=2 AND done=0 then world(y+1,x+1)= tile:done=1
+      endif
+      endif
+   next x:next y
+endif
+
+
+`***************************************************************************************************************
+`Quit and bail out
+if (xx>735 AND xx<779) AND (yy>227 AND yy<242) AND button=1 then end
+
+
+`***************************************************************************************************************
+`Clear WORLD.MAP
+if (xx>657 AND xx<723) AND (yy>226 AND yy<244) AND button=1
+   gosub clear_left_click:play sound 2:cls
+for y=0 to 255:for x=0 to 255:world(y,x)=current_icon:next x:next y
+endif
+
+`***************************************************************************************************************
+`Peer / Global View
+if (xx>600 AND xx<650) AND (yy>226 AND yy<244) AND button=1
+   gosub clear_left_click:play sound 2:cls
+
+   y_max=255:x_max=255:pixel_x#=1.34:pixel_y#=1.6:x_pxl#=200:y_pxl#=75
+
+   for y=0 to y_max:for x=0 to x_max:pxl=world(y,x):ink rgb(0,0,0),rgb(0,0,0)
+
+   `water
+   if pxl>=1 AND pxl<=2 then ink rgb(0,0,255),rgb(0,0,0)
+   `land
+   if (pxl>=3 AND pxl<=5)  then ink rgb(0,100,50),rgb(0,0,0)
+   `swamp
+   if pxl=3 then ink rgb(50,155,0),rgb(0,0,0)
+   `HD forest
+   if pxl=6 then ink rgb(0,255,0),rgb(0,0,0)
+   `mountain
+   if pxl>=7 AND pxl<=9 then ink rgb(155,95,55),rgb(0,0,0)
+   `deep water
+   if pxl=0 then ink rgb(0,50,255),rgb(0,0,0)
+   `town wall
+   if pxl=127 OR pxl=73 OR pxl=55 OR pxl=57 then ink rgb(255,255,0),rgb(0,0,0)
+   `town floor
+   if pxl=62 OR pxl=63 OR pxl=25 OR pxl=26 then ink rgb(155,95,55),rgb(0,0,0)
+
+   BOX x_pxl#,y_pxl#, x_pxl#+3,y_pxl#+3
+
+   inc x_pxl#,pixel_x#:next x
+
+   inc y_pxl#,pixel_y#:x_pxl#=200:next y
+
+
+   ink rgb(255,255,255),rgb(0,0,0)
+   x_pxl#=startx*pixel_x#+0:y_pxl#=starty*pixel_y#+0
+   BOX x_pxl#+210,y_pxl#+85, x_pxl#+214,y_pxl#+89
+SET TEXT OPAQUE
+button=0
+while button=0
+xx=mousex()-200:yy=mousey()-75:button=mouseclick()
+temp_position_x=xx/1.34
+if temp_position_x>255 then temp_position_x=255
+if temp_position_x<0 then temp_position_x=0
+
+temp_position_y=yy/1.60
+if temp_position_y>255 then temp_position_y=255
+if temp_position_y<0 then temp_position_y=0
+paste image 256,580,95
+text 600,100,"Position_x :" + str$(temp_position_x)
+text 600,130,"Position_y :" + str$(temp_position_y)
+sync
+endwhile
+
+cls
+gosub clear_left_click
+cls
+paste image 1024,0,0
+
+starty=temp_position_y-8
+startx=temp_position_x-7
+if startx<0 then startx=0
+if starty<0 then starty=0
+if startx>238 then startx=238
+if starty>255 then starty=255
+endif
+return
+
+
+
+
+`***************************************************************************************************************
+`***************************************************************************************************************
+mouse_paste_event:
+xx=mousex():yy=mousey():button=mouseclick()
+if button=1 AND xx<571 AND y<573
+world(frame_y+starty,frame_x+startx)=current_icon
+endif
+return
+`***************************************************************************************************************
+
+
+`creates time slice for events in ms intervals
+time_scheduler:
+
+for y=0 to 17
+for x=0 to 17
+map_temp(y,x) = world(y+starty,x+startx)
+tile = map_temp(y,x)
+
+`water
+if tile=0 OR tile=1 OR tile=2 then tile=300+animation+100
+`BBQ
+if tile=75 then tile=420+animation+100
+`lava
+if tile=76 then tile=410+animation+100
+`fields
+if tile=68 then tile=330+animation+100
+if tile=69 then tile=340+animation+100
+if tile=70 then tile=350+animation+100
+if tile=71 then tile=360+animation+100
+
+if tile=350 then tile=430+animation+100
+if tile=348 then tile=440+animation+100
+if tile=349 then tile=450+animation+100
+if tile=347 then tile=460+animation+100
+if tile=346 then tile=470+animation+100
+if tile=345 then tile=480+animation+100
+
+if whirlpool(1)=y+starty AND whirlpool(2)=x+startx then tile=whirlpool(3)
+if whirlpool(4)=y+starty AND whirlpool(5)=x+startx then tile=whirlpool(3)
+if balloon(1)=y+starty AND balloon(2)=x+startx then tile=024
+
+for i=1 to 5
+if ships(i,1)=y+starty AND ships(i,2)=x+startx then tile=018
+next i
+
+for i=1 to 8
+if moongate_a(i,1)=y+starty AND moongate_a(i,2)=x+startx then tile=067
+next i
+`these are layered tiles where water lies underneath
+paste image tile+1,((x)*32),((y)*32)
+
+if (tile>=369 and tile<=374) OR (tile>=354 and tile<=359) OR (tile>=339 and tile<=344) OR (tile>=49 and tile<=52) or tile=301 OR tile=282 OR tile=3 OR tile=23 OR tile=25 or tile=26
+ paste image 300+animation+100,((x)*32),((y)*32) : paste image tile+1,((x)*32),((y)*32),1
+endif
+
+if tile=302 OR tile=303 OR tile=288 then paste image 410+animation+100,((x)*32),((y)*32) : paste image tile+1,((x)*32),((y)*32),1
+
+next x
+next y
+
+
+timeplayed=timer()-gametimer
+ if (timeplayed-animation_timer)> 300
+      animation_timer=timeplayed
+      inc animation,1:if animation>=7 then animation=0
+  endif
+
+`text 700,10,"animated_tile:" + str$(animated_tile)
+
+
+
+return
+
+
+`**********************************************************************
+`read the data from WORLD.MAP
+`This is a 128K file, subdivided into 256 words * 256 words (2 bytes)
+`size is
+`**********************************************************************
+readworld:
+dim world(256,256)
+dim map_temp(18,18)
+OPEN TO READ 1, "..\..\u4_maps\world.map"
+
+
+for y=0 to 255
+for x=0 to 255
+
+read word 1,word_val
+world(y,x)=word_val
+next x : next y
+close file 1
+return
+remstart
+`start at block 1 out of 64
+
+blockx=0:blocky=1
+for b=1 to 64
+blockx=blockx+1:if blockx=9 then blockx=1:blocky=blocky+1
+gosub blockread
+next b
+CLOSE FILE 1
+return
+
+blockread:
+for y=0 to 31
+for x=0 to 31
+READ BYTE 1, byte_val
+world(y+((blocky-1)*32),x+((blockx-1)*32))=byte_val
+next x
+next y
+return
+
+remend
+
+bitmapload:
+`capture all game tiles
+n=0
+cls:load image fln$,5002:paste image 5002,0,0:sync
+for x=1 to 25:for y=1 to 15
+n=n+1:get image n,((x-1)*32),((y-1)*32),(x*32),(y*32)
+next y:next x
+delete image 5002:cls
+`capture animations
+cls:load image fln2$,5002:paste image 5002,0,0:sync
+`get the MOONGATE tileset animation
+y=1:frame=290+100:gosub load_image
+`get the water tileset animation
+y=2:frame=300+100:gosub load_image
+   `poison (green) field
+y=5:frame=330+100:gosub load_image
+   `energy (blue) field
+y=6:frame=340+100:gosub load_image
+   `fire (red) field
+y=7:frame=350+100:gosub load_image
+   `sleep (purple) field
+y=8:frame=360+100:gosub load_image
+   `moon phases 24x24 bytes
+y=257:frame=370+100:for x=1 to 8:get image frame,(x-1)*24,y,x*24,y+24:inc frame,1:next x
+   `water spout (drain) anim.
+y=288:frame=380+100:for x=1 to 8:get image frame,(x-1)*16,y,x*16,y+16:inc frame,1:next x
+`get image 400,1,320,16,336    :` icon of sick status
+`get image 401,17,320,32,336   :` icon of dead status
+`get image 402,33,320,48,336   :` icon of good (fighter) status
+`get image 403,49,320,64,336   :` icon of good (non fighter) status
+`get animated lava
+y=12:frame=410+100:gosub load_image
+`get animated fireplace
+y=13:frame=420+100:gosub load_image
+`get image 256,596,279,798,597
+
+`get animated fountain
+y=14:frame=430+100:gosub load_image
+`get animated wall sconce right
+y=15:frame=440+100:gosub load_image
+`get animated wall sconce left
+y=16:frame=450+100:gosub load_image
+`get animated floor tile fireplace
+y=17:frame=460+100:gosub load_image
+`get animated blue fountain on grate
+y=18:frame=470+100:gosub load_image
+`get animated castle wall fireplace
+y=3:frame=480+100:gosub load_image
+
+
+
+
+delete image 5002
+cls
+return
+`**********************************************************************
+load_image:
+for x=1 to 8:get image frame,(x-1)*32,(y-1)*32,x*32,y*32:inc frame,1:next x
+return
+`**********************************************************************
+
+`**********************************************************************
+
+
+
+
+return
+
+init:
+set display mode 800,600,16:sync on:sync rate 120
+OPEN TO READ 1, "prefs.ini"
+read string 1,tileset$
+read string 1,animation$
+close file 1
+fln$="..\..\tiles\" + tileset$
+fln2$="..\..\tiles\" + animation$
+HIDE MOUSE
+randomize timer()
+return
+
+show_splash:
+
+fade_out
+fade_in
+cls:load image "media\intro_1.jpg",5002:paste image 5002,0,0
+load sound "media\editor.mp3",1:play sound 1
+load sound "media\click.mp3",2
+text 0,10,ver$ : text 0,30,"Using tileset - " + tileset$
+
+sync:sleep 5000
+
+fade_out
+cls
+fade_in
+delete sound 1
+SHOW MOUSE
+return
+
+function fade_out
+rem Fade picture out
+for f=0 to 255 step 4
+   r=255-f
+   g=255-f
+   b=255-f
+   set gamma r,g,b
+next f
+endfunction
+
+
+function fade_in
+rem Fade picture in
+for f=0 to 255 step 4
+   r=f
+   g=f
+   b=f
+   set gamma r,g,b
+next f
+set gamma 255,255,255
+endfunction
+
+load_main_screen:
+cls:load image "media\main_editor.png",1024:paste image 1024,0,0
+sync
+get image 1257,596,279,798,597
+return
+
+
+keyhit:
+key=scancode()
+if key=200 then dec starty,1
+if key=208 then inc starty,1
+if key=205 then inc startx,1
+if key=203 then dec startx,1
+if startx<0 then startx=0
+if startx>238 then startx=238
+if starty<0 then starty=0
+if starty>238 then starty=238
+return
+
+paste_icon_selected:
+current_icon_temp=current_icon
+paste image 1257,596,279
+if current_icon=0 OR current_icon=1 OR current_icon=2 then current_icon_temp=300+animation+100
+if current_icon=75 then current_icon_temp=420+animation+100
+if current_icon=76 then current_icon_temp=410+animation+100
+if current_icon=68 then current_icon_temp=330+animation+100
+if current_icon=69 then current_icon_temp=340+animation+100
+if current_icon=70 then current_icon_temp=350+animation+100
+if current_icon=71 then current_icon_temp=360+animation+100
+
+if current_icon=350 then current_icon_temp=430+animation+100
+if current_icon=348 then current_icon_temp=440+animation+100
+if current_icon=349 then current_icon_temp=450+animation+100
+if current_icon=347 then current_icon_temp=460+animation+100
+if current_icon=346 then current_icon_temp=470+animation+100
+if current_icon=345 then current_icon_temp=480+animation+100
+
+
+paste image current_icon_temp+1,710,285
+yy=mousey():xx=mousex()
+frame_y=int(yy/32):if frame_y>17 then frame_y=17
+frame_x=int(xx/32):if frame_x>17 then frame_x=17
+text 632,321,str$(frame_y)
+text 632,345,str$(frame_x)
+
+text 688,400,str$(frame_y+starty)
+text 688,425,str$(frame_x+startx)
+
+if whirlpool(1)=frame_y+starty AND whirlpool(2)=frame_x+startx then text 600,460,"Current Whirlpool position"
+if whirlpool(4)=frame_y+starty AND whirlpool(5)=frame_x+startx then text 600,460,"Whirlpool DESTINATION"
+if balloon(1)=frame_y+starty AND balloon(2)=frame_x+startx then text 600,460,"Balloon's position!"
+
+for i=1 to 5
+   if ships(i,1)<>999 AND ships(i,2)<>999
+      if (ships(i,1)=frame_y+starty) AND (ships(i,2)=frame_x+startx) then text 600,460,"Ships # " + str$(i) + " position!"
+   endif
+next i
+
+for i=1 to 8
+if (moongate_a(i,1)=frame_y+starty) AND (moongate_a(i,2)=frame_x+startx)
+   text 600,460,"Moongate ON when"
+   text 600,480,"First moon's phase = " + str$(i)
+   `text 600,500,"Teleports to yyy:xxx " + str$(moongate_b(i,1)) + ":" + str$(moongate_b(i,2))
+endif
+next i
+
+
+for i=1 to linker
+   if (links(i,1)=frame_y+starty) AND (links(i,2)=frame_x+startx)
+      text 600,460,"NAME : " + link$(i,1)
+      text 600,480,".ULT : " + link$(i,2)
+      text 600,500,"TYPE : " + link$(i,3)
+   endif
+next i
+
+
+return
+
+load_icons_on_mainpage:
+
+
+return
+
+clear_left_click:
+`clear mouse click
+while button=1
+button=mouseclick()
+sync
+endwhile
+return
+
+
+special_things_to_display:
+dim whirlpool(5)
+`whirlpool_ini
+OPEN TO READ 1, "..\..\u4_maps\whirlpool.ini"
+read string 1,blah$:read string 1,blah$:read string 1,blah$:read string 1,blah$
+whirl_yy=val(left$(blah$,3)):whirl_xx=val(right$(blah$,3))
+whirlpool(1)=whirl_yy   :`this is its initial yyy location
+whirlpool(2)=whirl_xx   :`this is its initial XXX location
+whirlpool(3)=140        :`graphic representing whirpool (start graphic)
+read string 1,blah$
+whirl_yy=val(left$(blah$,3)):whirl_xx=val(right$(blah$,3))
+whirlpool(4)=whirl_yy   :`this is its initial yyy location where you goto when sailing into whirlpool
+whirlpool(5)=whirl_xx   :`this is its initial XXX location where you goto when sailing into whirlpool
+CLOSE FILE 1
+
+`balloon.ini
+dim balloon(2)
+OPEN TO READ 1, "..\..\u4_maps\balloon.ini"
+read string 1,blah$:read string 1,blah$
+balloon_yy=val(left$(blah$,3)):balloon_xx=val(right$(blah$,3))
+balloon(1)=balloon_yy   :`this is its initial yyy location
+balloon(2)=balloon_xx   :`this is its initial XXX location
+CLOSE FILE 1
+
+`frigates.ini
+dim ships(5,3)
+OPEN TO READ 1, "..\..\u4_maps\frigates.ini"
+`ships (,1 - yyy) (,2 - xxx) (,3 - (1)=in use (0)=unoccupied)
+for i=1 to 4:read string 1,blah$:next i
+for i=1 to 5
+read string 1,ship$:y=val(left$(ship$,3)):x=val(right$(ship$,3))
+ships(i,1)=y:ships(i,2)=x:ships(i,3)=0
+next i
+CLOSE FILE 1
+
+`moongate.ini
+dim moongate_a(8,2):dim moongate_b(8,2)
+OPEN TO READ 1, "..\..\u4_maps\moongate.ini"
+read string 1,blah$
+for y=1 to 8:read string 1,blah$:yy=val(left$(blah$,3)):xx=val(right$(blah$,3)):moongate_a(y,1)=yy:moongate_a(y,2)=xx:next y
+read string 1,blah$
+for y=1 to 8:read string 1,blah$:yy=val(left$(blah$,3)):xx=val(right$(blah$,3)):moongate_b(y,1)=yy:moongate_b(y,2)=xx:next y
+CLOSE FILE 1
+
+`links.ini
+dim links(200,2):dim link$(200,3):linker=0
+OPEN TO READ 1,"..\..\u4_maps\links.ini"
+`read dummy header - not used
+for i=1 to 15:READ string 1, temp$:next i
+
+while done=0
+read string 1,map_name_requirement$
+read string 1,coords$:file_starty=val(left$(coords$,3)):file_startx=val(right$(coords$,3))
+read string 1,common_name_temp$
+read string 1,blah$
+read string 1,ult$
+read string 1,blah$
+read string 1,PLACE$
+read string 1,blah$
+read string 1,footer$
+if footer$="[eof]" then done=1
+
+   if map_name_requirement$="WORLD"
+      inc linker,1
+      link$(linker,1)=common_name_temp$
+      link$(linker,2)=ult$
+      link$(linker,3)=PLACE$
+      links(linker,1)=file_starty
+      links(linker,2)=file_startx
+   endif
+
+endwhile
+
+CLOSE FILE 1
+
+
+done=0
+OPEN TO READ 1,"..\..\u4_maps\dungeon_links.ini"
+`read dummy header - not used
+for i=1 to 9:READ string 1, temp$:next i
+
+while done=0
+read string 1,header$
+read string 1,dng$
+read string 1,blah$
+read string 1,coords$:file_starty=val(left$(coords$,3)):file_startx=val(right$(coords$,3))
+read string 1,blah$
+read string 1,blah$
+read string 1,footer$
+
+if header$="eof" then done=1
+
+
+      inc linker,1
+      link$(linker,1)=left$(dng$,len(dng$)-4)
+      link$(linker,2)=dng$
+      link$(linker,3)="DUNGEON"
+      links(linker,1)=file_starty
+      links(linker,2)=file_startx
+
+
+endwhile
+
+
+CLOSE FILE 1
+
+
+
+return
+

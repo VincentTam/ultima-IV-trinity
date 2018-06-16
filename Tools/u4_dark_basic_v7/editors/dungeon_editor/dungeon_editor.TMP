@@ -1,0 +1,750 @@
+display_init:
+ver$="3.0111"
+set display mode 1024,768,16:sync on
+sync rate 16:cls
+hide mouse
+load animation "media\comehere.gif",1
+
+load sound "media\editor.mp3",1:play sound 1
+PLAY ANIMATION 1,0, 0,1024,768
+
+do
+a$=inkey$():if a$<>"" then exit
+sync
+loop
+
+delete animation 1:cls:sync rate 120
+load image "media\main.png",5002:paste image 5002,0,0:gosub init
+load sound "media\click.mp3",2
+`load media for 3D dungeon display
+load image "media\1dirt.png",500   :`dirt
+load image "media\wall1.png",501   :`wall
+load image "media\door2.png",502   :`door
+
+show mouse
+
+SET TEXT TRANSPARENT
+item_selected$="WALL":item_icon=9
+
+gosub load_level
+gosub display_level
+gosub dungeon_init
+gosub load_3D_walls
+gosub load_objects2
+
+do
+gosub mouse_event
+gosub grid_level_check
+gosub check_for_new_dungeon_selection
+gosub button_press_check
+gosub update_3D
+
+sync
+loop
+
+
+
+
+
+
+end
+
+init:
+TRUE=1:FALSE=0:already_run=FALSE
+dim level(8,8,8)
+`yellow stone
+get image 1,168,504,180,516
+`green stone
+get image 2,168,492,180,504
+`orange stone
+get image 3,168,528,180,540
+`red stone
+get image 4,168,480,180,492
+`white stone
+get image 5,168,552,180,564
+`black stone
+get image 6,168,564,180,576
+`purple stone
+get image 7,168,540,180,552
+`blue stone
+get image 8,168,516,180,528
+
+`solid wall
+get image 9,168,264,180,276
+`normal door
+get image 10,396,384,408,396
+`hidden passage/secret passage
+get image 11,396,264,408,276
+`magical winds
+get image 12,396,312,408,324
+`cure fountain
+get image 13,168,384,180,396
+`healing fountain
+get image 14,168,408,180,420
+`acid fountain
+get image 15,168,336,180,348
+`poison fountain
+get image 16,168,360,180,372
+`normal fountain
+get image 17,168,312,180,324
+
+`hallway
+get image 18,168,288,180,300
+`Orb
+get image 19,168,432,180,444
+`Falling Rocks
+get image 20,396,288,408,300
+`Pit Trap
+get image 21,396,336,408,348
+`Treasure$$$
+get image 22,396,360,408,372
+
+
+`Poison Field
+get image 23,396,408,408,420
+`Lightning Field
+get image 24,396,432,408,444
+`Flame Field
+get image 25,396,456,408,468
+`Sleep Field
+get image 26,396,480,408,492
+
+`ladder DOWN
+get image 27,396,504,408,516
+`ladder UP
+get image 28,396,528,408,540
+`ladder UP/DOWN
+get image 29,396,552,408,564
+`End of Game Trigger
+get image 30,396,576,408,588
+
+get image 256,492,324,740,338
+
+sync
+return
+
+
+mouse_event:
+`check to see if mouse is over any icon
+xx=mousex():yy=mousey():button=mouseclick()
+`***************************************************************************************************************
+`load icon page
+`***************************************************************************************************************
+old_icon=item_icon
+if (xx>0 AND xx<180) AND (yy>264 AND yy<276) AND button=1
+item_selected$="WALL":item_icon=9
+endif
+
+if (xx>0 AND xx<180) AND (yy>288 AND yy<300) AND button=1
+item_selected$="HALLWAY":item_icon=18
+endif
+
+if (xx>0 AND xx<180) AND (yy>312 AND yy<324) AND button=1
+item_selected$="NORMAL FOUNTAIN":item_icon=17
+endif
+
+if (xx>0 AND xx<180) AND (yy>336 AND yy<348) AND button=1
+item_selected$="ACID FOUNTAIN":item_icon=15
+endif
+
+if (xx>0 AND xx<180) AND (yy>360 AND yy<372) AND button=1
+item_selected$="POISON FOUNTAIN":item_icon=16
+endif
+
+if (xx>0 AND xx<180) AND (yy>384 AND yy<396) AND button=1
+item_selected$="CURE FOUNTAIN":item_icon=13
+endif
+
+if (xx>0 AND xx<180) AND (yy>408 AND yy<420) AND button=1
+item_selected$="HEALING FOUNTAIN":item_icon=14
+endif
+
+if (xx>0 AND xx<180) AND (yy>432 AND yy<444) AND button=1
+item_selected$="MAGICAL ORB":item_icon=19
+endif
+
+if (xx>0 AND xx<180) AND (yy>480 AND yy<492) AND button=1
+item_selected$="RED STONE":item_icon=4
+endif
+
+if (xx>0 AND xx<180) AND (yy>492 AND yy<504) AND button=1
+item_selected$="GREEN STONE":item_icon=2
+endif
+
+if (xx>0 AND xx<180) AND (yy>504 AND yy<516) AND button=1
+item_selected$="YELLOW STONE":item_icon=1
+endif
+
+if (xx>0 AND xx<180) AND (yy>516 AND yy<528) AND button=1
+item_selected$="BLUE STONE":item_icon=8
+endif
+
+if (xx>0 AND xx<180) AND (yy>528 AND yy<540) AND button=1
+item_selected$="ORANGE STONE":item_icon=3
+endif
+
+if (xx>0 AND xx<180) AND (yy>540 AND yy<552) AND button=1
+item_selected$="PURPLE STONE":item_icon=7
+endif
+
+if (xx>0 AND xx<180) AND (yy>552 AND yy<564) AND button=1
+item_selected$="WHITE STONE":item_icon=5
+endif
+
+if (xx>0 AND xx<180) AND (yy>564 AND yy<576) AND button=1
+item_selected$="BLACK STONE":item_icon=6
+endif
+
+if (xx>228 AND xx<408) AND (yy>264 AND yy<276) AND button=1
+item_selected$="SECRET DOOR":item_icon=11
+endif
+
+if (xx>228 AND xx<408) AND (yy>288 AND yy<300) AND button=1
+item_selected$="FALLING ROCKS":item_icon=20
+endif
+
+if (xx>228 AND xx<408) AND (yy>312 AND yy<324) AND button=1
+item_selected$="MAGICAL WINDS":item_icon=12
+endif
+
+if (xx>228 AND xx<408) AND (yy>336 AND yy<348) AND button=1
+item_selected$="PIT TRAP":item_icon=21
+endif
+
+if (xx>228 AND xx<408) AND (yy>360 AND yy<372) AND button=1
+item_selected$="GOLD CHEST":item_icon=22
+endif
+
+if (xx>228 AND xx<408) AND (yy>384 AND yy<396) AND button=1
+item_selected$="DOOR":item_icon=10
+endif
+
+if (xx>228 AND xx<408) AND (yy>408 AND yy<420) AND button=1
+item_selected$="POISON FIELD":item_icon=23
+endif
+
+if (xx>228 AND xx<408) AND (yy>432 AND yy<444) AND button=1
+item_selected$="LIGHTNING FIELD":item_icon=24
+endif
+
+if (xx>228 AND xx<408) AND (yy>456 AND yy<468) AND button=1
+item_selected$="FLAME FIELD":item_icon=25
+endif
+
+if (xx>228 AND xx<408) AND (yy>480 AND yy<492) AND button=1
+item_selected$="SLEEP FIELD":item_icon=26
+endif
+
+if (xx>228 AND xx<408) AND (yy>504 AND yy<516) AND button=1
+item_selected$="LADDER DOWN":item_icon=27
+endif
+
+if (xx>228 AND xx<408) AND (yy>528 AND yy<540) AND button=1
+item_selected$="LADDER UP":item_icon=28
+endif
+
+if (xx>228 AND xx<408) AND (yy>552 AND yy<564) AND button=1
+item_selected$="LADDER UP/DOWN":item_icon=29
+endif
+
+if (xx>228 AND xx<408) AND (yy>576 AND yy<588) AND button=1
+item_selected$="END OF GAME TRIGGER":item_icon=30
+endif
+
+paste image 256,638,303
+
+text 648,300,item_selected$
+paste image item_icon,864,300
+
+if old_icon<>item_icon then old_icon=item_icon:play sound 2
+sync
+return
+
+grid_level_check:
+
+if (xx>12 AND xx<108) AND (yy>24 AND yy<120) AND button=1
+item_level=1
+px=xx-12:Px_1=int(px/12)+1:py=yy-24:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+0,(Py_1*12)+12
+bytex=reference(item_icon):level(1,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+if (xx>132 AND xx<228) AND (yy>24 AND yy<120) AND button=1
+item_level=2
+px=xx-132:Px_1=int(px/12)+1:py=yy-24:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+132-12,(Py_1*12)+12
+bytex=reference(item_icon):level(2,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+if (xx>252 AND xx<348) AND (yy>24 AND yy<120) AND button=1
+item_level=3
+px=xx-252:Px_1=int(px/12)+1:py=yy-24:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+252-12,(Py_1*12)+12
+bytex=reference(item_icon):level(3,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+if (xx>372 AND xx<468) AND (yy>24 AND yy<120) AND button=1
+item_level=4
+px=xx-372:Px_1=int(px/12)+1:py=yy-24:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+372-12,(Py_1*12)+12
+bytex=reference(item_icon):level(4,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+
+
+if (xx>12 AND xx<108) AND (yy>144 AND yy<240) AND button=1
+item_level=5
+px=xx-12:Px_1=int(px/12)+1:py=yy-144:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+0,(Py_1*12)+144-12
+bytex=reference(item_icon):level(5,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+if (xx>132 AND xx<228) AND (yy>144 AND yy<240) AND button=1
+item_level=6
+px=xx-132:Px_1=int(px/12)+1:py=yy-144:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+132-12,(Py_1*12)+144-12
+bytex=reference(item_icon):level(6,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+if (xx>252 AND xx<348) AND (yy>144 AND yy<240) AND button=1
+item_level=7
+px=xx-252:Px_1=int(px/12)+1:py=yy-144:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+252-12,(Py_1*12)+144-12
+bytex=reference(item_icon):level(7,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+if (xx>372 AND xx<468) AND (yy>144 AND yy<240) AND button=1
+item_level=8
+px=xx-372:Px_1=int(px/12)+1:py=yy-144:Py_1=int(py/12)+1
+paste image  item_icon,(Px_1*12)+372-12,(Py_1*12)+144-12
+bytex=reference(item_icon):level(8,Py_1,Px_1)=bytex
+gosub load_objects2
+endif
+
+return
+
+
+load_level:
+
+gosub get_list_of_all_dungeon_files
+
+`select a dungeon to edit
+POSITION MOUSE 488,406
+SET TEXT OPAQUE
+do
+xx=mousex():yy=mousey():button=mouseclick()
+if xx<468 then POSITION MOUSE 468,yy
+if xx>756 then POSITION MOUSE 756,yy
+if yy<406 then POSITION MOUSE xx,406
+if yy>708 then POSITION MOUSE xx,708
+
+
+
+py=yy-372+24:Py_1=int(py/14)+1:if Py_1>filenum then Py_1=filenum
+
+
+
+`refresh display
+ for i=1 to filenum
+ Foreground=RGB(0,255,0):Background=RGB(0,0,0)
+ if i=Py_1 then Foreground=RGB(0,0,0):Background=RGB(0,255,0)
+ INK Foreground, Background
+ Text 480,381+i*14,dungeon$_selection$(i)
+ next i
+
+   `select a dungeon file
+   if button=1 and Py_1<=filenum
+   play sound 2
+   exit
+   endif
+
+sync
+loop
+
+if Py_1=filenum
+paste image 256,480,348:text 480,348,"Dungeon Name to CREATE?":SET CURSOR 670,348:sync:input fln$:fln$=upper$(fln$)
+if right$(fln$,4)<>".DNG" then fln$=fln$ + ".DNG"
+dungeon$_selection$(Py_1)=fln$
+`This command will return an integer value of one if the specified file exists, otherwise zero is returned
+blah = FILE EXIST(fln$):if blah=1 then DELETE FILE fln$
+
+
+`write out this file with NULLS dec240 ($F0)  Byte representing a Wall
+OPEN TO WRITE 2,fln$
+for mylevel=1 to 8:for i=1 to 64:WRITE BYTE 2, 240:next i:next mylevel
+close file 2:mylevel=1
+endif
+
+
+load_dungeon:
+if dungeon$_selection$(Py_1)="" then return
+cls
+paste image 5002,0,0
+text 504,324,"SELECTED DUNGEON : " + dungeon$_selection$(Py_1):old_dungeon$=dungeon$_selection$(Py_1)
+`read in file bytes here
+OPEN TO READ 2, dungeon$_selection$(Py_1)
+`64 bytes/level
+for mylevel=1 to 8
+for y=1 to 8:for x=1 to 8
+read byte 2,bytex
+if bytex>=208 and bytex<=223 then bytex=0 :`take out original dungeon room and substit with hallway
+level(mylevel,y,x)=bytex
+next x:next y
+next mylevel
+close file 2
+dungeon$_selection$(filenum)="Create A NEW Dungeon"
+`update the list now
+gosub get_list_of_all_dungeon_files
+item_level=1
+return
+
+display_level:
+for mylevel=1 to 8
+for y=1 to 8:for x=1 to 8
+bytex=level(mylevel,y,x)
+
+if bytex=0 then ic=18    :`hallway
+if bytex=16 then ic=28   :`ladder up
+if bytex=32 then ic=27   :`ladder down
+if bytex=48 then ic=29   :`ladder up/down
+if bytex=64 then ic=22   :`$$$chest
+if bytex=112 then ic=19  :`magic orb -stat change
+if bytex=128 then ic=12  :`Magical Winds
+if bytex=129 then ic=20  :`Falling Rocks
+if bytex=142 then ic=21  :`Pit Trap
+if bytex=144 then ic=17  :`Normal Fountain
+if bytex=145 then ic=14  :`Healing Fountain
+if bytex=146 then ic=15  :`Acid Fountain
+if bytex=147 then ic=13  :`Cure Fountain
+if bytex=148 then ic=16  :`Poison Fountain
+if bytex=160 then ic=23  :`Poison Field
+if bytex=161 then ic=24  :`Energy Field
+if bytex=162 then ic=25  :`Fire Field
+if bytex=163 then ic=26  :`Sleep Field
+
+
+if bytex=245 then ic=4  :`Red Stone
+if bytex=246 then ic=7  :`Purple Stone
+if bytex=247 then ic=3  :`Orange Stone
+if bytex=248 then ic=8  :`Blue Stone
+if bytex=249 then ic=1  :`Yellow Stone
+if bytex=250 then ic=2  :`Green Stone
+if bytex=251 then ic=5  :`White Stone
+if bytex=252 then ic=6  :`Black Stone
+
+if bytex=192 then ic=10 :`Door
+if bytex=224 then ic=11 :`Secret Door/Passage
+if bytex=240 then ic=9 :`Solid Wall
+
+if bytex=255 then ic=30  :`End of GAME TRIGGER
+`paste this icon to the right spot in the grid
+if mylevel=1 then dx=0:dy=12
+if mylevel=2 then dx=120:dy=12
+if mylevel=3 then dx=240:dy=12
+if mylevel=4 then dx=360:dy=12
+
+if mylevel=5 then dx=0:dy=132
+if mylevel=6 then dx=120:dy=132
+if mylevel=7 then dx=240:dy=132
+if mylevel=8 then dx=360:dy=132
+
+xx=x*12+dx
+yy=y*12+dy
+
+paste image ic,xx,yy
+
+`l1 = (x,y)12,24
+next x:next y
+next mylevel
+sync
+
+return
+
+check_for_new_dungeon_selection:
+xx=mousex():yy=mousey():button=mouseclick()
+py=yy-372+24:Py_1=int(py/14)+1:if Py_1>filenum then Py_1=filenum
+
+`refresh display
+ for i=1 to filenum: Foreground=RGB(0,255,0):Background=RGB(0,0,0): Text 480,381+i*14,dungeon$_selection$(i): next i
+
+
+if (xx>468 AND xx<756) AND (yy>384 AND yy<696)
+for qi=1 to filenum
+ Foreground=RGB(0,255,0):Background=RGB(0,0,0): if qi=Py_1 then Foreground=RGB(0,0,0):Background=RGB(0,255,0)
+ INK Foreground, Background
+ Text 480,381+qi*14,dungeon$_selection$(qi)
+ next qi
+
+`select a dungeon file
+if button=1 AND Py_1<=filenum AND old_dungeon$<>dungeon$_selection$(Py_1)
+
+play sound 2
+
+`new dungeon selected?
+   if Py_1=filenum
+   paste image 256,480,348:text 480,348,"Dungeon Name to CREATE?":SET CURSOR 670,348:sync:input fln$:fln$=upper$(fln$)
+   if right$(fln$,4)<>".DNG" then fln$=fln$ + ".DNG"
+   dungeon$_selection$(Py_1)=fln$
+   `This command will return an integer value of one if the specified file exists, otherwise zero is returned
+   blah = FILE EXIST(fln$):if blah=1 then DELETE FILE fln$
+
+
+   `write out this file with NULLS dec240 ($F0)  Byte representing a Wall
+   OPEN TO WRITE 2,fln$
+   for mylevel=1 to 8:for i=1 to 64:WRITE BYTE 2, 240:next i:next mylevel
+   close file 2
+   endif
+gosub load_dungeon:gosub display_level:gosub get_list_of_all_dungeon_files
+item_level=1:gosub load_objects2
+endif
+
+ endif
+
+
+
+
+ Foreground=RGB(0,255,0):Background=RGB(0,0,0): INK Foreground, Background
+
+return
+
+get_list_of_all_dungeon_files:
+filenum=1
+if already_run=FALSE then CD "../../u4_maps":already_run=TRUE
+blah$=GET DIR$():text 480,372,blah$
+dim dungeon$_selection$(64)
+perform checklist for files
+for t=1 to checklist quantity()
+   if UPPER$(right$(checklist string$(t),3))="DNG"
+   dungeon$_selection$(filenum)=checklist string$(t)
+   inc filenum,1
+   endif
+next t
+`limit to 22 dungeons per directory
+if filenum>22 then filenum=22
+`include this item for a new dungeon (special case)
+   inc filenum,1:dungeon$_selection$(filenum)="Create A NEW Dungeon"
+sync
+return
+
+
+button_press_check:
+`quit button
+if button=1
+if (xx>156 AND xx<272) AND (yy>626 AND yy<658) then gosub SAVE_DNG
+if (xx>156 AND xx<272) AND (yy>672 AND yy<706) then gosub CLEAR_LEVEL
+if (xx>156 AND xx<272) AND (yy>720 AND yy<756) then goto ENDing
+endif
+return
+
+ENDing:
+for i=1 to 300:delete object i:next i
+delete object 1000:delete object 2000
+delete sound 1:delete sound 2
+delete image 5002:delete image 500:delete image 501:delete image 502:delete image 256
+for i=1 to 30:delete image i:next i
+END
+
+
+CLEAR_LEVEL:
+for mylevel=1 to 8:for y=1 to 8:for x=1 to 8:level(mylevel,y,x)=240:next x:next y:next mylevel:gosub display_level
+play sound 2
+gosub load_objects2
+return
+
+SAVE_DNG:
+blah = FILE EXIST(old_dungeon$):if blah=1 then DELETE FILE old_dungeon$
+OPEN TO WRITE 2,old_dungeon$
+
+for mylevel=1 to 8:for y=1 to 8:for x=1 to 8:bytex=level(mylevel,y,x)
+WRITE BYTE 2, bytex:next x:next y:next mylevel
+play sound 2:close file 2
+return
+
+function reference(ic)
+if ic=18 then bytex=0    :`hallway
+if ic=28 then bytex=16  :`ladder up
+if ic=27 then bytex=32 :`ladder down
+if ic=29 then bytex=48     :`ladder up/down
+if ic=22 then bytex=64     :`$$$chest
+if ic=19 then bytex=112    :`magic orb -stat change
+if ic=12 then bytex=128    :`Magical Winds
+if ic=20 then bytex=129    :`Falling Rocks
+if ic=21 then bytex=142    :`Pit Trap
+if ic=17 then bytex=144    :`Normal Fountain
+if ic=14 then bytex=145    :`Healing Fountain
+if ic=15 then bytex=146    :`Acid Fountain
+if ic=13 then bytex=147    :`Cure Fountain
+if ic=16 then bytex=148    :`Poison Fountain
+if ic=23 then bytex=160    :`Poison Field
+if ic=24 then bytex=161    :`Energy Field
+if ic=25 then bytex=162    :`Fire Field
+if ic=26 then bytex=163    :`Sleep Field
+if ic=4 then bytex=245    :`Red Stone
+if ic=7 then bytex=246    :`Purple Stone
+if ic=3 then bytex=247    :`Orange Stone
+if ic=8 then bytex=248    :`Blue Stone
+if ic=1 then bytex=249    :`Yellow Stone
+if ic=2 then bytex=250    :`Green Stone
+if ic=5 then bytex=251    :`White Stone
+if ic=6 then bytex=252    :`Black Stone
+if ic=10 then bytex=192   :`Door
+if ic=11 then bytex=224   :`Secret Door/Passage
+if ic=9 then bytex=240   :`Solid Wall
+if ic=30 then bytex=255    :`End of GAME TRIGGER
+
+endfunction bytex
+
+dungeon_init:
+cam_angle=0
+rotate camera 0,cam_angle,0:set camera view 512,32,766,286
+camera_turned_on=FALSE
+ground_ceiling_loaded=FALSE
+`objects_are_loaded=FALSE
+return
+
+update_3D:
+if camera_turned_on=FALSE then position CAMERA 0,10,-20:camera_turned_on=TRUE
+`do
+a$=upper$(inkey$())
+if a$="F" OR a$="+" OR a$="-" then gosub keyhit4
+if upkey()=1 then key=1
+if downkey()=1 then key=2
+if rightkey()=1 then key=3
+if leftkey()=1 then key=4
+x_1=CAMERA POSITION X()
+y_1=CAMERA POSITION Y()
+z_1=CAMERA POSITION Z()
+
+if a$="+" then play sound 2:POSITION CAMERA X_1, 10, Z_1:hide object 2000
+if a$="-" then play sound 2:POSITION CAMERA X_1, 0, Z_1:show object 2000
+`fog management
+if a$="F" then inc toggle,1
+if toggle=2 then toggle=0
+if toggle=0 then fog off
+if toggle=1 then fog on:fog color rgb(5,10,5) : fog distance 16:set ambient light 32
+
+a$=""
+`move forwards/backwards
+   if (key=1 OR key=2)
+      for i=1 to 20
+      if key=1 then move camera +0.5
+      if key=2 then move camera -0.5
+      sync
+      next i
+
+   endif
+
+
+   `rotate right
+   if key=3
+      ii=cam_angle
+         for i=ii to 90+ii step 6
+            cam_angle=wrapvalue(i):ROTATE CAMERA 0, cam_angle,0
+         sync
+         next i
+   endif
+
+   `rotate left
+   if key=4
+   ii=cam_angle
+   for i=ii to ii-90 step -6
+      cam_angle=wrapvalue(i):ROTATE CAMERA 0, cam_angle,0
+      sync
+   next i
+   endif
+
+
+key=0
+  ` sync
+`loop
+
+return
+
+
+load_objects2:
+`move all loaded objects out of the way
+for i=1 to 300
+position object i,0,1000,0
+next i
+if item_level=0 then item_level=1
+dim temp_level(20,20):object_num=1
+for y=4 to 11:for x=4 to 11:temp_level(y,x)=level(item_level,y-3,x-3):next x:next y
+
+restore block_register_copy_01
+   for n=1 to 6
+   read src,dest
+      for y=4 to 11
+      temp_level(y,dest)=temp_level(y,src)
+      next y
+   next n
+
+   restore block_register_copy_02
+      for n=1 to 6
+      read src,dest
+         for x=1 to 14
+         temp_level(dest,x)=temp_level(src,x)
+         next x
+      next n
+
+block_register_copy_01:
+data 4,12,5,13,6,14,11,3,10,2,9,1
+block_register_copy_02:
+data 11,3,10,2,9,1,4,12,5,13,6,14
+
+sync
+for y=1 to 14:for x=1 to 14
+bytex=temp_level(x,y)
+
+`solid wall
+   if bytex=240
+   position object object_num,x*10,0,y*10:texture object object_num,501
+   inc object_num,1
+   endif
+
+`regular door
+   if bytex=192
+   position object object_num,x*10,0,y*10:texture object object_num,502
+   inc object_num,1
+   endif
+
+next x:next y
+sync
+return
+
+
+keyhit4:
+keypress=1
+while keypress<>0
+keypress=scancode()
+endwhile
+return
+
+load_3D_walls:
+for i=1 to 300
+make object CUBE i,10:texture object i,501:position object i,0,1000,0
+next i
+
+
+
+   make object plain 1000,5000,5000:POSITION OBJECT 1000,0,-5,0:Xrotate object 1000,90
+   texture object 1000,500:scale object texture 1000,350,350
+
+   make object plain 2000,5000,5000:POSITION OBJECT 2000,0,+5,0:Xrotate object 2000,90
+   texture object 2000,500:scale object texture 2000,350,350
+   hide object 2000
+
+   fog:
+   `load in fog ambience data
+   if fog available()=1 then fog on : fog color rgb(5,10,5) : fog distance 16
+   set ambient light 32
+
+
+return
+

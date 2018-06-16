@@ -1,0 +1,20 @@
+// Chapter file template for Everchanging Book of Names 3.0.
+// Copyright (c) 1998-2000 Sami Pyörre. All rights reserved.
+// See ebon.hlp for instructions on writing a chapter.
+
+TITLE  = "";     // Drop-down menu title
+LINE1  = "";     // 1st line of intro text
+LINE2  = "";     // 2nd line of intro text
+AUTHOR = "";     // Name of author
+
+DATE   = "";     // Date of creation
+TOPIC  = "";     // Chapter info topic ID
+
+SPCCON = "";     // Special consonants
+SPCVOW = "";     // Special vowels
+
+TEMPLATES = "";  // List of templates
+
+GENOPT = "";     // Generation options
+
+NAMES  = "";     // List of names

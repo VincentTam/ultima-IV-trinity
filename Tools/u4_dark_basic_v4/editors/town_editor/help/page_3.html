@@ -1,0 +1,307 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Town Editor</title>
+</head>
+
+<body bgcolor="#000080" text="#FFFF00" link="#FFFFFF" vlink="#FFFFFF">
+
+<div align="center">
+  <center>
+  <pre><b><font size="6" face="Arial"><u>Town Editor</u></font></b></pre>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <pre>PAGE - 3 -</pre>
+  </center>
+</div>
+<div align="left">
+  <pre><a href="file:///D:/Dark%20Basic/ultima/U4/editors/town_editor/help/page_1.html">Go back to page -1- intro</a></pre>
+</div>
+<div align="left">
+  <pre><a href="page_4.html">Merchants - ADDING A WEAPON MERCHANT page 4</a></pre>
+</div>
+<div align="left">
+  <pre>Merchants  - page 3  CLASSES OF MERCHANTS </pre>
+</div>
+<div align="left">
+  <table border="1" width="100%">
+    <tr>
+      <td width="50%">
+        <h1 align="left"><font face="Arial" size="2">Now we will create a weapon
+        merchant, but before we do, let's talk about what this is about
+        (background) merchants in U4 exist as special NPC's who do NOT talk like
+        normal NPC's, therefore have no talk id, but are identified by merchant
+        id#'s. You can have up to 255 merchant id's (U4 has about 65 total!) All
+        merchant</font></h1>
+        <h1 align="left"><font face="Arial" size="2">id's are stored in
+        MERCHANT.OVL. See over right to examine a real weapon vendor. The id is
+        23 and the type of establishment is Weapons. The owner is Winston, who
+        runs Windsor Weaponry. He sells a Stave for 20, Dagger for 2, Sling for
+        25 and Sword for 300. The 'X' are just nulls (blanks/unused). The good
+        part is you do not need to edit this with notepad to create your own,
+        the <u> town-editor.exe</u> will do it for you! I have taken great pains to
+        eliminate this tedious task because a simple error will cause all sorts
+        of weird things to happen.</font></h1>
+        <p>&nbsp;</td>
+      <td width="50%">
+        <div align="left">
+          <pre>SAMPLE EXCERPT FROM MERCHANT.OVL</pre>
+        </div>
+        <div align="left">
+          <pre>`23
+Weapons
+Winston
+Windsor Weaponry
+Stave
+Dagger
+Sling
+Sword
+20
+2
+25
+300
+X
+X
+X</pre>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">Let's see another example - A generic Armour Store. This one
+      can be used and reused many times in many towns because it's like
+      McDonalds or Kmart, many establishments all over. Winston's Weapons most
+      likely will be found in just 1 town, but that's up to you. You can edit
+      the items for sale, and prices, and in some vendor classes, the welcome
+      message etc...
+      <p>&nbsp;</td>
+    <td width="50%">`24<br>
+      Armour<br>
+      Owner<br>
+      General Armour<br>
+      3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;------ number of items for sale<br>
+      Cloth<br>
+      Leather<br>
+      Chain<br>
+      50<br>
+      200<br>
+      600<br>
+      X<br>
+      X<br>
+      X<br>
+      X</td>
+  </tr>
+</table>
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">Let's&nbsp; look at a <b> WEAPON</b> shop class and see what types
+      of weapons are available in the game -&nbsp; The weapon class store must
+      sell between 1- 4 items
+      <p>Stave<br>
+      Dagger<br>
+      Sling<br>
+      Mace<br>
+      Axe<br>
+      Sword<br>
+      Bow<br>
+      Crossbow<br>
+      Halberd<br>
+      Magic Axe<br>
+      Magic Sword<br>
+      Magic Bow<br>
+      Magic Wand<br>
+      Mys. Weapon</p>
+      <p><i>Mys. Weapon is ONLY FOUND as a quest and not purchased</i></p>
+      <p>These MUST be typed EXACTLY like above. You can set any price.</p>
+      <p>&nbsp;</td>
+    <td width="50%">Let's&nbsp; look at a <b> ARMOUR</b> shop class and see what types
+      of Armours are available in the game -&nbsp;
+      <p>Cloth<br>
+      Leather<br>
+      Chain<br>
+      Plate<br>
+      Magic Chain<br>
+      Magic Plate<br>
+      Mys. Armour</p>
+      <p>These MUST be typed EXACTLY like above. You can set any price.</p>
+      <p><i>Mys. Armour is ONLY FOUND as a quest and not purchased</i></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%">Let's&nbsp; look at a <b> GUILD</b> shop class and see what types of
+      items&nbsp; are available in the game -&nbsp;
+      <p>Torches&nbsp;</p>
+      <p>Keys</p>
+      <p>Gems</p>
+      <p>Sextants ('D')</p>
+      <p>These MUST be typed EXACTLY like above. You can set any price.</p>
+      <p>&nbsp;</td>
+    <td width="50%">Let's&nbsp; look at a <b> HERB</b> shop class and see what's
+      available in the game -&nbsp;
+      <p>First you can edit the message &quot;Special Herbs:Only the Finest!&quot;,
+      and owner's name and shop's name. The next set of 6 (must=6) numbers are
+      the herbs prices. - In order they are-&nbsp;</p>
+      <p>Sulfurous Ash,Ginseng,Garlic,Spider Silk,Blood Moss, and Black Pearl</p>
+      <p>&nbsp;`27<br>
+      Herbs<br>
+      Margot<br>
+      Magical Herbs<br>
+      Special Herbs:Only the Finest!<br>
+      2<br>
+      5<br>
+      6<br>
+      3<br>
+      6<br>
+      9<br>
+      X<br>
+      X<br>
+      X<br>
+      X</p>
+      <p>These MUST be typed EXACTLY like above. <b>You can a price between 1-9
+      ONLY</b></td>
+  </tr>
+</table>
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">Let's&nbsp; look at a <b> PUB</b> shop class and see what types of
+      items&nbsp; are available in the game -&nbsp; The owner's name and shop's
+      name and 1 food item can be added (Lamb Chops) The game has these as 2gp
+      fixed price
+      <p>`22<br>
+      Pub<br>
+      Sam<br>
+      Jolly Spirits<br>
+      Lamb Chops<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X</p>
+      <p>These MUST be typed EXACTLY like above. You can set any price.</p>
+      <p>&nbsp;</td>
+    <td width="50%">Let's&nbsp; look at a <b> HEALER</b> shop class and see what's
+      available in the game - The owner's name and shop's name are only editable
+      here. Everything else is fixed.
+      <p>`20<br>
+      Healer<br>
+      Celest<br>
+      Wound Healing<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X</td>
+  </tr>
+</table>
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">Let's&nbsp; look at a <b> INN</b>&nbsp; shop class and see what
+      types of items&nbsp; are available in the game -&nbsp; The owner's name
+      and shop's name and the description are editable (&quot;We have a modest sized:room with 1 bed for 15gp&quot;)
+      <p>The 15 corresponds to 15gp (per stay)</p>
+      <p>The 05,28 are the yy,xx location the avatar sleeps once the vendor is
+      paid (like hole &amp; camp)</p>
+      <p>`21<br>
+      Inn<br>
+      Jason<br>
+      Britannia Manor<br>
+      We have a modest sized:room with 1 bed for 15gp<br>
+      15<br>
+      05<br>
+      28<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      </p>
+      <p>These MUST be typed EXACTLY like above. You can set any price.</p>
+      <p>&nbsp;</td>
+    <td width="50%">Let's&nbsp; look at a <b> FOOD</b> shop class and see what's
+      available in the game - The owner's name and shop's name and description
+      (&quot;We sell the best packed rations!&quot;) are editable. The 35 = 35gp
+      (price per 25 rations)
+      <p>`34<br>
+      Food<br>
+      Donnar<br>
+      The Dry Goods<br>
+      We sell the best packed rations!<br>
+      35<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X</p>
+      <p>&nbsp;</p>
+      <p>These MUST be typed EXACTLY like above. You can set any price.</td>
+  </tr>
+</table>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">Let's&nbsp; look at a <b>Tinker&nbsp;</b>class and see what
+      this class is all about. First off, the Tinker class is NOT in the
+      original U4. It is a special class and this merchant has the ability to
+      create items and enchant stuff for a fee. For example, talking to this
+      merchant, he will greet you and then ask what stuff you want to give him
+      to create an item. These item &quot;recipes&quot; are found in 'recipes.ini'.
+      You choose from your inventory, and if a correct combination exists, the
+      newly item is created. A example -
+      <p>mix 1 part Cookie Sheet and 1 part Bread Dough = 5 Rations</p>
+      <p>Editable items:<br>
+      The owner's name, shop's name and the description are editable<br>
+      i.e. (&quot;Just the best in Tinkering!&quot;). The price per item created
+      is also user adjustable. In this case, 35gp per 5 Rations.</p>
+      <p>`99<br>
+      Tinker<br>
+      Duran&nbsp; McRae<br>
+      Tinker House<br>
+      Just the best in Tinkering!<br>
+      35<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X<br>
+      X
+      </p>
+    </td>
+    <td width="50%">&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

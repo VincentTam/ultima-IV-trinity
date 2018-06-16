@@ -1,0 +1,129 @@
+
+
+<head>
+<title></title>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<p>Welcome to Dungeon_Editor ver 1.2.1.8</p>
+<p>This program assists the game designer to build levels that eventually are
+displayed in real 3D. The editor has many features integrates<br>
+This is a work in progress, so updates/feature enhancement will occur rapidly.<br>
+Email me for features desired.</p>
+<p>When you start the editor, a splash screen will display. Hit spacebar to
+continue.<br>
+The editor will then prompt for you to select an existing dungeon file (*.DNG)
+and will display all 8 levels at once.<br>
+Shortly an isometric 3D preview will be seen. You can then select a ICON from
+the available ones (30 in all)<br>
+Once that icon is selected,&nbsp; the editor lets you know the name and picture
+of it. Paint the tile onto an existing level by simply<br>
+left clicking onto one of the 64 (8x8) grids. The 3D display will automatically
+update.<br>
+<br>
+If you wish to create a new dungeon, then select the green menu item that
+displays &quot;Create a New Dungeon&quot; Type the new filename<br>
+without any dng suffix. The program adds that later. Your blank level will load
+shortly and gets created in the directory.<br>
+You may either SAVE, CLEAR all levels or QUIT at any point. Quitting does NOT
+save your work.</p>
+<p>If you wish to load another dungeon, then select that one anytime. The
+correct dungeon loads and the active level displayed in 3D is level 1.<br>
+To select another level (make sure HALLWAY icon is selected) click on any black
+hallway grid on any level to make that one active. The 3D<br>
+will auto update as usual. You can edit any level at once, and the 3D preview
+will be correct.</p>
+<p>3<u>D Preview</u></p>
+<p>This added functionality is there to let you preview the level in a pretty
+close to realistic mode as possible. Note there's no collision<br>
+built in now will there ever be. You start off with Fog Off and the camera is
+displayed over the level. If you want to hover over the level<br>
+then use the arrow keys to move. Hit the &quot;-&quot; key to &quot;go
+into&quot; the level and see a more realistic view. Hit 'F&quot; to create a
+foggy and dark<br>
+dungeon like environment similar to the remake. Hit 'F&quot; to toggle
+Fog/ambient light on/off.</p>
+<p><u>Known issues -&nbsp;</u></p>
+<p>The 3D preview only displays Doors, Corridors and Walls. Future updates will
+have ladders etc... I do not believe I will add other stuff<br>
+like fountains, orbs because this is simply a preview to check navigation in 3D.</p>
+<p><b><font color="#FF0000">The actual U4 format is designed as a 8x8 matrix - so why are there 14x14
+grids in the 3D view?</font></b><br>
+I decided to expand the 8x8 to 14x14 so it will overlap and flow better. Ever
+see the dungeon maps on the internet?<br>
+You will find everyone NOT display maps in 8x8. This is used in the remake, but
+the only difference is that during navigation<br>
+whenever you get to a edge of a level you don't see blue sky but you are
+&quot;teleported&quot; to the first tile across so it all looks seamless and<br>
+depending on how smartly you do this, an 8x8 simple design can be very hard to
+find your way out or be made very easy.</p>
+<p><i>I am not aware of any bugs in the editor at this point. I am sure someone
+will point out a quirk or two. I have included the source code<br>
+but it will be of use to those who do darkbasic pro programming. This program
+took me 2 days to write however, I tried to make it as polished<br>
+as possible.</i></p>
+<p>Changes from the original U4 regarding mystic altars. In this game colored
+stones can be found in Altars in Dungeons. When you place a red stone<br>
+in a level grid, that automatically becomes a searchable altar. Stones can also
+be placed in world (on surface WORLD) and in towns!<br>
+<br>
+Remember you need all 8 stones, the candle, book and bell. Those cannot be found
+in dungeons except the colored stones.</p>
+<p><b><font color="#FF0000">Is this remake's dungeon files compatible with the
+original game?<br>
+</font></b>In short yes and no. I believe they will play to some extent, but I
+did change a few subtle things like the $hex values for stones vs. altars in U4.<br>
+There will be more &quot;bytes&quot; used in my game so if the file loads into
+U4.exe then you're doing well. It was never meant to go the other way. Also, I
+did not implement those &quot;rooms&quot; between levels - that I found idiotic
+that they programmed that in. You can however edit original U4 files and they
+will be updated in the editor and made playable.</p>
+<p><b><font color="#FF0000">How does one incorporate custom dungeons</font></b><font color="#FF0000"><b>
+in the remake?<br>
+</b></font>Here's the answer -&nbsp;</p>
+<p>Refer to file dungeon_links.ini<br>
+<br>
+- contents of file - <br>
+<i>**This holds the locations of all dungeons **<br>
+SRC_area&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;-where avatar must be in order to access dungeon<br>
+DEST_area&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;-Dungeon Name to go to (*.dng)<br>
+Music&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;-Dungeon music to play while crawling<br>
+Coord_in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;-yyy,xxx coord Where dungeon is located<br>
+Coord_out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;-yyy,xxx coord where you end up upon exiting dungeon<br>
+Message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;-Message to appear when entering this dungeon<br>
+BLANK LINE line with ****'s<br>
+***************************************************************************************<br>
+WORLD<br>
+COVETOUS.DNG<br>
+Halls_Of_Doom.mid<br>
+027,156<br>
+027,156<br>
+:Prepare Avatar,:evil lurks within:these depths!:</i>
+<br>
+- end of contents -<br>
+<br>
+To link Covetous (COVETOUS.DNG) map to britania, you need to specify the
+following data:<br>
+First line - WORLD defines that starting place is Britania (refered to as WORLD)<br>
+Next is the actual *.dng file to link (type exact filename). You can even
+specify a unique MIDI file<br>
+to play.coordinates where dungeon is located - format yyy,xxx, followed by
+coordinates avatar<br>
+goes to upon dungeon exit (format yyy,xxx,). Then a simple 1 line message. IF
+you want to<br>
+specify a CR (new line) then use the COLON ':' formatter. For example <br>
+:Prepare Avatar,:evil lurks within:these depths!:<br>
+will display as:<br>
+<b>Prepare Avatar,<br>
+evil lurks within<br>
+these depths!</b><br>
+Then finish with a blank line of &quot;*&quot; - just copy/paste<br>
+and 'eof' must be present at the end of the file to delimit an end of file
+marker.</p>

@@ -1,0 +1,64 @@
+***********************************************************************
+Here's the whole list of spawns. They are divided into 3 categories.
+You need to use the spelling exactly as seen here.
+The mobs unique stats are determined run time
+and the user defined mobs will spawn once per game load.
+***********************************************************************
+
+
+
+easy:
+
+Skeleton
+Skeleton
+Dread
+Orc
+Spider
+Rat
+Bandit
+Marauder
+Magic Eye
+Minor Wisp
+Cut Throat
+Archer
+Headed
+Herder
+Evil Mage
+Giant Bat
+Snake
+Wild Boar
+Swarm
+Sea Marauder
+Squid
+Sea Monster
+Sea Horse
+Headless
+Amoeba
+Orc Guard
+Pirate
+
+medium:
+
+Goblin
+Ghost
+Tornado
+Chest
+Treant
+Dread Treant
+Sea King
+Giant Squid
+Shadow
+Rot Man
+Giant
+Pirate
+
+hard:
+
+Fire Demon
+Fire Knight
+Hydra
+Dragon
+Ice Demon
+Sea Monster
+Major Wisp
+Pirate

@@ -1,0 +1,557 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title></title>
+</head>
+<body bgcolor="#000080" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<PRE>--------------------------------------------------------------------------------
+for Ultima IV FAQ ver 3.1111 - this is a work in progress</PRE>
+<PRE><b><a href="#How hard is it create a new world?">How hard is it create a new world?</a></b><a href="#Can I add custom tiles and graphics?"><b>
+Can I add custom tiles and graphics?
+</b></a><b><a href="#Where do you define Balloon, Whirlpool and Avatar starting pos?">Where do you define Balloon, Whirlpool and Avatar starting pos?</a>
+<a href="#How do I set the balloon start position?">How do I set the balloon start position?</a><a href="#How do I set the players starting position?">
+How do I set the players starting position?</a><a href="#How do I make dungeons link to the game?">
+How do I make dungeons link to the game?</a>
+<a href="#How do I make custom towns, villages and castles link to the game?">How do I make custom towns, villages and castles link to the game?</a>
+<a href="#How do we handle DEATH?">How do we handle DEATH?</a>
+<a href="#What about linking SHRINES?">What about linking SHRINES?</a>
+<a href="#How do you define the game ending including the questions and answers needed?">How do you define the game ending including the questions and answers needed?</a>
+<a href="#How do the fixed spawns (like the pirate ships at the ABYSS) work?">How do the fixed spawns (like the pirate ships at the ABYSS) work?</a><a href="#How does one define frigates in the game?">
+How does one define frigates in the game?</a><a href="#How do I get a horse?">
+How do I get a horse?</a>
+<a href="#Can I modify Hawkinds dialog?">Can I modify Hawkind's dialog?</a>
+<a href="#Can I change the intro picture sequence?">Can I change the intro picture sequence?</a>
+<a href="#How do I modify Lord British's dialog?">How do I modify Lord British's dialog?</a>
+<a href="#How do the moongates work and are they configurable?">How do the moongates work and are they configurable?</a>
+<a href="#How does one put in custom items in Britania?">How does one put in custom items in Britannia?</a>
+<a href="#Will there be a provision to CREATE custom items in game like mixing stuff or creating custom items IN GAME?">Will there be a provision to CREATE custom items in game like mixing stuff or creating custom items IN GAME?</a>
+<a href="#Can I edit Dungeon files, town files and people dialog?">Can I edit Dungeon files, town files and people dialog?</a>
+<a href="#Can I create a new WORLD from scratch and modify the current one?">Can I create/edit a new WORLD from scratch and modify the current one?</a>
+<a href="#What is in the Name_Generator Directory?">What is in the Name_Generator Directory?
+</a></b><a href="#How do we define and edit the Whirlpool?"><b>How do we define and edit the Whirlpool?
+</b></a><b><a href="#How do you modify the messages displayed after meditating at shrines?">How do you modify the messages displayed after meditating at shrines?</a><a href="#How does one submit custom modules?">
+</a></b><a href="#How does one submit custom modules?"><b>How does one submit custom modules?</b>
+</a>_____________________________________________________________________________________________
+<a name="How hard is it create a new world?">How hard is it create a new world?</a></PRE>
+<PRE>Honestly, I tried to make this as easy as possible, and all custom content is within the available *.ini files
+provided in the /u4_maps directory. The ini files come pre-documented in most cases and you must refer to the help in them
+or here before attempting to modify them. Note that a simple mistake will render the game un-playable. Back up
+files before attempting to create new areas.
+_____________________________________________________________________________________________
+<a name="Can I add custom tiles and graphics?">Can I add custom tiles and graphics?</a>
+
+Yes, by replacing the tilesets and intro graphics you can add your own. Some graphics are jpg and some png.
+Try to keep size down for these as game will run faster.</PRE>
+<PRE>Refer to file 'prefs.ini'</PRE>
+<PRE>USE ALTERNATE BOOT SPLASH SCREEN = FALSE       &lt;------means the first intro splash screen on boot up
+USE ALTERNATE GAME SCREEN = FALSE              &lt;------means the surrounding screen while playing
+USE ALTERNATE GAME ICONS = FALSE               &lt;------means tilesets for monsters and icons for towns etc...
+USE ALTERNATE GYPSY SCREENS = TRUE             &lt;------means all intro scenes from creating new character2gypsy
+AVATAR_ON_GAME_INIT_START=107,086              &lt;------starting pos. when creating NEW character
+WHIRLPOOL_ON_GAME_INIT_START=059,241           &lt;------Whirlpool starting pos. when creating NEW character
+BALLOON_ON_GAME_INIT_START=080,049             &lt;------Balloon starting pos. when creating NEW character</PRE>
+<PRE>This file holds the starting graphic parameters. My default settings are shown here. Changing from one
+to another and running the game will have it load that graphic set in. The file 'prefs.ini' loads when
+U4 is run and it is at that time the graphics are loaded.</PRE>
+<PRE>_____________________________________________________________________________________________
+<a name="How do I set the balloon start position?">How do I set the balloon start position?
+</a>
+refer to file 'balloon.ini'
+
+- contents of file - 
+<i>****current spawn spot for balloon - yy,xx****
+050,113</i>
+- end of contents -
+
+the 050,113 refers to the yyy,xxx location of the balloon.
+this reference is read during startup and game load. It is always updated during a save
+_____________________________________________________________________________________________
+<a name="How do I make dungeons link to the game?">How do I make dungeons link to the game?
+</a>
+refer to file 'dungeon_links.ini'
+
+- contents of file - 
+<i>**This holds the locations of all dungeons **
+SRC_area                         &lt;-where avatar must be in order to access dungeon
+DEST_area                        &lt;-Dungeon Name to go to (*.dng)
+Music                            &lt;-Dungeon music to play while crawling
+Coord_in                         &lt;-yyy,xxx coord Where dungeon is located
+Coord_out                        &lt;-yyy,xxx coord where you end up upon exiting dungeon
+Message                          &lt;-Message to appear when entering this dungeon
+BLANK LINE line with ****'s
+***************************************************************************************
+WORLD
+COVETOUS.DNG
+Halls_Of_Doom.mid
+027,156
+027,156
+:Prepare Avatar,:evil lurks within:these depths!:</i>
+- end of contents -
+
+To link Covetous (COVETOUS.DNG) map to britania, you need to specify the following data:
+First line - WORLD defines that starting place is Britania (refered to as WORLD)
+Next is the actual *.dng file to link (type exact filename). You can even specify a unique MIDI file
+to play.coordinates where dungeon is located - format yyy,xxx, followed by coordinates avatar
+goes to upon dungeon exit (format yyy,xxx,). Then a simple 1 line message. IF you want to
+specify a CR (new line) then use the COLON ':' formatter. For example 
+:Prepare Avatar,:evil lurks within:these depths!:
+will display as
+Prepare Avatar,
+evil lurks within
+these depths!
+Then finish with a blank line of &quot;*&quot; - just copy/paste
+and 'eof' must be present at the end of the file to delimit an end of file marker.
+_____________________________________________________________________________________________
+<a name="How do I make custom towns, villages and castles link to the game?">How do I make custom towns, villages and castles link to the game?
+</a>
+In order to link a *.ULT (town file) to the WORLD, you must be familiar with the file 'links.ini'</PRE>
+<PRE>Here's an EXCERPT from links.ini</PRE>
+<PRE><i>WORLD
+106,082
+Britain
+Towns.mid
+BRITAIN.ULT
+015,000
+TOWN
+106,082</i></PRE>
+<PRE>When the First Line = &quot;WORLD&quot; means this town file (*.ult) is linked to the main map &quot;WORLD&quot;.
+The Second line corresponds to the coordinates in the WORLD where this town is found.
+The Third line is the name you assign to this town. 
+The Fourth line is the custom midi (sound) file played when entering this town.
+The Fifth line is the actual file name (*.ult) to link
+The Sixth line is the coordinates you start when you enter this place.
+The Seventh line is the type of place. Possible values are &quot;TOWN&quot;, &quot;VILLAGE&quot;, or &quot;CASTLE&quot;
+It makes no difference whether you put a &quot;CASTLE&quot; as opposed to a &quot;TOWN&quot;. It's just for the player.
+The LAST line corresponds to the coordinates you go upon exiting this place back in the WORLD.
+</PRE>
+<PRE>Another type of link can be within a &quot;CASTLE&quot; or &quot;TOWN&quot; or &quot;VILLAGE&quot; and this would mean like climbing/descending
+a ladder to go up/down a level. In U4 these levels are actually just another map to load. Let's look at how one goes
+and links ladders up/down in LORD British's castle. TOWNS (or any area) CAN ALSO have many levels like CASTLES.</PRE>
+<PRE><i>WORLD                  &lt;-----you must be here first
+107,086                &lt;-----where this link is
+LORD BRITISH LVL.I     &lt;-----assign any label to describe this area
+Rule_Britannia.mid     &lt;-----music played when entering this area
+LCB_1.ULT              &lt;-----this is where you are going to
+031,015                &lt;----where you goto when entering this area
+CASTLE                 &lt;----Place descriptor
+107,086                &lt;----These are exit coords when leaving area</i></PRE>
+<PRE>This would mean when in the WORLD, pressing the 'E' key to enter this place would load in 'LCB_1.ULT' which is
+Lord B's castle - level 1. Etry coordinates are 031,015, and exit coords are 107,086.</PRE>
+<PRE>There's a LADDER at coord. 003,003, and when you hit /d/escend to go down, this part is then exectuted- </PRE>
+<PRE><i>LCB_1.ULT              &lt;-----you must be here first
+003,003                &lt;-----where this link is (ladder)
+LORD BRITISH LVL.II    &lt;-----assign any label to describe this area
+Rule_Britannia.mid     &lt;-----music played when entering this area
+LCB_2.ULT              &lt;-----this is where you are going to
+003,003     &lt;----where you goto when entering level 2
+CASTLE      &lt;----Place descriptor
+107,086     &lt;----These are exit coords when leaving area</i></PRE>
+<PRE>So here the game would load 'LCB_2.ULT' (second level) and start you off at 003,003 (same as before - unless you plan
+on teleporting somewhere!), then 'Rule_Britannia.mid'plays.</PRE>
+<PRE>After exploring this area <i>LCB_2.ULT</i>, you come across another ladder at 003,003 (<i>LCB_2.ULT)</i>, so what link get's
+executed?
+Simple, the one shown below  -  See below - </PRE>
+<PRE><i>LCB_2.ULT         &lt;-----you must be here first
+003,003           &lt;-----where this link is (ladder)
+LORD BRITISH LVL.I
+Rule_Britannia.mid
+LCB_1.ULT         &lt;-----this is where you are going to
+003,003           &lt;----where you goto when entering level 1
+CASTLE
+107,086</i></PRE>
+<PRE>See, here we are currently in 'LCB_2.ULT' so hit /k/limb to go up, we end up loading 'LCB_1.ULT' and zoning
+to coords. 003,003</PRE>
+<PRE>This is how we LINK the various areas to the WORLD</PRE>
+<PRE><a name="How do we handle DEATH?">How do we handle DEATH?</a>
+Death can occur via - Starvation, Desease, Poison or by battle Injuries.
+A UNIQUE link is when you (and ALL party members) DIE. See below...</PRE>
+<PRE><b>Note, we are still using links.ini</b></PRE>
+<PRE><i>ON_DEATH             &lt;----------required
+000,000              &lt;----------required
+LORD BRITISH LVL.II  &lt;----------description of where you go to
+Rule_Britannia.mid   &lt;----------What's played when going here
+LCB_2.ULT            &lt;----------FILE loaded when death is triggered
+008,019              &lt;----------Spawn spot after death (right in front of LB's throne chair)
+CASTLE               &lt;----------Can be &quot;TOWN&quot; or &quot;CASTLE&quot;
+107,086              &lt;----------Where in WORLD you goto after leaving this place</i></PRE>
+<PRE><a name="What about linking SHRINES?">What about linking SHRINES?</a>
+Yes, there's another type of place that exists - this is the &quot;SHRINE&quot; area. See below for an example - 
+<b>Note, we are still using links.ini</b></PRE>
+<PRE><i>WORLD            &lt;------All shrines are found in the WORLD
+207,081          &lt;------Location of the Shrine
+Honor            &lt;------Name of Shrine
+Rune of Honor    &lt;------Rune Required to Enter
+summ             &lt;------Mantra
+000,000          &lt;------Required as is 000,000
+SHRINE           &lt;------Type of place
+000,000          &lt;------Required as is 000,000</i></PRE>
+<PRE>Linking dungeons is done with file 'dungeon_links.ini' - see help index above...
+_____________________________________________________________________________________________
+<a name="How do you define the game ending including the questions and answers needed?">How do you define the game ending including the questions and answers needed?
+</a>
+refer to file 'ending.ini'
+
+- contents of file - 
+
+<i>******Ending of Game***************
+Format -                          *
+# of questions (must be &gt;4)       *
+Questions followed by answers     *
+***********************************
+12
+What dost thou possess if all may rely upon your every word?
+What quality compels one to share in the journeys of others?
+What answers when great deeds are called for?
+What should be the same for Lord and Serf alike?
+What is loath to place the self above aughtelse?
+What shirks no duty?
+What, in knowing the true self, knows all?
+What is that which Serfs are born with but Nobles must strive to obtain?
+If all else is imaginary, this is real
+What plunges to the depths, while soaring on the heights?
+What turns not away from any peril?
+What is the Word of Passage?
+honesty
+compassion
+valor
+justice
+sacrifice
+honor
+spirituality
+humility
+truth
+love
+courage
+veramocor
+</i>
+- end of contents -
+
+FORMAT - 5 descriptor lines, followed by # of questions - in this case 12
+The next 12 are questions, followed by 12 answers. Passage is NOT granted if you answer any wrong.
+The game asks the questions in order top-bottom, and displays 4 possible multiple choice answers - which
+the player must choose correctly.
+_____________________________________________________________________________________________
+<a name="How do the fixed spawns (like the pirate ships at the ABYSS) work?">How do the fixed spawns (like the pirate ships at the ABYSS) work?
+</a>
+refer to file 'fixed_spawns.ini'
+
+- contents of file - 
+
+<i>*******************************************************************
+**User defined Spawns. Refer to Spawns.txt for spawn id info**
+** format **
+** number_of_spawns=nn , # of unique monsters in this file (use nn)
+** yy          &lt;- 1-255
+** xx          &lt;- 1-255 
+** id          &lt;- refer to Spawns.txt
+**difficulty   &lt;- refer to Spawns.txt
+**spawn position  &lt;-  41-100
+*******************************************************************
+number_of_spawns=05
+*******************************************************************
+222
+225
+Pirate
+hard
+41</i>
+- end of contents -
+
+This is how fixed spawns are initialised. The number of spawns is between 01 and 99 i.e  - this number corresponds to
+the number of custom spawns within this file.
+The next 2 lines define the starting positions - yyy,xxx
+Then the actual monster name is stated. The various name options are found in file 'spawns.txt' (read only!)
+Do not modify that file, just refer to it's contents.
+Pull out the difficulty - easy, medium or hard are referenced. Not all monsters are found in all 3 difficulty 
+areas, so you must use exactly what's provided.
+Next provide a spawn position from 41 to 100. 01-40 are already defined within the game and are reserved.
+_____________________________________________________________________________________________</PRE>
+<PRE><a name="How does one define frigates in the game?">How does one define frigates in the game?
+</a>
+refer to file 'frigates.ini'</PRE>
+<PRE>- contents of file - <i>
+**This file defines STARTING locations for 5 (ONLY 5) USER DEFINABLE FRIGATES**
+format for all 5 (if you have &lt;5 then use 000,000)
+format:  yyy,xxx
+*******************************************************************************
+092,134           &lt;-----ship#1
+228,093           &lt;-----ship#2
+106,081           &lt;-----ship#3
+000,000           &lt;-----ship#4  none owned because 000,000
+000,000           &lt;-----ship#5  none owned because 000,000</i>
+- end of contents -
+
+In this case, I have defined 3 frigates. In the game capturing a pirate yields the ship as treasure, but if you
+get &gt;5 ships, 1 is dropped and sunk. This file is read/write during game load/save
+_____________________________________________________________________________________________</PRE>
+<PRE><a name="How do I get a horse?">How do I get a horse?</a></PRE>
+<PRE>refer to file Horse.ini
+
+- contents of file -
+NONE
+000
+000
+501
+- end of contents -
+
+If there is no horse owned, then use the syntax as above. The keyword &quot;NONE&quot; describes no horse owned.
+If you own a horse then the &quot;NONE&quot; gets replaced with the place it's parked i.e &quot;WORLD&quot; or &quot;EMPATH.ULT&quot;
+followed by the yyy and xxx coordinates. The &quot;501&quot; represents a horse facing(500=left 501=right)</PRE>
+<PRE>_____________________________________________________________________________________________</PRE>
+<PRE><a name="Can I modify Hawkinds dialog?">Can I modify Hawkinds dialog?</a>
+Yes, but there's no point in doing so because his guidance is integral to the avatar's success. I would leave the
+file 'hawkind.ini' alone. But the format is 8 lines (8 virtues) per 20% virtue completion. So 100% means 8
+virtues with 1 line each * 5 for a total of 40 lines.
+_____________________________________________________________________________________________</PRE>
+<PRE><a name="Can I change the intro picture sequence?">Can I change the intro picture sequence?</a>
+Yes, refer to file 'intro.ini' and see the format used. 1 line for the graphic file to load,
+followed by UP To 5 lines of dialog.
+___________________________________________________________________________________________</PRE>
+<PRE><a name="How do I modify Lord British's dialog?">How do I modify Lord British's dialog?
+</a>
+Refer to file 'LordBritish.txt'
+Within that, you will see a repeating format - 
+for example - 
+
+<i><u>compassion</u></i>             &lt;--------keyword<i>
+1                      &lt;--------number of lines that follow
+He says:The bards in the:towne of Britain:are well versed:in the virtue of:Compassion!  &lt;----his response</i></PRE>
+<PRE><i>
+</i>
+Here <u>compassion</u> is a key word and when asked, the next line '1' refers to # of lines in the conversation.
+(turn off wordwrap in notepad). He would reply - 
+</PRE>
+<PRE>Sample output:</PRE>
+<PRE><b><i>He says
+The bards in the
+towne of Britain
+are well versed
+in the virtue of
+Compassion!
+</i></b>_____________________________________________________________________________________________
+<a name="How do the moongates work and are they configurable?">How do the moongates work and are they configurable?
+</a>
+Yes, refer to file 'moongate.ini'</PRE>
+<PRE>- contents of file -
+<i>this is where avatar moongate appears when the first moon is at phases 1-8
+102,096
+224,038
+037,050
+019,166
+194,104
+126,023
+167,187
+133,224
+this is where avatar teleports to when the second moon is at phases 1-8
+102,096
+224,038
+037,050
+019,166
+194,104
+126,023
+167,187
+133,224</i>
+- end of contents -
+The first series of 8 numbers yyy,xxx are where the moongate appears when in phase 1-8, for example - 
+moon1
+phase1        ---moongate appears at  102,096
+phase2        ---moongate appears at  224,038
+phase3        ---moongate appears at  037,050
+phase4        ---moongate appears at  019,166
+phase5        ---moongate appears at  194,104
+phase6        ---moongate appears at  126,023
+phase7        ---moongate appears at  167,187
+phase8        ---moongate appears at  133,224
+The next series of 8 numbers yyy,xxx are where the moongate teleports to when in phase 1-8, for example - 
+moon2
+phase1        ---moongate teleports to  102,096
+phase2        ---moongate teleports to  224,038
+phase3        ---moongate teleports to  037,050
+phase4        ---moongate teleports to  019,166
+phase5        ---moongate teleports to  194,104
+phase6        ---moongate teleports to  126,023
+phase7        ---moongate teleports to  167,187
+phase8        ---moongate teleports to  133,224
+Remember the moons are usually out of phase because the second moon rotates at roughly 3 times that of the first moon so a gate does not teleport to more than a few destinations.
+___________________________________________________________________________________________
+<a name="How does one put in custom items in Britania?">How does one put in custom items in Britania?
+</a>
+Refer to file 'quest_items.ini'</PRE>
+<PRE>- contents of file -
+<i><font size="2">***Quest Items format -***
+WORLD = item found only on surface (Britania) and NOT in a town/village/dungeon etc...
+PAWS.ULT = item found in PAWS only. This name MUST be part of the '.ult&quot; extension file i.e PAWS.ULT
+ITEM name followed by yyy,xxx location of item*** eof/eof 000,000 = end of file (required as a file terminator)
+EMPTY LINE (CR) delimits each item
+WORLD
+Bell of Courage
+208,176
+WORLD
+BLACK STONE
+133,224
+LYCAEUM.ULT
+Book of Truth
+006,006
+COVE.ULT
+Candle of Love
+001,022
+WORLD
+MANDRAKE ROOT
+054,182</font></i>
+- end of contents -</PRE>
+<PRE>
+for example, in the Lycaeum (LYCAEUM.ULT) at position 006,006 (yyy,xxx) is found the 'Book of Truth'
+Anything found in Britain is referred to as WORLD (not in a town/village/dungeon etc...)
+Let's make a sample item - let's create a Book of Honor (not in U4) and place it into the WORLD at coordinates
+150,085 (I just made those up). Copy/Paste into the file anywhere. You would use this syntax - </PRE>
+<PRE><i>WORLD
+Book of Honor
+150,085</i>
+</PRE>
+<PRE>If this item is found in a TOWN/CASTLE, let's assume in Britain then we use - </PRE>
+<PRE><i>BRITAIN.ULT
+Book of Honor
+150,085</i></PRE>
+<PRE>Keep in mind you can only find and keep 1 instance of this item. So if you find it in Britain
+and look for it again in the WORLD, the computer will tell you - you already have it.
+___________________________________________________________________________________________
+<a name="Can I edit Dungeon files, town files and people dialog?">Can I edit Dungeon files, town files and people dialog?</a>
+Currently the following are editable via provided programs - </PRE>
+<PRE>Town, village, castle editing and new creation of these
+Also editing, creating and copying NPC dialogs is available with town_ editor.exe
+No Dungeon (*.dng) editing is available yet.</PRE>
+<PRE>There is help for town editing/ building provided in the U4.zip release</PRE>
+<PRE>___________________________________________________________________________________________
+</PRE>
+<PRE><a name="Can I create a new WORLD from scratch and modify the current one?">Can I create a new WORLD from scratch and modify the current one?</a></PRE>
+<PRE>Yes, with the world_editor.exe, you can create any world and edit the current one. Please note the file modified is &quot;World.map&quot; and you may
+want to backup you previous one before doing any editing. There is help for world editing provided in the U4.zip release</PRE>
+<PRE>___________________________________________________________________________________________
+<a name="What is in the Name_Generator Directory?">What is in the Name_Generator Directory?</a></PRE>
+<PRE>Within this directory is a GREAT utility &quot;EBoN 3.3&quot; by Sami Pyorre to create unique names for your creations. It is
+very comprehensive and can generate thousands of names by genre.
+___________________________________________________________________________________________
+<a name="How do I create 'new recipes' usable by the the TINKER merchants?">How do I create 'new recipes' usable by the the TINKER merchants?</a>
+<a name="Will there be a provision to CREATE custom items in game like mixing stuff or creating custom items IN GAME?">Will there be a provision to CREATE custom items in game like mixing stuff or creating custom items IN GAME?</a></PRE>
+<PRE>What this is all about is the user can quest for items and then when a recipe is known, go to a Tinker Merchant
+and have him/her create special items for you for a small fee. It's also possible to use the newly created item
+to be used in part of another recipe to create another item - and so on. Please note the SPELLING MUST be identical
+to the inventory item. There's a limit of 64 UNIQUE items one can have, although you can create infinite item types.</PRE>
+<PRE>See the file 'recipes.ini'</PRE>
+<PRE><i>Cookie Sheet   &lt;--------Item 1 needed
+Bread Dough    &lt;--------Item 2 needed
+*              &lt;--------Item 3 needed   - A &quot;*&quot; is used to denote nothing needed
+*              &lt;--------Item 4 needed   - A &quot;*&quot; is used to denote nothing needed
+*              &lt;--------Item 5 needed   - A &quot;*&quot; is used to denote nothing needed
+RATIONS        &lt;--------Item created is placed in inventory and 5 food is added to player's total</i></PRE>
+<PRE>another example - </PRE>
+<PRE><i>Iron Ore
+Iron Bit Mold
+Gold Ore
+*
+*
+Golden Ore</i></PRE>
+<PRE><i>Golden Ore
+Magical Parchment
+Key
+*
+*
+Enchanted Key</i></PRE>
+<PRE>Here the goal is to create a Enchanted Key. First required is Iron Ore, Iron Bit Mold, Gold Ore, and upon paying the Tinker
+you get Golden Ore. Then with the Golden Ore, you add a Magical Parchment, a Key, and finally you create an Enchanted Key.
+So this Enchanted Key could be used in the game to enter a special area like a dungeon, town or castle.</PRE>
+<PRE>Custom RESERVED ITEMS currently are:
+
+RATIONS
+Enchanted Armour
+Mystic Armour
+Mystic Weapon
+Enchanted Weapon</PRE>
+<PRE>When you create RATIONS with above recipe, you get 5 food, but the RATIONS are deleted
+from the inventory as are your items to create it. Creating Enchanted Weapon (aka Mystic Weapon)
+and Enchanted Armour (aka Mystic Armour) also yield an item and the bits required to fabricate these
+disappear from inventory. For you reference, Mystic Armour and Enchanted Armour are exactly the same item
+as are Mystic Weapon and Enchanted Weapon. Spelling MUST be exactly like seen here (case sensitive).</PRE>
+<PRE>___________________________________________________________________________________________</PRE>
+<p><a name="How do we define and edit the Whirlpool?">How do we define and edit
+the Whirlpool?</a></p>
+<p>See the file 'whirlpool.ini'</p>
+<p>- contents of file -</p>
+<p><i>Obviously must be on legal water tiles 0-3<br>
+format MUST be: yyy,xxx   (3 numbers for EACH coord.) This is the location where the whirlpool is found<br>
+format MUST be: yyy,xxx   (3 numbers for EACH coord.) This is where you goto when going INTO whirlpool<br>
+072,027<br>
+090,135</i></p>
+<p>- end of contents -</p>
+<p>The Whirpool is self maintaining once initial coordinate are set. Whenever
+you save/load game, the current whirlpool location is saved and this<br>
+file gets overwritten. Therefore the whirlpool loads in its position every time
+after a save/load. The whirlpool exists only over water and when a frigate
+navigates over one, player gets teleported to the destination coordinates,
+anywhere in the WORLD.</p>
+<p>___________________________________________________________________________________________</p>
+<p><a name="How do I set the players starting position?">How do I set the
+players starting position?</a></p>
+<p>Simply, just place the coordinates you want to start here and upon game load,
+this is where you will start. Save Game overwrites this file.</p>
+<p>- contents of file -<i><br>
+**This contains the starting positions for the avatar during boot. This file is read/write.**<br>
+Once you save, there will be a new starting position seen here.<br>
+You can only start in the 'world' and not in a town, village  etc...<br>
+format: yyy,xxx<br>
+105,083<br>
+</i>- end of contents -</p>
+<p>&nbsp;</p>
+<p>___________________________________________________________________________________________</p>
+<p><a name="How do you modify the messages displayed after meditating at shrines?">How
+do you modify the messages displayed after meditating at shrines?<br>
+<br>
+</a>Simply put, when meditating at a shrine for either 1,2,3 cycles, the
+appropriate message is displayed. Here is an excerpt from the<br>
+file 'shrines.ini' for just the Compassion text - Note the <b>':'</b> imbedded
+in the text is used as a carriage return (CR) in the game.&nbsp;</p>
+<p>- contents of file -</p>
+<p><i>****************************************************************************************************************<br>
+**this file holds the text that's shown when meditating at shrines**<br>
+format:<br>
+type of shrine (as taken from links.ini)<br>
+text output when meditating 1 cycle<br>
+text output when meditating 2 cycles<br>
+text output when meditating 3 cycles when player is NOT a partial avatar in the virtue<br>
+****************************************************************************************************************<br>
+<br>
+Compassion<br>
+Kill not the non evil:beasts of the land,:and do not attack:the fair people!:<br>
+Give of thy purse:to those who beg:and thy deed shall:not be forgotten!:<br>
+Third, light the:candle of love at:the entrance to the:GREAT STYGIAN ABYSS!:</i></p>
+<p>- end of contents -<br>
+<br>
+___________________________________________________________________________________________</p>
+<p><a name="How does one submit custom modules?">How does one submit custom
+modules?<br>
+<br>
+</a>This is pretty easy - Anything in the directory /u4_maps/ <i>(but <b>not</b>
+u4_maps/save) </i>should be made into a *.zip and emailed to&nbsp;<br>
+me. I will unzip, place into /u4_maps/ directory and check out the files.
+Naturally, you can include the u4_maps/save directory<br>
+if you are including a current save game. If you are downloading a custom
+module, you do the same but always backup your&nbsp;<br>
+previous u4_maps/ files first.</p>
+<p>You can download and upload just the *.tlk (talk files) and *.ult (town
+files) and incorporate them into a new / existing module.</p>
+<p>
+___________________________________________________________________________________________</p>
+<p><a href="#Where do you define Balloon, Whirlpool and Avatar starting pos?" name="Where do you define Balloon, Whirlpool and Avatar starting pos?">Where
+do you define Balloon, Whirlpool and Avatar starting pos?</a></p>
+<PRE>Refer to file 'prefs.ini' (especially refer to the White <b>BOLD</b> text)</PRE>
+<PRE><i>USE ALTERNATE BOOT SPLASH SCREEN = FALSE       &lt;------means the first intro splash screen on boot up
+USE ALTERNATE GAME SCREEN = FALSE              &lt;------means the surrounding screen while playing
+USE ALTERNATE GAME ICONS = FALSE               &lt;------means tilesets for monsters and icons for towns etc...
+USE ALTERNATE GYPSY SCREENS = TRUE             &lt;------means all intro scenes from creating new character2gypsy</i>
+<b>AVATAR_ON_GAME_INIT_START=107,086              &lt;------starting pos. when creating NEW character
+WHIRLPOOL_ON_GAME_INIT_START=059,241           &lt;------Whirlpool starting pos. when creating NEW character
+BALLOON_ON_GAME_INIT_START=080,049             &lt;------Balloon starting pos. when creating NEW character</b></PRE>
+<PRE>This file holds the starting player parameters. My default settings are shown here. If you create a
+new Module or define a new Whirlpool, Balloon or Player starting spawn point then change these values.
+The only time these are used is during a Initialize New Game...</PRE>
+<p>
+___________________________________________________________________________________________</p>
