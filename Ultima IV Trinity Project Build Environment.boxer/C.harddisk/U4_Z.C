@@ -327,19 +327,19 @@ int bp04;
 			case KBD_6:
 			case KBD_7:
 			case KBD_8:
-				if((si&0xf) <= Party.f_1d8)
+				if((si&0xf) <= Party._members)
 					bp04 = (si&0xf) - 1;
 				else
 					sound(1);
 			break;
 			case KBD_RIGHT: case KBD_DOWN:
 				bp04 = (bp04 + 1) % 14;
-				if(bp04 == Party.f_1d8)
+				if(bp04 == Party._members)
 					bp04 = 8;
 			break;
 			case KBD_UP: case KBD_LEFT:
 				if(bp04 == 8)
-					bp04 = Party.f_1d8 - 1;
+					bp04 = Party._members - 1;
 				else
 					bp04 = (bp04 + 13) % 14;
 			break;

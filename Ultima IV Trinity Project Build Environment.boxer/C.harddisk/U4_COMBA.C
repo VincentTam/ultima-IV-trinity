@@ -23,7 +23,7 @@ C_5A04()
 {
 	register int si;
 
-	for(si = Party.f_1d8 - 1; si >= 0; si --)
+	for(si = Party._members - 1; si >= 0; si --)
 		if(isCharaAlive(si))
 			return 0;
 	return 1;
@@ -65,7 +65,7 @@ C_61D1();*/
 	bp_04 = 0;
 	D_96EE = D_96F4 = 0;
 	do {
-		for(activeChara = 0; /*C_5A88:*/activeChara < Party.f_1d8 && !IsCombatEnded(); activeChara++) {
+		for(activeChara = 0; /*C_5A88:*/activeChara < Party._members && !IsCombatEnded(); activeChara++) {
 /*C_5A9E*/
 			if(Fighters._chtile[activeChara] && isCharaConscious(activeChara)) {
 				D_95C8 = 4;

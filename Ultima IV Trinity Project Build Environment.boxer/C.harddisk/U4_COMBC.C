@@ -203,14 +203,14 @@ C_7E7E()
 		Fighters._tile[loc_D] = 0;
 	if(D_95CC == MOD_BUILDING && CurMode != MOD_COM_CAMP) {
 		if(D_96F8 == TIL_50)
-			loc_A = Party.f_1d8 * 2 - 1;
+			loc_A = Party._members * 2 - 1;
 		else
 			loc_A = 0;
 	} else if((loc_A = D_9452, D_9452 < TIL_80) || (loc_A = U4_RND1(7)) == 0) {
 		loc_A = (U4_RND4(D_242A[C_7C25(loc_A)]) + D_242A[C_7C25(loc_A)]) / 2;
 	}
-	while(loc_D = loc_A, (loc_A >> 1) >= Party.f_1d8)
-		loc_A = U4_RND4(Party.f_1d8 * 2);
+	while(loc_D = loc_A, (loc_A >> 1) >= Party._members)
+		loc_A = U4_RND4(Party._members * 2);
 	for(loc_B = loc_D; loc_B >= 0; loc_B--) {
 		do {
 			loc_D = U4_RND1(15);
@@ -227,7 +227,7 @@ C_7E7E()
 		loc_C = Enemy_HP[C_7C25(loc_E)];
 		Fighters._HP[loc_D] = (loc_C >> 1) | U4_RND4(loc_C);
 	}
-	for(loc_D = Party.f_1d8 - 1; loc_D >= 0; loc_D --) {
+	for(loc_D = Party._members - 1; loc_D >= 0; loc_D --) {
 		if(!isCharaAlive(loc_D))
 			Fighters._chtile[loc_D] = 0;
 		else
@@ -313,7 +313,7 @@ C_7FFD()
 			}
 		break;
 	}
-	for(loc_B = Party.f_1d8; --loc_B >= 0; ) {
+	for(loc_B = Party._members; --loc_B >= 0; ) {
 		if(isCharaAlive(loc_B)) {
 			D_944A[loc_B] = Fighters._chtile[loc_B] = C_0ACF(loc_B);
 		} else {

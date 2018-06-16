@@ -749,7 +749,7 @@ C_D2F8()
 		return;
 	}
 	u4_puts(/*D_4E57*/"\nFor only ");
-	u4_putl(Party.f_1d8, 1, '0');
+	u4_putl(Party._members, 1, '0');
 	u4_puts(/*D_4E62*/"00g.p. Thou can have the best!  Wilt thou buy?\x12\x12\b");
 	bp_02 = AskY_N();
 	if(bp_02 != 'Y') {
@@ -757,11 +757,11 @@ C_D2F8()
 			u4_puts(/*D_4E94*/"\nA shame, thou looks like thou could use a good horse!\n");
 		return;
 	}
-	if(100 * Party.f_1d8 > Party._gold) {
+	if(100 * Party._members > Party._gold) {
 		u4_puts(/*D_4ECC*/"\nIt seems thou hast not gold enough to pay!\n");
 		return;
 	}
-	Party._gold -= 100 * Party.f_1d8; dspl_Gold();
+	Party._gold -= 100 * Party._members; dspl_Gold();
 	u4_puts(/*D_4EF9*/"\nHere, a better breed thou shalt not find ever!\n");
 	Party._tile  = TIL_HorseW_14;
 }
@@ -769,7 +769,7 @@ C_D2F8()
 /*----------------------------------------*/
 
 /*shops indexes*/
-unsigned char D_5196[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0};
+unsigned char D_5196[40] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0};
 
 /*items prices*/
 int D_51A6[] = {50, 60, 60, 900};
@@ -778,11 +778,13 @@ int D_51AE[] = { 5,  5,  6,   1};
 
 char *D_51B6[] = {
 	/*D_4F2A*/"Pirate's Guild",
-	/*D_4F39*/"The Guild Shop"
+	/*D_4F39*/"The Guild Shop",
+    "Seaman's Supplies"
 };
 char *D_51BA[] = {
 	/*D_4F48*/"One Eyed Willey",
-	/*D_4F58*/"Long John Leary"
+	/*D_4F58*/"Long John Leary",
+    "Old Yellowbeard"
 };
 
 char *D_51BE[] = {
@@ -919,7 +921,7 @@ C_D7D6()
 	Party._x = D_913B;
 	Party._y = D_913C;
 	u_delay(1, 0);
-	for(bp_02 = Party.f_1d8 - 1; bp_02 >= 0; bp_02 --) {
+	for(bp_02 = Party._members - 1; bp_02 >= 0; bp_02 --) {
 		if(isCharaAlive(bp_02))
 			Party.chara[bp_02]._stat = 'S';
 	}
@@ -927,7 +929,7 @@ C_D7D6()
 	Party._tile = TIL_38;
 	u_delay(5, 0);
 	Party._tile = TIL_1F;
-	for(bp_02 = Party.f_1d8 - 1; bp_02 >= 0; bp_02 --) {
+	for(bp_02 = Party._members - 1; bp_02 >= 0; bp_02 --) {
 		if(Party.chara[bp_02]._stat == 'S') {
 			Party.chara[bp_02]._stat = 'G';
 			HP_inc(bp_02, U4_RND3(50) * 2 + 100);
@@ -1221,9 +1223,9 @@ C-Resurrection\n");
 /*----------------------------------------*/
 
 /*shops indexes*/
-unsigned char D_5EE8[16] = {0, 0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 0, 4, 5, 6, 0};
+unsigned char D_5EE8[40] = {0, 0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 0, 4, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0};
 
-int D_5EF8[] = {20, 30, 10, 40, 99, 25};
+int D_5EF8[] = {20, 30, 10, 40, 99, 25, 15};
 
 char *D_5F04[] = {
 	/*D_5B16*/"Jolly Spirits",
@@ -1231,7 +1233,8 @@ char *D_5F04[] = {
 	/*D_5B33*/"The Keg Tap",
 	/*D_5B3F*/"Folley Tavern",
 	/*D_5B4D*/"Captain Black Tavern",
-	/*D_5B62*/"Axe 'n Ale"
+	/*D_5B62*/"Axe 'n Ale",
+    "Ale 'n Anchor"
 };
 
 char *D_5F10[] = {
@@ -1240,7 +1243,8 @@ char *D_5F10[] = {
 	/*D_5B7B*/"Terran",
 	/*D_5B82*/"Greg 'n Rob",
 	/*D_5B8E*/"The Cap'n",
-	/*D_5B98*/"Arron"
+	/*D_5B98*/"Arron",
+    "Rackham"
 };
 
 char *D_5F1C[] = {
@@ -1249,10 +1253,11 @@ char *D_5F1C[] = {
 	/*D_5BB7*/"Brown Beans",
 	/*D_5BC3*/"Folley Filet",
 	/*D_5BD0*/"Dog Meat Pie",
-	/*D_5BDD*/"Green Granukit"
+	/*D_5BDD*/"Green Granukit",
+    "Fish Fillet"
 };
 
-int D_5F28[] = {4,2,3,2,4,2};
+int D_5F28[] = {4,2,3,2,4,2,2};
 
 char *D_5F34[] = {
 	/*D_5BEC*/"black stone",
@@ -1441,9 +1446,9 @@ C_E004:
 /*----------------------------------------*/
 
 /*shops indexes*/
-unsigned char D_636C[40] = {0, 0, 0, 0, 1, 2, 0, 3, 0, 0, 4, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0};
+unsigned char D_636C[40] = {0, 0, 0, 0, 1, 2, 0, 3, 0, 0, 4, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 6, 0};
 
-int D_637C[] = {25, 40, 35, 20, 30, 20};
+int D_637C[] = {25, 40, 35, 20, 30, 15, 20};
 
 char *D_6386[] = {
 	/*D_61A4*/"The Sage Deli",
@@ -1451,7 +1456,8 @@ char *D_6386[] = {
 	/*D_61C1*/"The Dry Goods",
 	/*D_61CF*/"Food for Thought",
 	/*D_61E0*/"The Market",
-    "The Farmer's Market"
+    "The Farmer's Market",
+    "Fresh Fish"
 };
 
 char *D_6390[] = {
@@ -1460,7 +1466,8 @@ char *D_6390[] = {
 	/*D_61FB*/"Donnar",
 	/*D_6102*/"Mintol",
 	/*D_6109*/"Max",
-    "Gunthrie"
+    "Gunthrie",
+    "Bligh"
 };
 
 /*SHOP #3 - food*/

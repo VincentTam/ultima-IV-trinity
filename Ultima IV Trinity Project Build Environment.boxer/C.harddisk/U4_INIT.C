@@ -143,7 +143,7 @@ C_C51C()
 	/*for debug*/
 	Party._x = 0x5b; Party._y = 0x44;
 #endif
-	if(Party.f_1d8 == 0) {
+	if(Party._members == 0) {
 		Gra_clrscr();
 		txt_Y = 8;
 		txt_X = 12;

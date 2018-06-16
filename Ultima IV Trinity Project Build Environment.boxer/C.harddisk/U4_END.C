@@ -42,7 +42,7 @@ unsigned bp04;
 	Gra_CR();
 	Party._x = D_0BF0[bp04];
 	Party._y = D_0BFE[bp04];
-	Party.f_1d8 = D_8CCA;
+	Party._members = D_8CCA;
 	Party._loc = 0;
 	CurMode = MOD_OUTDOORS;
 	spell_cnt = 0;
@@ -165,8 +165,8 @@ C_31F4()
 	int bp_02;
 	char bp_12[16];
 
-	D_8CCA = Party.f_1d8;
-	Party.f_1d8 = 1;
+	D_8CCA = Party._members;
+	Party._members = 1;
 	CurMode = MOD_VISION;
 	Gra_13();
 	dspl_Stats();

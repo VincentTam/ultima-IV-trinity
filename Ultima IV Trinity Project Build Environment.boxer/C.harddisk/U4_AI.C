@@ -106,7 +106,7 @@ C_9683()
 {
 	register int si;
 
-	for(si = Party.f_1d8; --si >= 0;  ) {
+	for(si = Party._members; --si >= 0;  ) {
 		if(isCharaAlive(si) && hit_x == Combat._charaX[si] && hit_y == Combat._charaY[si])
 			return si;
 	}
@@ -417,7 +417,7 @@ C_9D51:
 			if(spell_sta != 'N') {
 				t_callback();
 				Gra_09(); sound(9, 0x80); Gra_09();
-				for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
+				for(loc_B = Party._members - 1; loc_B >= 0; loc_B --) {
 					if(Fighters._chtile[loc_B] != 0 && Party.chara[loc_B]._stat == 'G' && U4_RND1(1)) {
 						Party.chara[loc_B]._stat = 'S';
 						Fighters._chtile[loc_B] = TIL_38;
@@ -524,7 +524,7 @@ C_9F7B()
                     loc_E = Combat._npcY[loc_A];
                     loc_F = 99;
                     loc_C = -1;
-                    for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
+                    for(loc_B = Party._members - 1; loc_B >= 0; loc_B --) {
                         if(isCharaAlive(loc_B) && Fighters._chtile[loc_B]) {
                             register int si;
                             

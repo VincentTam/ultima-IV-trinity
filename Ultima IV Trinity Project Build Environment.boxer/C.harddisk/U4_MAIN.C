@@ -127,7 +127,7 @@ Party_Maint()
 	if(Party._ship < 50 && U4_RND1(3) == 0)
 		Party._ship ++;
 	/*S=>G(randomly), P=>takes 2 hit*/
-	for(di = Party.chara, si = 0; si < Party.f_1d8; di++, si++) {
+	for(di = Party.chara, si = 0; si < Party._members; di++, si++) {
 		if(di->_stat == 'S' && U4_RND1(7) == 0) {
 			di->_stat = 'G';
 		} else if(di->_stat == 'P') {
@@ -136,17 +136,17 @@ Party_Maint()
 		}
 	}
 	/*FOOD management*/
-	if(food_dec(Party.f_1d8)) {
+	if(food_dec(Party._members)) {
 		u4_puts("\nStarving!!!\n");
-		for(si = 0; si < Party.f_1d8; si ++) {
+		for(si = 0; si < Party._members; si ++) {
 			if(isCharaAlive(si))
 				hitChara(si, 2);
 		}
-		si = Party.f_1d8;
+		si = Party._members;
 		while(--si >= 0)
 			Gra_11(si);
 		sound(6);
-		si = Party.f_1d8;
+		si = Party._members;
 		while(--si >= 0)
 			Gra_11(si);
 	}

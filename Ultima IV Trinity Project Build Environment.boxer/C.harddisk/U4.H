@@ -110,7 +110,7 @@ struct tParty /*size:0x1f6*/ {
 	/*+1d4,+1d5*/unsigned char _x, _y;
 	/*+1d6*/unsigned char mStones;
 	/*+1d7*/unsigned char mRunes;
-	/*+1d8*/U16 f_1d8;/*characters #*/
+	/*+1d8*/U16 _members;/*characters #*/
 	/*+1da*/U16 _tile;
 	/*+1dc*/U16 f_1dc;/*isFlying or light[dungeon]*/
 	/*+1de/+1e0*/U16 _trammel,_felucca;/*moons phase*/

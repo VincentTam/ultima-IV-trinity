@@ -10,7 +10,7 @@ Sleep()
 {
 	register int si;
 
-	for(si = Party.f_1d8; --si >= 0; ) {
+	for(si = Party._members; --si >= 0; ) {
 		if(isCharaConscious(si) && U4_RND1(3) == 0) {
 			Party.chara[si]._stat = 'S';
 			sleep_poisonfx(si);
@@ -23,7 +23,7 @@ Poison()
 {
 	register int si;
 
-	for(si = Party.f_1d8; --si >= 0; ) {
+	for(si = Party._members; --si >= 0; ) {
 		if(Party.chara[si]._stat == 'G' && U4_RND1(7) == 0) {
 			Party.chara[si]._stat = 'P';
 			sleep_poisonfx(si);

@@ -329,9 +329,9 @@ Talk_Oracle()
     
 
                 u4_puts(Party.chara[0]._name);
-                if(Party.f_1d8 >= 3) {
+                if(Party._members >= 3) {
                     u4_puts(/*D_7ACC*/" and thy companions!\n");
-                } else if(Party.f_1d8 == 2) {
+                } else if(Party._members == 2) {
                     u4_puts(/*D_7AEA*/" and thy companions, ");
                     u4_puts(Party.chara[1]._name);
                     u4_puts(/*D_7AFA*/"!\n");

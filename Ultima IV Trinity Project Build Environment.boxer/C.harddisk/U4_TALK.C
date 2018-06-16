@@ -175,7 +175,7 @@ static unsigned D_8CE6;/*type?*/
 		u4_puts(/*D_2B41*/" enough for me to join thee.\n");
 		return;
 	}
-	if(100 * Party.f_1d8 + 100 > Party.chara[0]._HP[1]) {
+	if(100 * Party._members + 100 > Party.chara[0]._HP[1]) {
 		u4_puts(/*D_2B5F*/"Thou art not experienced enough for me to join thee.\n");
 		return;
 	}
@@ -190,8 +190,8 @@ static unsigned D_8CE6;/*type?*/
 			break;
 	}
 	if(bp_02 != -1)
-		C_6FF9(&(Party.chara[Party.f_1d8]), &(Party.chara[bp_02]));
-	Party.f_1d8 ++;
+		C_6FF9(&(Party.chara[Party._members]), &(Party.chara[bp_02]));
+	Party._members ++;
 	Gra_13();
 	dspl_Stats();
 }
@@ -256,7 +256,7 @@ int bp04;
 
 	dlseek(File_TLK, (D_8742._npc._tlkidx[bp04] - 1) * 0x120);
 	dread(File_TLK, D_95CE, 0x120);
-	bp_04 = Party.f_1d8;
+	bp_04 = Party._members;
 	D_9452 = D_8742._npc._tile[bp04];
 	C_A443(D_95CE+3);
 	/*personnal question 1 & 2*/
@@ -306,7 +306,7 @@ int bp04;
 					Gra_CR();
 					D_8CE6 = bp04;
 					(*(D_2A90[si]._02))();
-					if(Party.f_1d8 != bp_04)
+					if(Party._members != bp_04)
 						return;/*looks like he/she has joined*/
 				} else {
 					bp_02 = 1;
@@ -364,10 +364,10 @@ unsigned char D_2CD4[][8] = {
     {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
     {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
     
-    {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*riverca*/
+    {0x00,0x00,0x00,0x0A,0x00,0x00,0x00,0x0C},/*riverca*/
     {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*forestca*/
     {0x00,0x00,0x00,0x00,0x00,0x1C,0x00,0x00},/*mountca*/
-    {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*swampca*/
+    {0x00,0x00,0x0F,0x00,0x00,0x00,0x00,0x00},/*swampca*/
     {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*plainsca*/
     {0x00,0x00,0x00,0x00,0x0E,0x00,0x00,0x00},/*Valleyca*/
     {0x00,0x00,0x13,0x00,0x00,0x00,0x00,0x00},/*farmca*/
@@ -411,6 +411,8 @@ unsigned char bp04;
 	}
 	if(si == -1 && bp04 == 0x18 && Party._loc == 0x0d)
 		si = 8;/*patch! paws' horses*/
+    if(si == -1 && bp04 == 0x08 && Party._loc == 0x28)
+        si = 8;/*patch! ranch's horses*/
 	if(si == -1 && bp04 == 0x19 && Party._loc == 0x01)
 		si = 9;/*patch! LB's hawkwind*/
 	if(si == -1) {

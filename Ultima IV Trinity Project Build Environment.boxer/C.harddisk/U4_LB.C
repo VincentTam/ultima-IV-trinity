@@ -82,7 +82,7 @@ C_E21E() {
 		u4_puts(/*D_70D8*/"\nTake great care in these thy first travels in Britannia.\n"); C_E1FC();
 		u4_puts(/*D_7113*/"\nUntil thou dost well know thyself, travel not far from the safety of the townes!\n");
 	} else
-	if(Party.f_1d8 == 1) {
+	if(Party._members == 1) {
 		u4_puts(/*D_7166*/"Travel not the open lands alone. There are many worthy people in the diverse townes whom it would be wise to ask to Join thee!\n"); C_E1FC();
 		u4_puts(/*D_71E6*/"\nBuild thy party unto eight travellers, for only a true leader can win the Quest!\n");
 	} else
@@ -166,7 +166,7 @@ register char *bp04;
 C_E408() {
 	int bp_02;
 
-	for(bp_02 = Party.f_1d8 - 1; bp_02 >= 0; bp_02 --) {
+	for(bp_02 = Party._members - 1; bp_02 >= 0; bp_02 --) {
 		if(Party.chara[bp_02]._stat != 'D') {
 			Party.chara[bp_02]._stat = 'G';
 			Party.chara[bp_02]._HP[0] = Party.chara[bp_02]._HP[1];
@@ -202,7 +202,7 @@ int *bp04;
 C_E4C3() {
 	int loc_A, loc_B, loc_C;
 
-	for(loc_B = 0; loc_B < Party.f_1d8; loc_B++) {
+	for(loc_B = 0; loc_B < Party._members; loc_B++) {
 		for(loc_C = loc_A = 100; loc_A <= Party.chara[loc_B]._XP; loc_C += 100, loc_A <<= 1);
 		if(Party.chara[loc_B]._HP[1] < loc_C) {
 			Party.chara[loc_B]._HP[1] = loc_C;
@@ -255,9 +255,9 @@ A champion of virtue is called for. Thou may be this champion, but only time sha
 		}
 		u4_puts(/*D_7AAC*/"\n\n\nLord British says:  Welcome ");
 		u4_puts(Party.chara[0]._name);
-		if(Party.f_1d8 >= 3) {
+		if(Party._members >= 3) {
 			u4_puts(/*D_7ACC*/" and thy worthy Adventurers!\n");
-		} else if(Party.f_1d8 == 2) {
+		} else if(Party._members == 2) {
 			u4_puts(/*D_7AEA*/" and thee also ");
 			u4_puts(Party.chara[1]._name);
 			u4_puts(/*D_7AFA*/"!\n");
@@ -286,7 +286,7 @@ A champion of virtue is called for. Thou may be this champion, but only time sha
 	}
 
 	u4_puts(/*D_7B33*/"Lord British says: Fare thee well my friend");
-	if(Party.f_1d8 > 1)
+	if(Party._members > 1)
 		u4_putc('s');
 	u4_puts(/*D_7B5F*/"!\n");
 }

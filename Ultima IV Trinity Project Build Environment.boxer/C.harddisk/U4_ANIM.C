@@ -384,7 +384,7 @@ C_3C54()
 #endif
 			}
 		}
-		for(loc_A = Party.f_1d8 - 1; loc_A >= 0; loc_A --) {
+		for(loc_A = Party._members - 1; loc_A >= 0; loc_A --) {
 			unsigned char *bp_0c;
 			unsigned char *bp_0e;
 			unsigned char bp_10;

@@ -130,7 +130,7 @@ C_87E2()
 	register struct tChara *di;
 
 	C_10FD();
-	for(di = &(Party.chara[0]), si = 0; si < Party.f_1d8; di ++, si++) {
+	for(di = &(Party.chara[0]), si = 0; si < Party._members; di ++, si++) {
 		if(di->_stat == 'S' && U4_RND1(7) == 0) {
 			di->_stat = 'G';
 		} else if(di->_stat == 'P') {
@@ -140,16 +140,16 @@ C_87E2()
 			Gra_11(si);
 		}
 	}
-	if(food_dec(Party.f_1d8)) {
+	if(food_dec(Party._members)) {
 		u4_puts(/*D_263A*/"\nStarving!!!\n");
-		for(si = 0; si < Party.f_1d8; si++) {
+		for(si = 0; si < Party._members; si++) {
 			if(isCharaAlive(si))
 				hitChara(si, 2);
 		}
-		for(si = Party.f_1d8; --si >= 0; )
+		for(si = Party._members; --si >= 0; )
 			Gra_11(si);
 		sound(6);
-		for(si = Party.f_1d8; --si >= 0; )
+		for(si = Party._members; --si >= 0; )
 			Gra_11(si);
 	}
 	MP_recover();

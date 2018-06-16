@@ -18,7 +18,7 @@ Ambush()
 	D_9772 = Party._x;
 	D_9140 = Party._y;
 	D_96F8 = D_9452 = D_26B8[U4_RND1(7)];
-	for(si = Party.f_1d8; --si >= 0; ) {
+	for(si = Party._members; --si >= 0; ) {
 		if(Party.chara[si]._stat == 'G')
 			Party.chara[si]._stat = 'S';
 	}
@@ -46,7 +46,7 @@ Ambush()
 		exit(3);
 	for(si = 31; si >= 0; si--)
 		Fighters._tile[si] = 0;
-	for(si = Party.f_1d8; --si >= 0; ) {
+	for(si = Party._members; --si >= 0; ) {
 		D_944A[si] = Fighters._chtile[si] = isCharaAlive(si)?TIL_38:0;
 	}
 	dspl_Stats();
@@ -60,7 +60,7 @@ Ambush()
 		u4_puts(/*D_26EE*/"No effect.\n");
 	} else {
 		Party.f_1e6 = Party._moves / 100;
-		for(si = Party.f_1d8; --si >= 0; ) {
+		for(si = Party._members; --si >= 0; ) {
 			if(isCharaAlive(si)) {
 				if(Party.chara[si]._stat == 'S')
 					Party.chara[si]._stat = 'G';
