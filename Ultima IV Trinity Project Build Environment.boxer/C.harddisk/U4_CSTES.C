@@ -200,9 +200,9 @@ char *D_Locations[] = {
     /*D_1E26*/"Valley Camp",
     /*D_1E26*/"Farm",
     /*D_1E26*/"Ranch",
+    /*D_1E48*/"Crypt of Mondain",
     /*D_1E48*/"Crypt of Minax",
-    /*D_1E48*/"Crypt of Minax",
-    /*D_1E48*/"Crypt of Minax",
+    /*D_1E48*/"Crypt of Exodus",
     /*D_1E48*/"Oracle of Love",
     /*D_1E48*/"Oracle of Courage",
     /*D_1E48*/"Oracle of Truth"

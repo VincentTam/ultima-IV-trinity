@@ -59,9 +59,9 @@ char *Talk_Files[] ={
     /*D_16C6*/"PLAINSCA.TLK",
     /*D_16D1*/"VALLEYCA.TLK",
     /*Crypts*/
-    /*D_07EE*/"Crypt.Dng",
-    /*D_07EE*/"Crypt.Dng",
-    /*D_07EE*/"Crypt.Dng",
+    /*D_07EE*/"MONDAIN.DNG",
+    /*D_07EE*/"MINAX.DNG",
+    /*D_07EE*/"EXODUS.DNG",
     /*Oracle*/
     /*D_07EE*/"Love",
     /*D_07EE*/"Courage",

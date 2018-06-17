@@ -95,9 +95,9 @@ char *Towne_Castle_Village[] = {
     /*0x51 0xB7*/"FARMCA.ULT",
     /*0x30 0x9E*/"RANCHCA.ULT",
     /*Crypts*/
-    /*D_07EE*/"Crypt.Dng",
-    /*D_07EE*/"Crypt.Dng",
-    /*D_07EE*/"Crypt.Dng",
+    /*D_07EE*/"MONDAIN.DNG",
+    /*D_07EE*/"MINAX.DNG",
+    /*D_07EE*/"EXODUS.DNG",
     /*Oracles*/
     /*D_07EE*/"love",
     /*D_07EE*/"courage",
@@ -139,9 +139,9 @@ char *Shrines[] = {
 
 /*crypts files*/
 char *Crypts[] = {
-    /*D_07A8*/"Crypt.Dng",
-    /*D_07B4*/"Crypt.Dng",
-    /*D_07EE*/"Crypt.Dng"
+    /*D_07A8*/"MONDAIN.DNG",
+    /*D_07B4*/"MINAX.DNG",
+    /*D_07EE*/"EXODUS.DNG"
 };
 
 /*oracles*/
