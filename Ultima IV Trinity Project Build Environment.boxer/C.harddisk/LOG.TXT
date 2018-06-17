@@ -1,31 +1,31 @@
 MAKE  Version 2.0   Copyright (c) 1987, 1988 Borland International
 
-Available memory 596953 bytes
+Available memory 596773 bytes
 
 	msc /Ox /Zp /Gc u4_shops,sh;
 u4_shops.C(132) : warning 49: 'parameter' : indirection to different types
 u4_shops.C(132) : warning 24: different types : parameter 1
-u4_shops.C(214) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(214) : warning 24: different types : parameter 1
-u4_shops.C(215) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(215) : warning 24: different types : parameter 1
-u4_shops.C(216) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(216) : warning 24: different types : parameter 1
-u4_shops.C(221) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(221) : warning 24: different types : parameter 1
-u4_shops.C(222) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(222) : warning 24: different types : parameter 1
-u4_shops.C(223) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(223) : warning 24: different types : parameter 1
-u4_shops.C(1173) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(1173) : warning 24: different types : parameter 1
-u4_shops.C(1179) : warning 49: 'parameter' : indirection to different types
-u4_shops.C(1179) : warning 24: different types : parameter 1
-u4_shops.C(199) : warning 61: long/short mismatch in argument : conversion supplied
-u4_shops.C(752) : warning 61: long/short mismatch in argument : conversion supplied
-u4_shops.C(1289) : warning 61: long/short mismatch in argument : conversion supplied
-u4_shops.C(1311) : warning 61: long/short mismatch in argument : conversion supplied
-u4_shops.C(1492) : warning 61: long/short mismatch in argument : conversion supplied
+u4_shops.C(217) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(217) : warning 24: different types : parameter 1
+u4_shops.C(218) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(218) : warning 24: different types : parameter 1
+u4_shops.C(219) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(219) : warning 24: different types : parameter 1
+u4_shops.C(224) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(224) : warning 24: different types : parameter 1
+u4_shops.C(225) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(225) : warning 24: different types : parameter 1
+u4_shops.C(226) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(226) : warning 24: different types : parameter 1
+u4_shops.C(1176) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(1176) : warning 24: different types : parameter 1
+u4_shops.C(1182) : warning 49: 'parameter' : indirection to different types
+u4_shops.C(1182) : warning 24: different types : parameter 1
+u4_shops.C(202) : warning 61: long/short mismatch in argument : conversion supplied
+u4_shops.C(755) : warning 61: long/short mismatch in argument : conversion supplied
+u4_shops.C(1292) : warning 61: long/short mismatch in argument : conversion supplied
+u4_shops.C(1314) : warning 61: long/short mismatch in argument : conversion supplied
+u4_shops.C(1495) : warning 61: long/short mismatch in argument : conversion supplied
 	link /MAP @u4.rsp
 Microsoft (R) Overlay Linker  Version 3.51
 Copyright (C) Microsoft Corp 1983, 1984, 1985, 1986.  All rights reserved.

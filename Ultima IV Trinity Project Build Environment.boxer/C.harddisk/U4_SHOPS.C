@@ -137,14 +137,15 @@ static unsigned D_913E;/*# of drinks in pub*/
 /*----------------------------------------*/
 
 /*shops indexes*/
-unsigned char D_4170[40] = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0};
+unsigned char D_4170[40] = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0};
 
 char *D_4180[] = {
 	/*D_3F5C*/"Magical Herbs",
 	/*D_3F6A*/"Herbs and Spice",
 	/*D_3F7A*/"The Magics",
 	/*D_3F85*/"Magic Mentar",
-    "Vale Herbs"
+    "Vale Herbs",
+    "Forest Reagents"
 };
 
 char *D_4188[] = {
@@ -152,7 +153,8 @@ char *D_4188[] = {
 	/*D_3F99*/"Sasha",
 	/*D_3F9F*/"Shiela",
 	/*D_3FA6*/"Shannon",
-    "Shelly"
+    "Shelly",
+    "Old Margo"
 };
 
 unsigned char D_4190[][6] = {
@@ -160,7 +162,8 @@ unsigned char D_4190[][6] = {
 	{2, 4, 9, 6, 4, 8},
 	{3, 4, 2, 9, 6, 7},
 	{6, 7, 9, 9, 9, 1},
-    {8, 2, 3, 2, 4, 5}
+    {8, 2, 3, 2, 4, 5},
+    {2, 3, 9, 2, 3, 2}
 };
 
 /*SHOP #5 - reagents*/
