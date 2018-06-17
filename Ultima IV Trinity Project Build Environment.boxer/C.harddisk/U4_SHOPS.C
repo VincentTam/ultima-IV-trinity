@@ -508,7 +508,8 @@ char *D_4BAE[] = {
 	/*D_4937*/"Valiant's Armour",
 	/*D_4948*/"Duelling Armour",
 	/*D_4958*/"Light Armour",
-	/*D_4965*/"Basic Armour"
+	/*D_4965*/"Basic Armour",
+    "Valley Armour"
 };
 
 char *D_4BB8[] = {
@@ -527,7 +528,7 @@ unsigned char D_4BC4[][4] = {
 	{1, 3, 5, 0},
 	{1, 2, 0, 0},
 	{1, 2, 3, 0},
-
+    {3, 4, 5, 6},
 	{0, 0, 0, 0}
 };
 
@@ -545,7 +546,7 @@ int D_4BDC[] = {
 };
 
 /*shops indexes*/
-unsigned char D_4BEC[16] = {0, 0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 0, 4, 5, 0, 0};
+unsigned char D_4BEC[40] = {0, 0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 0, 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0};
 
 char *D_4BFC[] = {
 	/*D_499D*/"Cloth Armour is good for a tight budget, Fairly priced at 50gp.\n",
