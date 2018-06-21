@@ -1,0 +1,16 @@
+MAKE  Version 2.0   Copyright (c) 1987, 1988 Borland International
+
+Available memory 596657 bytes
+
+	msc /Ox /Zp /Gc /J u4_main2,ma2;
+	link /MAP @u4.rsp
+Microsoft (R) Overlay Linker  Version 3.51
+Copyright (C) Microsoft Corp 1983, 1984, 1985, 1986.  All rights reserved.
+
+Object Modules [.OBJ]: VA ER L US FI UT UT2 M SO MA2 DO GR MA EN AN EX Z CS NP COA SP Q GE LO COB COC DN HO MI SR EV AI TA 3D SR2 PE IN SH LB SHR
+Run File [VA.EXE]: AVATARList File [C:AVATAR.MAP]: Libraries [.LIB]: 	\tools\exepack u4_main.exe tmp.exe
+Microsoft (R) EXE File Compression Utility  Version 4.03
+Copyright (C) Microsoft Corp 1985.  All rights reserved.
+
+
+** error 1 ** deleting u4_main.exe

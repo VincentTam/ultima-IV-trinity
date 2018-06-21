@@ -87,10 +87,11 @@ C_87E2();*/
 			D_07F8 = 1;
 		bp_04 = si;
 	} while(Party._z >= 0);
-	C_2747();
+	MAP_Leaving();
 	dclose(File_DNG);
 	File_DNG = 0;
 }
+
 
 C_8743()
 {

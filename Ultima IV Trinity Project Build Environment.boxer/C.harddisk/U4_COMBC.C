@@ -273,20 +273,34 @@ C_7FFD()
 	D_95CC = MOD_DUNGEON;
 	CurMode = MOD_COM_ROOM;
 	memcpy(D_95B2, loc_A._000, 16);
-	D_943E = -1;
+	Altar = -1;
+    Tomb = -1;
 	if((tile_cur & 0xf) == 0xf && Party._loc < 0x18) {
 		u4_puts(/*D_25B9*/"\nThe Altar Room of ");
 		if(Party._x == 3) {
 			u4_puts(/*D_25CD*/"Love\n");
-			D_943E = 1;
+			Altar = 1;
 		} else if(Party._x <= 2) {
 			u4_puts(/*D_25D3*/"Truth\n");
-			D_943E = 0;
+			Altar = 0;
 		} else {
 			u4_puts(/*D_25DA*/"Courage\n");
-			D_943E = 2;
+			Altar = 2;
 		}
 	}
+    if((tile_cur & 0xf) == 0xf && Party._loc > 0x18) {
+        u4_puts("\nThe Tomb of ");
+        if(Party._x == 1) {
+            u4_puts("Mondain\n");
+            Tomb = 1;
+        } else if(Party._x > 2) {
+            u4_puts("Minax\n");
+            Tomb = 0;
+        } else {
+            u4_puts("Exodus\n");
+            Tomb = 2;
+        }
+    }
 	switch(((Party._dir - 1) ^ 2) & 3) {
 		case 2:
 			for(loc_B = 7; loc_B >= 0; loc_B --) {
@@ -448,8 +462,8 @@ C_837A()
 			else
 				Party._dir = DIR_E;
 		}
-		if(D_943E != -1) {
-			Party._loc = D_261A[D_943E][(Party._dir - 1) & 3];
+		if(Altar != -1) {
+			Party._loc = D_261A[Altar][(Party._dir - 1) & 3];
 			Party.out_x = D_0844[Party._loc - 1];
 			Party.out_y = D_0864[Party._loc - 1];
 			u4_puts(/*D_2601*/"into Dungeon\n");

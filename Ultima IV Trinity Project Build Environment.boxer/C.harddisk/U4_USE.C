@@ -9,8 +9,8 @@
 #include <string.h>
 
 
-char D_00EE[] = "Hmm...No effect!\n";
-char D_0100[] = "None owned!\n";
+char No_Effect[] = "Hmm...No effect!\n";
+char None_Owned[] = "None owned!\n";
 char D_010E[] = {/*colors masks*/
 	(1<<6)|(1<<5)|(1<<3)|(1<<0),/*truth*/
 	(1<<6)|(1<<4)|(1<<3)|(1<<1),/*love*/
@@ -23,8 +23,8 @@ void C_01E1()
 	char bp_12[12];
 	char bp_04;
 
-	if(Combat._charaX[activeChara] != 5 || Combat._charaY[activeChara] != 5 || D_943E == -1) {
-		u4_puts(D_00EE);
+	if(Combat._charaX[activeChara] != 5 || Combat._charaY[activeChara] != 5 || Altar == -1) {
+		u4_puts(No_Effect);
 		return;
 	}
 	u4_puts(/*D_0080*/"\nThere are holes for 4 stones. What colors:\n");
@@ -39,7 +39,7 @@ void C_01E1()
 		}
 		if(bp_10 == -1 || !TST_MSK(Party.mStones, bp_10)) {
 			if(*bp_12 != '\0')
-				u4_puts(D_0100);
+				u4_puts(None_Owned);
 			return;
 		}
 		if((1 << bp_10) & bp_04) {
@@ -48,28 +48,28 @@ void C_01E1()
 		}
 		bp_04 |= (1 << bp_10);
 	}
-	if(D_010E[D_943E] != bp_04) {
-		u4_puts(D_00EE);
+	if(D_010E[Altar] != bp_04) {
+		u4_puts(No_Effect);
 		return;
 	}
-	switch(D_943E) {
+	switch(Altar) {
 		case 0:
 			if(TST_MSK(Party.mItems, 7)) {
-				u4_puts(D_00EE);
+				u4_puts(No_Effect);
 				return;
 			}
 			SET_MSK(Party.mItems, 7);
 		break;
 		case 1:
 			if(TST_MSK(Party.mItems, 6)) {
-				u4_puts(D_00EE);
+				u4_puts(No_Effect);
 				return;
 			}
 			SET_MSK(Party.mItems, 6);
 		break;
 		case 2:
 			if(TST_MSK(Party.mItems, 5)) {
-				u4_puts(D_00EE);
+				u4_puts(No_Effect);
 				return;
 			}
 			SET_MSK(Party.mItems, 5);
@@ -90,7 +90,7 @@ char *D_0284[] = {
 };
 
 /*use stone(s)*/
-C_0311() {
+USE_Stones() {
 	int bp_02;
 
 	if(Party.mStones) {
@@ -99,7 +99,7 @@ C_0311() {
 			u4_puts(/*D_01BF*/"No place to Use them!\n");
 		if(CurMode == MOD_DUNGEON) {
 			if(tile_cur != 0xb0 || Party._loc != 0x18) {
-				u4_puts(D_00EE);
+				u4_puts(No_Effect);
 				return;
 			}
 			if(Party._z != 7)
@@ -111,7 +111,7 @@ C_0311() {
 			if(strnicmp(bp_10, D_Virtues[Party._z], 14)) {
 C_03A1:
 				if(bp_10[0])
-					u4_puts(D_00EE);
+					u4_puts(No_Effect);
 				return;
 			}
 			u4_puts(/*D_0221*/"\nThe Voice says: Use thy Stone.\n\nColor:\n");
@@ -129,7 +129,7 @@ C_03A1:
 				return;
 			}
 			if(Party._z != bp_02) {
-				u4_puts(D_00EE);
+				u4_puts(No_Effect);
 				return;
 			}
 			if(Party._z == 7) {
@@ -142,7 +142,7 @@ C_03A1:
 			C_01E1();
 		}
 	} else {
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 	}
 }
 
@@ -155,17 +155,17 @@ C_044C() {
 	)
 		u4_puts("No place to Use them!\n");
 	else
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 }
 
 /*use bell*/
 C_0487() {
 	if(!TST_MSK(Party.mItems, 4)) {
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 		return;
 	}
 	if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
-		u4_puts(D_00EE);
+		u4_puts(No_Effect);
 		return;
 	}
 	SET_MSK(Party.mItems, 12);
@@ -175,13 +175,13 @@ C_0487() {
 /*use book*/
 C_04C0() {
 	if(!TST_MSK(Party.mItems, 3)) {
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 		return;
 	}
 	if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9 ||
 		!TST_MSK(Party.mItems, 12)
 	) {
-		u4_puts(D_00EE);
+		u4_puts(No_Effect);
 		return;
 	}
 	SET_MSK(Party.mItems, 11);
@@ -191,13 +191,13 @@ C_04C0() {
 /*use candle*/
 C_0501() {
 	if(!TST_MSK(Party.mItems, 2)) {
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 		return;
 	}
 	if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9 ||
 		!TST_MSK(Party.mItems, 11)
 	) {
-		u4_puts(D_00EE);
+		u4_puts(No_Effect);
 		return;
 	}
 	SET_MSK(Party.mItems, 10);
@@ -209,11 +209,11 @@ C_0501() {
 /*use horn*/
 C_0553() {
 	if(!TST_MSK(Party.mItems, 8)) {
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 		return;
 	}
 	if(Party._loc != 0) {
-		u4_puts(D_00EE);
+		u4_puts(No_Effect);
 		return;
 	}
 	u4_puts("The Horn sounds an eerie tone!\n");
@@ -225,11 +225,11 @@ C_0553() {
 /*use wheel*/
 C_058C() {
     if(!TST_MSK(Party.mItems, 9)) {
-        u4_puts(D_0100);
+        u4_puts(None_Owned);
         return;
     }
     if(Party._loc != 0 || Party._tile > TIL_ShipS_13 || Party._ship != 50) {
-        u4_puts(D_00EE);
+        u4_puts(No_Effect);
         return;
     }
     u4_puts("Once mounted, the Wheel glows with a blue light!\n");
@@ -240,7 +240,7 @@ C_058C() {
 /*use ring*/
 USE_Ring() {
     if(!TST_MSK(Party.mItems, 14)) {
-        u4_puts(D_0100);
+        u4_puts(None_Owned);
         return;
     }
     if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
@@ -257,19 +257,7 @@ USE_Ring() {
     } else {
         u4_puts("\nYou cast the Ring of Exodus into the Abyss!\n");
         SET_MSK(Party.mItems, 1);
-        karma_inc((char *)&(Party._hones), 10);
-        karma_inc((char *)&(Party._compa), 10);
-        karma_inc((char *)&(Party._valor), 10);
-        karma_inc((char *)&(Party._justi), 10);
-        karma_inc((char *)&(Party._sacri), 10);
-        karma_inc((char *)&(Party._honor), 10);
-        karma_inc((char *)&(Party._spiri), 10);
-        karma_inc((char *)&(Party._humil), 10);
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
+        Big_Karma_Inc();
         /*moved the mask to here so Ring is only removed from inventory when cast into Abyss */
         RST_MSK(Party.mItems, 14);
     }
@@ -280,10 +268,26 @@ USE_Skull() {
 	int bp_02;
 
 	if(!TST_MSK(Party.mItems, 0)) {
-		u4_puts(D_0100);
+		u4_puts(None_Owned);
 		return;
 	}
-	if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
+    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == -1) {
+        u4_puts("\nYou place the Skull of Mondain into the Tomb....\n");
+        SET_MSK(Party.mItems, 1);
+        Big_Karma_Inc();
+        u4_puts("\nThe Tomb closes with a mighty rumble...\n");
+        /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
+        RST_MSK(Party.mItems, 0);
+        
+        u_delay(5, 0);
+        Gra_CR();
+        Crypt_Exit(5);
+
+        
+        dclose(File_DNG);
+        File_DNG = 0;
+    }
+	else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
 		u4_puts("\nYou hold the evil Skull of Mondain the Wizard aloft....\n");
 		sound(6); shakefx();
 		Gra_09();
@@ -316,22 +320,11 @@ USE_Skull() {
         karma_dec((char *)&(Party._spiri), 5);
         karma_dec((char *)&(Party._humil), 5);
         dspl_Stats();
+        
 	} else {
         u4_puts("\nYou cast the Skull of Mondain into the Abyss!\n");
 		SET_MSK(Party.mItems, 1);
-		karma_inc((char *)&(Party._hones), 10);
-		karma_inc((char *)&(Party._compa), 10);
-		karma_inc((char *)&(Party._valor), 10);
-		karma_inc((char *)&(Party._justi), 10);
-		karma_inc((char *)&(Party._sacri), 10);
-		karma_inc((char *)&(Party._honor), 10);
-		karma_inc((char *)&(Party._spiri), 10);
-		karma_inc((char *)&(Party._humil), 10);
-		sound(6); shakefx();
-		Gra_09();
-		sound(6); shakefx();
-		Gra_09();
-		sound(6); shakefx();
+        Big_Karma_Inc();
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
         RST_MSK(Party.mItems, 0);
 	}
@@ -344,7 +337,7 @@ USE_Wand() {
 
     
     if(!TST_MSK(Party.mItems, 13)) {
-        u4_puts(D_0100);
+        u4_puts(None_Owned);
         return;
     }
     if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
@@ -355,22 +348,27 @@ USE_Wand() {
     } else {
         u4_puts("\nYou cast the Wand of Minax into the Abyss!\n");
         SET_MSK(Party.mItems, 1);
-        karma_inc((char *)&(Party._hones), 10);
-        karma_inc((char *)&(Party._compa), 10);
-        karma_inc((char *)&(Party._valor), 10);
-        karma_inc((char *)&(Party._justi), 10);
-        karma_inc((char *)&(Party._sacri), 10);
-        karma_inc((char *)&(Party._honor), 10);
-        karma_inc((char *)&(Party._spiri), 10);
-        karma_inc((char *)&(Party._humil), 10);
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
+        Big_Karma_Inc();
         /*put the mask here so the wand is only destroyed when cast into the Abyss */
         RST_MSK(Party.mItems, 13);
     }
+}
+
+Big_Karma_Inc() {
+    karma_inc((char *)&(Party._hones), 10);
+    karma_inc((char *)&(Party._compa), 10);
+    karma_inc((char *)&(Party._valor), 10);
+    karma_inc((char *)&(Party._justi), 10);
+    karma_inc((char *)&(Party._sacri), 10);
+    karma_inc((char *)&(Party._honor), 10);
+    karma_inc((char *)&(Party._spiri), 10);
+    karma_inc((char *)&(Party._humil), 10);
+    sound(6); shakefx();
+    Gra_09();
+    sound(6); shakefx();
+    Gra_09();
+    sound(6); shakefx();
+    return;
 }
 
 USE_WandMagic() {
@@ -452,8 +450,8 @@ struct {
 	char *_00;
 	void (*_02)();
 } D_0434[] = {
-	{/*D_03D5*/"stone",  C_0311},
-	{/*D_03DB*/"stones", C_0311},
+	{/*D_03D5*/"stone",  USE_Stones},
+	{/*D_03DB*/"stones", USE_Stones},
 	{/*D_03E2*/"bell",   C_0487},
 	{/*D_03E7*/"book",   C_04C0},
 	{/*D_03EC*/"candle", C_0501},

@@ -38,7 +38,7 @@ Random_Encounter()
 	unsigned bp_02;
 
 	if(CurMode == MOD_OUTDOORS && tile_cur == TIL_17 && U4_RND1(7) == 0) {
-		u4_puts(/*D_2998*/"\nBridge Trolls!\n");
+		u4_puts("\nBridge Trolls!\n");
 		D_96F8 = TIL_A4;
 		D_9772 = Party._x;
 		D_9140 = Party._y;
@@ -47,7 +47,7 @@ Random_Encounter()
 		return;
 	}
     if(CurMode == MOD_OUTDOORS && Party._tile != TIL_18 && tile_cur == TIL_Mount_08) {
-        u4_puts(/*D_1777*/"\nMountains!\n\n");
+        u4_puts("\nMountains!\n\n");
         sound(6); shakefx();
         Gra_09();
         dspl_Stats();
@@ -56,7 +56,7 @@ Random_Encounter()
         return;
     }
     if(CurMode == MOD_OUTDOORS && (Party._tile >= TIL_HorseW_14 && Party._tile != TIL_18) && (tile_cur == TIL_DWater_00 || tile_cur == TIL_MWater_01 || tile_cur == TIL_SWater_02)) {
-        u4_puts(/*D_1777*/"\nWater!\n\n");
+        u4_puts("\nWater!\n\n");
         sound(6); shakefx();
         Gra_09();
         dspl_Stats();
@@ -102,10 +102,10 @@ Random_Encounter()
 			}
 		} else if((tile_cur & 0xf0) == 0x80) {
 			if(tile_cur == 0x80) {
-				u4_puts(/*D_29A9*/"\nWinds!\n");
+				u4_puts("\nWinds!\n");
 				Party.f_1dc = 0;
 			} else {
-				u4_puts((tile_cur < 0x88)?/*D_29B2*/"\nFalling Rocks!\n":/*D_29C3*/"\nPit!\n");
+				u4_puts((tile_cur < 0x88)?"\nFalling Rocks!\n":"\nPit!\n");
 				Party_Damage();
 			}
 		}

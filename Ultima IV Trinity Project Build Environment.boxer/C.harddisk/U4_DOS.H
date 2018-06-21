@@ -8,12 +8,12 @@
 #define __U4_DOS_H__
 
 /*u4_dos*/
-extern void far * cdecl /*C_1FF4*/dalloc(int);
-extern cdecl /*C_2023*/dfree(void far *);
-extern cdecl /*C_2033*/dopen(char *, int);
-extern cdecl /*C_2049*/dlseek(int, unsigned long);
-extern cdecl /*C_2067*/dread(int, void far *, int);
-extern cdecl /*C_208B*/dwrite(int, void far *, int);
-extern cdecl /*C_20AB*/dclose(int);
+extern void far * cdecl dalloc(int);
+extern cdecl dfree(void far *);
+extern cdecl dopen(char *, int);
+extern cdecl dlseek(int, unsigned long);
+extern cdecl dread(int, void far *, int);
+extern cdecl dwrite(int, void far *, int);
+extern cdecl dclose(int);
 
 #endif

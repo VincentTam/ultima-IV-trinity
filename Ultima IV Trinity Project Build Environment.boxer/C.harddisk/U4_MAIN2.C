@@ -68,23 +68,23 @@ char *Towne_Castle_Village[] = {
 	/*0xC9 0x3B*/"VESPER.ULT",
 	/*0x88 0x5A*/"COVE.ULT",
     /*Dungeons*//*Added dungeons and shrines to make the count for new locations correct*/
-    /*0xF0 0x49*/"Deceit.Dng",
-    /*D_07A8*/"Despise.Dng",
-    /*D_07B4*/"Destard.Dng",
-    /*D_07C0*/"Wrong.Dng",
-    /*D_07CA*/"Covetous.Dng",
-    /*D_07D7*/"Shame.Dng",
-    /*D_07E1*/"Hythloth.Dng",
-    /*D_07EE*/"Abyss.Dng",
+    /*0xF0 0x49*/"D",
+    /*D_07A8*/"D",
+    /*D_07B4*/"D",
+    /*D_07C0*/"W",
+    /*D_07CA*/"C",
+    /*D_07D7*/"S",
+    /*D_07E1*/"H",
+    /*D_07EE*/"A",
     /*Shrines*/
-    /*D_076D*/"Blue",
-    /*D_0772*/"Yellow",
-    /*D_0779*/"Red",
-    /*D_077D*/"Green",
-    /*D_0783*/"Orange",
-    /*D_078A*/"Purple",
-    /*D_0791*/"White",
-    /*D_0797*/"Black",
+    /*D_076D*/"B",
+    /*D_0772*/"Y",
+    /*D_0779*/"R",
+    /*D_077D*/"G",
+    /*D_0783*/"O",
+    /*D_078A*/"P",
+    /*D_0791*/"W",
+    /*D_0797*/"B",
     /*Camps*/
     /*0x2E 0x5D*/"RIVERCA.ULT",
     /*0x79 0x3A*/"FORESTCA.ULT",
@@ -95,13 +95,13 @@ char *Towne_Castle_Village[] = {
     /*0x51 0xB7*/"FARMCA.ULT",
     /*0x30 0x9E*/"RANCHCA.ULT",
     /*Crypts*/
-    /*D_07EE*/"MONDAIN.DNG",
-    /*D_07EE*/"MINAX.DNG",
-    /*D_07EE*/"EXODUS.DNG",
+    /*D_07EE*/"M",
+    /*D_07EE*/"M",
+    /*D_07EE*/"E",
     /*Oracles*/
-    /*D_07EE*/"love",
-    /*D_07EE*/"courage",
-    /*D_07EE*/"truth"
+    /*D_07EE*/"l",
+    /*D_07EE*/"c",
+    /*D_07EE*/"t"
     /*46 Total*/
 
 };

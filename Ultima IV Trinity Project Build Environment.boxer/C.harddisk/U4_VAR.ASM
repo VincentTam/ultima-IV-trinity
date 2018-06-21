@@ -8,7 +8,7 @@ XOE	SEGMENT PUBLIC WORD 'BSS'
 XOE	ENDS
 
 PUBLIC D_9140,D_9141,D_9142,Party
-PUBLIC D_933A,D_943A,tile_forward,D_943E
+PUBLIC D_933A,D_943A,tile_forward,Altar
 PUBLIC D_9440,ship_x,ship_y,tile_cur
 PUBLIC D_9445,D_9446,D_9448,D_944A
 PUBLIC D_9452,pShapes,D_9458,CurMode
@@ -22,7 +22,7 @@ PUBLIC tile_west,tile_south,txt_Y,DoublePace
 PUBLIC D_95C8,tile_back,D_95CC,D_95CE
 PUBLIC D_96EE,File_MAP,WindDir,D_96F4
 PUBLIC File_TLK,D_96F8,D_96F9,D_9772
-PUBLIC HorseTown,File_TLK_2,File_TLK_Buff
+PUBLIC HorseTown,File_TLK_2,File_TLK_Buff,Tomb
 ;actually, the next segment should be
 ;generated as a COMDEF record
 
@@ -37,7 +37,8 @@ D_933A	dd 8*8 dup(?)	;tMap32x32 far *
 D_943A	dw ?	;graphic adaptater type 
 tile_forward	db ?	;D_943C
 	db ?
-D_943E	dw ?
+Altar	dw ?
+Tomb	dw ?
 D_9440	dw ?
 ship_x	db ?	;D_9442
 ship_y	db ?	;D_9443

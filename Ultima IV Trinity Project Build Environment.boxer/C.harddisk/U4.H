@@ -155,61 +155,61 @@ struct t_68 {
 /***************************************************************/
 
 /*u4_low*/
-extern /*C_0012*/low_init();
-extern /*C_0115*/low_clean();
-extern /*C_0147*/low_gra();
+extern low_init();
+extern low_clean();
+extern low_gra();
 /*u4_use*/
-extern /*C_07AE*/CMD_Use();
+extern CMD_Use();
 
 #include "u4_file.h"
 
 /*u4_util*/
-extern /*C_095E*/shakefx();
-extern /*C_097D*/XP_inc(int, int);
-extern /*C_09B1*/HP_inc(int, int);
+extern shakefx();
+extern XP_inc(int, int);
+extern HP_inc(int, int);
 
-extern /*C_09B1*/HP_dec(int, int);
+extern HP_dec(int, int);
 
 extern sleep_poisonfx(int);
-extern /*C_09A3*/w_Pass();
-extern /*C_09F8*/karma_inc(char *, int);
-extern /*C_0A17*/karma_dec(char *, int);
+extern w_Pass();
+extern karma_inc(char *, int);
+extern karma_dec(char *, int);
 extern C_0A58(int, unsigned char, unsigned char);
 extern C_0A8B(unsigned char, unsigned char);
-extern /*C_0AB1*/SafeModulo(int, int);
+extern SafeModulo(int, int);
 extern C_0ACF(int);
 extern C_0AFE(unsigned char);
-extern /*C_0B38*/u4_puts(char *);
-extern /*C_0C03*/u4_putl(long, int, char);
-extern /*C_0C9F*/u4_putc(int);
-extern /*C_0CF7*/dspl_Stats();
-extern /*C_0E0E*/dspl_Gold();
-extern /*C_0E4E*/isCharaAlive(unsigned);
-extern /*C_0E82*/isCharaConscious(int);
+extern u4_puts(char *);
+extern u4_putl(long, int, char);
+extern u4_putc(int);
+extern dspl_Stats();
+extern dspl_Gold();
+extern isCharaAlive(unsigned);
+extern isCharaConscious(int);
 extern C_10FD();
-extern /*C_1135*/hitChara(unsigned, int);
-extern /*C_1188*/w_What();
-extern /*C_1199*/w_Cant_t();
-extern /*C_11AA*/w_NotHere();
-extern /*C_11BB*/w_Disabled();
-extern /*C_11CC*/w_OnlyOnFoot();
-extern /*C_11DD*/w_SlowProgress();
-extern /*C_11EB*/w_NoneLeft();
-extern /*C_11F9*/AskLetter(char *, char, char);
-extern /*C_11F9*/AskLetter2(char *, char, char);
-extern /*C_1287*/AskChara(char *);
-extern /*C_12D6*/AskDir(char *, int *, int *);
-extern /*C_138B*/food_dec(int);
-extern /*C_13B6*/MP_recover();
-extern /*C_13B6*/MP_drain();
-extern /*C_1445*/u4_gets(char *, int);
+extern hitChara(unsigned, int);
+extern w_What();
+extern w_Cant_t();
+extern w_NotHere();
+extern w_Disabled();
+extern w_OnlyOnFoot();
+extern w_SlowProgress();
+extern w_NoneLeft();
+extern AskLetter(char *, char, char);
+extern AskLetter2(char *, char, char);
+extern AskChara(char *);
+extern AskDir(char *, int *, int *);
+extern food_dec(int);
+extern MP_recover();
+extern MP_drain();
+extern u4_gets(char *, int);
 extern char *C_1513(int);
 extern Party_Damage();
 extern Party_Drain(int);
-extern /*C_162F*/AskY_N();
-extern long /*C_169C*/AskInt(int);
+extern AskY_N();
+extern long AskInt(int);
 /*u4_util2*/
-extern void cdecl /*C_16CD*/u_delay(int, int);
+extern void cdecl u_delay(int, int);
 
 extern unsigned char u_rand_a();
 #define U4_RND1(a) (u_rand_a()&(a))
@@ -220,9 +220,9 @@ extern unsigned char u_rand_a();
 extern unsigned char u_rand_b();
 #define U4_RND2(a) (u_rand_b()&(a))
 
-extern int cdecl /*C_17C5*/u_kbhit();
-extern int cdecl /*C_17F4*/u_kbread();
-extern void cdecl /*C_1804*/u_kbflush();
+extern int cdecl u_kbhit();
+extern int cdecl u_kbread();
+extern void cdecl u_kbflush();
 
 extern unsigned char C_1814();
 extern C_181D(unsigned);
@@ -238,20 +238,20 @@ extern cdecl sound();
 
 /*u4_map*/
 extern C_26B6();
-extern C_2747();
+extern MAP_Leaving();
 extern C_2839();
 extern C_2891();
 extern C_28E9();
 extern C_2941();
-extern /*C_29C3*/w_Blocked();
-extern /*C_29DE*/w_DriftOnly();
+extern w_Blocked();
+extern w_DriftOnly();
 extern C_29EF(unsigned char);
 extern C_2999(unsigned char);
 extern C_2A5A(unsigned int);
-extern /*C_2B8C*/CMDDIR_Up();
-extern /*C_2C8A*/CMDDIR_Down();
-extern /*C_2DA9*/CMDDIR_Left();
-extern /*C_2EC5*/CMDDIR_Right();
+extern CMDDIR_Up();
+extern CMDDIR_Down();
+extern CMDDIR_Left();
+extern CMDDIR_Right();
 /*u4_end*/
 extern C_31F4();
 /**/
@@ -259,48 +259,48 @@ extern C_36C7();
 extern ANI_Moons();
 extern ANI_Wandgates(int);
 extern C_3C54();
-extern /*C_3DC8*/t_callback();
+extern t_callback();
 extern EXP_Load_Dungeon();
-extern /*C_4018*/CMD_Enter();
-extern /*C_41C0*/CMD_X_it();
-extern /*C_4253*/CMD_Board();
-extern /*C_42E8*/CMD_Yell();
+extern CMD_Enter();
+extern CMD_X_it();
+extern CMD_Board();
+extern CMD_Yell();
 extern C_431D();
-extern /*C_4353*/CMD_Open();
-extern /*C_43F8*/CMD_Jimmy();
-extern /*C_4477*/CMD_Klimb();
-extern /*C_44EE*/CMD_Descend();
+extern CMD_Open();
+extern CMD_Jimmy();
+extern CMD_Klimb();
+extern CMD_Descend();
 extern C_4649();
 extern Ztats_Weap();
 extern Ztats_Armor();
 extern Ztats_Equip();
 extern Ztats_Reagents();
 extern Ztats_Mixtures();
-extern /*C_4E45*/CMD_Ztats();
-extern /*C_4FBE*/u4_abs(int);
-extern /*C_4FD7*/u4_sign(int);
+extern CMD_Ztats();
+extern u4_abs(int);
+extern u4_sign(int);
 extern NPC_Turn();
 extern C_5851();
-extern /*C_59D5*/COM_GetFighterId(unsigned char, unsigned char);
-extern /*C_5A6B*/COM_main();
-extern /*C_5DAB*/COM_DoDamage(int, int, unsigned char);
-extern /*C_5EA2*/COM_CheckHitable(unsigned char, unsigned char);
-extern /*C_628F*/CMD_Attack();
+extern COM_GetFighterId(unsigned char, unsigned char);
+extern COM_main();
+extern COM_DoDamage(int, int, unsigned char);
+extern COM_CheckHitable(unsigned char, unsigned char);
+extern CMD_Attack();
 extern C_636D(int);
-extern /*C_6E4A*/CMD_Cast();
-extern /*C_6F29*/CMD_Quit();
+extern CMD_Cast();
+extern CMD_Quit();
 extern C_6FF9(char *, char *);
 extern C_722F(int);
 extern C_7337();
-extern /*C_7631*/CMD_Ready();
-extern /*C_7525*/CMD_Ignite();
-extern /*C_7034*/CMD_NewOrder();
-extern /*C_70AD*/CMD_Volume();
-extern /*C_72EC*/CMD_Get();
+extern CMD_Ready();
+extern CMD_Ignite();
+extern CMD_NewOrder();
+extern CMD_Volume();
+extern CMD_Get();
 extern C_73B8();
-extern /*C_73C9*/CMD_Fire();
-extern /*C_755E*/CMD_Locate();
-extern /*C_7732**/CMD_Wear();
+extern CMD_Fire();
+extern CMD_Locate();
+extern CMD_Wear();
 extern C_7918();
 extern C_7B89();
 extern C_7BAF();
@@ -314,22 +314,22 @@ extern C_7DFE(int);
 extern C_7FD7();
 extern C_7FFD();
 extern C_837A();
-extern /*C_84D2*/DNG_main();
-extern /*C_8AB0*/CMD_HoleUp();
-extern /*C_8C08*/CMD_Mix();
-extern /*C_913A*/CMD_Search();
+extern DNG_main();
+extern CMD_HoleUp();
+extern CMD_Mix();
+extern CMD_Search();
 extern Random_Encounter();
 extern C_9414();
 extern C_95AA();
 extern C_9F7B();
-extern /*C_A6F3*/CMD_Talk();
+extern CMD_Talk();
 extern C_ADEF();
 extern C_AE41();
 extern C_B677();
 extern C_B9B2();
 extern PER_World(unsigned);
 extern C_C403();
-extern /*C_C41D*/CMD_Peer();
+extern CMD_Peer();
 /*u4_init*/
 extern C_C51C();
 /* */
@@ -344,13 +344,13 @@ struct tPSP {
 	unsigned char _00[0x80];
 	unsigned char _80[0x80];
 };
-extern struct tPSP far *far_psp;/*D_0078*/
+extern struct tPSP far *far_psp;
 
-extern unsigned /*D_0672*/cursor_rate;
-extern char cdecl /*D_06A6*/SoundFlag;
+extern unsigned cursor_rate;
+extern char cdecl SoundFlag;
 extern unsigned D_07F8;
-extern unsigned /*D_07FA*/*pKarmas[];
-extern int /*D_080A*/activeCharaX;
+extern unsigned *pKarmas[];
+extern int activeCharaX;
 extern char D_080C[], D_0810[];
 extern char D_0814[], D_081C[];/*moongates positions*/
 extern char *Towne_Castle_Village[];
@@ -382,9 +382,9 @@ extern unsigned char Armor_Prot[];
 extern unsigned char Range_Weap[];
 
 /*====---- uninitialized ----====*/
-extern unsigned /*D_8728*/speed_info;
-extern unsigned /*D_872B*/equip_flags;
-extern void far *patch_tandy;/*D_872D*/
+extern unsigned speed_info;
+extern unsigned equip_flags;
+extern void far *patch_tandy;
 extern struct t_500 D_8742;
 
 
@@ -392,20 +392,21 @@ extern struct t_500 D_8742;
 extern unsigned char D_9140;
 extern unsigned char D_9141;
 extern int D_9142;
-extern struct tParty /*D_9144*/Party;
+extern struct tParty Party;
 extern tMap32x32 far *D_933A[][8];
 extern int D_943A;/* graphic adaptater type */
-extern unsigned char /*D_943C*/tile_forward;
-extern int D_943E;
+extern unsigned char tile_forward;
+extern int Altar;
+extern int Tomb;
 extern unsigned D_9440;
-extern unsigned char /*D_9442,D_9443*/ship_x, ship_y;
-extern unsigned char /*D_9444*/tile_cur;
+extern unsigned char ship_x, ship_y;
+extern unsigned char tile_cur;
 extern char D_9445;
 extern unsigned D_9446;
 extern char D_9448;
 extern char D_944A[];
 extern unsigned char D_9452;
-extern void far /*D_9454*/*pShapes;
+extern void far *pShapes;
 extern jmp_buf D_9458;
 
 #define MOD_VISION   0
@@ -416,45 +417,45 @@ extern jmp_buf D_9458;
 #define MOD_COM_CAMP 5
 #define MOD_COM_ROOM 6
 #define MOD_SHRINE   7
-extern unsigned /*D_946A*/CurMode;
+extern unsigned CurMode;
 
 struct aStruct {
 	unsigned char x, y;
 };
 
 extern unsigned char D_946C;
-extern unsigned /*D_946E*/spell_cnt;
-extern struct tCombat /*D_9470*/Combat;
-extern struct t_68 /*D_9530*/Fighters;
-extern int /*D_9598*/File_DNG;
-extern int /*D_959A*/activeChara;
+extern unsigned spell_cnt;
+extern struct tCombat Combat;
+extern struct t_68 Fighters;
+extern int File_DNG;
+extern int activeChara;
 extern struct aStruct D_959C;
-extern unsigned char /*D_959E*/tile_east;
-extern void far /*D_95A0*/*pCharset;
-extern char /*D_95A4*/spell_sta;
+extern unsigned char tile_east;
+extern void far *pCharset;
+extern char spell_sta;
 extern struct aStruct D_95A5;
-extern int /*D_95A8*/txt_X;
-extern char /*D_95AA*/tile_north;
-extern unsigned /*D_95AC*/activeCharaY;
-extern unsigned /*D_95AE*/hit_tile;
-extern unsigned char /*D_95B0,D_95B1*/hit_x, hit_y;
+extern int txt_X;
+extern char tile_north;
+extern unsigned activeCharaY;
+extern unsigned hit_tile;
+extern unsigned char hit_x, hit_y;
 extern unsigned char D_95B2[];
-extern unsigned char /*D_95C2*/tile_west;
-extern unsigned char /*D_95C3*/tile_south;
-extern int /*D_95C4*/txt_Y;
+extern unsigned char tile_west;
+extern unsigned char tile_south;
+extern int txt_Y;
 extern unsigned DoublePace;
 extern unsigned HorseTown;
 extern int D_95C8;
-extern unsigned char /*D_95CA*/tile_back;
+extern unsigned char tile_back;
 extern int D_95CC;
 extern unsigned char D_95CE[];/*current .tlk data*/
 extern char D_96EE;
-extern int /*D_96F0*/File_MAP;
-extern unsigned /*D_96F2*/WindDir;
+extern int File_MAP;
+extern unsigned WindDir;
 extern char D_96F4;
-extern int /*D_96F6*/File_TLK;
-extern int /*D_96F6*/File_TLK_2;
-extern int /*D_96F6*/File_TLK_Buff;
+extern int File_TLK;
+extern int File_TLK_2;
+extern int File_TLK_Buff;
 extern unsigned char D_96F8;
 extern unsigned char D_96F9[11*11];
 extern unsigned char D_9772;

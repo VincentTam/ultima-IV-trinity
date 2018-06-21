@@ -104,8 +104,30 @@ C_26B6()
 	C_2624();
 }
 
+/*return to surface*/
+Crypt_Exit(bp04)
+unsigned bp04;
+{
+    u_delay(5, 0);
+    Gra_CR();
+    Party._x = Party.out_x + 4;
+    Party._y = Party.out_y + 1;
+    Party._loc = 0;
+    CurMode = MOD_OUTDOORS;
+    spell_cnt = 0;
+    hit_tile = 0;
+    spell_sta = 7;
+    D_9440 = 1;
+    DoublePace = 0;
+    Party.f_1dc = 0;
+    C_26B6();
+    dspl_Stats();
+    u_kbflush();
+    longjmp(D_9458, -1);
+}
+
 /*Leaving...*/
-C_2747()
+MAP_Leaving()
 {
 	u4_puts("Leaving...\n");
 	CurMode = MOD_VISION;
@@ -362,7 +384,7 @@ C_2B19()
 	if(D_959C.y <= 0x1f) {
 		return 1;
 	}
-	C_2747();
+	MAP_Leaving();
 	return 0;
 }
 
@@ -416,7 +438,7 @@ C_2C25()
 	if(D_959C.y <= 0x1f) {
 		return 1;
 	}
-	C_2747();
+	MAP_Leaving();
 	return 0;
 }
 
@@ -475,7 +497,7 @@ C_2D44()
 	if(D_959C.x <= 0x1f) {
 		return 1;
 	}
-	C_2747();
+	MAP_Leaving();
 	return 0;
 }
 
@@ -533,7 +555,7 @@ C_2E4F()
 	if(D_959C.x <= 0x1f) {
 		return 1;
 	}
-	C_2747();
+	MAP_Leaving();
 	return 0;
 }
 

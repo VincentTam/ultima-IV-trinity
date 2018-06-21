@@ -518,8 +518,7 @@ char *D_4BB8[] = {
 	/*D_4982*/"Jean",
 	/*D_4987*/"Pierre",
 	/*D_498E*/"Limpy",
-
-	/*D_4994*/"Big John"/*?!?who is that?!?*/
+	/*D_4994*/"Big John"
 };
 
 unsigned char D_4BC4[][4] = {

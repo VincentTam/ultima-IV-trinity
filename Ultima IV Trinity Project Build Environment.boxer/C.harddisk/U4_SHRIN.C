@@ -131,52 +131,52 @@ Shrine_Eject:
 		Party._loc = 0;
 		return;
 	}
-	if(Load(/*D_83BA*/"SHRINE.CON", 11 * 11, Combat._map) == -1)
+	if(Load("SHRINE.CON", 11 * 11, Combat._map) == -1)
 		exit(3);
 	CurMode = MOD_SHRINE;
-	u4_puts(/*D_83C5*/"\nYou enter the ancient shrine and sit before the altar...\nUpon what virtue dost thou meditate?\n");
+	u4_puts("\nYou enter the ancient shrine and sit before the altar...\nUpon what virtue dost thou meditate?\n");
 	u4_gets(loc_D, 15);
 	Gra_CR();
-	u4_puts(/*D_8425*/"\nFor how many\n");
-	loc_E = AskLetter(/*D_8434*/"Cycles (0-3)?\x12\x12\b", '0', '3');
+	u4_puts("\nFor how many\n");
+	loc_E = AskLetter("Cycles (0-3)?\x12\x12\b", '0', '3');
 	if(loc_E < 0) {
 		goto Shrine_Eject;
 	}
 	loc_E -= '0';
 	if(loc_E == 0 || strnicmp(loc_D, D_Virtues[loc_A], 16)) {
-		u4_puts(/*D_8445*/"\nThou art unable to focus thy thoughts on this subject!\n");
+		u4_puts("\nThou art unable to focus thy thoughts on this subject!\n");
 		goto Shrine_Eject;
 	}
 	if(Party._moves / 100 == Party.f_1ea) {
-		u4_puts(/*D_847E*/"\nThy mind is still weary from thy last Meditation!\n");
+		u4_puts("\nThy mind is still weary from thy last Meditation!\n");
 		goto Shrine_Eject;
 	}
 	Party.f_1ea = Party._moves / 100;
-	u4_puts(/*D_84B2*/"Begin Meditation\n");
+	u4_puts("Begin Meditation\n");
 	for(loc_B = 0; loc_B < loc_E; loc_B ++) {
 		for(loc_C = 0; loc_C < 0x10; loc_C ++) {
 			u_delay(1, 0);
 			u4_putc('.');
 		}
 		u_kbflush();
-		u4_puts(/*D_84C4*/"\nMantra: ");
+		u4_puts("\nMantra: ");
 		u4_gets(loc_D, 15);
 		Gra_CR();
 		if(strnicmp(loc_D, Mantras[loc_A], 0x10)) {
-			u4_puts(/*D_84CE*/"\nThou art not able to focus thy thoughts with that Mantra!\n");
+			u4_puts("\nThou art not able to focus thy thoughts with that Mantra!\n");
 			karma_dec(&(Party._spiri), 3);
 			goto Shrine_Eject;
 		}
 	}
 	if(loc_E != 3 || *(pKarmas[loc_A]) != 99) {
-		u4_puts(/*D_850A*/"\nThy thoughts are pure. Thou art granted a vision!\n");
+		u4_puts("\nThy thoughts are pure. Thou art granted a vision!\n");
 		karma_inc(&(Party._spiri), loc_E * 3);
 		u_kbflush();
 		u_kbread();
 		Gra_CR();
 		u4_puts(Visions[loc_A][loc_E - 1]);
 	} else {
-		u4_puts(/*D_853E*/"\nThou hast achieved partial Avatarhood in the Virtue of\n");
+		u4_puts("\nThou hast achieved partial Avatarhood in the Virtue of\n");
 		u4_puts(D_Virtues[loc_A]);
 		Gra_09(); sound(9, 0xff); Gra_09();
 		Gra_CR();
@@ -184,7 +184,7 @@ Shrine_Eject:
 		dspl_Stats();
 		u_kbflush();
 		u_kbread();
-		u4_puts(/*D_8577*/"\n\nThou art granted a vision!\n");
+		u4_puts("\n\nThou art granted a vision!\n");
 		C_E6DF(loc_A);
 		u_kbflush();
 	}
@@ -197,7 +197,7 @@ Shrine_Eject:
 Enter_Oracle()
 {
     
-    int loc_A, loc_B, loc_C;
+    int loc_A, loc_B, loc_C, question;
     char loc_D[16];
     int loc_E;
     loc_A = Party._loc - 0x2c;/*oracle "number"*/
@@ -216,82 +216,56 @@ Enter_Oracle()
     
         CurMode = MOD_SHRINE;
 
-        u4_puts(/*D_83C5*/"\nYou enter the mysterious oracle and stand before the altar...\n\nA voice booms out: For what hast thou come?\n");
+        u4_puts("\nYou enter the mysterious oracle and stand before the altar...\n\nA voice booms out: For what hast thou come?\n");
         u4_gets(loc_D, 15);
         Gra_CR();
 
     if(loc_E == 0 || strnicmp(loc_D, D_Principles[loc_A], 16)) {
-        u4_puts(/*D_8445*/"\nThe Oracle heeds you not!\n");
+        u4_puts("\nThe Oracle heeds you not!\n");
         Gra_CR();
         goto Oracle_Eject;
     }
     
     if(Party._moves / 100 == Party.f_1ea) {
-        u4_puts(/*D_847E*/"\nThy spirit is still weary from thy last Query!\n");
+        u4_puts("\nThy spirit is still weary from thy last Query!\n");
         goto Oracle_Eject;
     }
     Party.f_1ea = Party._moves / 100;
-    u4_puts(/*D_84B2*/"A Silence Ensues\n");
-    loc_E = 1;
-    for(loc_B = 0; loc_B < loc_E; loc_B ++) {
-        for(loc_C = 0; loc_C < 0x10; loc_C ++) {
-            u_delay(1, 0);
-            u4_putc('.');
-        }
     Gra_CR();
-
-        u_kbflush();
-        u4_puts(/*D_84C4*/"\nWhat is the first word of passage? ");
-        u4_gets(loc_D, 15);
-        Gra_CR();
-        Gra_CR();
-
-        if(strnicmp(loc_D, Words_Passage[loc_A], 0x10)) {
-            u4_puts(/*D_84CE*/"\nThe Word of Passage is false!\n");
-            karma_dec(&(Party._spiri), 3);
-            goto Oracle_Eject;
+    
+    for(question = 0; question < 3; question ++) {
+        loc_E = 1;
+        u4_puts("A Silence Ensues\n");
+        
+        for(loc_B = 0; loc_B < loc_E; loc_B ++) {
+            for(loc_C = 0; loc_C < 0x10; loc_C ++) {
+                u_delay(1, 0);
+                u4_putc('.');
+            }
+            Gra_CR();
+            
+            u_kbflush();
+            u4_puts("\nWhat is the ");
+            if(question == 0)
+                u4_puts("first ");
+            if(question == 1)
+                u4_puts("second ");
+            if(question == 2)
+                u4_puts("third ");
+            u4_puts("word of passage? ");
+            u4_gets(loc_D, 15);
+            Gra_CR();
+            Gra_CR();
+            
+            if(strnicmp(loc_D, Words_Passage[loc_A + question], 0x10)) {
+                u4_puts("\nThe Word of Passage is false!\n");
+                karma_dec(&(Party._spiri), 3);
+                goto Oracle_Eject;
+            }
         }
     }
-    u4_puts(/*D_84B2*/"A Silence Ensues\n");
-    for(loc_B = 0; loc_B < loc_E; loc_B ++) {
-        for(loc_C = 0; loc_C < 0x10; loc_C ++) {
-            u_delay(1, 0);
-            u4_putc('.');
-        }
-        Gra_CR();
-
-        u_kbflush();
-        u4_puts(/*D_84C4*/"\nWhat is the second word of passage? ");
-        u4_gets(loc_D, 15);
-        Gra_CR();
-        Gra_CR();
-
-        if(strnicmp(loc_D, Words_Passage[loc_A + 1], 0x10)) {
-            u4_puts(/*D_84CE*/"\nThe Word of Passage is false!\n");
-            karma_dec(&(Party._spiri), 3);
-            goto Oracle_Eject;
-        }
-    }
-    for(loc_B = 0; loc_B < loc_E; loc_B ++) {
-        for(loc_C = 0; loc_C < 0x10; loc_C ++) {
-            u_delay(1, 0);
-            u4_putc('.');
-        }
-        Gra_CR();
-
-        u_kbflush();
-        u4_puts(/*D_84C4*/"\nWhat is the third word of passage? ");
-        u4_gets(loc_D, 15);
-        Gra_CR();
-        Gra_CR();
-
-        if(strnicmp(loc_D, Words_Passage[loc_A + 2], 0x10)) {
-            u4_puts(/*D_84CE*/"\nThe Word of Passage is false!\n");
-            karma_dec(&(Party._spiri), 3);
-            goto Oracle_Eject;
-        }
-    }
-    u4_puts(/*D_853E*/"\nThe Oracle will listen to thy query.\n");
+    
+    u4_puts("\nThe Oracle will listen to thy query.\n");
     Gra_09(); sound(9, 0xff); Gra_09();
     u_kbflush();
     u_kbread();
@@ -330,15 +304,15 @@ Talk_Oracle()
 
                 u4_puts(Party.chara[0]._name);
                 if(Party._members >= 3) {
-                    u4_puts(/*D_7ACC*/" and thy companions!\n");
+                    u4_puts(" and thy companions!\n");
                 } else if(Party._members == 2) {
-                    u4_puts(/*D_7AEA*/" and thy companions, ");
+                    u4_puts(" and thy companions, ");
                     u4_puts(Party.chara[1]._name);
-                    u4_puts(/*D_7AFA*/"!\n");
+                    u4_puts("!\n");
                 } else {
                     Gra_CR();
                 }
-                u4_puts(/*D_78DE*/"What wouldst thou ask of the Oracle?\n");
+                u4_puts("What wouldst thou ask of the Oracle?\n");
     
                 
                 for(;;) {
@@ -351,15 +325,15 @@ Talk_Oracle()
                     if(bp_02 == 0)/*"bye"*/
                         break;
                     switch(bp_02) {
-                        case 2: /*C_E442();*/ break;
-                        case 1: /*C_E21E();*/ break;
-                        case -1: u4_puts(/*D_7AFD*/"\nIt says: This is not of my ken.\n"); break;
+                        case 2:  break;
+                        case 1:  break;
+                        case -1: u4_puts("\nIt says: This is not of my ken.\n"); break;
                         default: C_E3D2(Keywords_Response[bp_02-3]);
                     }
-                    u4_puts(/*D_7B26*/"\nWhat else wouldst thou ask?\n");
+                    u4_puts("\nWhat else wouldst thou ask?\n");
                 }
                 
-                u4_puts(/*D_7B33*/"Thy questions hath been answered.");
+                u4_puts("Thy questions hath been answered.");
 
 }
 

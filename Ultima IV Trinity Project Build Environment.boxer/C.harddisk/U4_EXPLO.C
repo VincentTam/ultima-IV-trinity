@@ -259,7 +259,7 @@ CMD_Enter()
 {
 	register int si;
 
-	u4_puts(/*D_1765*/"Enter ");
+	u4_puts("Enter ");
 	if(Party._loc != 0 || Party._tile == TIL_18) {
 		w_What();
 		return;
@@ -285,16 +285,16 @@ CMD_Enter()
 	Party.out_y = Party._y;
 	switch(D_8742._map.x32x32[D_959C.y][D_959C.x]) {
 		case TIL_Dung_09:
-			u4_puts(/*D_176C*/"dungeon!\n\n");
+			u4_puts("dungeon!\n\n");
 			u4_puts(D_Locations[Party._loc - 1]);
 			Enter_Dungeon();
 		break;
 		case TIL_Town_0A:
-			u4_puts(/*D_1777*/"towne!\n\n");
+			u4_puts("towne!\n\n");
 			Enter_Towne();
 		break;
 		case TIL_Castle_0B: case TIL_CasEn_0E:
-			u4_puts(/*D_1780*/"castle!\n\n");
+			u4_puts("castle!\n\n");
             Enter_Towne();
 		break;
 		case TIL_Village_0C:
@@ -308,7 +308,7 @@ CMD_Enter()
             }
 		break;
 		case TIL_1D:
-			u4_puts(/*D_1795*/"ruin!\n\n");
+			u4_puts("ruin!\n\n");
 			Enter_Towne();
 		break;
 		case TIL_4C:
@@ -321,13 +321,13 @@ CMD_Enter()
 		break;
 		case TIL_1E:
             if(Party._loc >= 0x29){
-                u4_puts(/*D_179D*/"the Oracle of\n");
+                u4_puts("the Oracle of\n");
                 u4_puts(D_Principles[Party._loc - 0x2c]);
                 Gra_CR();
                 Enter_Oracle();
             }
             else {
-			u4_puts(/*D_179D*/"the Shrine of\n");
+			u4_puts("the Shrine of\n");
 			u4_puts(D_Virtues[Party._loc - 0x19]);
 			Gra_CR();
 			Enter_Shrine();
@@ -418,10 +418,10 @@ unsigned bp04;
 		Party._tile = tile_cur;
 }
 
-/*C_4253*/CMD_Board()
+CMD_Board()
 {
 	if(Party._tile != TIL_1F) {
-		u4_puts(/*D_17B2*/"Board: ");
+		u4_puts("Board: ");
 		w_Cant_t();
 		return;
 	}
@@ -429,18 +429,18 @@ unsigned bp04;
         if(CurMode == MOD_BUILDING){
             C_4206(TIL_HorseW_14);
             D_8742._npc._tile[0] = 0;
-            u4_puts(/*D_17BA*/"Mount Horse!\n");
+            u4_puts("Mount Horse!\n");
             return;        }
         else {
             C_4206(TIL_HorseW_14);
-            u4_puts(/*D_17BA*/"Mount Horse!\n");
+            u4_puts("Mount Horse!\n");
             return;
         }
 	}
-	u4_puts(/*D_17C8*/"Board ");
+	u4_puts("Board ");
 	if(tile_cur == TIL_18) {
 		C_4206(TIL_18);
-		u4_puts(/*D_17CF*/"Balloon!\n");
+		u4_puts("Balloon!\n");
 		Party.f_1dc = 0;
 		return;
 	}
@@ -449,14 +449,14 @@ unsigned bp04;
 		return;
 	}
 	C_4206(TIL_ShipW_10);
-	u4_puts(/*D_17D9*/"Frigate!\n");
+	u4_puts("Frigate!\n");
 	if(ship_x != Party._x || ship_y != Party._y)
 		Party._ship = 50;
 }
 
-/*C_42E8*/CMD_Yell()
+CMD_Yell()
 {
-	u4_puts(/*D_17E3*/"Yell ");
+	u4_puts("Yell ");
 	if(Party._tile == TIL_HorseW_14 || Party._tile == TIL_HorseE_15) {
 		if(DoublePace ^= 1)
 			u4_puts(/*D_17E9*/"Giddyup!\n");
@@ -482,18 +482,18 @@ C_431D()
 	}
 }
 
-/*C_4353*/CMD_Open()
+CMD_Open()
 {
 	unsigned bp_02, bp_04;
 
 	while(D_17FE)
 		C_431D();
 	if(CurMode != MOD_BUILDING) {
-		u4_puts(/*D_1800*/"Open: ");
+		u4_puts("Open: ");
 		w_NotHere();
 		return;
 	}
-	AskDir(/*D_1807*/"Open: ", &bp_02, &bp_04);
+	AskDir("Open: ", &bp_02, &bp_04);
 	if(!(bp_02 | bp_04))
 		return;
 	if((bp_02 + Party._x) > 0x1f || bp_04) {
@@ -509,14 +509,14 @@ C_431D()
 			D_17FC = Party._y;
 			D_17FE = 5;
 			*si = TIL_3E;
-			u4_puts(/*D_180E*/"\nOpened!\n");
+			u4_puts("\nOpened!\n");
 		} else {
 			w_NotHere();
 		}
 	}
 }
 
-/*C_43F8*/CMD_Jimmy()
+CMD_Jimmy()
 {
 	int bp_04, bp_02;
 
@@ -543,7 +543,7 @@ C_431D()
 	}
 }
 
-/*C_4477*/CMD_Klimb()
+CMD_Klimb()
 {
     while(D_17FE)
         C_431D();
@@ -585,11 +585,8 @@ C_431D()
 	}
 }
 
-/*C_44EE*/CMD_Descend()
+CMD_Descend()
 {
-    int position,talkfile;
-    position = Towne_Castle_Village[Party._loc - 1];
-    talkfile = Talk_Files[Party._loc - 1];
     while(D_17FE)
         C_431D();
     u4_puts(/*D_1886*/"Descend ");

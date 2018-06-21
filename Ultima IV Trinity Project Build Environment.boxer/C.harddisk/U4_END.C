@@ -217,34 +217,34 @@ C_31F4()
 		Gra_16(bp_26, 0, 0);
 		if(bp_02 == 7) {
 			u_delay(3, 0);
-			u4_puts(/*D_1303*/"\nThou art well versed in the virtues of the Avatar.\n");
+			u4_puts("\nThou art well versed in the virtues of the Avatar.\n");
 			u_delay(5, 0);
 		}
 	}
-	u4_puts(/*D_1338*/"\n\nThe floor rumbles beneath your feet.\n");
+	u4_puts("\n\nThe floor rumbles beneath your feet.\n");
 	shakefx();
 	shakefx();
 	u_delay(5, 0);
-	u4_puts(/*D_1360*/"\nAbove the din, the voice asks:\n\nIf all eight virtues of the Avatar combine into and are derived from the Three Principles of Truth, Love and Courage...");
+	u4_puts("\nAbove the din, the voice asks:\n\nIf all eight virtues of the Avatar combine into and are derived from the Three Principles of Truth, Love and Courage...");
 	C_2F7E();
-	u4_puts(/*D_13F9*/"\n\nThen what is the one thing which encompasses and is the whole of all undeniable Truth, unending Love, and unyielding Courage?\n\n");
+	u4_puts("\n\nThen what is the one thing which encompasses and is the whole of all undeniable Truth, unending Love, and unyielding Courage?\n\n");
 	u4_gets(bp_12, 15);
 	Gra_CR();
-	if(strnicmp(bp_12, /*D_147B*/"infinity", 16) != 0) {
-		u4_puts(/*D_1484*/"\nThy thoughts are not pure.\nI ask again.\n");
+	if(strnicmp(bp_12, "infinity", 16) != 0) {
+		u4_puts("\nThy thoughts are not pure.\nI ask again.\n");
 		u_delay(3, 0);
-		u4_puts(/*D_14AE*/"\n\nWhat is the one thing which encompasses and is the whole of all undeniable Truth, unending Love, and unyielding Courage?\n\n");
+		u4_puts("\n\nWhat is the one thing which encompasses and is the whole of all undeniable Truth, unending Love, and unyielding Courage?\n\n");
 		u4_gets(bp_12, 15);
 		Gra_CR();
-		if(strnicmp(bp_12, /*D_152B*/"infinity", 16) != 0) {
-			u4_puts(/*D_1534*/"\nThy thoughts are not pure.\nI ask again.\n");
+		if(strnicmp(bp_12, "infinity", 16) != 0) {
+			u4_puts("\nThy thoughts are not pure.\nI ask again.\n");
 			u_delay(3, 0);
-			u4_puts(/*D_155E*/"\n\nWhat is the one thing which encompasses and is the whole of all undeniable Truth, unending Love, and unyielding Courage?\n\n");
+			u4_puts("\n\nWhat is the one thing which encompasses and is the whole of all undeniable Truth, unending Love, and unyielding Courage?\n\n");
 			u4_gets(bp_12, 15);
 			Gra_CR();
-			if(strnicmp(bp_12, /*D_15DB*/"infinity", 16) != 0) {
+			if(strnicmp(bp_12, "infinity", 16) != 0) {
 				u_delay(1, 0);
-				u4_puts(/*D_15E4*/"\nThou dost not know the true nature of the Universe.\n");
+				u4_puts("\nThou dost not know the true nature of the Universe.\n");
 				C_2F9D(11);
 			}
 		}

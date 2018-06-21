@@ -5,5 +5,5 @@
  */
 
 
-char /*D_0036*/MSG_DSKERR[] = "Disk error. Press any key to try again.";
-char /*D_005E*/MSG_SYSERR[] = "DOS: Fatal System Error!";
+char MSG_DSKERR[] = "Disk error. Press any key to try again.";
+char MSG_SYSERR[] = "DOS: Fatal System Error!";
