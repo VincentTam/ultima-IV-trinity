@@ -5,14 +5,14 @@
 
 This project aims to modify the original Ultima IV to add additional content, via quests, locations and features. It will also not alter the original quest content at all, permitting the game to be completed in the original fashion, whilst still making the new content available. A few bug fixes of the original code will also be added.
 
-## Features
+# Features
 
-  # Bug Fixes/Improvements
+  ## Bug Fixes/Improvements
   * Moonphases restored on save
   * All chest trap types working
   * Other Small fixes
   
-  # New Features
+  ## New Features
   * New Villages and Camps
   * Dozens of new Characters
   * New Dungeons (Crypts)
