@@ -5,9 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/ultima-IV-trinity/assets/css/style.css?v=b10d8204efc604368060e0b6f880588b885c97c6">
     <link rel="stylesheet" type="text/css" href="/ultima-IV-trinity/assets/css/print.css" media="print">
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="/ultima-IV-trinity/master/Web/magnific.css">
+	<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="/ultima-IV-trinity/master/Web/magnific.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+	<script>
+// Initialize popup as usual
+$('.image-link').magnificPopup({
+  type: 'image',
+  mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+
+  zoom: {
+    enabled: true, // By default it's false, so don't forget to enable it
+
+    duration: 300, // duration of the effect, in milliseconds
+    easing: 'ease-in-out', // CSS transition easing function
+
+    // The "opener" function should return the element from which popup will be zoomed in
+    // and to which popup will be scaled down
+    // By defailt it looks for an image tag:
+    opener: function(openerElement) {
+      // openerElement is the element on which popup was initialized, in this case its <a> tag
+      // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+      return openerElement.is('img') ? openerElement : openerElement.find('img');
+    }
+  }
+
+});
+	</script>
 
 <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>ultima-IV-trinity | A modification for the original DOS version of Ultima IV</title>
@@ -64,10 +94,10 @@
 		
    <h2>Screenshots</h2>
 		<div>
-		<img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/new_towns.png" />
-		<img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/oracle_screen.png" />
-		<img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/second_floor.png" />
-		<img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/title_screen.png" />
+		<a href="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/new_towns.png class="image-link"" class="image-link"><img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/new_towns.png" /></a>
+		<a href="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/oracle_screen.png class="image-link"" class="image-link"><img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/oracle_screen.png" /></a>
+		<a href="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/second_floor.png class="image-link"" class="image-link"><img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/second_floor.png" /></a>
+		<a href="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/title_screen.png class="image-link"" class="image-link"><img width="49%" src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/title_screen.png" /></a>
 		</div>
 
 		
