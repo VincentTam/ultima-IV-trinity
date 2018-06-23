@@ -18,6 +18,7 @@ This project aims to modify the original Ultima IV to add additional content, vi
   * New Dungeons (Crypts)
   * New, powerful Artifacts
   * New Shrines (Oracles)
+  * 2nd levels for all Towns
   * Many other small additions
 
   
