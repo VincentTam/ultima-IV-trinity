@@ -14,6 +14,7 @@ This project aims to modify the original Ultima IV to add additional content, vi
   
   ## New Features
   * New Villages and Camps
+  * New Shops and Merchants
   * Dozens of new Characters
   * New Dungeons (Crypts)
   * New, powerful Artifacts
