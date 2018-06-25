@@ -8,6 +8,8 @@
 
 #include <string.h>
 
+int Oracle_1_x = 0;
+int Oracle_1_y = 0;
 
 char No_Effect[] = "Hmm...No effect!\n";
 char None_Owned[] = "None owned!\n";
@@ -243,7 +245,14 @@ USE_Ring() {
         u4_puts(None_Owned);
         return;
     }
-    if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
+    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 2) {
+        u4_puts("\nYou place the Ring of Exodus into the Tomb....\n");
+        SET_MSK(Party.mItems, 1);
+        /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
+        RST_MSK(Party.mItems, 14);
+        Crypt_Exit(Party._loc);
+    }
+    else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
         u4_puts("The Ring glows brighter and lets out a flash of light!\n");
     
         /* All Party Damage */
@@ -263,6 +272,25 @@ USE_Ring() {
     }
 }
 
+Skull_Kill() {
+    int bp_02;
+    if(CurMode >= MOD_COMBAT) {
+        for(bp_02 = 31; bp_02 >= 0; bp_02 --) {
+            if(D_8742._npc._tile[bp_02] != TIL_5E)
+                D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
+        }
+        for(bp_02 = 15; bp_02 >= 0; bp_02 --) {
+            if(Fighters._tile[bp_02] != TIL_5E)
+                Fighters._tile[bp_02] = Fighters._gtile[bp_02] = 0;
+        }
+    } else {
+        for(bp_02 = (Party._loc == 0)?7:31; bp_02 >= 0; bp_02 --) {
+            if(D_8742._npc._tile[bp_02] != TIL_5E)
+                D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
+        }
+    }
+}
+
 /*use skull*/
 USE_Skull() {
 	int bp_02;
@@ -271,44 +299,17 @@ USE_Skull() {
 		u4_puts(None_Owned);
 		return;
 	}
-    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == -1) {
+    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 0) {
         u4_puts("\nYou place the Skull of Mondain into the Tomb....\n");
         SET_MSK(Party.mItems, 1);
-        Big_Karma_Inc();
-        u4_puts("\nThe Tomb closes with a mighty rumble...\n");
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
         RST_MSK(Party.mItems, 0);
-        
-        u_delay(5, 0);
-        Gra_CR();
-        Crypt_Exit(5);
-
-        
-        dclose(File_DNG);
-        File_DNG = 0;
+        Crypt_Exit(Party._loc);
     }
 	else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
 		u4_puts("\nYou hold the evil Skull of Mondain the Wizard aloft....\n");
-		sound(6); shakefx();
-		Gra_09();
-		sound(6); shakefx();
-		Gra_09();
-		sound(6); shakefx();
-		if(CurMode >= MOD_COMBAT) {
-			for(bp_02 = 31; bp_02 >= 0; bp_02 --) {
-				if(D_8742._npc._tile[bp_02] != TIL_5E)
-					D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
-			}
-			for(bp_02 = 15; bp_02 >= 0; bp_02 --) {
-				if(Fighters._tile[bp_02] != TIL_5E)
-					Fighters._tile[bp_02] = Fighters._gtile[bp_02] = 0;
-			}
-		} else {
-			for(bp_02 = (Party._loc == 0)?7:31; bp_02 >= 0; bp_02 --) {
-				if(D_8742._npc._tile[bp_02] != TIL_5E)
-					D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
-			}
-		}
+        Big_Shake();
+        Skull_Kill();
         /*C_06B2:*/
         t_callback();
         karma_dec((char *)&(Party._hones), 5);
@@ -340,7 +341,14 @@ USE_Wand() {
         u4_puts(None_Owned);
         return;
     }
-    if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
+    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 1) {
+        u4_puts("\nYou place the Wand of Minax into the Tomb....\n");
+        SET_MSK(Party.mItems, 1);
+        /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
+        RST_MSK(Party.mItems, 13);
+        Crypt_Exit(Party._loc);
+    }
+    else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
         u4_puts("\nYou raise the enscorled Wand of Minax the Enchantress before thee....\n");
         USE_WandMagic();
         /* do we need this callback? */
@@ -349,9 +357,18 @@ USE_Wand() {
         u4_puts("\nYou cast the Wand of Minax into the Abyss!\n");
         SET_MSK(Party.mItems, 1);
         Big_Karma_Inc();
-        /*put the mask here so the wand is only destroyed when cast into the Abyss */
+        /*put the mask here so the wand is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems, 13);
     }
+}
+
+Big_Shake() {
+    sound(6); shakefx();
+    Gra_09();
+    sound(6); shakefx();
+    Gra_09();
+    sound(6); shakefx();
+    return;
 }
 
 Big_Karma_Inc() {
@@ -363,11 +380,7 @@ Big_Karma_Inc() {
     karma_inc((char *)&(Party._honor), 10);
     karma_inc((char *)&(Party._spiri), 10);
     karma_inc((char *)&(Party._humil), 10);
-    sound(6); shakefx();
-    Gra_09();
-    sound(6); shakefx();
-    Gra_09();
-    sound(6); shakefx();
+    Big_Shake();
     return;
 }
 
@@ -382,38 +395,12 @@ USE_WandMagic() {
     if(!C_6409())
         return;
 
-    lat1 = AskLetter2("\nIncantation:\n", 'A', 'P');
-    lat1 -= 'A';
-    if(lat1 < 0 || lat1 > 16){
-        return;
-    } else {
-    u4_puts(D_Incantations[lat1]);
-    }
-
-    lat2 = AskLetter2("", 'A', 'P');
-    lat2 -= 'A';
-    if(lat2 < 0 || lat2 > 16){
-        return;
-    } else {
-    u4_puts(D_Incantations[lat2]);
-    }
-
-    long1 = AskLetter2("", 'A', 'P');
-    long1 -= 'A';
-    if(long1 < 0 || long1 > 16){
-        return;
-    } else {
-        u4_puts(D_Incantations[long1]);
-    }
-
-    long2 = AskLetter2("", 'A', 'P');
-    long2 -= 'A';
-    if(long2 < 0 || long2 > 16){
-        return;
-    } else {
-        u4_puts(D_Incantations[long2]); u4_puts("\n");
-    }
-
+    u4_puts("\nIncantation:\n");
+    lat1 = USE_Incant(lat1);
+    lat2 = USE_Incant(lat2);
+    long1 = USE_Incant(long1);
+    long2 = USE_Incant(long2);
+    u4_puts("\n");
     
     wandy = ((lat1 * 16) + lat2);
     wandx = ((long1 * 16) + long2);
@@ -434,6 +421,17 @@ USE_WandMagic() {
     u4_puts(/*D_1777*/"\nTeleported!\n\n");
     C_26B6();
     return;
+}
+
+USE_Incant(bp04) {
+    bp04 = AskLetter2("", 'A', 'P');
+    bp04 -= 'A';
+    if(bp04 < 0 || bp04 > 16){
+        return;
+    } else {
+        u4_puts(D_Incantations[bp04]);
+        return bp04;
+    }
 }
 
 USE_WandCast(spell_pow) {
@@ -465,7 +463,7 @@ struct {
 	{/*D_040D*/"",       0}
 };
 
-/*C_07AE*/CMD_Use() {
+CMD_Use() {
 	register int si;
 	char bp_0e[12];
 

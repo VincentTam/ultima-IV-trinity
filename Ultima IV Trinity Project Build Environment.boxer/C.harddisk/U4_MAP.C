@@ -104,28 +104,6 @@ C_26B6()
 	C_2624();
 }
 
-/*return to surface*/
-Crypt_Exit(bp04)
-unsigned bp04;
-{
-    u_delay(5, 0);
-    Gra_CR();
-    Party._x = Party.out_x + 4;
-    Party._y = Party.out_y + 1;
-    Party._loc = 0;
-    CurMode = MOD_OUTDOORS;
-    spell_cnt = 0;
-    hit_tile = 0;
-    spell_sta = 7;
-    D_9440 = 1;
-    DoublePace = 0;
-    Party.f_1dc = 0;
-    C_26B6();
-    dspl_Stats();
-    u_kbflush();
-    longjmp(D_9458, -1);
-}
-
 /*Leaving...*/
 MAP_Leaving()
 {
@@ -161,6 +139,61 @@ MAP_Leaving()
 	}
 	u_kbflush();
 }
+
+
+/*return to surface*/
+Crypt_Exit(bp04)
+unsigned bp04;
+{
+    u4_puts("\nThe Tomb slides shut and seals...\n");
+    Gra_09(); sound(9, 0x60); Gra_09();
+    Skull_Kill();
+    Big_Karma_Inc();
+    u_delay(3, 0);
+    Gra_CR();
+    closeCrypt = 1;
+    Party._x = Party.out_x;
+    Party._y = Party.out_y;
+    Party._loc = 0;
+    Party._z = -1;
+    CurMode = MOD_OUTDOORS;
+    spell_cnt = 0;
+    hit_tile = 0;
+    spell_sta = 7;
+    D_9440 = 1;
+    DoublePace = 0;
+    Party.f_1dc = 0;
+    C_26B6();
+    dspl_Stats();
+    u_kbflush();
+
+}
+
+Crypt_Close()
+{
+    register int si;
+    
+    u4_puts("\nWith a mighty rumble the entrance to the Crypt collapses\n");
+    
+    Big_Shake();
+    u_delay(3, 0);
+    Gra_CR();
+    
+    for(si = 31; si >= 8 ;si --) {
+        if(D_8742._npc._tile[si] == 0)
+            break;
+    }
+    if(si == 7)
+        si = U4_RND1(15) | 0x10;
+    D_8742._npc._gtile[si] = D_8742._npc._tile[si] = TIL_Mount_08;
+    D_8742._npc._x[si] = Party._x;
+    D_8742._npc._y[si] = Party._y - 1;
+    /*D_8742._npc._var[si] = D_8742._npc._tlkidx[si] = 0;*/
+    
+    Big_Shake();
+    Gra_CR();
+}
+
 
 /*spawn daemons(if horn not used)*/
 C_27D9()
@@ -470,7 +503,14 @@ C_2C25()
 		if(
 			Party._x >= 0xe5 && Party._x < 0xea &&
 			Party._y >= 0xd4 && Party._y < 0xd9
-		) C_27D9();
+           ) {C_27D9();}
+        /*seal the crypts after artifacts entombed - locations must be updated for final map*/
+        else if((Party._x == 0x52 && Party._y == 0x64) || (Party._x == 0x54 && Party._y == 0x64) || (Party._x == 0x56 && Party._y == 0x64)){
+            if(closeCrypt == 1){
+                Crypt_Close();
+                closeCrypt = 0;
+            }
+        }
 	}
 }
 

@@ -32,23 +32,23 @@ char *Talk_Files[] ={
 	/*D_1717*/"VESPER.TLK",
 	/*D_1722*/"COVE.TLK",
     /*Dungeons - added to give correct spacing when referencing new locatons*/
-    /*0xF0 0x49*/"Deceit.Dng",
-    /*D_07A8*/"Despise.Dng",
-    /*D_07B4*/"Destard.Dng",
-    /*D_07C0*/"Wrong.Dng",
-    /*D_07CA*/"Covetous.Dng",
-    /*D_07D7*/"Shame.Dng",
-    /*D_07E1*/"Hythloth.Dng",
-    /*D_07EE*/"Abyss.Dng",
+    /*0xF0 0x49*/"D",
+    /*D_07A8*/"D",
+    /*D_07B4*/"D",
+    /*D_07C0*/"W",
+    /*D_07CA*/"C",
+    /*D_07D7*/"S",
+    /*D_07E1*/"H",
+    /*D_07EE*/"A",
     /*Shrines*/
-    /*D_076D*/"Blue",
-    /*D_0772*/"Yellow",
-    /*D_0779*/"Red",
-    /*D_077D*/"Green",
-    /*D_0783*/"Orange",
-    /*D_078A*/"Purple",
-    /*D_0791*/"White",
-    /*D_0797*/"Black",
+    /*D_076D*/"B",
+    /*D_0772*/"Y",
+    /*D_0779*/"R",
+    /*D_077D*/"G",
+    /*D_0783*/"O",
+    /*D_078A*/"P",
+    /*D_0791*/"W",
+    /*D_0797*/"B",
     /*Camps*/
     /*D_16C6*/"RIVERCA.TLK",
     /*D_16D1*/"FORESTCA.TLK",
@@ -59,13 +59,13 @@ char *Talk_Files[] ={
     /*D_16C6*/"PLAINSCA.TLK",
     /*D_16D1*/"VALLEYCA.TLK",
     /*Crypts*/
-    /*D_07EE*/"MONDAIN.DNG",
-    /*D_07EE*/"MINAX.DNG",
-    /*D_07EE*/"EXODUS.DNG",
+    /*D_07EE*/"M",
+    /*D_07EE*/"M",
+    /*D_07EE*/"E",
     /*Oracle*/
-    /*D_07EE*/"Love",
-    /*D_07EE*/"Courage",
-    /*D_07EE*/"Truth"
+    /*D_07EE*/"L",
+    /*D_07EE*/"C",
+    /*D_07EE*/"T"
 
 };
 

@@ -17,7 +17,7 @@ PUBLIC File_DNG,activeChara,D_959C
 PUBLIC tile_east,pCharset,spell_sta,D_95A5
 PUBLIC txt_X,tile_north,activeCharaY
 PUBLIC hit_tile,hit_x,hit_y
-PUBLIC D_95B2
+PUBLIC D_95B2,closeCrypt
 PUBLIC tile_west,tile_south,txt_Y,DoublePace
 PUBLIC D_95C8,tile_back,D_95CC,D_95CE
 PUBLIC D_96EE,File_MAP,WindDir,D_96F4
@@ -60,6 +60,7 @@ Combat	db 0C0h dup(?)	;D_9470 struct tCombat
 Fighters	db 68h dup(?)	;D_9530
 File_DNG	dw ?	;D_9598
 activeChara	dw ?	;D_959A
+closeCrypt	dw ?	;D_959A
 D_959C	db ?,?
 tile_east	db ?	;D_959E
 	db ?

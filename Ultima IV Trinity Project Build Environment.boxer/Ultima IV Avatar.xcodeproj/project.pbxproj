@@ -85,7 +85,6 @@
 		8884AAE120C37A180012C494 /* U4_HOLE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_HOLE.C; path = C.harddisk/U4_HOLE.C; sourceTree = SOURCE_ROOT; };
 		8884AAE220C37A180012C494 /* U4_INIT.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_INIT.C; path = C.harddisk/U4_INIT.C; sourceTree = SOURCE_ROOT; };
 		8884AAE320C37A180012C494 /* U4_LB.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_LB.C; path = C.harddisk/U4_LB.C; sourceTree = SOURCE_ROOT; };
-		8884AAE420C37A180012C494 /* U4_LOC.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = U4_LOC.H; path = C.harddisk/U4_LOC.H; sourceTree = SOURCE_ROOT; };
 		8884AAE520C37A180012C494 /* U4_LOCAT.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_LOCAT.C; path = C.harddisk/U4_LOCAT.C; sourceTree = SOURCE_ROOT; };
 		8884AAE620C37A180012C494 /* U4_MAIN.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_MAIN.C; path = C.harddisk/U4_MAIN.C; sourceTree = SOURCE_ROOT; };
 		8884AAE720C37A180012C494 /* U4_MAIN2.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = U4_MAIN2.C; path = C.harddisk/U4_MAIN2.C; sourceTree = SOURCE_ROOT; };
@@ -165,7 +164,6 @@
 				8884AAE120C37A180012C494 /* U4_HOLE.C */,
 				8884AAE220C37A180012C494 /* U4_INIT.C */,
 				8884AAE320C37A180012C494 /* U4_LB.C */,
-				8884AAE420C37A180012C494 /* U4_LOC.H */,
 				8884AAE520C37A180012C494 /* U4_LOCAT.C */,
 				8884AAE620C37A180012C494 /* U4_MAIN.C */,
 				8884AAE720C37A180012C494 /* U4_MAIN2.C */,

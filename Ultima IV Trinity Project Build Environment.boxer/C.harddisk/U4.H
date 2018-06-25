@@ -429,6 +429,7 @@ extern struct tCombat Combat;
 extern struct t_68 Fighters;
 extern int File_DNG;
 extern int activeChara;
+extern int closeCrypt;
 extern struct aStruct D_959C;
 extern unsigned char tile_east;
 extern void far *pCharset;

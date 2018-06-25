@@ -292,14 +292,15 @@ C_7FFD()
         u4_puts("\nThe Tomb of ");
         if(Party._x == 1) {
             u4_puts("Mondain\n");
-            Tomb = 1;
+            Tomb = 0;
         } else if(Party._x > 2) {
             u4_puts("Minax\n");
-            Tomb = 0;
+            Tomb = 1;
         } else {
             u4_puts("Exodus\n");
             Tomb = 2;
         }
+        Gra_CR();
     }
 	switch(((Party._dir - 1) ^ 2) & 3) {
 		case 2:
