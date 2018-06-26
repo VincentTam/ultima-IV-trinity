@@ -387,7 +387,6 @@ extern unsigned equip_flags;
 extern void far *patch_tandy;
 extern struct t_500 D_8742;
 
-
 /*====---- c_common ----====*/
 extern unsigned char D_9140;
 extern unsigned char D_9141;

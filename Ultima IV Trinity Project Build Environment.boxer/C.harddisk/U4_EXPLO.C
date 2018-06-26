@@ -342,8 +342,8 @@ CMD_Enter()
 EXP_OnFoot()
 {
 	register int si;
-
-	for(si = 31; si >= 8 ;si --) {
+    /*lowered si form 31 to 28 to reserve spots for the closed crypts?*/
+	for(si = 28; si >= 8 ;si --) {
 		if(D_8742._npc._tile[si] == 0)
 			break;
 	}
