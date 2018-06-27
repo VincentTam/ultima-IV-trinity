@@ -20,8 +20,11 @@ This project aims to modify the original Ultima IV to add additional content, vi
   * New Shrines (Oracles)
   * 2nd levels for all Towns
   * Many other small additions
-
   
-All credit goes to ergonomy-joe for making this possible, thanks to his u4-decompiled.
+  ## Other Highlights
+  * Saved games are compatible with vanilla Ultima IV
+  
+# Credits
+  * All credit goes to ergonomy-joe for making this possible, thanks to his u4-decompiled.
 
 Cambragol
