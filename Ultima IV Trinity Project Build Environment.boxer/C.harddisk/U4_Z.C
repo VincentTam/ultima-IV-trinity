@@ -105,8 +105,19 @@ Ztats_Weap()
 				txt_Y = 1;
 				txt_X += 8;
 			}
-		}
-	} while(++si < 0x11);
+        }
+        if ((Party._weapons[0]) && si == 15){
+            u4_putc('Q');
+            u4_putl(Party._weapons[0], 2, '-');
+            u4_putc('-');
+            u4_puts(D_Wea_Codes[0]);
+            txt_X = (txt_X - 1) & ~7;
+            if(++txt_Y == 9) {
+                txt_Y = 1;
+                txt_X += 8;
+            }
+        }
+	} while(++si < 0x10);
 	while(txt_X < 40) {
 		u4_puts(/*D_190F*/"       ");
 		txt_X = (txt_X - 1) & ~7;
@@ -228,13 +239,13 @@ Ztats_Items()
 		u4_puts(/*D_198D*/"Wheel");
 		txt_Y ++;
 	}
-    if(TST_MSK(Party.mItems, 0) || TST_MSK(Party.mItems, 13) || TST_MSK(Party.mItems, 14)) {
+    if(TST_MSK(Party.mItems, 0) || TST_MSK(Party.mItems, 13) || TST_MSK(Party.mItems, 15)) {
         txt_X = 24;
         if(TST_MSK(Party.mItems, 0))
             u4_puts(/*D_196A*/"Skull ");
         if(TST_MSK(Party.mItems, 13))
             u4_puts(/*D_1970*/"Wand ");
-        if(TST_MSK(Party.mItems, 14)) {
+        if(TST_MSK(Party.mItems, 15)) {
             u4_puts(/*D_1976*/"Ring");
         }
         txt_Y ++;

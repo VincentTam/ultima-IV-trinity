@@ -182,5 +182,18 @@ C_C51C()
 	WindDir = DIR_N;
 	SoundFlag = 1;
 	dspl_Stats();
+    Restore_Crypt();
 	C_26B6();
+}
+
+Restore_Crypt() {
+    register int si;
+    /*added to force crypt closures, no overwriting by horses etc.*/
+    for(si = 8;si <= 32; si++) {
+        if(D_8742._npc._var[si] != 0){
+    D_8742._npc._gtile[si] = D_8742._npc._tile[si] = D_8742._npc._var[si];
+    D_8742._npc._x[si] = D_8742._npc._var[si + 3];
+    D_8742._npc._y[si] = D_8742._npc._var[si + 6];
+    }
+    }
 }

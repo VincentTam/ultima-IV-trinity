@@ -81,7 +81,7 @@ char *D_Armors[] = {
 };
 char *D_Wea_Codes[] = {
 /*61 - weapons short codes D_1F12*/
-	/*D_1BB7*/"HND",
+	/*D_1BB7*/"^BO",
 	/*D_1BBB*/"STF",
 	/*D_1BBF*/"DAG",
 	/*D_1BC3*/"SLN",
@@ -96,8 +96,7 @@ char *D_Wea_Codes[] = {
 	/*D_1BE7*/"+SW",
 	/*D_1BEB*/"+BO",
 	/*D_1BEF*/"WND",
-	/*D_1BF3*/"^SW",
-    /*D_1BF3*/"^BO"
+	/*D_1BF3*/"^SW"
 };
 char *D_Classes[] = {
 /*77 - classes D_1F32*/

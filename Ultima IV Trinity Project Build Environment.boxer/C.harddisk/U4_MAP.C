@@ -176,9 +176,13 @@ unsigned bp04;
     u_delay(3, 0);
     Gra_CR();
     
+    D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = D_8742._npc._var[bp04] = TIL_Mount_08;
+    D_8742._npc._x[bp04] = D_8742._npc._var[bp04 + 3] = Party._x;
+    D_8742._npc._y[bp04] = D_8742._npc._var[bp04 + 6] = Party._y - 1;
+    /*
     D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = TIL_Mount_08;
     D_8742._npc._x[bp04] = Party._x;
-    D_8742._npc._y[bp04] = Party._y - 1;
+    D_8742._npc._y[bp04] = Party._y - 1;*/
     /*D_8742._npc._var[si] = D_8742._npc._tlkidx[si] = 0;*/
     
     Big_Shake();
@@ -498,19 +502,19 @@ C_2C25()
         /*seal the crypts after artifacts entombed - locations must be updated for final map*/
         else if(Party._x == 0x52 && Party._y == 0x64){
             if(closeCrypt == 1){
-                Crypt_Close(29);
+                Crypt_Close(8);
                 closeCrypt = 0;
             }
         }
         else if(Party._x == 0x54 && Party._y == 0x64){
             if(closeCrypt == 1){
-                Crypt_Close(30);
+                Crypt_Close(9);
                 closeCrypt = 0;
             }
         }
         else if(Party._x == 0x56 && Party._y == 0x64){
             if(closeCrypt == 1){
-                Crypt_Close(31);
+                Crypt_Close(10);
                 closeCrypt = 0;
             }
         }

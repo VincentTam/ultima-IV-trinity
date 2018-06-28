@@ -241,15 +241,15 @@ C_058C() {
 
 /*use ring*/
 USE_Ring() {
-    if(!TST_MSK(Party.mItems, 14)) {
+    if(!TST_MSK(Party.mItems, 15)) {
         u4_puts(None_Owned);
         return;
     }
     if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 2) {
         u4_puts("\nYou place the Ring of Exodus into the Tomb....\n");
-        SET_MSK(Party.mItems, 1);
+        SET_MSK(Party.mItems, 16);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
-        RST_MSK(Party.mItems, 14);
+        RST_MSK(Party.mItems, 15);
         Crypt_Exit(Party._loc);
     }
     else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
@@ -265,10 +265,10 @@ USE_Ring() {
         
     } else {
         u4_puts("\nYou cast the Ring of Exodus into the Abyss!\n");
-        SET_MSK(Party.mItems, 1);
+        SET_MSK(Party.mItems, 16);
         Big_Karma_Inc();
         /*moved the mask to here so Ring is only removed from inventory when cast into Abyss */
-        RST_MSK(Party.mItems, 14);
+        RST_MSK(Party.mItems, 15);
     }
 }
 
@@ -343,7 +343,7 @@ USE_Wand() {
     }
     if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 1) {
         u4_puts("\nYou place the Wand of Minax into the Tomb....\n");
-        SET_MSK(Party.mItems, 1);
+        SET_MSK(Party.mItems, 14);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
         RST_MSK(Party.mItems, 13);
         Crypt_Exit(Party._loc);
@@ -355,7 +355,7 @@ USE_Wand() {
         t_callback();
     } else {
         u4_puts("\nYou cast the Wand of Minax into the Abyss!\n");
-        SET_MSK(Party.mItems, 1);
+        SET_MSK(Party.mItems, 14);
         Big_Karma_Inc();
         /*put the mask here so the wand is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems, 13);

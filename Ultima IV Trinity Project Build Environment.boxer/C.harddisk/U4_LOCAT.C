@@ -98,11 +98,24 @@ int bp04;
 		}
 	}
 	if((loc_C = Party.chara[loc_A]._weapon) != 0) {
+        /*hack for mystic bows*/
+        if (loc_C == 16)
+            loc_C = 0;
+        /*hack for mystic bows*/
 		if(++Party._weapons[loc_C] > 99)
 			Party._weapons[loc_C] = 99;
 	}
-	if(loc_B != 0) 
+    if(loc_B != 0){
+        /*hack for mystic bows*/
+        if(loc_B == 16)
+            loc_B = 0;
+        /*hack for mystic bows*/
 		Party._weapons[loc_B] --;
+        /*hack for mystic bows*/
+        if(loc_B == 0)
+            loc_B = 16;
+        /*hack for mystic bows*/
+    }
 	Party.chara[loc_A]._weapon = loc_B;
 	u4_puts(D_Weapons[loc_B]);
 	Gra_CR();

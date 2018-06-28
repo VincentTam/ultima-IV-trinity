@@ -78,11 +78,11 @@ C_8E46()
 
 C_RING()
 {
-    if(TST_MSK(Party.mItems, 14)) {
+    if(TST_MSK(Party.mItems, 15) || TST_MSK(Party.mItems, 16)) {
         u4_puts(D_27A6);
         return;
     }
-    SET_MSK(Party.mItems, 14);
+    SET_MSK(Party.mItems, 15);
     C_8D4B();
     u4_puts(/*D_27F7*/"A Strange Ring!\n");
     XP_inc(0, 400);
@@ -118,7 +118,7 @@ C_8EA8()
 
 C_WAND()
 {
-    if(TST_MSK(Party.mItems, 13)) {
+    if(TST_MSK(Party.mItems, 13) || TST_MSK(Party.mItems, 14)) {
         u4_puts(D_27A6);
         return;
     }
@@ -233,11 +233,11 @@ C_9076()
 
 C_MBOW()
 {
-    if(Party._weapons[16]) {
+    if(Party._weapons[0]) {
         u4_puts(D_27A6);
         return;
     }
-    Party._weapons[16] = 8;
+    Party._weapons[0] = 8;
     C_8D4B();
     u4_puts(/*D_28E2*/"Mystic Bows!\n");
     XP_inc(0, 400);

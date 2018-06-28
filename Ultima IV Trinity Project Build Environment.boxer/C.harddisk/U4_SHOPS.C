@@ -294,7 +294,9 @@ int D_46D2[] = {
 	2000,
 	5000,
 
-	7000/*what is this price for?*/
+	7000,
+    
+    8000/*what is this price for?*/
 };
 
 /*shops indexes*/
@@ -410,11 +412,15 @@ C_CEBE()
 		Gra_CR();
 		if(loc_B <= 0)
 			break;
+        if (loc_B == 16)
+            loc_B = 0;
 		if(Party._weapons[loc_B] == 0) {
 			u4_puts(/*D_47D3*/"Thou dost not own that. What else might\n");
 		} else {
 			if(Party._weapons[loc_B] > 1) {
 				u4_puts(/*D_47FC*/"How many ");
+                if (loc_B == 0)
+                    loc_B = 16;
 				u4_puts(D_Weapons[loc_B]);
 				u4_puts(/*D_4806*/"s would you wish to sell?\x12\x12\x12\b\b");
 				loc_A = AskInt(2);
@@ -425,10 +431,14 @@ C_CEBE()
 						sound(1);
 					break;
 				}
+                if (loc_B == 16)
+                    loc_B = 0;
 				if(Party._weapons[loc_B] < loc_A) {
 					u4_puts(/*D_4830*/"You don't have that many swine!\n");
 					break;
 				}
+                if (loc_B == 0)
+                    loc_B = 16;
 				u4_puts(/*D_4851*/"I will give you ");
 				u4_putl(((long)loc_A * D_46D2[loc_B]) >> 1, 1, '0');
 				u4_puts(/*D_4862*/"gp for ");
@@ -438,6 +448,8 @@ C_CEBE()
 					u4_puts(/*D_4870*/"it.");
 			} else {
 				loc_A = 1;
+                if (loc_B == 0)
+                    loc_B = 16;
 				u4_puts(/*D_4874*/"I will give you ");
 				u4_putl((long)D_46D2[loc_B] >> 1, 1, '0');
 				u4_puts(/*D_4885*/"gp for that ");
@@ -450,7 +462,11 @@ C_CEBE()
 			if(loc_C == 'N') {
 				u4_puts(/*D_489C*/"Hmmph. What else would\n");
 			} else {
+                if (loc_B == 16)
+                    loc_B = 0;
 				Party._weapons[loc_B] -= loc_A;
+                if (loc_B == 0)
+                    loc_B = 16;
 				clamp(Party._gold, (((long)loc_A * D_46D2[loc_B]) >> 1), 9999); dspl_Gold();
 				Ztats_Weap();
 				u4_puts(/*D_48B4*/"\nFine! What else?\n");
