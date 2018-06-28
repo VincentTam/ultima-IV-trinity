@@ -239,13 +239,13 @@ Ztats_Items()
 		u4_puts(/*D_198D*/"Wheel");
 		txt_Y ++;
 	}
-    if(TST_MSK(Party.mItems, 0) || TST_MSK(Party.mItems, 13) || TST_MSK(Party.mItems, 15)) {
+    if(TST_MSK(Party.mItems, 0) || TST_MSK(Party.mItems, 13) || TST_MSK(Party.mItems2, 0)) {
         txt_X = 24;
         if(TST_MSK(Party.mItems, 0))
             u4_puts(/*D_196A*/"Skull ");
         if(TST_MSK(Party.mItems, 13))
             u4_puts(/*D_1970*/"Wand ");
-        if(TST_MSK(Party.mItems, 15)) {
+        if(TST_MSK(Party.mItems2, 0)) {
             u4_puts(/*D_1976*/"Ring");
         }
         txt_Y ++;

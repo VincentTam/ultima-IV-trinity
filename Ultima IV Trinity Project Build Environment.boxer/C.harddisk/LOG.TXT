@@ -1,10 +1,8 @@
 MAKE  Version 2.0   Copyright (c) 1987, 1988 Borland International
 
-Available memory 596161 bytes
+Available memory 597505 bytes
 
-	msc /Ox /Zp /Gc u4_srch,sr;
-u4_srch.C(17) : warning 49: 'parameter' : indirection to different types
-u4_srch.C(17) : warning 24: different types : parameter 1
+	msc /Ox /Zp /Gc /J u4_use,us;
 	link /MAP @u4.rsp
 Microsoft (R) Overlay Linker  Version 3.51
 Copyright (C) Microsoft Corp 1983, 1984, 1985, 1986.  All rights reserved.

@@ -241,15 +241,15 @@ C_058C() {
 
 /*use ring*/
 USE_Ring() {
-    if(!TST_MSK(Party.mItems, 15)) {
+    if(!TST_MSK(Party.mItems2, 0)) {
         u4_puts(None_Owned);
         return;
     }
     if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 2) {
         u4_puts("\nYou place the Ring of Exodus into the Tomb....\n");
-        SET_MSK(Party.mItems, 16);
+        SET_MSK(Party.mItems2, 1);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
-        RST_MSK(Party.mItems, 15);
+        RST_MSK(Party.mItems2, 0);
         Crypt_Exit(Party._loc);
     }
     else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
@@ -265,10 +265,10 @@ USE_Ring() {
         
     } else {
         u4_puts("\nYou cast the Ring of Exodus into the Abyss!\n");
-        SET_MSK(Party.mItems, 16);
+        SET_MSK(Party.mItems2, 1);
         Big_Karma_Inc();
         /*moved the mask to here so Ring is only removed from inventory when cast into Abyss */
-        RST_MSK(Party.mItems, 15);
+        RST_MSK(Party.mItems2, 0);
     }
 }
 

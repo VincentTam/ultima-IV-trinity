@@ -102,7 +102,8 @@ struct tParty /*size:0x1f6*/ {
 	/*+158*/U16 _gems;
 	/*+15a*/U16 _keys;
 	/*+15c*/U16 _sextants;
-	/*+15e*/U16 _armors[8];
+    /*+1d2*/U16 mItems2;
+	/*+15e*/U16 _armors[7];
 	/*+16e*/U16 _weapons[16];
 	/*+18e*/U16 _reagents[8];
 	/*+19e*/U16 _mixtures[26];

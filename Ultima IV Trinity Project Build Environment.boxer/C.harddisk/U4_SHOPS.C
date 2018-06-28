@@ -406,6 +406,7 @@ C_CEBE()
 	do {
 		txt_Y = 23;
 		txt_X = 24;
+        loc_C = 'N';
         /* Changed 'P' to 'Q' for the additon of Mystic Bow */
 		loc_B = AskLetter(/*D_47C6*/"You sell:\x12\x12\b", 'B', 'Q');
 		loc_B -= 'A';

@@ -78,11 +78,11 @@ C_8E46()
 
 C_RING()
 {
-    if(TST_MSK(Party.mItems, 15) || TST_MSK(Party.mItems, 16)) {
+    if(TST_MSK(Party.mItems2, 0) || TST_MSK(Party.mItems2, 1)) {
         u4_puts(D_27A6);
         return;
     }
-    SET_MSK(Party.mItems, 15);
+    SET_MSK(Party.mItems2, 0);
     C_8D4B();
     u4_puts(/*D_27F7*/"A Strange Ring!\n");
     XP_inc(0, 400);
