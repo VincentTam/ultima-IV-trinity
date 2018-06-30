@@ -168,7 +168,7 @@ int bp04;
 	int loc_A, loc_B;
 	unsigned char loc_C, loc_D;
 
-	if(Party._tile >= TIL_HorseW_14 && Party._tile != TIL_18) {
+	if(Party._tile >= TIL_14 && Party._tile != TIL_18) {
 		if(!C_6409())
 			return;
 		AskDir(/*D_20EA*/"Dir: ", &loc_A, &loc_B);
@@ -322,7 +322,7 @@ int bp04;
 {
 	register int si;
 
-	if(Party._tile < TIL_HorseW_14 || Party._tile == TIL_18) {
+	if(Party._tile < TIL_14 || Party._tile == TIL_18) {
 		w_Failed();
 		return;
 	}
@@ -644,7 +644,7 @@ pSpell_handler D_216E[] = {
 		}
 	}
 	Gra_13();
-	Ztats_Mixtures();
+	C_4C42();
 	txt_Y = 23;
 	txt_X = 24;
 	D_8CCC = AskLetter(/*D_2152*/"Spell:\x12\x12\b", 'A', 'Z');
@@ -656,7 +656,7 @@ pSpell_handler D_216E[] = {
 	if(D_8CCC < 0)
 		return;
 	D_8CCC -= 'A';
-	u4_puts(D_Spells[D_8CCC]); u4_puts(/*D_215C*/"!\n");
+	u4_puts(D_1E98[101 + D_8CCC]); u4_puts(/*D_215C*/"!\n");
 	/*-- check mixture --*/
 	if(Party._mixtures[D_8CCC] == 0) {
 		w_NoneLeft();

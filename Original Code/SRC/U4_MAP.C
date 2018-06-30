@@ -85,15 +85,14 @@ C_2624()
 
 C_26B6()
 {
-    /*added range for new 'towns' but is it necessary??? Original was just Party._loc < 0x11*/
-	D_95A5.x = ((Party._loc < 0x11 || (Party._loc > 32 && Party._loc < 41))?Party._x:Party.out_x) >> 4;
-	D_959C.x = ((Party._loc < 0x11 || (Party._loc > 32 && Party._loc < 41))?Party._x:Party.out_x) & 15;
+	D_95A5.x = ((Party._loc < 0x11)?Party._x:Party.out_x) >> 4;
+	D_959C.x = ((Party._loc < 0x11)?Party._x:Party.out_x) & 15;
 	if(D_959C.x < 8) {
 		D_959C.x += 0x10;
 		D_95A5.x = (D_95A5.x - 1) & 15;
 	}
-	D_95A5.y = ((Party._loc < 0x11 || (Party._loc > 32 && Party._loc < 41))?Party._y:Party.out_y) >> 4;
-	D_959C.y = ((Party._loc < 0x11 || (Party._loc > 32 && Party._loc < 41))?Party._y:Party.out_y) & 15;
+	D_95A5.y = ((Party._loc < 0x11)?Party._y:Party.out_y) >> 4;
+	D_959C.y = ((Party._loc < 0x11)?Party._y:Party.out_y) & 15;
 	if(D_959C.y < 8) {
 		D_959C.y += 0x10;
 		D_95A5.y = (D_95A5.y - 1) & 15;
@@ -122,7 +121,6 @@ C_2747()
 	Party._loc = 0;
 	Party.f_1dc = 0;
 	D_9440 = 1;
-    
 	if(Party._x == 0xef && Party._y == 0xf0) {
 		D_8742._npc._tile[31] = D_8742._npc._gtile[31] = TIL_18;
 		D_8742._npc._x[31] = 0xe9;
@@ -236,8 +234,8 @@ C_2941()
 }
 
 unsigned char D_0904[] = {
-	TIL_Swamp_03,TIL_Grass_04,TIL_Scrub_05,TIL_Forest_06,TIL_Hills_07,TIL_Dung_09,TIL_Town_0A,TIL_Castle_0B,TIL_Village_0C,
-	TIL_ShipW_10,TIL_ShipN_11,TIL_ShipE_12,TIL_ShipS_13,TIL_HorseW_14,TIL_HorseE_15,TIL_16,TIL_17,TIL_18,
+	TIL_03,TIL_04,TIL_05,TIL_06,TIL_07,TIL_09,TIL_0A,TIL_0B,TIL_0C,
+	TIL_10,TIL_11,TIL_12,TIL_13,TIL_14,TIL_15,TIL_16,TIL_17,TIL_18,
 	TIL_19,TIL_1A,TIL_1B,TIL_1C,TIL_1D,TIL_1E,TIL_3C,TIL_3E,TIL_3F,
 	TIL_43,TIL_44,TIL_46,TIL_47,TIL_49,TIL_4A,TIL_4C,TIL_8E,TIL_8F,
 	0/*End of list*/
@@ -273,9 +271,9 @@ C_29EF(bp04)
 unsigned char bp04;
 {
 	switch(bp04) {
-		case TIL_Swamp_03: if(U4_RND1(7) != 0) return 0; break;
-		case TIL_Scrub_05: case TIL_Forest_06: if(U4_RND1(3) != 0) return 0; break;
-		case TIL_Hills_07: case TIL_46: if(U4_RND1(1) == 0) return 0; break;
+		case TIL_03: if(U4_RND1(7) != 0) return 0; break;
+		case TIL_05: case TIL_06: if(U4_RND1(3) != 0) return 0; break;
+		case TIL_07: case TIL_46: if(U4_RND1(1) == 0) return 0; break;
 		default: return 0;
 	}
 	return 1;
@@ -284,7 +282,7 @@ unsigned char bp04;
 C_2A38(bp04)
 unsigned char bp04;
 {
-	return (bp04 < TIL_SWater_02) || ((bp04 >= TIL_8C) && (bp04 < TIL_90));
+	return (bp04 < TIL_02) || ((bp04 >= TIL_8C) && (bp04 < TIL_90));
 }
 
 /*check slow progress [boat]*/
@@ -309,7 +307,7 @@ unsigned char bp04;
 		Gra_09();
 		Party._loc = 0x1f;
 		sound(9, 0xa0);
-		Enter_Shrine();
+		C_E72C();
 		return 1;
 	}
 	t_callback();
@@ -326,11 +324,11 @@ unsigned char bp04;
 C_2B19()
 {
 	/*LB's castle middle wing*/
-	if(tile_cur == TIL_CasEn_0E) {
+	if(tile_cur == TIL_0E) {
 		w_Blocked();
 		return 0;
 	}
-	if(tile_north != TIL_CasEn_0E && !C_2999(tile_north)) {
+	if(tile_north != TIL_0E && !C_2999(tile_north)) {
 		w_Blocked();
 		return 0;
 	}
@@ -356,10 +354,10 @@ C_2B19()
 
 /*C_2B8C*/CMDDIR_Up()
 {
-	if(Party._tile == TIL_ShipW_10 || Party._tile == TIL_ShipE_12 || Party._tile == TIL_ShipS_13) {
-		Party._tile = TIL_ShipN_11;
+	if(Party._tile == TIL_10 || Party._tile == TIL_12 || Party._tile == TIL_13) {
+		Party._tile = TIL_11;
 		u4_puts("Turn North!\n");
-	} else if(Party._tile == TIL_ShipN_11) {
+	} else if(Party._tile == TIL_11) {
 		u4_puts("Sail North!\n");
 		if(!C_2A38(tile_north)) {
 			w_Blocked();
@@ -373,7 +371,7 @@ C_2B19()
 	} else {
 		sound(0);
 		u4_puts("North\n");
-		if(C_2B19() && DoublePace) {
+		if(C_2B19() && D_95C6) {
 			t_callback();
 			sound(0);
 			C_2B19();
@@ -412,10 +410,10 @@ C_2C25()
 {
 	if(Party._tile == TIL_18) {
 		w_DriftOnly();
-	} else if(Party._tile == TIL_ShipW_10 || Party._tile == TIL_ShipE_12 || Party._tile == TIL_ShipN_11) {
-		Party._tile = TIL_ShipS_13;
+	} else if(Party._tile == TIL_10 || Party._tile == TIL_12 || Party._tile == TIL_11) {
+		Party._tile = TIL_13;
 		u4_puts("Turn South!\n");
-	} else if(Party._tile == TIL_ShipS_13) {
+	} else if(Party._tile == TIL_13) {
 		u4_puts("Sail South!\n");
 		if(!C_2A38(tile_south)) {
 			w_Blocked();
@@ -427,7 +425,7 @@ C_2C25()
 	} else {
 		sound(0);
 		u4_puts("South\n");
-		if(C_2C25() && DoublePace) {
+		if(C_2C25() && D_95C6) {
 			t_callback();
 			sound(0);
 			C_2C25();
@@ -471,10 +469,10 @@ C_2D44()
 {
 	if(Party._tile == TIL_18) {
 		w_DriftOnly();
-	} else if(Party._tile == TIL_ShipS_13 || Party._tile == TIL_ShipE_12 || Party._tile == TIL_ShipN_11) {
-		Party._tile = TIL_ShipW_10;
+	} else if(Party._tile == TIL_13 || Party._tile == TIL_12 || Party._tile == TIL_11) {
+		Party._tile = TIL_10;
 		u4_puts("Turn West!\n");
-	} else if(Party._tile == TIL_ShipW_10) {
+	} else if(Party._tile == TIL_10) {
 		u4_puts("Sail West!\n");
 		if(!C_2A38(tile_west)) {
 			w_Blocked();
@@ -484,11 +482,11 @@ C_2D44()
 			C_28E9();
 		}
 	} else {
-		if(Party._tile == TIL_HorseE_15)
-			Party._tile = TIL_HorseW_14;
+		if(Party._tile == TIL_15)
+			Party._tile = TIL_14;
 		sound(0);
 		u4_puts("West\n");
-		if(C_2D44() && DoublePace) {
+		if(C_2D44() && D_95C6) {
 			t_callback();
 			sound(0);
 			C_2D44();
@@ -530,10 +528,10 @@ C_2E4F()
 {
 	if(Party._tile == TIL_18) {
 		w_DriftOnly();
-	} else if(Party._tile == TIL_ShipS_13 || Party._tile == TIL_ShipW_10 || Party._tile == TIL_ShipN_11) {
-		Party._tile = TIL_ShipE_12;
+	} else if(Party._tile == TIL_13 || Party._tile == TIL_10 || Party._tile == TIL_11) {
+		Party._tile = TIL_12;
 		u4_puts("Turn East!\n");
-	} else if(Party._tile == TIL_ShipE_12) {
+	} else if(Party._tile == TIL_12) {
 		u4_puts("Sail East!\n");
 		if(!C_2A38(tile_east)) {
 			w_Blocked();
@@ -545,11 +543,11 @@ C_2E4F()
 				C_280A();
 		}
 	} else {
-		if(Party._tile == TIL_HorseW_14)
-			Party._tile = TIL_HorseE_15;
+		if(Party._tile == TIL_14)
+			Party._tile = TIL_15;
 		sound(0);
 		u4_puts("East\n");
-		if(C_2E4F() && DoublePace) {
+		if(C_2E4F() && D_95C6) {
 			t_callback();
 			sound(0);
 			C_2E4F();

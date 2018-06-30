@@ -124,7 +124,7 @@ int bp04;
 	sound(7);
 	hit_tile = 0;
 	C_3C54();
-	bp_02 = U4_RND4(Enemy_HP[C_7C25((unsigned char)Fighters._tile[bp04])] >> 2);
+	bp_02 = U4_RND4(D_23D2[C_7C25((unsigned char)Fighters._tile[bp04])] >> 2);
 	bp_02 = (bp_02 >> 4) * 10 + (bp_02 % 10);
 	Gra_11(bp06);
 	if(hitChara(bp06, bp_02) == 0) {
@@ -151,7 +151,7 @@ int bp04;
 }
 
 /*monster projectile?*/
-Proj_Attack(bp0a, bp08, bp06, bp04)
+C_978C(bp0a, bp08, bp06, bp04)
 unsigned char bp0a;/*type*/
 int bp08;/*monster id*/
 int bp06;
@@ -357,7 +357,7 @@ int bp04;
 	C_3C54();
 	sound(5);
 	hit_tile = 0;
-	if((spell_sta == 'P' && U4_RND1(1)) || Armor_Prot[Party.chara[bp04]._armor] >= u_rand_a()) {
+	if((spell_sta == 'P' && U4_RND1(1)) || D_2460[Party.chara[bp04]._armor] >= u_rand_a()) {
 		C_3C54();
 	} else if(C_96B9(bp04, bp06) == 0) {
 		return 1;
@@ -403,7 +403,7 @@ int bp04;
 
 		if((bp_0c = C_9A41((unsigned char)Fighters._tile[bp08])) != 0) {
 			if(bp_0c != TIL_4E || spell_sta != 'N') {
-				Proj_Attack(bp_0c, bp08, loc_A, loc_C);
+				C_978C(bp_0c, bp08, loc_A, loc_C);
 				t_callback();
 				return;
 			}
@@ -498,66 +498,61 @@ C_9F7B()
 	unsigned char loc_D, loc_E;
 
 	t_callback();
-    
-    if(spell_sta == 'R'){
-        
-    }
-    else {
-        for(loc_A = 15; loc_A >= 0; loc_A --) {
-            if(Fighters._tile[loc_A]) {
-                if((unsigned char)Fighters._sleeping[loc_A] == 0 || U4_RND1(7) == 0) {
-                    Fighters._sleeping[loc_A] = 0;
-                    if((unsigned char)Fighters._tile[loc_A] == TIL_EC) {
-                        spell_sta = 'N';
-                        spell_cnt = 2;
-                        dspl_Stats();
-                    } else if((unsigned char)Fighters._tile[loc_A] == TIL_DC && U4_RND1(7) == 0) {
-                        do {
-                            loc_D = U4_RND3(11);
-                            loc_E = U4_RND3(11);
-                        } while(!C_98E4(loc_D, loc_E, loc_A));
-                        Combat._npcX[loc_A] = loc_D;
-                        Combat._npcY[loc_A] = loc_E;
-                    }
-                    loc_D = Combat._npcX[loc_A];
-                    loc_E = Combat._npcY[loc_A];
-                    loc_F = 99;
-                    loc_C = -1;
-                    for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
-                        if(isCharaAlive(loc_B) && Fighters._chtile[loc_B]) {
-                            register int si;
-                            
-                            si =
-                            u4_abs((unsigned char)Combat._charaX[loc_B] - loc_D) +
-                            u4_abs((unsigned char)Combat._charaY[loc_B] - loc_E)
-                            ;
-                            if(loc_F > si) {
-                                loc_F = si;
-                                loc_C = loc_B;
-                            }
-                        }
-                    }
-                    if(loc_C != -1)
-                        C_9CBC(loc_A, loc_C, loc_F);
-                }
-                switch(Combat_MAP((unsigned char)Combat._npcY[loc_A], (unsigned char)Combat._npcX[loc_A])) {
-                    case TIL_46: case TIL_4C:
-                        if((unsigned char)Fighters._tile[loc_A] == TIL_E8 || (unsigned char)Fighters._tile[loc_A] >= TIL_F0)
-                            break;
-                    case TIL_44:
-                        sound(6);
-                        COM_DoDamage(loc_A, -1, U4_RND1(0x7f));
-                        break;
-                    case TIL_47:
-                        if(C_636D((unsigned char)Fighters._tile[loc_A]) == 0 && (unsigned char)Fighters._HP[loc_A] >= u_rand_a()) {
-                            Fighters._sleeping[loc_A] = 1;
-                            sound(6);
-                        }
-                        break;
-                }
-            }
-        }
-    }
+
+	for(loc_A = 15; loc_A >= 0; loc_A --) {
+		if(Fighters._tile[loc_A]) {
+			if((unsigned char)Fighters._sleeping[loc_A] == 0 || U4_RND1(7) == 0) {
+				Fighters._sleeping[loc_A] = 0;
+				if((unsigned char)Fighters._tile[loc_A] == TIL_EC) {
+					spell_sta = 'N';
+					spell_cnt = 2;
+					dspl_Stats();
+				} else if((unsigned char)Fighters._tile[loc_A] == TIL_DC && U4_RND1(7) == 0) {
+					do {
+						loc_D = U4_RND3(11);
+						loc_E = U4_RND3(11);
+					} while(!C_98E4(loc_D, loc_E, loc_A));
+					Combat._npcX[loc_A] = loc_D;
+					Combat._npcY[loc_A] = loc_E;
+				}
+				loc_D = Combat._npcX[loc_A];
+				loc_E = Combat._npcY[loc_A];
+				loc_F = 99;
+				loc_C = -1;
+				for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
+					if(isCharaAlive(loc_B) && Fighters._chtile[loc_B]) {
+						register int si;
+
+						si =
+							u4_abs((unsigned char)Combat._charaX[loc_B] - loc_D) +
+							u4_abs((unsigned char)Combat._charaY[loc_B] - loc_E)
+						;
+						if(loc_F > si) {
+							loc_F = si;
+							loc_C = loc_B;
+						}
+					}
+				}
+				if(loc_C != -1)
+					C_9CBC(loc_A, loc_C, loc_F);
+			}
+			switch(Combat_MAP((unsigned char)Combat._npcY[loc_A], (unsigned char)Combat._npcX[loc_A])) {
+				case TIL_46: case TIL_4C:
+					if((unsigned char)Fighters._tile[loc_A] == TIL_E8 || (unsigned char)Fighters._tile[loc_A] >= TIL_F0)
+						break;
+				case TIL_44:
+					sound(6);
+					COM_DoDamage(loc_A, -1, U4_RND1(0x7f));
+				break;
+				case TIL_47:
+					if(C_636D((unsigned char)Fighters._tile[loc_A]) == 0 && (unsigned char)Fighters._HP[loc_A] >= u_rand_a()) {
+						Fighters._sleeping[loc_A] = 1;
+						sound(6);
+					}
+				break;
+			}
+		}
+	}
 	MP_recover();
 	Party._moves ++;
 	if(spell_cnt) {

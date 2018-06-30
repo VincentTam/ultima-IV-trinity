@@ -33,31 +33,26 @@ LOCATE
 
 ----------------------------------------*/
 
-/* Class_Mask split into two to allow additon of other weapons? */
-
-unsigned char Weap_Class_Mask[] = {
+unsigned char D_2334[] = {
 	/*weapons class masks*/
-	0xFF,0xFF,0xFF,0xFF,0x7F,0x6F,0x6F,0x7E,0x7E,0xFF,0x2C,0x0C,0x2E,0x5E,0xD0,0xFF
-};
-
-unsigned char Armor_Class_Mask[] = {
+	0xFF,0xFF,0xFF,0xFF,0x7F,0x6F,0x6F,0x7E,0x7E,0xFF,0x2C,0x0C,0x2E,0x5E,0xD0,0xFF,
 	/*D_2344*//*armor class masks*/
 	0xFF,0xFF,0x7F,0x2C,0x2C,0x24,0x04,0xFF
 };
 
 /*"may not use"*/
-Ready_Wear_Cant(bp08, bp06, bp04)
+C_75DC(bp08, bp06, bp04)
 int bp08;
 int bp06;
 int bp04;
 {
 	u4_puts(/*D_2322*/"\nA ");
-	u4_puts(D_Classes[(int)Party.chara[bp08]._class]);
+	u4_puts(D_1E98[77 + (int)Party.chara[bp08]._class]);
 	u4_puts(/*D_2326*/" may NOT use ");
 	if(bp04)
 		u4_putc('a');
 	Gra_CR();
-	u4_puts(D_Weapons[bp06]);
+	u4_puts(D_1E98[37 + bp06]);
 	Gra_CR();
 	sound(1);
 }
@@ -76,9 +71,9 @@ int bp04;
 			return;
 	}
 	Gra_13();
-	Ztats_Weap();
+	C_4832();
 	txt_Y = 23; txt_X = 24;
-	loc_B = AskLetter(/*D_2373*/"Weapon:\x12\x12\b", 'A', 'Q');
+	loc_B = AskLetter(/*D_2373*/"Weapon:\x12\x12\b", 'A', 'P');
 	Gra_13();
 	C_4649();
 	dspl_Stats();
@@ -92,8 +87,8 @@ int bp04;
 		return;
 	}
 	if(loc_B != 0) {
-		if(((0x80 >> Party.chara[loc_A]._class) & Weap_Class_Mask[loc_B]) == 0) {
-			Ready_Wear_Cant(loc_A, loc_B, 1);
+		if(((0x80 >> Party.chara[loc_A]._class) & D_2334[loc_B]) == 0) {
+			C_75DC(loc_A, loc_B, 1);
 			return;
 		}
 	}
@@ -104,7 +99,7 @@ int bp04;
 	if(loc_B != 0) 
 		Party._weapons[loc_B] --;
 	Party.chara[loc_A]._weapon = loc_B;
-	u4_puts(D_Weapons[loc_B]);
+	u4_puts(D_1E98[37 + loc_B]);
 	Gra_CR();
 }
 
@@ -117,7 +112,7 @@ int bp04;
 	if((loc_A = AskChara(/*D_238B*/"for:\x12\x12\b")) < 0)
 		return;
 	Gra_13();
-	Ztats_Armor();
+	C_48F8();
 	txt_Y = 23; txt_X = 24;
 	loc_B = AskLetter(/*D_2393*/"Armour:\x12\x12\b", 'A', 'H');
 	Gra_13();
@@ -133,8 +128,8 @@ int bp04;
 		return;
 	}
 	if(loc_B != 0) {
-		if(((0x80 >> Party.chara[loc_A]._class) & Armor_Class_Mask[loc_B + 0x10]) == 0) {
-			Ready_Wear_Cant(loc_A, loc_B + 0x10, 0);
+		if(((0x80 >> Party.chara[loc_A]._class) & D_2334[loc_B + 0x10]) == 0) {
+			C_75DC(loc_A, loc_B + 0x10, 0);
 			return;
 		}
 	}
@@ -145,6 +140,6 @@ int bp04;
 	if(loc_B != 0)
 		Party._armors[loc_B] --;
 	Party.chara[loc_A]._armor = loc_B;
-	u4_puts(D_Armors[53 + loc_B]);
+	u4_puts(D_1E98[53 + loc_B]);
 	Gra_CR();
 }

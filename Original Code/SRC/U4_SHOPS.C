@@ -95,7 +95,7 @@ static unsigned D_913E;/*# of drinks in pub*/
 			strnicmp(bp_14, /*D_3DF8*/"bye", 16) == 0
 		) break;
 		for(bp_04 = 7; bp_04 >= 0; bp_04 --) {
-			if(strnicmp(bp_14, D_Virtues[bp_04], 4) == 0)
+			if(strnicmp(bp_14, D_1E98[151 + bp_04], 4) == 0)
 				break;
 		}
 		if(bp_04 == -1) {
@@ -170,7 +170,7 @@ unsigned char D_4190[][6] = {
 	u4_puts(/*D_3FAE*/"A blind woman turns to you and says: Welcome to ");
 	u4_puts(D_4180[D_9142]);
 	Gra_13();
-	Ztats_Reagents();
+	C_4BC7();
 	u4_puts(/*D_3FDF*/"\n\nI am ");
 	u4_puts(D_4188[D_9142]);
 	u4_puts(/*D_3FE7*/"\nAre you in need of Reagents?\x12\x12\b");
@@ -191,7 +191,7 @@ F-Black Pearl\n"
 			if(loc_B < 0)
 				break;
 			u4_puts(/*D_407A*/"\nVery well, we sell ");
-			u4_puts(D_Reagents[loc_B]);
+			u4_puts(D_1E98[93 + loc_B]);
 			u4_puts(/*D_408F*/" for ");
 			u4_putl(D_4190[D_9142][loc_B], 1, '0');
 			u4_puts(/*D_4095*/"gp. How many would you like?\x12\x12\x12\b\b");
@@ -222,7 +222,7 @@ F-Black Pearl\n"
 						Party._reagents[loc_B] += loc_A;
 						if(Party._reagents[loc_B] > 99)
 							Party._reagents[loc_B] = 99;
-						Ztats_Reagents();
+						C_4BC7();
 						u4_puts(/*D_4106*/"\nVery good.\n");
 					}
 				}
@@ -324,7 +324,7 @@ int bp04;
 	Party._weapons[bp06] += bp04;
 	if(Party._weapons[bp06] > 99)
 		Party._weapons[bp06] = 99;
-	Ztats_Weap();
+	C_4832();
 	Gra_CR();
 	u4_puts(D_46AE[D_9142]);
 	u4_puts(/*D_468A*/" says: A fine choice!\n");
@@ -342,7 +342,7 @@ C_CD80()
 		for(loc_B = 0; loc_B < 4; loc_B ++) {
 			u4_putc(D_46BA[D_9142][loc_B] + 'A');
 			u4_putc('-');
-			u4_puts(D_Weapons[D_46BA[D_9142][loc_B]]);
+			u4_puts(D_1E98[37 + D_46BA[D_9142][loc_B]]);
 			u4_putc('s');
 			Gra_CR();
 		}
@@ -398,8 +398,7 @@ C_CEBE()
 	do {
 		txt_Y = 23;
 		txt_X = 24;
-        /* Changed 'P' to 'Q' for the additon of Mystic Bow */
-		loc_B = AskLetter(/*D_47C6*/"You sell:\x12\x12\b", 'B', 'Q');
+		loc_B = AskLetter(/*D_47C6*/"You sell:\x12\x12\b", 'B', 'P');
 		loc_B -= 'A';
 		Gra_CR();
 		if(loc_B <= 0)
@@ -409,7 +408,7 @@ C_CEBE()
 		} else {
 			if(Party._weapons[loc_B] > 1) {
 				u4_puts(/*D_47FC*/"How many ");
-				u4_puts(D_Weapons[loc_B]);
+				u4_puts(D_1E98[37 + loc_B]);
 				u4_puts(/*D_4806*/"s would you wish to sell?\x12\x12\x12\b\b");
 				loc_A = AskInt(2);
 				if(loc_A <= 0) {
@@ -435,7 +434,7 @@ C_CEBE()
 				u4_puts(/*D_4874*/"I will give you ");
 				u4_putl((long)D_46D2[loc_B] >> 1, 1, '0');
 				u4_puts(/*D_4885*/"gp for that ");
-				u4_puts(D_Weapons[loc_B]);
+				u4_puts(D_1E98[37 + loc_B]);
 			}
 			u4_puts(/*D_4892*/"\nDeal?\x12\x12\b");
 			loc_C = AskY_N();
@@ -446,7 +445,7 @@ C_CEBE()
 			} else {
 				Party._weapons[loc_B] -= loc_A;
 				clamp(Party._gold, (((long)loc_A * D_46D2[loc_B]) >> 1), 9999); dspl_Gold();
-				Ztats_Weap();
+				C_4832();
 				u4_puts(/*D_48B4*/"\nFine! What else?\n");
 			}
 		}
@@ -459,7 +458,7 @@ C_CEBE()
 	char bp_02;
 
 	Gra_13();
-	Ztats_Weap();
+	C_4832();
 	D_9142 = D_46F2[Party._loc - 1] - 1;
 	u4_puts(/*D_48C7*/"\n\n\n\nWelcome to ");
 	u4_puts(D_46A2[D_9142]);
@@ -563,7 +562,7 @@ int bp04;
 	Party._armors[bp06] += bp04;
 	if(Party._armors[bp06] > 99)
 		Party._armors[bp06] = 99;
-	Ztats_Armor();
+	C_48F8();
 	Gra_CR();
 	u4_puts(D_4BB8[D_9142]);
 	u4_puts(/*D_4B99*/" says: Good choice!\n");
@@ -582,7 +581,7 @@ C_D1D0()
 			if(D_4BC4[D_9142][loc_B]) {
 				u4_putc(D_4BC4[D_9142][loc_B] + 'A');
 				u4_putc(' ');
-				u4_puts(D_Armors[D_4BC4[D_9142][loc_B]]);
+				u4_puts(D_1E98[53 + D_4BC4[D_9142][loc_B]]);
 				Gra_CR();
 			}
 		}
@@ -645,7 +644,7 @@ C_D2F8()
 		} else {
 			if(Party._armors[loc_B] > 1) {
 				u4_puts(/*D_4CCF*/"How many ");
-				u4_puts(D_Armors[loc_B]);
+				u4_puts(D_1E98[53 + loc_B]);
 				u4_puts(/*D_4CD9*/"s would you like to sell?\x12\x12\x12\b\b");
 				loc_A = AskInt(2);
 				if(loc_A <= 0) {
@@ -671,7 +670,7 @@ C_D2F8()
 				u4_puts(/*D_4D44*/"I will give you\n");
 				u4_putl((long)D_4BDC[loc_B] >> 1, 1, '0');
 				u4_puts(/*D_4D55*/"gp for that ");
-				u4_puts(D_Armors[loc_B]);
+				u4_puts(D_1E98[53 + loc_B]);
 			}
 			u4_puts(/*D_4D62*/"\nDeal?\x12\x12\b");
 			loc_C = AskY_N();
@@ -682,7 +681,7 @@ C_D2F8()
 			} else {
 				Party._armors[loc_B] -= loc_A;
 				clamp(Party._gold, (((long)loc_A * D_4BDC[loc_B]) >> 1), 9999); dspl_Gold();
-				Ztats_Armor();
+				C_48F8();
 				u4_puts(/*D_4D86*/"\nFine! What else?\n");
 			}
 		}
@@ -695,7 +694,7 @@ C_D2F8()
 	char bp_02;
 
 	Gra_13();
-	Ztats_Armor();
+	C_48F8();
 	D_9142 = D_4BEC[Party._loc - 1] - 1;
 	u4_puts(/*D_4D99*/"\n\n\n\nWelcome to\n");
 	u4_puts(D_4BAE[D_9142]);
@@ -760,7 +759,7 @@ C_D2F8()
 	}
 	Party._gold -= 100 * Party.f_1d8; dspl_Gold();
 	u4_puts(/*D_4EF9*/"\nHere, a better breed thou shalt not find ever!\n");
-	Party._tile  = TIL_HorseW_14;
+	Party._tile  = TIL_14;
 }
 
 /*----------------------------------------*/
@@ -798,7 +797,7 @@ char *D_51BE[] = {
 
 	D_9142 = D_5196[Party._loc - 1] - 1;
 	Gra_13();
-	Ztats_Equip();
+	C_4987();
 	u4_puts(/*D_5056*/"\n\n\n\nAvast ye mate! Shure ye wishes to buy from ol' ");
 	u4_puts(D_51BA[D_9142]);
 	u4_puts(/*D_508A*/"?\n\n\n");
@@ -844,7 +843,7 @@ C-Magic Keys\n");
 		Party._gold -= D_51A6[loc_A];
 		u4_puts(/*D_5158*/"\nFine...fine...\n\n");
 		dspl_Gold();
-		Ztats_Equip();
+		C_4987();
 		Gra_CR();
 		u4_puts(D_51BA[D_9142]);
 		u4_puts(/*D_516A*/" says: See more?\x12\x12\b");
@@ -896,7 +895,7 @@ char *D_54C8[] = {
 	/*D_5402*/"All we have is that cot over there. But it is comfortable, and only 1gp."
 };
 
-ENC_inn()
+C_D7A8()
 {
 	int bp_02;
 
@@ -933,7 +932,7 @@ C_D7D6()
 	MP_recover();
 	dspl_Stats();
 	if(isCharaAlive(0) && U4_RND1(7) == 0) {
-		ENC_inn();
+		C_D7A8();
 	} else if(D_9142 == 5 && U4_RND1(3) == 0) {
 		/*Isaac the ghost appears in skara brae*/
 		D_8742._npc._tile[0] = D_8742._npc._gtile[0] = TIL_9C;

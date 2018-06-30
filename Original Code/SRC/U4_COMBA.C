@@ -74,7 +74,7 @@ C_61D1();*/
 				activeCharaY = Combat._charaY[activeChara];
 				u4_puts(Party.chara[activeChara]._name);
 				u4_puts(/*D_1FE6*/" with ");
-				u4_puts(D_Weapons[Party.chara[activeChara]._weapon]);
+				u4_puts(D_1E98[37 + Party.chara[activeChara]._weapon]);
 				Gra_CR();
 				u4_putc(0x10);
 				D_95C8 = 2;
@@ -157,7 +157,7 @@ C_5D14()
 	if(Fighters._chtile[activeChara] == 0)
 		return;
 	if(isCharaConscious(activeChara))
-		Random_Encounter();
+		C_9209();
 	if(!isCharaAlive(activeChara)) {
 		Fighters._chtile[activeChara] = 0;
 	} else if(isCharaConscious(activeChara) && spell_sta == 'Q' && U4_RND1(1)) {
@@ -184,7 +184,7 @@ unsigned char _damage;
 		if(_charaId != -1) {
 			register int di;
 
-			di = Enemy_HP[C_7C25(Fighters._tile[_npcId])] / 16 + 1;
+			di = D_23D2[C_7C25(Fighters._tile[_npcId])] / 16 + 1;
 			XP_inc(_charaId, di);
 			u4_puts(/*D_2003*/"Exp. ");
 			u4_putl(di, 1, ' ');
@@ -194,7 +194,7 @@ unsigned char _damage;
 	} else {
 		int loc_D, loc_C, loc_B, loc_A;
 
-		loc_B = loc_A = Enemy_HP[C_7C25(Fighters._tile[_npcId])] / 2;
+		loc_B = loc_A = D_23D2[C_7C25(Fighters._tile[_npcId])] / 2;
 		loc_B >>= 1;
 		loc_C = loc_B + loc_A;
 		loc_D = Fighters._HP[_npcId];
@@ -230,7 +230,7 @@ unsigned char /*bp04*/_dir_y;
 	loc_B = Combat_MAP(loc_A, loc_C);
 	if(loc_B == TIL_49)
 		return 0;
-	if(loc_B <= TIL_80 && loc_B > TIL_SWater_02 && loc_B != TIL_48)
+	if(loc_B <= TIL_80 && loc_B > TIL_02 && loc_B != TIL_48)
 		if(loc_B < TIL_31 || loc_B > TIL_34)
 			if(!C_2999(loc_B))
 				return 0;
@@ -265,7 +265,7 @@ int /*bp04*/_range;
 		sound(4);
 	hit_tile = 0;
 	u4_puts(/*D_2042*/"Missed!\n");
-	if(Party.chara[activeChara]._weapon == 9 && hit_x < 11 && hit_y < 11 && Combat_MAP(hit_y, hit_x) >= TIL_Swamp_03)
+	if(Party.chara[activeChara]._weapon == 9 && hit_x < 11 && hit_y < 11 && Combat_MAP(hit_y, hit_x) >= TIL_03)
 		Combat_MAP(hit_y, hit_x) = TIL_46;
 	C_3C54();
 	DrawBlow(_range);
@@ -293,11 +293,11 @@ int /*bp04*/_range;
 	}
 	/*success*/
 	loc_B = &(Combat_MAP(Combat._npcY[_npcId], Combat._npcX[_npcId]));
-	if(loc_C->_weapon == 9 && *loc_B >= TIL_Swamp_03)
+	if(loc_C->_weapon == 9 && *loc_B >= TIL_03)
 		*loc_B = TIL_46;
 	/*damage points*/
 	loc_A = loc_C->_str;
-	loc_A += Weap_Dam[loc_C->_weapon];
+	loc_A += D_2450[loc_C->_weapon];
 	loc_A = SafeModulo(U4_RND1(0xff), u4_min(loc_A, 0xff));
 	C_3C54();
 	sound(6);
@@ -307,7 +307,7 @@ int /*bp04*/_range;
 }
 
 /*projectile weapon?*/
-Attack_Ranged(_dir_x, _dir_y)
+C_60F1(_dir_x, _dir_y)
 int _dir_x;
 int _dir_y;
 {
@@ -367,7 +367,7 @@ C_61D1()
 	hit_x = Combat._charaX[activeChara];
 	hit_y = Combat._charaY[activeChara];
 
-	if(!Range_Weap[loc_C->_weapon]) {/*is not range weapon?*/
+	if(!D_2468[loc_C->_weapon]) {/*is not range weapon?*/
 		if(loc_C->_weapon == 10) {/*Halberd*/
 			hit_x += loc_A;
 			hit_y += loc_B;
@@ -383,13 +383,13 @@ C_61D1()
 				return;
 			}
 			if(loc_C->_weapon == 2) {/*dagger?*/
-				Attack_Ranged(loc_A, loc_B);
+				C_60F1(loc_A, loc_B);
 				return;
 			}
 		}
 		w_missed(0);
 	} else {
-		Attack_Ranged(loc_A, loc_B);
+		C_60F1(loc_A, loc_B);
 		return;
 	}
 }
@@ -411,7 +411,7 @@ C_61D1()
 	if(
 		(loc_C = C_0A8B(Party._x + loc_A, Party._y + loc_B)) == -1 ||
 		D_8742._npc._tile[loc_C] == TIL_8C ||
-		D_8742._npc._tile[loc_C] == TIL_SWater_02 ||
+		D_8742._npc._tile[loc_C] == TIL_02 ||
 		D_8742._npc._tile[loc_C] == TIL_8E
 	) {
 		u4_puts(/*D_2077*/"Nothing to Attack!\n");

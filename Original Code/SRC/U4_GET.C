@@ -31,8 +31,7 @@ int bp04;
 	register unsigned si;
 
 	if(((si = U4_RND1(3))&1) == 0) {
-        /*changed this, seems to allow all traps now*/
-		si = U4_RND1(4);
+		si &= u_rand_a();
 		if(si == 0)
 			u4_puts(/*D_2259*/"Acid");
 		else if(si == 1)
@@ -57,7 +56,7 @@ int bp04;
 			dspl_Stats();
 			C_09D9(bp04);
 		} else {/*Bomb*/
-			Party_Damage();
+			C_1584();
 		}
 	}
 	C_70F1();
@@ -146,7 +145,7 @@ char D_22C8[] = "Broadsides Only!\n";
 	int loc_A, loc_B, loc_C, loc_D, loc_E, loc_F;
 
 	u4_puts(/*D_22B2*/"Fire ");
-	if(Party._tile < TIL_ShipW_10 || Party._tile > TIL_ShipS_13) {
+	if(Party._tile < TIL_10 || Party._tile > TIL_13) {
 		w_What();
 		return;
 	}
@@ -155,12 +154,12 @@ char D_22C8[] = "Broadsides Only!\n";
 	if(!(loc_C|loc_D))
 		return;
 	if(loc_C != 0) {
-		if(Party._tile != TIL_ShipN_11 && Party._tile != TIL_ShipS_13) {
+		if(Party._tile != TIL_11 && Party._tile != TIL_13) {
 			u4_puts(D_22C8);
 			sound(2);
 			return;
 		}
-	} else if(Party._tile != TIL_ShipW_10 && Party._tile != TIL_ShipE_12) {
+	} else if(Party._tile != TIL_10 && Party._tile != TIL_12) {
 		u4_puts(D_22C8);
 		sound(2);
 		return;

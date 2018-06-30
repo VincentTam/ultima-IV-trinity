@@ -49,7 +49,7 @@ unsigned bp04;
 	hit_tile = 0;
 	spell_sta = 7;
 	D_9440 = 1;
-	DoublePace = 0;
+	D_95C6 = 0;
 	Party.f_1dc = 0;
 	C_26B6();
 	dspl_Stats();
@@ -207,7 +207,7 @@ C_31F4()
 		u_delay(2, 0);
 		u4_puts(/*D_12C4*/"\n\nThe voice asks:\n\n");
 		u_delay(2, 0);
-		if(!C_310F(D_0BDA[bp_02], (bp_02<=7)?D_Virtues[bp_02]:D_161A[bp_02-8])) {
+		if(!C_310F(D_0BDA[bp_02], (bp_02<=7)?D_1E98[151 + bp_02]:D_161A[bp_02-8])) {
 			u_delay(1, 0);
 			u4_puts(/*D_12D8*/"\nThy quest is not yet complete.\n");
 			C_2F9D(bp_02);

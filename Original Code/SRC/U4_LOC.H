@@ -59,14 +59,4 @@
 #define LOC_SPIRITUALITY 0x1f
 #define LOC_HUMILITY     0x20
 
-/*====---- ----====*/
-#define LOC_CAMPS        0x21
-
-#define LOC_RIVER_CAMP   0x21
-#define LOC_FOREST_CAMP  0x22
-#define LOC_MOUNT_CAMP   0x23
-#define LOC_SWAMP_CAMP   0x24
-#define LOC_PLAINS_CAMP  0x25
-#define LOC_VALLEY_CAMP  0x25
-
 #endif

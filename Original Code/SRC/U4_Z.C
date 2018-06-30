@@ -17,7 +17,7 @@ C_45B5()
 }
 
 /*display centered string*/
-Ztats_Centered(si/*bp06*/, bp04)
+C_45D6(si/*bp06*/, bp04)
 register char *si;
 unsigned bp04;
 {
@@ -59,10 +59,10 @@ int bp04;
 	register struct tChara *si;
 
 	si = &(Party.chara[bp04]);
-	txt_Y = 0; Ztats_Centered(si->_name, 0);
+	txt_Y = 0; C_45D6(si->_name, 0);
 	txt_X = 24;
 	txt_Y = 1; u4_putc(si->p_24);
-	txt_Y = 1; Ztats_Centered(D_Classes[si->_class], 0);
+	txt_Y = 1; C_45D6(D_1E98[77 + si->_class], 0);
 	txt_X = 38; u4_putc(si->_stat);
 	txt_X = 25;
 	txt_Y = 3; u4_puts(/*D_18D6*/"MP:"); u4_putl(si->_MP, 2, '0');
@@ -77,17 +77,17 @@ int bp04;
 	txt_Y = 6; u4_puts(/*D_18F0*/"INT:"); u4_putl(si->_int, 2, '0');
 	txt_X = 32; u4_puts(/*D_18F5*/"EX:"); u4_putl(si->_XP, 4, '0');
 	txt_Y = 7;
-	txt_X = 24; u4_puts(/*D_18F9*/"W:"); u4_puts(D_Weapons[si->_weapon]);
+	txt_X = 24; u4_puts(/*D_18F9*/"W:"); u4_puts(D_1E98[37 + si->_weapon]);
 	txt_Y = 8;
-	txt_X = 24; u4_puts(/*D_18FC*/"A:"); u4_puts(D_Armors[si->_armor]);
+	txt_X = 24; u4_puts(/*D_18FC*/"A:"); u4_puts(D_1E98[53 + si->_armor]);
 }
 
-Ztats_Weap()
+C_4832()
 {
 	register int si;
 
 	txt_Y = 0;
-	Ztats_Centered(/*D_18FF*/"Weapons", 0);
+	C_45D6(/*D_18FF*/"Weapons", 0);
 	txt_Y = 1;
 	txt_X = 24;
 	u4_puts(/*D_1907*/"A-Hands");
@@ -99,14 +99,14 @@ Ztats_Weap()
 			u4_putc(si+'A');
 			u4_putl(Party._weapons[si], 2, '-');
 			u4_putc('-');
-			u4_puts(D_Wea_Codes[si]);
+			u4_puts(D_1E98[61 + si]);
 			txt_X = (txt_X - 1) & ~7;
 			if(++txt_Y == 9) {
 				txt_Y = 1;
 				txt_X += 8;
 			}
 		}
-	} while(++si < 0x11);
+	} while(++si < 0x10);
 	while(txt_X < 40) {
 		u4_puts(/*D_190F*/"       ");
 		txt_X = (txt_X - 1) & ~7;
@@ -117,12 +117,12 @@ Ztats_Weap()
 	}
 }
 
-Ztats_Armor()
+C_48F8()
 {
 	register int si;
 
 	txt_Y = 0;
-	Ztats_Centered(/*D_1917*/"Armour", 0);
+	C_45D6(/*D_1917*/"Armour", 0);
 	txt_Y = 1;
 	txt_X = 24;
 	u4_puts(/*D_191E*/"A  -No Armour");
@@ -133,7 +133,7 @@ Ztats_Armor()
 			u4_putc(si + 'A');
 			u4_putl(Party._armors[si], 2, '-');
 			u4_putc('-');
-			u4_puts(D_Armors[si]);
+			u4_puts(D_1E98[53 + si]);
 			while(txt_X != 39)
 				u4_putc(' ');
 			txt_Y ++;
@@ -142,10 +142,10 @@ Ztats_Armor()
 	C_45B5();
 }
 
-Ztats_Equip()
+C_4987()
 {
 	txt_Y = 0;
-	Ztats_Centered(/*D_192C*/"Equipment", -1);
+	C_45D6(/*D_192C*/"Equipment", -1);
 
 	txt_X = 24; txt_Y = 1;
 	u4_putl(Party._torches, 2, ' '); u4_puts(/*D_1936*/" Torches");
@@ -167,12 +167,12 @@ Ztats_Equip()
 char D_199A[] = "BYRGOPWB";
 char D_19A4[] = "HCVJSHSH";
 
-Ztats_Items()
+C_4A3D()
 {
 	register int si;
 
 	txt_Y = 0;
-	Ztats_Centered(/*D_1955*/"Items", 0);
+	C_45D6(/*D_1955*/"Items", 0);
 	txt_Y = 1;
 	if(Party.mStones) {
 		txt_X = 24;
@@ -223,11 +223,6 @@ Ztats_Items()
 		u4_puts(/*D_1988*/"Horn");
 		txt_Y ++;
 	}
-    if(TST_MSK(Party.mItems, 14)) {
-        txt_X = 24;
-        u4_puts(/*D_1988*/"Ring");
-        txt_Y ++;
-    }
 	if(TST_MSK(Party.mItems, 9)) {
 		txt_X = 24;
 		u4_puts(/*D_198D*/"Wheel");
@@ -237,18 +232,14 @@ Ztats_Items()
 		txt_X = 24;
 		u4_puts(/*D_1993*/"Skull");
 	}
-    if(TST_MSK(Party.mItems, 13)) {
-        txt_X = 24;
-        u4_puts(/*D_1993*/"Wand");
-    }
 }
 
-Ztats_Reagents()
+C_4BC7()
 {
 	register int si;
 
 	txt_Y = 0;
-	Ztats_Centered(/*D_19AD*/"Reagents", 0);
+	C_45D6(/*D_19AD*/"Reagents", 0);
 	txt_Y = 1;
 	si = 0;
 	do {
@@ -257,7 +248,7 @@ Ztats_Reagents()
 			u4_putc(si+'A');
 			u4_putl(Party._reagents[si], 2, '-');
 			u4_putc('-');
-			u4_puts(D_Reagents[si]);
+			u4_puts(D_1E98[93 + si]);
 			while(txt_X != 39)
 				u4_putc(' ');
 			txt_Y ++;
@@ -266,12 +257,12 @@ Ztats_Reagents()
 	C_45B5();
 }
 
-Ztats_Mixtures()
+C_4C42()
 {
 	register int si;
 
 	txt_Y = 0;
-	Ztats_Centered(/*D_19B6*/"Mixtures", 0);
+	C_45D6(/*D_19B6*/"Mixtures", 0);
 	txt_Y = 1;
 	txt_X = 24;
 	si = 0;
@@ -298,15 +289,15 @@ typedef z_handler *pZ_handler;
 pZ_handler D_19C0[] = {
 	C_4689,C_4689,C_4689,C_4689,
 	C_4689,C_4689,C_4689,C_4689,
-	Ztats_Weap,
-	Ztats_Armor,
-	Ztats_Equip,
-	Ztats_Items,
-	Ztats_Reagents,
-	Ztats_Mixtures
+	C_4832,
+	C_48F8,
+	C_4987,
+	C_4A3D,
+	C_4BC7,
+	C_4C42
 };
 
-Ztats_Browse(bp04)
+C_4CC1(bp04)
 int bp04;
 {
 	unsigned bp_02, bp_04;
@@ -385,13 +376,13 @@ int bp04;
 	if(CurMode >= MOD_COMBAT) {
 		u4_puts(/*D_19DC*/"Ztats\n");
 		Gra_11(activeChara);
-		Ztats_Browse(activeChara);
+		C_4CC1(activeChara);
 		Gra_11(activeChara);
 	} else {
 		int bp_02;
 
 		bp_02 = AskChara(/*D_19E3*/"Ztats for:\x12\x12\b");
 		if(bp_02 != -1)
-			Ztats_Browse((bp_02 == -2)?8:bp_02);
+			C_4CC1((bp_02 == -2)?8:bp_02);
 	}
 }

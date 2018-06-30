@@ -10,7 +10,7 @@
 
 unsigned char D_26B8[] = {TIL_C0,TIL_C4,TIL_C8,TIL_CC,TIL_B4,TIL_A0,TIL_A4,TIL_DC};
 
-Ambush()
+C_8A5A()
 {
 	register int si;
 
@@ -55,7 +55,7 @@ Ambush()
 	CurMode = MOD_COM_CAMP;
 	u_delay(10, 0);
 	if(U4_RND1(7) == 0) {
-		Ambush();
+		C_8A5A();
 	} else if(Party._moves / 100 == Party.f_1e6) {
 		u4_puts(/*D_26EE*/"No effect.\n");
 	} else {

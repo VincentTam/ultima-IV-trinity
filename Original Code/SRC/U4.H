@@ -167,9 +167,6 @@ extern /*C_07AE*/CMD_Use();
 extern /*C_095E*/shakefx();
 extern /*C_097D*/XP_inc(int, int);
 extern /*C_09B1*/HP_inc(int, int);
-
-extern /*C_09B1*/HP_dec(int, int);
-
 extern C_09D9(int);
 extern /*C_09A3*/w_Pass();
 extern /*C_09F8*/karma_inc(char *, int);
@@ -200,11 +197,9 @@ extern /*C_1287*/AskChara(char *);
 extern /*C_12D6*/AskDir(char *, int *, int *);
 extern /*C_138B*/food_dec(int);
 extern /*C_13B6*/MP_recover();
-extern /*C_13B6*/MP_drain();
 extern /*C_1445*/u4_gets(char *, int);
 extern char *C_1513(int);
-extern Party_Damage();
-extern Party_Drain();
+extern C_1584();
 extern /*C_162F*/AskY_N();
 extern long /*C_169C*/AskInt(int);
 /*u4_util2*/
@@ -255,10 +250,10 @@ extern /*C_2EC5*/CMDDIR_Right();
 extern C_31F4();
 /**/
 extern C_36C7();
-extern ANI_Moons();
+extern C_3A80();
 extern C_3C54();
 extern /*C_3DC8*/t_callback();
-extern EXP_Load_Dungeon();
+extern C_3E94();
 extern /*C_4018*/CMD_Enter();
 extern /*C_41C0*/CMD_X_it();
 extern /*C_4253*/CMD_Board();
@@ -269,15 +264,15 @@ extern /*C_43F8*/CMD_Jimmy();
 extern /*C_4477*/CMD_Klimb();
 extern /*C_44EE*/CMD_Descend();
 extern C_4649();
-extern Ztats_Weap();
-extern Ztats_Armor();
-extern Ztats_Equip();
-extern Ztats_Reagents();
-extern Ztats_Mixtures();
+extern C_4832();
+extern C_48F8();
+extern C_4987();
+extern C_4BC7();
+extern C_4C42();
 extern /*C_4E45*/CMD_Ztats();
 extern /*C_4FBE*/u4_abs(int);
 extern /*C_4FD7*/u4_sign(int);
-extern NPC_Turn();
+extern C_5834();
 extern C_5851();
 extern /*C_59D5*/COM_GetFighterId(unsigned char, unsigned char);
 extern /*C_5A6B*/COM_main();
@@ -316,7 +311,7 @@ extern /*C_84D2*/DNG_main();
 extern /*C_8AB0*/CMD_HoleUp();
 extern /*C_8C08*/CMD_Mix();
 extern /*C_913A*/CMD_Search();
-extern Random_Encounter();
+extern C_9209();
 extern C_9414();
 extern C_95AA();
 extern C_9F7B();
@@ -325,16 +320,14 @@ extern C_ADEF();
 extern C_AE41();
 extern C_B677();
 extern C_B9B2();
-extern PER_World(unsigned);
+extern C_B9EF(unsigned);
 extern C_C403();
 extern /*C_C41D*/CMD_Peer();
 /*u4_init*/
 extern C_C51C();
 /* */
 extern C_E59B();
-extern Enter_Shrine();
-extern Enter_Oracle();
-
+extern C_E72C();
 
 /*====---- initialized ----====*/
 
@@ -351,39 +344,24 @@ extern unsigned /*D_07FA*/*pKarmas[];
 extern int /*D_080A*/activeCharaX;
 extern char D_080C[], D_0810[];
 extern char D_0814[], D_081C[];/*moongates positions*/
-extern char *Towne_Castle_Village[];
-extern char D_0844[]; /*x-coordinate for locations*/
-extern char D_0864[]; /*y-coordinate for locations*/
-extern char *Shrines[];
-extern char *Dungeons[];
-extern char *Crypts[];
-extern char *Oracles[];
+extern char *D_0824[];
+extern char D_0844[];
+extern char D_0864[];
+extern char *D_0884[];
+extern char *D_0894[];
 /*strings*/
-extern char *D_Sea_Crea[];
-extern char *D_Crea[];
-extern char *D_Weapons[];
-extern char *D_Armors[];
-extern char *D_Wea_Codes[];
-extern char *D_Classes[];
-extern char *D_Reagents[];
-extern char *D_Spells[];
-extern char *D_Locations[];
-extern char *D_Virtues[];
-extern char *D_Principles[];
-extern char *D_Assorted[];
+extern char *D_1E98[];
 
-extern unsigned char Enemy_HP[];
-extern unsigned char Weap_Dam[];
-extern unsigned char Armor_Prot[];
-extern unsigned char Range_Weap[];
+extern unsigned char D_23D2[];
+extern unsigned char D_2450[];
+extern unsigned char D_2460[];
+extern unsigned char D_2468[];
 
 /*====---- uninitialized ----====*/
 extern unsigned /*D_8728*/speed_info;
 extern unsigned /*D_872B*/equip_flags;
 extern void far *patch_tandy;/*D_872D*/
 extern struct t_500 D_8742;
-extern struct t_500 Lone_NPC;
-
 
 /*====---- c_common ----====*/
 extern unsigned char D_9140;
@@ -439,7 +417,7 @@ extern unsigned char D_95B2[];
 extern unsigned char /*D_95C2*/tile_west;
 extern unsigned char /*D_95C3*/tile_south;
 extern int /*D_95C4*/txt_Y;
-extern unsigned DoublePace;
+extern unsigned D_95C6;
 extern int D_95C8;
 extern unsigned char /*D_95CA*/tile_back;
 extern int D_95CC;

@@ -4,7 +4,7 @@
  * reverse-coded by Ergonomy Joe in 2012
  */
 
-char *D_Sea_Crea[] = {
+char *D_1E98[] = {
 /*0 - null*/
 	/*D_19F2*/"",
 /*1 - sea creatures D_1E9A*/
@@ -15,9 +15,7 @@ char *D_Sea_Crea[] = {
 	/*D_1A0D*/"Serpent",
 	/*D_1A15*/"Seahorse",
 	/*D_1A1E*/"Whirlpool",
-	/*D_1A28*/"Twister"
-};
-char *D_Crea[] = {
+	/*D_1A28*/"Twister",
 /*9 - creatures D_1EAA*/
 	/*D_1A30*/"Rat",
 	/*D_1A34*/"Bat",
@@ -46,9 +44,7 @@ char *D_Crea[] = {
 	/*D_1ACE*/"Daemon",
 	/*D_1AD5*/"Hydra",
 	/*D_1ADB*/"Dragon",
-	/*D_1AE2*/"Balron"
-};
-char *D_Weapons[] = {
+	/*D_1AE2*/"Balron",
 /*37 - weapons D_1EE2*/
 	/*D_1AE9*/"Hands",
 	/*D_1AEF*/"Staff",
@@ -66,9 +62,6 @@ char *D_Weapons[] = {
 	/*D_1B48*/"Magic Bow",
 	/*D_1B52*/"Magic Wand",
 	/*D_1B5D*/"Mystic Sword",
-    /*D_1B52*/"Mystic Bow"
-};
-char *D_Armors[] = {
 /*53 - armors D_1F02*/
 	/*D_1B6A*/"Skin",
 	/*D_1B6F*/"Cloth",
@@ -77,9 +70,7 @@ char *D_Armors[] = {
 	/*D_1B88*/"Plate Mail",
 	/*D_1B93*/"Magic Chain",
 	/*D_1B9F*/"Magic Plate",
-	/*D_1BAB*/"Mystic Robe"
-};
-char *D_Wea_Codes[] = {
+	/*D_1BAB*/"Mystic Robe",
 /*61 - weapons short codes D_1F12*/
 	/*D_1BB7*/"HND",
 	/*D_1BBB*/"STF",
@@ -97,9 +88,6 @@ char *D_Wea_Codes[] = {
 	/*D_1BEB*/"+BO",
 	/*D_1BEF*/"WND",
 	/*D_1BF3*/"^SW",
-    /*D_1BF3*/"^BO"
-};
-char *D_Classes[] = {
 /*77 - classes D_1F32*/
 	/*D_1BF7*/"Mage",
 	/*D_1BFC*/"Bard",
@@ -116,10 +104,8 @@ char *D_Classes[] = {
 	/*D_1C49*/"Beggar",
 	/*D_1C50*/"Child",
 	/*D_1C56*/"Bull",
-	/*D_1C5B*/"Lord British"
-};
-char *D_Reagents[] = {
-/*93 - Reagents D_1F52*/
+	/*D_1C5B*/"Lord British",
+/*96 - Reagents D_1F52*/
 	/*D_1C68*/"Sulfur Ash",
 	/*D_1C73*/"Ginseng",
 	/*D_1C7B*/"Garlic",
@@ -127,9 +113,7 @@ char *D_Reagents[] = {
 	/*D_1C8E*/"Blood Moss",
 	/*D_1C99*/"Black Pearl",
 	/*D_1CA5*/"Nightshade",
-	/*D_1CB0*/"Mandrake"
-};
-char *D_Spells[] = {
+	/*D_1CB0*/"Mandrake",
 /*101 - spells D_1F62*/
 	/*D_1CB9*/"Awaken",
 	/*D_1CC0*/"Blink",
@@ -156,9 +140,7 @@ char *D_Spells[] = {
 	/*D_1D54*/"Winds",
 	/*D_1D5A*/"X-it",
 	/*D_1D5F*/"Y-up",
-	/*D_1D64*/"Z-down"
-};
-char *D_Locations[] = {
+	/*D_1D64*/"Z-down",
 /*127 - locations name D_1F96*/
 	/*D_1D6B*/"Britannia",
 	/*D_1D75*/"The Lycaeum",
@@ -184,31 +166,6 @@ char *D_Locations[] = {
 	/*D_1E20*/"Shame",
 	/*D_1E26*/"Hythloth",
 	/*D_1E2F*/"The Great Stygian Abyss!",
-    /*D_1E48*/"Honesty",
-    /*D_1E50*/"Compassion",
-    /*D_1E5B*/"Valor",
-    /*D_1E61*/"Justice",
-    /*D_1E69*/"Sacrifice",
-    /*D_1E73*/"Honor",
-    /*D_1E79*/"Spirituality",
-    /*D_1E86*/"Humility",
-    /*D_1E26*/"River Camp",
-    /*D_1E26*/"Forest Camp",
-    /*D_1E26*/"Mountain Camp",
-    /*D_1E26*/"Swamp Camp",
-    /*D_1E26*/"Plains Camp",
-    /*D_1E26*/"Valley Camp",
-    /*D_1E26*/"Farm",
-    /*D_1E26*/"Ranch",
-    /*D_1E48*/"Crypt of Minax",
-    /*D_1E48*/"Crypt of Minax",
-    /*D_1E48*/"Crypt of Minax",
-    /*D_1E48*/"Oracle of Love",
-    /*D_1E48*/"Oracle of Courage",
-    /*D_1E48*/"Oracle of Truth"
-
-};
-char *D_Virtues[] = {
 /*151 - virtues D_1FC6*/
 	/*D_1E48*/"Honesty",
 	/*D_1E50*/"Compassion",
@@ -217,15 +174,7 @@ char *D_Virtues[] = {
 	/*D_1E69*/"Sacrifice",
 	/*D_1E73*/"Honor",
 	/*D_1E79*/"Spirituality",
-	/*D_1E86*/"Humility"
-};
-char *D_Assorted[] = {
+	/*D_1E86*/"Humility",
 /*159 - villager D_1FD6*/
 	/*D_1E8F*/"Villager"
-};
-char *D_Principles[] = {
-    /*151 - principles D_1FC6*/
-    /*D_1E48*/"Love",
-    /*D_1E50*/"Courage",
-    /*D_1E5B*/"Truth"
 };

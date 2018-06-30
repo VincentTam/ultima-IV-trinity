@@ -94,7 +94,7 @@ C_C51C()
 	if(D_943A == 1) {
 		if(Load(/*D_3053*/"SHAPES.CGA", 0x4000, pShapes) == -1)
 			exit(3);
-    }
+	}
 	bp_02 = C_1814();
 	switch(D_943A) {
 		case 1:
@@ -174,7 +174,7 @@ C_C51C()
 	spell_sta = 7;
 	spell_cnt = 0;
 	D_9440 = (Party.f_1dc == 0);/*flying status*/
-	DoublePace = 0;
+	D_95C6 = 0;
 	CurMode = MOD_OUTDOORS;
 	WindDir = DIR_N;
 	SoundFlag = 1;

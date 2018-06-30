@@ -6,7 +6,7 @@
 
 #include "u4.h"
 
-Sleep()
+C_919A()
 {
 	register int si;
 
@@ -19,7 +19,7 @@ Sleep()
 	}
 }
 
-Poison()
+C_91D1()
 {
 	register int si;
 
@@ -33,7 +33,7 @@ Poison()
 }
 
 /*randomEvent*/
-Random_Encounter()
+C_9209()
 {
 	unsigned bp_02;
 
@@ -52,7 +52,7 @@ Random_Encounter()
 		if(Fighters._chtile[activeChara] == 0)
 			return;
 		switch(Combat_MAP(Combat._charaY[activeChara], Combat._charaX[activeChara])) {
-			case TIL_Swamp_03: case TIL_44:
+			case TIL_03: case TIL_44:
 				if(Party.chara[activeChara]._stat == 'G') {
 					Party.chara[activeChara]._stat = 'P';
 					C_09D9(activeChara);
@@ -78,9 +78,9 @@ Random_Encounter()
 	if(CurMode == MOD_DUNGEON) {
 		if((tile_cur & 0xf0) == 0xa0) {
 			switch(tile_cur & 3) {
-				case 0: Poison(); break;
-				case 2: Party_Damage(); break;
-				case 3: Sleep(); break;
+				case 0: C_91D1(); break;
+				case 2: C_1584(); break;
+				case 3: C_919A(); break;
 			}
 		} else if((tile_cur & 0xf0) == 0x80) {
 			if(tile_cur == 0x80) {
@@ -88,14 +88,14 @@ Random_Encounter()
 				Party.f_1dc = 0;
 			} else {
 				u4_puts((tile_cur < 0x88)?/*D_29B2*/"\nFalling Rocks!\n":/*D_29C3*/"\nPit!\n");
-				Party_Damage();
+				C_1584();
 			}
 		}
 		return;
 	}
 	switch(tile_cur) {
-		case TIL_Swamp_03: case TIL_44: Poison(); break;
-		case TIL_46: case TIL_4C: Party_Damage(); break;
-		case TIL_47: Sleep(); break;
+		case TIL_03: case TIL_44: C_91D1(); break;
+		case TIL_46: case TIL_4C: C_1584(); break;
+		case TIL_47: C_919A(); break;
 	}
 }

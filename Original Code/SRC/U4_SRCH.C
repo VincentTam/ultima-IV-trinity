@@ -76,18 +76,6 @@ C_8E46()
 	XP_inc(0, 400);
 }
 
-C_RING()
-{
-    if(TST_MSK(Party.mItems, 14)) {
-        u4_puts(D_27A6);
-        return;
-    }
-    SET_MSK(Party.mItems, 14);
-    C_8D4B();
-    u4_puts(/*D_27F7*/"A Strange Ring!\n");
-    XP_inc(0, 400);
-}
-
 C_8E77()
 {
 	if(TST_MSK(Party.mItems, 9)) {
@@ -114,18 +102,6 @@ C_8EA8()
 	C_8D4B();
 	u4_puts(/*D_2828*/"The Skull of Mondain the Wizard!\n");
 	XP_inc(0, 400);
-}
-
-C_WAND()
-{
-    if(TST_MSK(Party.mItems, 13)) {
-        u4_puts(D_27A6);
-        return;
-    }
-    SET_MSK(Party.mItems, 13);
-    C_8D4B();
-    u4_puts(/*D_2828*/"The Wand of Minax the Enchantress!\n");
-    XP_inc(0, 400);
 }
 
 C_8EE8()
@@ -188,10 +164,10 @@ C_8FB1()
 	if((bp_02 = AskLetter(/*D_28C3*/"You Select:\x12\x12\b", 'A', 'P')) < 0)
 		return;
 	bp_02 -= 'A';
-	if(Load(Towne_Castle_Village[bp_02], sizeof(tMap32x32), &(D_8742._map)) == -1)
+	if(Load(D_0824[bp_02], sizeof(tMap32x32), &(D_8742._map)) == -1)
 		exit(3);
-	PER_World(0);
-	if(Load(Towne_Castle_Village[Party._loc - 1], sizeof(tMap32x32), &(D_8742._map)) == -1)
+	C_B9EF(0);
+	if(Load(D_0824[Party._loc - 1], sizeof(tMap32x32), &(D_8742._map)) == -1)
 		exit(3);
 }
 
@@ -231,18 +207,6 @@ C_9076()
 	XP_inc(0, 400);
 }
 
-C_MBOW()
-{
-    if(Party._weapons[16]) {
-        u4_puts(D_27A6);
-        return;
-    }
-    Party._weapons[16] = 8;
-    C_8D4B();
-    u4_puts(/*D_28E2*/"Mystic Bows!\n");
-    XP_inc(0, 400);
-}
-
 unsigned char D_2904[][2] = {
 	{0x05,0x01},
 	{0x06,0x02},
@@ -268,7 +232,7 @@ C_90C5()
 	Party.mRunes |= D_2904[si][1];
 	C_8D4B();
 	u4_puts(/*D_28F3*/"The rune of ");
-	u4_puts(D_Virtues[si]);
+	u4_puts(D_1E98[151 + si]);
 	u4_puts(/*D_2900*/"!\n");
 	XP_inc(0, 100);
 }
@@ -286,11 +250,8 @@ struct t_05_local {
 	{0x00,0xCD,0x2C,C_8DE0},/*Nightshade*/
 	{0x00,0xB0,0xD0,C_8E16},/*The Bell of Courage!*/
 	{0x00,0x2D,0xAD,C_8E46},/*'A Silver Horn!'*/
-    {0x00,0x58,0x6C,C_RING},/*'A Strange Ring!'*/
-    {0x00,0x58,0x6B,C_MBOW},/*Mystic Bows!*/
 	{0x00,0x60,0xD7,C_8E77},/*The Wheel from the H.M.S. Cape!*/
 	{0x00,0xC5,0xF5,C_8EA8},/*The Skull of Mondain the Wizard!*/
-    {0x00,0x59,0x6B,C_WAND},/*The Wand of Minax the Enchantress!*/
 	{0x00,0xE0,0x85,C_8EE8},/*The Black Stone!*/
 	{0x00,0x40,0x50,C_8F21},/*The White Stone!*/
 	{0x02,0x06,0x06,C_8F51},/*The Book of Truth!*/

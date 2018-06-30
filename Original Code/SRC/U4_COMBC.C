@@ -14,7 +14,7 @@
 ----------------------------------------*/
 
 /*enemy HP*/
-unsigned char Enemy_HP[] = {
+unsigned char D_23D2[] = {
 	0xFF,0xFF,0x40,0x60,0x80,0x60,0xFF,0xFF,0x30,0x30,0x40,0x50,0x30,
 	0x60,0x30,0xC0,0xFF,0x30,0xF0,0x80,0x50,0x30,0x50,0x30,0x70,0x40,
 	0x80,0x40,0xB0,0xC0,0x60,0xF0,0x70,0xD0,0xE0,0xFF,0x70,0x30,0x60,
@@ -36,14 +36,12 @@ unsigned char D_242A[] = {
 	 0, 0
 };
 
-/* Added damage and range flag for Mystic Bows */
-
 /*weapons damage*/
-unsigned char Weap_Dam[] = {0x08,0x10,0x18,0x20,0x28,0x30,0x40,0x28,0x38,0x40,0x60,0x60,0x80,0x50,0xA0,0xFF,0xFF};
+unsigned char D_2450[] = {0x08,0x10,0x18,0x20,0x28,0x30,0x40,0x28,0x38,0x40,0x60,0x60,0x80,0x50,0xA0,0xFF};
 
-unsigned char Armor_Prot[] = {0x60,0x80,0x90,0xA0,0xB0,0xC0,0xD0,0xF8};
+unsigned char D_2460[] = {0x60,0x80,0x90,0xA0,0xB0,0xC0,0xD0,0xF8};
 /*range weapons flag*/
-unsigned char Range_Weap[] = {0x00,0x00,0x00,0xFF,0x00,0x00,0x00,0xFF,0xFF,0xFF,0x00,0xFF,0x00,0xFF,0xFF,0x00,0xFF};
+unsigned char D_2468[] = {0x00,0x00,0x00,0xFF,0x00,0x00,0x00,0xFF,0xFF,0xFF,0x00,0xFF,0x00,0xFF,0xFF,0x00};
 
 C_7C25(bp04)
 unsigned char bp04;
@@ -57,7 +55,7 @@ unsigned char bp04;
 	return (bp04&0x1f) + 0x24;
 }
 
-char *Combat_Maps[] = {
+char *D_2512[] = {
 	/*D_2478*//* 0*/"GRASS.CON",
 	/*D_2482*//* 1*/"BRIDGE.CON",
 	/*D_248D*//* 2*/"BRICK.CON",
@@ -79,11 +77,11 @@ C_7C65()
 {
 	register int si;
 
-	if(Party._tile <= TIL_ShipS_13 || (tile_cur & ~3) == TIL_ShipW_10) {
+	if(Party._tile <= TIL_13 || (tile_cur & ~3) == TIL_10) {
 		if(D_96F8 == TIL_80) {
 			D_9452 = TIL_C8;
 			si = 11;
-		} else if(D_946C < TIL_Swamp_03) {
+		} else if(D_946C < TIL_03) {
 			si = 8;
 		} else {
 			si = 9;
@@ -92,15 +90,15 @@ C_7C65()
 		if(D_96F8 == TIL_80) {
 			D_9452 = TIL_C8;
 			si = 12;
-		} else if(D_946C < TIL_Swamp_03) {
+		} else if(D_946C < TIL_03) {
 			si = 10;
 		} else {
 			switch(tile_cur) {
-				case TIL_Swamp_03: si = 7; break;
-				case TIL_Scrub_05: si = 6; break;
-				case TIL_Forest_06: si = 5; break;
-				case TIL_Hills_07: si = 4; break;
-				case TIL_Dung_09: si = 3; break;
+				case TIL_03: si = 7; break;
+				case TIL_05: si = 6; break;
+				case TIL_06: si = 5; break;
+				case TIL_07: si = 4; break;
+				case TIL_09: si = 3; break;
 				case TIL_3E: si = 2; break;
 				case TIL_17:
 				case TIL_19:
@@ -111,9 +109,9 @@ C_7C65()
 		}
 	}
 #ifdef WIN32
-	if(Load(Combat_Maps[si], sizeof(struct tCombat), &Combat) == -1)
+	if(Load(D_2512[si], sizeof(struct tCombat), &Combat) == -1)
 #else
-	if(Load(Combat_Maps[si], (char *)&Fighters - (char *)&Combat, &Combat) == -1)
+	if(Load(D_2512[si], (char *)&Fighters - (char *)&Combat, &Combat) == -1)
 #endif
 		exit(3);
 }
@@ -224,7 +222,7 @@ C_7E7E()
 			}
 		}
 		Fighters._tile[loc_D] = Fighters._gtile[loc_D] = loc_E;
-		loc_C = Enemy_HP[C_7C25(loc_E)];
+		loc_C = D_23D2[C_7C25(loc_E)];
 		Fighters._HP[loc_D] = (loc_C >> 1) | U4_RND4(loc_C);
 	}
 	for(loc_D = Party.f_1d8 - 1; loc_D >= 0; loc_D --) {
@@ -327,7 +325,7 @@ C_7FFD()
 			Combat._npcX[loc_B] = loc_A._020[loc_B];
 			Combat._npcY[loc_B] = loc_A._030[loc_B];
 			Fighters._tile[loc_B] = Fighters._gtile[loc_B] = loc_A._010[loc_B];
-			loc_C = Enemy_HP[C_7C25(loc_A._010[loc_B])];
+			loc_C = D_23D2[C_7C25(loc_A._010[loc_B])];
 			Fighters._HP[loc_B] = (loc_C >> 1) | U4_RND4(loc_C);
 			if(Fighters._tile[loc_B] == (char)TIL_AC)
 				Fighters._gtile[loc_B] = TIL_3C;
@@ -371,7 +369,7 @@ C_8283()
 		si = C_8228();
 		D_8742._npc._x[si] = D_9772;
 		D_8742._npc._y[si] = D_9140;
-		D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_ShipW_10;
+		D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_10;
 	} else
 	if(D_95CC == MOD_DUNGEON) {
 		/*monster leaves chest?*/
@@ -380,7 +378,7 @@ C_8283()
 				D_8742._map.x8x8x8[Party._z][Party._y][Party._x] = 0x40;
 		}
 	} else
-	if(D_95CC != MOD_COM_CAMP || tile_cur < TIL_ShipW_10 || tile_cur > TIL_ShipS_13) {
+	if(D_95CC != MOD_COM_CAMP || tile_cur < TIL_10 || tile_cur > TIL_13) {
 		/*monster leaves chest?*/
 		if(
 			si >= TIL_90 ||
@@ -453,10 +451,10 @@ C_837A()
 			Party.out_x = D_0844[Party._loc - 1];
 			Party.out_y = D_0864[Party._loc - 1];
 			u4_puts(/*D_2601*/"into Dungeon\n");
-			u4_puts(D_Locations[Party._loc - 1]);
+			u4_puts(D_1E98[127 + Party._loc - 1]);
 			dclose(File_DNG);
 			File_DNG = 0;
-			EXP_Load_Dungeon();
+			C_3E94();
 		}
 		Gra_CR();
 		u_kbflush();

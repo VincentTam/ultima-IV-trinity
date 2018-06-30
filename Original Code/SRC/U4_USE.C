@@ -33,7 +33,7 @@ void C_01E1()
 		u4_gets(bp_12, 11);
 		Gra_CR();
 		for(bp_10 = 7; bp_10 >= 0; bp_10--) {
-			if(strnicmp(Shrines[bp_10], bp_12, 12) == 0)
+			if(strnicmp(D_0884[bp_10], bp_12, 12) == 0)
 				break;
 		}
 		if(bp_10 == -1 || !TST_MSK(Party.mStones, bp_10)) {
@@ -107,7 +107,7 @@ C_0311() {
 			u4_puts(/*D_021D*/"?\n\n");
 			u4_gets(bp_10, 13);
 			Gra_CR();
-			if(strnicmp(bp_10, D_Virtues[Party._z], 14)) {
+			if(strnicmp(bp_10, D_1E98[151 + Party._z], 14)) {
 C_03A1:
 				if(bp_10[0])
 					u4_puts(D_00EE);
@@ -118,7 +118,7 @@ C_03A1:
 			Gra_CR();
 			bp_02 = 7;
 			while(
-				strnicmp(bp_10, Shrines[bp_02], 12) &&
+				strnicmp(bp_10, D_0884[bp_02], 12) &&
 				--bp_02 >= 0
 			);
 			if(bp_02 == -1)
@@ -221,31 +221,13 @@ C_0553() {
 	dspl_Stats();
 }
 
-/*use ring*/
-U_RING() {
-    if(!TST_MSK(Party.mItems, 14)) {
-        u4_puts(D_0100);
-        return;
-    }
-    u4_puts("The Ring glows brighter and lets out a flash of light!\n");
-    
-    /* All Party Damage */
-    Party_Drain();
-    MP_drain();
-    Gra_09();
-    
-    spell_sta = 'R';
-    spell_cnt = 5;
-    dspl_Stats();
-}
-
 /*use wheel*/
 C_058C() {
 	if(!TST_MSK(Party.mItems, 9)) {
 		u4_puts(D_0100);
 		return;
 	}
-	if(Party._loc != 0 || Party._tile > TIL_ShipS_13 || Party._ship != 50) {
+	if(Party._loc != 0 || Party._tile > TIL_13 || Party._ship != 50) {
 		u4_puts(D_00EE);
 		return;
 	}
@@ -284,19 +266,19 @@ C_05CE() {
 					D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
 			}
 		}
-        /*C_06B2:*/
-        t_callback();
-        karma_dec((char *)&(Party._hones), 5);
-        karma_dec((char *)&(Party._compa), 5);
-        karma_dec((char *)&(Party._valor), 5);
-        karma_dec((char *)&(Party._justi), 5);
-        karma_dec((char *)&(Party._sacri), 5);
-        karma_dec((char *)&(Party._honor), 5);
-        karma_dec((char *)&(Party._spiri), 5);
-        karma_dec((char *)&(Party._humil), 5);
-        dspl_Stats();
+/*C_06B2:*/
+		t_callback();
+		karma_dec((char *)&(Party._hones), 5);
+		karma_dec((char *)&(Party._compa), 5);
+		karma_dec((char *)&(Party._valor), 5);
+		karma_dec((char *)&(Party._justi), 5);
+		karma_dec((char *)&(Party._sacri), 5);
+		karma_dec((char *)&(Party._honor), 5);
+		karma_dec((char *)&(Party._spiri), 5);
+		karma_dec((char *)&(Party._humil), 5);
+		dspl_Stats();
 	} else {
-        u4_puts("\nYou cast the Skull of Mondain into the Abyss!\n");
+		u4_puts("\nYou cast the Skull of Mondain into the Abyss!\n");
 		SET_MSK(Party.mItems, 1);
 		karma_inc((char *)&(Party._hones), 10);
 		karma_inc((char *)&(Party._compa), 10);
@@ -315,77 +297,6 @@ C_05CE() {
 	RST_MSK(Party.mItems, 0);
 }
 
-/*use wand*/
-U_WAND() {
-    int bp_02;
-    register int si;
-
-    
-    if(!TST_MSK(Party.mItems, 13)) {
-        u4_puts(D_0100);
-        return;
-    }
-    if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
-        u4_puts("\nYou hold the enscorled Wand of Minax the Enchantress aloft....\n");
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
-        if(CurMode >= MOD_COMBAT) {
-            for(bp_02 = 31; bp_02 >= 0; bp_02 --) {
-                if(D_8742._npc._tile[bp_02] != TIL_5E)
-                    D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
-            }
-            for(bp_02 = 15; bp_02 >= 0; bp_02 --) {
-                if(Fighters._tile[bp_02] != TIL_5E)
-                    Fighters._tile[bp_02] = Fighters._gtile[bp_02] = 0;
-            }
-        } else {
-            for(bp_02 = (Party._loc == 0)?7:31; bp_02 >= 0; bp_02 --) {
-                if(D_8742._npc._tile[bp_02] != TIL_5E)
-                    D_8742._npc._tile[bp_02] = D_8742._npc._gtile[bp_02] = 0;
-            }
-        }
-        t_callback();
-        
-        /* All Party Damage */
-        Party_Drain();
-        Party_Drain();
-        Party_Drain();
-        Party_Drain();
-        Party_Drain();
-        /*this check needs refining */
-        if((Party._loc > 0 && Party._loc < 0x11) || (Party._loc > 0x18 && Party._loc < 0x29) || Party._loc > 0x2B){
-            karma_dec((char *)&(Party._hones), 5);
-            karma_dec((char *)&(Party._compa), 5);
-            karma_dec((char *)&(Party._valor), 5);
-            karma_dec((char *)&(Party._justi), 5);
-            karma_dec((char *)&(Party._sacri), 5);
-            karma_dec((char *)&(Party._honor), 5);
-            karma_dec((char *)&(Party._spiri), 5);
-            karma_dec((char *)&(Party._humil), 5);
-        }
-        dspl_Stats();
-    } else {
-        u4_puts("\nYou cast the Wand of Minax into the Abyss!\n");
-        SET_MSK(Party.mItems, 1);
-        karma_inc((char *)&(Party._hones), 10);
-        karma_inc((char *)&(Party._compa), 10);
-        karma_inc((char *)&(Party._valor), 10);
-        karma_inc((char *)&(Party._justi), 10);
-        karma_inc((char *)&(Party._sacri), 10);
-        karma_inc((char *)&(Party._honor), 10);
-        karma_inc((char *)&(Party._spiri), 10);
-        karma_inc((char *)&(Party._humil), 10);
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
-        Gra_09();
-        sound(6); shakefx();
-    }
-}
-
 struct {
 	char *_00;
 	void (*_02)();
@@ -398,10 +309,8 @@ struct {
 	{/*D_03F3*/"key",    C_044C},
 	{/*D_03F7*/"keys",   C_044C},
 	{/*D_03FC*/"horn",   C_0553},
-    {/*D_03FC*/"ring",   U_RING},
 	{/*D_0401*/"wheel",  C_058C},
 	{/*D_0407*/"skull",  C_05CE},
-    {/*D_0407*/"wand",   U_WAND},
 	{/*D_040D*/"",       0}
 };
 

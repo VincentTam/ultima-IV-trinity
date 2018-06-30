@@ -15,7 +15,7 @@
 	u4_putl(Party._moves, 1, '0');
 	u4_puts(/*D_21B2*/" moves\n");
 	if(Party._loc) {
-		if(Party._loc < 0x11 || (Party._loc > 0x18 && Party._loc < 0x29) || Party._loc > 0x2B) {
+		if(Party._loc < 0x11 || Party._loc > 0x18) {
 			u4_puts(/*D_21BA*/"Not Here!\n");
 			return;
 		}
@@ -26,7 +26,7 @@
 		if(Save(/*D_21CF*/"MONSTERS.SAV", sizeof(struct tNPC), &(D_8742._npc)) == -1)
 			exit(3);
 	}
-	if(Party._loc < 0x11 || (Party._loc > 0x18 && Party._loc < 0x29) || Party._loc > 0x2B)
+	if(Party._loc < 0x11 || Party._loc > 0x18)
 		return;
 	if(Save(/*D_21DC*/"MONSTERS.SAV", sizeof(struct tNPC), &(D_8742._npc)) == -1)
 		exit(3);

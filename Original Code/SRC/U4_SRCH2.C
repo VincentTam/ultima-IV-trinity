@@ -127,7 +127,7 @@ C_B93F()
 	}
 	SET_MSK(Party.mStones, Party._loc - 0x11);
 	u4_puts(/*D_2F3A*/"\nYou find the ");
-	u4_puts(Shrines[Party._loc - 0x11]);
+	u4_puts(D_0884[Party._loc - 0x11]);
 	u4_puts(/*D_2F49*/" stone!\n");
 	karma_inc(&(Party._honor), 5);
 	XP_inc(0, 200);

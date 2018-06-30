@@ -43,16 +43,6 @@ int bp04;
 		si[0] = si[1];
 }
 
-/*decreases hit points*/
-/*C_09B1*/HP_dec(bp06, bp04)
-int bp06;
-int bp04;
-{
-    register unsigned *si = Party.chara[bp06]._HP;
-    if((si[0] -= bp04) > si[1])
-        si[0] = si[1];
-        }
-
 C_09D9(bp04)
 int bp04;
 {
@@ -133,7 +123,7 @@ C_0ACF(bp04)
 }
 
 /*isNotEvil
- returns 1 if param in {TIL_DWater_00~TIL_7F,TIL_8A,TIL_90,TIL_94,TIL_98,TIL_B4,TIL_CC}
+ returns 1 if param in {TIL_00~TIL_7F,TIL_8A,TIL_90,TIL_94,TIL_98,TIL_B4,TIL_CC}
  i.e.      if the creatures's defeat leads to karma increase
  else returns 0
 */
@@ -268,7 +258,7 @@ unsigned char bp04;
 	u4_putl(Party._food / 100, 4, '0');
 	u4_putc(' ');
 	u4_putc(spell_sta);
-	if(Party._tile < TIL_HorseW_14) {
+	if(Party._tile < TIL_14) {
 		u4_puts(" SHP:");
 		u4_putl(Party._ship, 2, '0');
 	} else {
@@ -375,9 +365,9 @@ C_0EB1()
 	hit_tile = 0;
 	spell_sta = 7;
 	D_9440 = 1;
-	DoublePace = 0;
+	D_95C6 = 0;
 	t_callback();
-	ANI_Moons();
+	C_3A80();
 	u4_puts("\n\nLord British says: I have pulled thy spirit and some possessions from the void.  Be more careful in the future!\n");
 	for(bp_02 = Party.f_1d8 - 1; bp_02 >= 0; bp_02 --) {
 		Party.chara[bp_02]._stat = 'G';
@@ -608,19 +598,6 @@ int bp04;
 	}
 }
 
-MP_drain()
-{
-    register struct tChara *si;
-    int bp_04;
-    
-    for(bp_04 = Party.f_1d8 - 1; bp_04 >= 0; bp_04 --) {
-        if(isCharaAlive(bp_04)) {
-            si = &(Party.chara[bp_04]);
-            si->_MP -= 5;
-        }
-    }
-}
-
 /*C_1445*/u4_gets(si/*bp06*/, bp04)
 register char *si;
 unsigned bp04;
@@ -680,19 +657,19 @@ unsigned char bp04;
 {
 	if(bp04 >= TIL_80) {
 		if(bp04 >= TIL_90)
-			return D_Crea[(bp04 - TIL_80)/4 - (TIL_90 - TIL_80)/4];
+			return D_1E98[9 + (bp04 - TIL_80)/4 - (TIL_90 - TIL_80)/4];
 		else
-			return D_Sea_Crea[(bp04 - TIL_80)/2];
+			return D_1E98[1 + (bp04 - TIL_80)/2];
 	}
 	if(bp04 == TIL_38)
-		return D_Assorted[159];
+		return D_1E98[159];
 	if(bp04 < TIL_20 || bp04 >= TIL_60 || (bp04 >= TIL_30 && bp04 < TIL_50))
-		return D_Crea[12];/*"Phantom"*/
-	return D_Classes[(bp04 & 0x1f)/2];
+		return D_1E98[20];/*"Phantom"*/
+	return D_1E98[77 + (bp04 & 0x1f)/2];
 }
 
 /*all party damage*/
-Party_Damage()
+C_1584()
 {
 	register int loc_B;
 	int loc_A;
@@ -703,7 +680,7 @@ Party_Damage()
 	shakefx();
 	for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --)
 		Gra_11(loc_B);
-	if(CurMode >= MOD_COMBAT || Party._tile > TIL_ShipS_13) {
+	if(CurMode >= MOD_COMBAT || Party._tile > TIL_13) {
 		/*normal case*/
 		for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
 			if(U4_RND1(1) && isCharaAlive(loc_B)) {
@@ -724,27 +701,6 @@ Party_Damage()
 		}
 	}
 	dspl_Stats();
-}
-
-/*all party hp drain and silent*/
-Party_Drain()
-{
-    register int loc_B;
-    int loc_A;
-    
-    for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --)
-        Gra_11(loc_B);
-    for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --)
-        Gra_11(loc_B);
-        /*normal case*/
-        for(loc_B = Party.f_1d8 - 1; loc_B >= 0; loc_B --) {
-            if(U4_RND1(1) && isCharaAlive(loc_B)) {
-                loc_A = U4_RND3(15) + 10;
-                if(CurMode < MOD_COMBAT || Fighters._chtile[loc_B])
-                    hitChara(loc_B, loc_A);
-            }
-        }
-    dspl_Stats();
 }
 
 /*C_162F*/AskY_N()

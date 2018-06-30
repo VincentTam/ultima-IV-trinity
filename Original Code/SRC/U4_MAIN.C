@@ -17,18 +17,11 @@ void cdecl /*C_191E*/main()
 
 	low_init();
 	C_C51C();
-	if((Party._loc >= 0x11 && Party._loc <= 0x18) || (Party._loc >= 0x29 && Party._loc <= 0x2B)) {
+	if(Party._loc >= 0x11 && Party._loc <= 0x18) {
 		CurMode = MOD_DUNGEON;
-        /*Party._loc made one bigger to make sure we catch the Abyss*/
-        if(Party._loc <= 0x19) {
-            if(Load("DNGMAP.SAV", sizeof(tMap8x8x8), &(D_8742._map)) == -1)
+		if(Load("DNGMAP.SAV", sizeof(tMap8x8x8), &(D_8742._map)) == -1)
 			exit(3);
-            File_DNG = dopen(Dungeons[Party._loc - 0x11], 0);
-        } else {
-            if(Load("DNGMAP.SAV", sizeof(tMap8x8x8), &(D_8742._map)) == -1)
-                exit(3);
-            File_DNG = dopen(Crypts[Party._loc - 0x29], 0);
-        }
+		File_DNG = dopen(D_0894[Party._loc - 0x11], 0);
 		if(setjmp(D_9458) == 0)
 			DNG_main();
 	} else {
@@ -39,7 +32,7 @@ void cdecl /*C_191E*/main()
 	for(;;) {
 		setjmp(D_9458);
 		t_callback();
-		Random_Encounter();
+		C_9209();
 		if(C_10FD()) {
 			u4_putc(0x10);
 			u_delay(25, 1);
@@ -97,7 +90,7 @@ void cdecl /*C_191E*/main()
 			u4_puts("Zzzzz\n");
 		}
 		if(D_07F8 != 0) {
-			Party_Maint();
+			C_1C53();
 		} else {
 			t_callback();
 			D_07F8 = 1;
@@ -117,7 +110,7 @@ C_1C21()
 	Gra_CR();
 }
 
-Party_Maint()
+C_1C53()
 {
 	register int si;
 	register struct tChara *di;
@@ -154,7 +147,7 @@ Party_Maint()
 	MP_recover();
 	if(Party.f_1dc == 0) {
 		C_7918();
-		NPC_Turn();
+		C_5834();
 		C_5851();
 		C_7918();
 	}

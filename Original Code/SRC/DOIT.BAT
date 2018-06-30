@@ -10,7 +10,8 @@ set LIB=%MSC%\LIB
 
 fc /b u4_main.exe ..\original\avatar.exe > diff.txt
 
-
+set PATH=%OLDPATH%
+set OLDPATH=
 
 type log.txt
 echo on

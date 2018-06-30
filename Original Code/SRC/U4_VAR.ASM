@@ -18,7 +18,7 @@ PUBLIC tile_east,pCharset,spell_sta,D_95A5
 PUBLIC txt_X,tile_north,activeCharaY
 PUBLIC hit_tile,hit_x,hit_y
 PUBLIC D_95B2
-PUBLIC tile_west,tile_south,txt_Y,DoublePace
+PUBLIC tile_west,tile_south,txt_Y,D_95C6
 PUBLIC D_95C8,tile_back,D_95CC,D_95CE
 PUBLIC D_96EE,File_MAP,WindDir,D_96F4
 PUBLIC File_TLK,D_96F8,D_96F9,D_9772
@@ -77,7 +77,7 @@ D_95B2	db 16 dup (?)
 tile_west	db ?	;D_95C2
 tile_south	db ?	;D_95C3
 txt_Y	dw ?
-DoublePace	dw ?
+D_95C6	dw ?
 D_95C8	dw ?
 tile_back	db ?	;D_95CA
 	db ?

@@ -23,7 +23,7 @@ C_87E2();*/
 	u_kbflush();
 	bp_04 = 0;
 	do {
-		Random_Encounter();
+		C_9209();
 		u4_putc(0x10);
 		t_callback();
 		if(C_10FD()) {

@@ -44,11 +44,11 @@ unsigned char bp04;
 	if(di < TIL_80)
 		return C_2999(bp04);
 	if(di < TIL_8E)
-		return (di == TIL_80)?(bp04 <= TIL_MWater_01):(bp04 <= TIL_SWater_02);
+		return (di == TIL_80)?(bp04 <= TIL_01):(bp04 <= TIL_02);
 	if(di == TIL_8E || di == TIL_94 || di == TIL_B4 || di == TIL_F0 || di == TIL_F8 || di == TIL_FC)
-		return (bp04 <= TIL_SWater_02) || C_2999(bp04);
+		return (bp04 <= TIL_02) || C_2999(bp04);
 	if(di == TIL_EC || di == TIL_9C)
-		return (bp04 >= TIL_Swamp_03) && (bp04 != TIL_45);
+		return (bp04 >= TIL_03) && (bp04 != TIL_45);
 	return C_2999(bp04);
 }
 
@@ -153,7 +153,7 @@ int bp04;/*# of tries*/
 }
 
 /*move town NPC*/
-NPC_Move_Town()
+C_5293()
 {
 	int bp_02, bp_04;
 
@@ -180,10 +180,6 @@ NPC_Move_Town()
 			}
 		}
 	}}
-}
-
-NPC_Mesm_Town(){
-    /* empty because everyone is mesmerized and takes no action? */
 }
 
 /*creature/party distance ?*/
@@ -324,7 +320,7 @@ int bp04;
 	hit_y = hit_x = 5;
 	hit_tile = TIL_4F;
 	C_36C7();
-	Party_Damage();
+	C_1584();
 	hit_tile = 0;
 	t_callback();
 }
@@ -356,7 +352,7 @@ int bp04;
 }
 
 /*move outside NPC*/
-NPC_Move_Out()
+C_5712()
 {
 	int loc_A, loc_B, loc_C, loc_D;
 	register int loc_F;
@@ -404,26 +400,13 @@ NPC_Move_Out()
 	} while(--loc_F >= 0);
 }
 
-/*move outside NPC*/
-NPC_Mesm_Out()
-{
-/* Empty because NPC's are mesmerized and do nothing */
-}
-
 /*move npc?*/
-NPC_Turn()
+C_5834()
 {
 	if(CurMode == MOD_BUILDING)
-        if(spell_sta != 'R')
-            NPC_Move_Town();
-        else
-            NPC_Mesm_Town();
-    
+		C_5293();
 	else if(CurMode == MOD_OUTDOORS)
-        if(spell_sta != 'R')
-            NPC_Move_Out();
-        else
-            NPC_Mesm_Out();
+		C_5712();
 }
 
 /*spawn creatures?*/
@@ -442,7 +425,7 @@ C_5851()
 		loc_C = U4_RND1(31);
 		loc_B = &(D_8742._map.x32x32[loc_C][loc_A]);
 		if(u4_abs(loc_A - D_959C.x) >= 6 && u4_abs(loc_C - D_959C.y) >= 6) {
-			if(*loc_B < TIL_SWater_02) {/*at sea*/
+			if(*loc_B < TIL_02) {/*at sea*/
 				if(U4_RND1(7) == 0) {
 					D_8742._npc._x[si] = loc_A + D_95A5.x*16;
 					D_8742._npc._y[si] = loc_C + D_95A5.y*16;
@@ -450,7 +433,7 @@ C_5851()
 					if(D_8742._npc._gtile[si] == TIL_82)
 						D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_80;
 				}
-			} else if(*loc_B >= TIL_Grass_04 && *loc_B < TIL_Mount_08) {/*on earth*/
+			} else if(*loc_B >= TIL_04 && *loc_B < TIL_08) {/*on earth*/
 				unsigned bp_0a;
 
 				D_8742._npc._x[si] = loc_A + D_95A5.x*16;

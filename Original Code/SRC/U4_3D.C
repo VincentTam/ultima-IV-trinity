@@ -152,7 +152,7 @@ unsigned char bp04;
 					C_A94A();
 			}
 		return 0;
-		case 0x90: return TIL_SWater_02;
+		case 0x90: return TIL_02;
 		case 0xa0:
 			C_A7F2((bp04 & 3) | TIL_44);
 			switch(STA_E) {

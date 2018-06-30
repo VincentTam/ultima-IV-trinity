@@ -9,13 +9,13 @@
 unsigned D_1630 = 0;
 
 /*animate force fields, water, ...*/
-ANI_Fields()
+C_34EA()
 {
 	if(D_1630 -- == 0) {
 		D_1630 = speed_info - 1;
-		Gra_animFlow(TIL_DWater_00);
-		Gra_animFlow(TIL_MWater_01);
-		Gra_animFlow(TIL_SWater_02);
+		Gra_animFlow(TIL_00);
+		Gra_animFlow(TIL_01);
+		Gra_animFlow(TIL_02);
 		Gra_animFlow(TIL_4C);
 		Gra_animFlow(TIL_44);
 		Gra_animFlow(TIL_46);
@@ -56,7 +56,7 @@ char *bp04;
 unsigned D_1654 = 0;
 
 /*update/display wind*/
-ANI_Wind()
+C_35C7()
 {
 	if(D_1654-- == 0) {
 		D_1654 = speed_info - 1;
@@ -69,7 +69,7 @@ ANI_Wind()
 unsigned D_1656[] = {192, 96, 60, 36, 20, 12, 8};
 
 /*animate sprites*/
-ANI_Sprites()
+C_3605()
 {
 	register int si, di;
 
@@ -90,7 +90,7 @@ ANI_Sprites()
 			D_8742._npc._gtile[si] = di;
 		}
 	}
-	ANI_Fields();
+	C_34EA();
 	Gra_animFlag();
 }
 
@@ -138,8 +138,8 @@ unsigned char bp04;/*pos_y*/
 	D_96F9[si] = bp_04;
 	/*opaque tiles*/
 	if(
-		bp_04 == TIL_Forest_06 ||
-		bp_04 == TIL_Mount_08 ||
+		bp_04 == TIL_06 ||
+		bp_04 == TIL_08 ||
 		bp_04 == TIL_7E ||
 		bp_04 == TIL_49 ||
 		bp_04 == TIL_7F
@@ -158,7 +158,7 @@ unsigned char bp04;/*pos_y*/
 }
 
 /*process visible area (raycast)*/
-ANI_Raycast()
+C_38BB()
 {
 	register int si;
 
@@ -216,7 +216,7 @@ C_3960()
 	}
 }
 
-ANI_IconZone()
+C_39BA()
 {
 	register int loc_A;
 
@@ -236,7 +236,7 @@ ANI_IconZone()
 	tile_west  = Combat_MAP(5, 4);
 	Combat_MAP(5, 5) = Party._tile;
 	if(D_9440)
-		ANI_Raycast();
+		C_38BB();
 	else {
 		for(loc_A = 10 * 11 + 10; loc_A >= 0; loc_A --)
 			D_96F9[loc_A] = Combat._map[loc_A];
@@ -248,7 +248,6 @@ unsigned char D_1664 = 0;
 unsigned char D_1665 = 0;/*trammel counter*/
 unsigned char D_1666 = 0;/*felucca counter*/
 
-
 C_3A4F()
 {
 	D_9445 = D_0814[(D_1665 & 0xe0) >> 5];
@@ -259,7 +258,7 @@ C_3A4F()
 unsigned D_1668 = 0;
 
 /*display tramel and feluca ?*/
-ANI_Moons()
+C_3A80()
 {
 	unsigned char bp_02, bp_04;
 
@@ -294,8 +293,8 @@ C_3B35()
 	register unsigned loc_B;
 	int loc_C, loc_A;
 
-	ANI_Sprites();/*animate sprites*/
-	ANI_Moons();/*display tramel and feluca*/
+	C_3605();/*animate sprites*/
+	C_3A80();/*display tramel and feluca*/
 	loc_B = 10 * 11 + 10;
 	for(loc_C = 10; loc_C >= 0; loc_C --) {
 		for(loc_A = 10; loc_A >= 0; loc_A --) {
@@ -303,7 +302,7 @@ C_3B35()
 			loc_B --;
 		}
 	}
-	ANI_IconZone();/*display 11x11 icons zone*/
+	C_39BA();/*display 11x11 icons zone*/
 }
 
 /*display inside towne/castle ...*/
@@ -311,27 +310,27 @@ C_3B83()
 {
 	register int si, di;
 
-	ANI_Sprites();
+	C_3605();
 	for(di = -5; di <= 5; di ++) {
 		for(si = -5; si <= 5; si ++) {
 			if(
 				((int)Party._x + si < 0) || ((int)Party._x + si > 0x1f) ||
 				((int)Party._y + di < 0) || ((int)Party._y + di > 0x1f)
 			) {
-				Combat_MAP(di+5, si+5) = TIL_Grass_04;
+				Combat_MAP(di+5, si+5) = TIL_04;
 			} else {
 				Combat_MAP(di+5, si+5) = D_8742._map.x32x32[Party._y + di][Party._x + si];
 			}
 		}
 	}
-	ANI_IconZone();/*display 11x11 icons zone*/
-	ANI_Wind();/*update/display wind*/
+	C_39BA();/*display 11x11 icons zone*/
+	C_35C7();/*update/display wind*/
 }
 
 unsigned D_166A = 0;
 
 /*move balloon*/
-ANI_Balloon()
+C_3C08()
 {
 	if(D_166A -- == 0) {
 		D_166A = speed_info;
@@ -356,7 +355,7 @@ C_3C54()
 	unsigned char *loc_E;
 
 	loc_B = (speed_info < 8)?D_166C[speed_info - 1]:15;
-	ANI_Fields();
+	C_34EA();
 	for(loc_A = 10 * 11 + 10; loc_A >= 0; loc_A--)
 		D_96F9[loc_A] = Combat._map[loc_A];
 	if(CurMode != MOD_SHRINE) {
@@ -418,14 +417,14 @@ C_3C54()
 	cursor_rate = 0;
 	if(CurMode == MOD_OUTDOORS) {
 		if(Party._tile == TIL_18 && Party.f_1dc)
-			ANI_Balloon();
-		ANI_Wind();/*update/display wind*/
+			C_3C08();
+		C_35C7();/*update/display wind*/
 		C_3B35();
 	} else if(CurMode == MOD_BUILDING) {
 		C_3B83();
 	} else if(CurMode == MOD_DUNGEON) {
 		C_353D(Party._dir, "DIR:");
-		ANI_Fields();
+		C_34EA();
 		C_B677();
 		C_ADEF();
 	} else {/*Combat*/

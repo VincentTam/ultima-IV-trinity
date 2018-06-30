@@ -8,47 +8,47 @@
 #define __U4_SHAPE_H__
 
 /*deep water*/
-#define TIL_DWater_00 0x00
+#define TIL_00 0x00
 /*medium water*/
-#define TIL_MWater_01 0x01
+#define TIL_01 0x01
 /*shallow water*/
-#define TIL_SWater_02 0x02
+#define TIL_02 0x02
 /*swamp*/
-#define TIL_Swamp_03 0x03
+#define TIL_03 0x03
 /*grass*/
-#define TIL_Grass_04 0x04
+#define TIL_04 0x04
 /*scrub*/
-#define TIL_Scrub_05 0x05
+#define TIL_05 0x05
 /*forest*/
-#define TIL_Forest_06 0x06
+#define TIL_06 0x06
 /*hills*/
-#define TIL_Hills_07 0x07
+#define TIL_07 0x07
 /*mountains*/
-#define TIL_Mount_08 0x08
+#define TIL_08 0x08
 /*dungeon*/
-#define TIL_Dung_09 0x09
+#define TIL_09 0x09
 /*town*/
-#define TIL_Town_0A 0x0A
+#define TIL_0A 0x0A
 /*castle*/
-#define TIL_Castle_0B 0x0B
+#define TIL_0B 0x0B
 /*village*/
-#define TIL_Village_0C 0x0C
+#define TIL_0C 0x0C
 /*LB castle left wing*/
-#define TIL_CasL_0D 0x0D
+#define TIL_0D 0x0D
 /*LB castle entrance*/
-#define TIL_CasEn_0E 0x0E
+#define TIL_0E 0x0E
 /*LB castle right wing*/
-#define TIL_CasR_0F 0x0F
+#define TIL_0F 0x0F
 
 /*ship W/N/E/S*/
-#define TIL_ShipW_10 0x10
-#define TIL_ShipN_11 0x11
-#define TIL_ShipE_12 0x12
-#define TIL_ShipS_13 0x13
+#define TIL_10 0x10
+#define TIL_11 0x11
+#define TIL_12 0x12
+#define TIL_13 0x13
 
 /*horse W/E*/
-#define TIL_HorseW_14 0x14
-#define TIL_HorseE_15 0x15
+#define TIL_14 0x14
+#define TIL_15 0x15
 
 /*tiled floor*/
 #define TIL_16 0x16

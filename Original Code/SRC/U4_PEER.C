@@ -31,7 +31,7 @@ int D_2FF2[] = {0x20, 0x06, 0x05, 0x04, 0x24, 0x20, 0x20, 0x0F, 0x54, 0x46, 0x5E
 static unsigned char D_8CFC[600];
 static unsigned char D_8F54[22][22];
 
-PER_World(bp04/*display player pos*/)
+C_B9EF(bp04/*display player pos*/)
 unsigned bp04;
 {
 	int loc_A, loc_B, loc_C;
@@ -175,7 +175,7 @@ unsigned bp04;
 #undef PT
 #undef MK_COORD
 
-PER_Dung()
+C_C23B()
 {
 	int loc_A, loc_B;
 	register unsigned loc_C;
@@ -238,14 +238,10 @@ PER_Dung()
 
 C_C403()
 {
-    /* Adjusted to account for new towns and dungeons(crypts)*/
-    /* upper end set to 0x19 to ensure catching Abyss */
-	if(Party._loc >= 0x11 && Party._loc <= 0x19) {
-		PER_Dung();
-    } else if(Party._loc >= 0x29 && Party._loc <= 0x2B) {
-        PER_Dung();
-    } else {
-		PER_World(1);
+	if(Party._loc >= 0x11) {
+		C_C23B();
+	} else {
+		C_B9EF(1);
 	}
 }
 
