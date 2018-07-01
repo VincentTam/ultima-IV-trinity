@@ -422,28 +422,35 @@ img.mfp-img {
         <hr>
         <section id="main_content">
         
-<p>This project aims to modify the original Ultima IV to add additional content, via quests, locations and features. It will also not alter the original quest content at all, permitting the game to be completed in the original fashion, whilst still making the new content available. A few bug fixes of the original code will also be added.</p>
+	<p>This project aims to modify the original Ultima IV to add additional content, via quests, locations and features. It will also not alter the original quest content at all, permitting the game to be completed in the original fashion, whilst still making the new content available. A few bug fixes of the original code will also be added.</p>
 
-		<h1>Features</h1>
+	<h1>Features</h1>
 
-		<h2>Bug Fixes/Improvements</h2>
-		<ul>
-  <li>Moonphases restored on save</li>
-  <li>All chest trap types working</li>
-  <li>Other Small fixes</li>
-		</ul>
+	<h2>Bug Fixes/Improvements</h2>
+		
+	<ul>
+ 	 	<li>Moonphases restored on save</li>
+  		<li>All chest trap types working</li>
+  		<li>No more infinite Mystic Weaps/Armor</li>
+  		<li>Other Small fixes</li>
+	</ul>
   
 	  <h2>New Features</h2>
 	  <ul>
-  <li>New Villages and Camps</li>
-  <li>New Shops and Merchants</li>
-  <li>Dozens of new Characters</li>
-  <li>New Dungeons (Crypts)</li>
-  <li>New, powerful Artifacts</li>
-  <li>New Shrines (Oracles)</li>
-  <li>2nd levels for all Towns</li>
-  <li>Many other small additions</li>
+  		<li>New Villages and Camps</li>
+  		<li>New Shops and Merchants</li>
+  		<li>Dozens of new Characters</li>
+  		<li>New Dungeons (Crypts)</li>
+  		<li>New, powerful Artifacts</li>
+  		<li>New Shrines (Oracles)</li>
+  		<li>2nd levels for all Towns</li>
+  		<li>Many other small additions</li>
 	  </ul>
+	
+	<h2>Other Highlights</h2>
+	<ul>
+        	<li>Saved games are compatible with vanilla Ultima IV</li>
+	</ul>
 		
    <h2>Screenshots</h2>
 		<div>
@@ -453,9 +460,9 @@ img.mfp-img {
 		<a href="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/title_screen.png" title="New Title Screen Graphics" class="image-link"><img src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/title_screen_299.png" /></a>
 		</div>
 
-		
-<p>All credit goes to ergonomy-joe for making this possible, thanks to his u4-decompiled.</p>
-
+		<h2>Credits</h2>
+		<p>All credit goes to ergonomy-joe for making this possible, thanks to his u4-decompiled.</p>
+		<p>Lord British</p>
 <p>Cambragol</p>
 
         </section>
@@ -482,7 +489,9 @@ img.mfp-img {
 $('.image-link').magnificPopup({
   type: 'image',
   mainClass: 'mfp-with-zoom', // this class is for CSS animation below
-
+  gallery:{
+    enabled:true
+  },
   zoom: {
     enabled: true, // By default it's false, so don't forget to enable it
 
