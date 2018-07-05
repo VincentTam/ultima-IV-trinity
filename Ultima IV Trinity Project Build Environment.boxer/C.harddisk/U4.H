@@ -205,8 +205,8 @@ extern MP_recover();
 extern MP_drain();
 extern u4_gets(char *, int);
 extern char *C_1513(int);
-extern Party_Damage();
-extern Party_Drain(int);
+extern Party_Damage(int);
+/*extern Party_Drain(int);*/
 extern AskY_N();
 extern long AskInt(int);
 /*u4_util2*/

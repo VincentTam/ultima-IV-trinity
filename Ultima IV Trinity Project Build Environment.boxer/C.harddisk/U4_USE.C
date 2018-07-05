@@ -268,7 +268,7 @@ USE_Ring() {
         u4_puts("The Ring glows brighter and lets out a flash of light!\n");
     
         /* All Party Damage */
-        Party_Drain(100);
+        Party_Damage(100);
         MP_drain();
         Gra_09();
         spell_sta = 'R';
@@ -434,7 +434,7 @@ USE_WandMagic() {
     if(!USE_WandCast(spell_power))
         return;
     
-    Party_Drain(spell_power * 4);
+    Party_Damage(spell_power * 4);
     MP_drain();
     
     Party._y = wandy;

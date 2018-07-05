@@ -43,7 +43,7 @@ register int si;
 		Party._x = 0x7f;
 		Party._y = 0x4e;
 		sound(11);
-		Party_Damage();
+		Party_Damage(15);
 		Party._tile = TIL_ShipW_10;
 		hit_tile = 0;
 		C_26B6();
@@ -58,10 +58,10 @@ register int si;
 	if(Party._x == D_8742._npc._x[si] && Party._y == D_8742._npc._y[si]) {
 		t_callback();
 		sound(12);
-		Party_Damage();
-		Party_Damage();
-		Party_Damage();
-		Party_Damage();
+		Party_Damage(15);
+		Party_Damage(15);
+		Party_Damage(15);
+		Party_Damage(15);
 		hit_tile = 0;
 	}
 	C_7821(si, 12);

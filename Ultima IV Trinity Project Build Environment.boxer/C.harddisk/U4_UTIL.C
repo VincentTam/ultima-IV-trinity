@@ -747,22 +747,25 @@ unsigned char bp04;
 }
 
 /*all party damage*/
-Party_Damage()
+Party_Damage(bp04)
+int bp04;
 {
 	register int loc_B;
 	int loc_A;
 
 	for(loc_B = Party._members - 1; loc_B >= 0; loc_B --)
 		Gra_11(loc_B);
+    if(bp04 == 15){
 	sound(6);
 	shakefx();
+    }
 	for(loc_B = Party._members - 1; loc_B >= 0; loc_B --)
 		Gra_11(loc_B);
 	if(CurMode >= MOD_COMBAT || Party._tile > TIL_ShipS_13) {
 		/*normal case*/
 		for(loc_B = Party._members - 1; loc_B >= 0; loc_B --) {
 			if(U4_RND1(1) && isCharaAlive(loc_B)) {
-				loc_A = U4_RND3(15) + 10;
+				loc_A = U4_RND3(bp04) + 10;
 				if(CurMode < MOD_COMBAT || Fighters._chtile[loc_B])
 					hitChara(loc_B, loc_A);
 			}
@@ -782,7 +785,7 @@ Party_Damage()
 }
 
 /*all party hp drain and silent*/
-Party_Drain(bp04)
+/*Party_Drain(bp04)
 int bp04;
 {
     register int loc_B;
@@ -792,7 +795,7 @@ int bp04;
         Gra_11(loc_B);
     for(loc_B = Party._members - 1; loc_B >= 0; loc_B --)
         Gra_11(loc_B);
-        /*normal case*/
+        /*normal case*//*
         for(loc_B = Party._members - 1; loc_B >= 0; loc_B --) {
             if(U4_RND1(1) && isCharaAlive(loc_B)) {
                 loc_A = U4_RND3(bp04) + 10;
@@ -801,7 +804,7 @@ int bp04;
             }
         }
     dspl_Stats();
-}
+}*/
 
 AskY_N()
 {
