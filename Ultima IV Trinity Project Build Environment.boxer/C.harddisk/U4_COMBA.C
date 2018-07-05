@@ -119,11 +119,11 @@ C_61D1();*/
 					case KBD_W:
 					case KBD_X:
 					case KBD_Y: w_NotHere(); break;
-					case KBD_CTRL_S:
+					/*case KBD_CTRL_S:
 						if(bp_04 == KBD_ALT_Z) {
 							C_1C21();
 							break;
-						}
+						}*/
 					default:
 						u4_puts(/*D_1FED*/"Bad command\n");
 						sound(2);

@@ -144,10 +144,10 @@ char *Crypts[] = {
     /*D_07EE*/"EXODUS.DNG"
 };
 
-/*oracles*/
-char *Oracles[] = {
-    /*D_076D*/"Love",
-    /*D_0772*/"Courage",
-    /*D_0779*/"Truth"
-};
+/*oracles. not used at moment...*/
+/*char *Oracles[] = {
+    "Love",
+    "Courage",
+    "Truth"
+};*/
 

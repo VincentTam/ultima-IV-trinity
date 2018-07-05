@@ -13,7 +13,7 @@ ANI_Fields()
 {
 	if(D_1630 -- == 0) {
 		D_1630 = speed_info - 1;
-		Gra_animFlow(TIL_DWater_00);
+		Gra_animFlow(TIL_00);
 		Gra_animFlow(TIL_MWater_01);
 		Gra_animFlow(TIL_SWater_02);
 		Gra_animFlow(TIL_4C);
@@ -259,7 +259,6 @@ unsigned D_1668 = 0;
 ANI_Moons()
 {
     unsigned char bp_02, bp_04;
-    register int si;
     
     if(D_1668-- == 0) {
         D_1668 = speed_info / 2;

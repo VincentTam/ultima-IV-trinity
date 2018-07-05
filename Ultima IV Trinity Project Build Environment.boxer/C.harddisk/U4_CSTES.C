@@ -248,3 +248,24 @@ char *D_Incantations[] = {
     /*D_1E50*/"M ",
     /*D_1E50*/"OR "
 };
+
+char *D_Items[] = {
+    /*151 - artifacts D_1FC6*/
+    "",
+    "The Candle of Love!",
+    "The Book of Truth!",
+    "The Bell of Courage!",
+    "",
+    "",
+    "",
+    "A Silver Horn!",
+    "The Wheel from the H.M.S. Cape!",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "A strange Belt!"
+};
+
+

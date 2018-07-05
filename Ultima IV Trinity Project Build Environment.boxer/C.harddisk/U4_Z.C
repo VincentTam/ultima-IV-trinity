@@ -229,16 +229,17 @@ Ztats_Items()
 			u4_putc('C');
 		txt_Y ++;
 	}
-	if(TST_MSK(Party.mItems, 8)) {
-		txt_X = 24;
-		u4_puts(/*D_1988*/"Horn");
-		txt_Y ++;
-	}
-	if(TST_MSK(Party.mItems, 9)) {
-		txt_X = 24;
-		u4_puts(/*D_198D*/"Wheel");
-		txt_Y ++;
-	}
+    if(TST_MSK(Party.mItems, 8) || TST_MSK(Party.mItems, 9) || TST_MSK(Party.mItems, 15)) {
+        txt_X = 24;
+        if(TST_MSK(Party.mItems, 8))
+            u4_puts("Horn ");
+        if(TST_MSK(Party.mItems, 9))
+            u4_puts("Wheel ");
+        if(TST_MSK(Party.mItems, 15)) {
+            u4_puts("Belt");
+        }
+        txt_Y ++;
+    }
     if(TST_MSK(Party.mItems, 0) || TST_MSK(Party.mItems, 13) || TST_MSK(Party.mItems2, 0)) {
         txt_X = 24;
         if(TST_MSK(Party.mItems, 0))

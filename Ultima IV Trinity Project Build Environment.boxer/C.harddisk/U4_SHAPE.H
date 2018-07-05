@@ -8,7 +8,7 @@
 #define __U4_SHAPE_H__
 
 /*deep water*/
-#define TIL_DWater_00 0x00
+#define TIL_00 0x00
 /*medium water*/
 #define TIL_MWater_01 0x01
 /*shallow water*/

@@ -16,6 +16,11 @@ shakefx()
 	Gra_04(); Gra_03();
 	Gra_04(); Gra_03();
 	Gra_04(); Gra_03();
+    Gra_04(); Gra_03();
+    Gra_04(); Gra_03();
+    Gra_04(); Gra_03();
+    Gra_04(); Gra_03();
+    Gra_04(); Gra_03();
 }
 
 /*increase exp (max 9999)*/
@@ -134,7 +139,7 @@ C_0ACF(bp04)
 }
 
 /*isNotEvil
- returns 1 if param in {TIL_DWater_00~TIL_7F,TIL_8A,TIL_90,TIL_94,TIL_98,TIL_B4,TIL_CC}
+ returns 1 if param in {TIL_00~TIL_7F,TIL_8A,TIL_90,TIL_94,TIL_98,TIL_B4,TIL_CC}
  i.e.      if the creatures's defeat leads to karma increase
  else returns 0
 */
@@ -487,7 +492,8 @@ w_NoneLeft()
 	u4_puts("None left!\n");
 }
 
-AskLetter2(bp08, bp06, bp04)
+/*function is in AskLetter*/
+/*AskLetter2(bp08, bp06, bp04)
 char *bp08;
 char bp06;
 char bp04;
@@ -517,7 +523,8 @@ char bp04;
     } while(si >= 0);
     
     return si;
-}
+}*/
+ 
 
 AskLetter(bp08, bp06, bp04)
 char *bp08;
@@ -537,15 +544,19 @@ char bp04;
 				si = -1;
 			else
 				si = -2;
+            if(bp08 != 0)
 			Gra_CR();
+            
 			break;
 		}
 		si &= 0xff;
 		u4_toupper2(si);
 		if(si > ' ' && si < 0x7f)
 			u4_putc(si);
-		Gra_CR();
-		if(bp06 <= si && si <= bp04)
+            if(bp08 != 0)
+            Gra_CR();
+        
+        if(bp06 <= si && si <= bp04)
 			break;
 	} while(si >= 0);
 

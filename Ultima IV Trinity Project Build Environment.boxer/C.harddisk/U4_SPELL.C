@@ -469,6 +469,8 @@ int bp04;
 	if(!C_63B4())
 		return;
 	shakefx();
+    shakefx();
+    shakefx();
 	hit_tile = TIL_4F;
 	for(si = 15; si >= 0; si --) {
 		if(Fighters._tile[si] != 0 && Fighters._HP[si] < 192) {

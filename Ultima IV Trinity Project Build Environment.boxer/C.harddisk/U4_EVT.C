@@ -23,13 +23,15 @@ Poison()
 {
 	register int si;
 
-	for(si = Party._members; --si >= 0; ) {
-		if(Party.chara[si]._stat == 'G' && U4_RND1(7) == 0) {
-			Party.chara[si]._stat = 'P';
-			sleep_poisonfx(si);
-			dspl_Stats();
-		}
-	}
+    if(spell_sta != 'B') {
+        for(si = Party._members; --si >= 0; ) {
+            if(Party.chara[si]._stat == 'G' && U4_RND1(7) == 0) {
+                Party.chara[si]._stat = 'P';
+                sleep_poisonfx(si);
+                dspl_Stats();
+            }
+        }
+    }
 }
 
 /*randomEvent*/
@@ -46,7 +48,8 @@ Random_Encounter()
 		C_7DBC();
 		return;
 	}
-    if(CurMode == MOD_OUTDOORS && Party._tile != TIL_18 && tile_cur == TIL_Mount_08) {
+    /*removed death on teleport to mountains for now to save coding space */
+    /*if(CurMode == MOD_OUTDOORS && Party._tile != TIL_18 && tile_cur == TIL_Mount_08) {
         u4_puts("\nMountains!\n\n");
         sound(6); shakefx();
         Gra_09();
@@ -54,8 +57,8 @@ Random_Encounter()
         u4_puts("\nThy Party Perishes!\n");
         Death_Revive();
         return;
-    }
-    if(CurMode == MOD_OUTDOORS && (Party._tile >= TIL_HorseW_14 && Party._tile != TIL_18) && (tile_cur == TIL_DWater_00 || tile_cur == TIL_MWater_01 || tile_cur == TIL_SWater_02)) {
+    }*/
+    if(CurMode == MOD_OUTDOORS && (Party._tile >= TIL_HorseW_14 && Party._tile != TIL_18) && (tile_cur == TIL_00 || tile_cur == TIL_MWater_01 || tile_cur == TIL_SWater_02)) {
         u4_puts("\nWater!\n\n");
         sound(6); shakefx();
         Gra_09();
@@ -71,11 +74,13 @@ Random_Encounter()
 			return;
 		switch(Combat_MAP(Combat._charaY[activeChara], Combat._charaX[activeChara])) {
 			case TIL_Swamp_03: case TIL_44:
-				if(Party.chara[activeChara]._stat == 'G') {
-					Party.chara[activeChara]._stat = 'P';
-					sleep_poisonfx(activeChara);
-					dspl_Stats();
-				}
+                if(spell_sta != 'B') {
+                    if(Party.chara[activeChara]._stat == 'G') {
+                        Party.chara[activeChara]._stat = 'P';
+                        sleep_poisonfx(activeChara);
+                        dspl_Stats();
+                    }
+                }
 			break;
 			case TIL_47:
 				if(isCharaConscious(activeChara)) {

@@ -224,6 +224,18 @@ C_0553() {
 	dspl_Stats();
 }
 
+/*use belt*/
+USE_Belt() {
+    if(!TST_MSK(Party.mItems, 15)) {
+        u4_puts(None_Owned);
+        return;
+    }
+    u4_puts("The Belt glows and hums gently!\n");
+    spell_sta = 'B';
+    spell_cnt = 20;
+    dspl_Stats();
+}
+
 /*use wheel*/
 C_058C() {
     if(!TST_MSK(Party.mItems, 9)) {
@@ -341,12 +353,21 @@ USE_Wand() {
         u4_puts(None_Owned);
         return;
     }
+
     if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 1) {
         u4_puts("\nYou place the Wand of Minax into the Tomb....\n");
         SET_MSK(Party.mItems, 14);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
         RST_MSK(Party.mItems, 13);
         Crypt_Exit(Party._loc);
+    }
+    else if(Party._loc - 0x2c == 0) {
+        u4_puts("\nYou place the Wand of Minax onto the Altar!\n");
+        SET_MSK(Party.mItems, 14);
+        Big_Karma_Inc();
+        Gra_09(); sound(9, 0x60); Gra_09();
+        /*put the mask here so the wand is only destroyed when cast into the Abyss or entombed in the Crypt */
+        RST_MSK(Party.mItems, 13);
     }
     else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
         u4_puts("\nYou raise the enscorled Wand of Minax the Enchantress before thee....\n");
@@ -424,7 +445,7 @@ USE_WandMagic() {
 }
 
 USE_Incant(bp04) {
-    bp04 = AskLetter2("", 'A', 'P');
+    bp04 = AskLetter(0, 'A', 'P');
     bp04 -= 'A';
     if(bp04 < 0 || bp04 > 16){
         return;
@@ -460,6 +481,7 @@ struct {
 	{/*D_0401*/"wheel",  C_058C},
 	{/*D_0407*/"skull",  USE_Skull},
     {/*D_0407*/"wand",   USE_Wand},
+    {/*D_0407*/"belt",   USE_Belt},
 	{/*D_040D*/"",       0}
 };
 

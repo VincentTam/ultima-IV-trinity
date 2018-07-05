@@ -82,11 +82,11 @@ void cdecl /*C_191E*/main()
 				case KBD_X: CMD_X_it(); break;
 				case KBD_Y: CMD_Yell(); break;
 				case KBD_Z: CMD_Ztats(); break;
-				case KBD_CTRL_S:
+				/*case KBD_CTRL_S:
 					if(bp_04 == KBD_ALT_Z) {
 						C_1C21();
 						break;
-					}
+					}*/
 				default:
 					u4_puts("Bad command!\n");
 					sound(2);
@@ -107,7 +107,7 @@ void cdecl /*C_191E*/main()
 }
 
 /*cheat code --> reveal the different levels of karmas*/
-C_1C21()
+/*C_1C21()
 {
 	register int si;
 
@@ -115,7 +115,7 @@ C_1C21()
 	for(si = 0; si < 8; si++)
 		u4_putl(*(pKarmas[si]), 2, '0');
 	Gra_CR();
-}
+}*/
 
 Party_Maint()
 {

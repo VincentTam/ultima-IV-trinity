@@ -889,7 +889,9 @@ C_3030()
 	C_2883();/*introduction*/
 	C_2C12();/*gipsy*/
 	C_2E04();/*prepare party structure*/
-	C_2FB8();/*prepare player disk?*/
+    
+    /* commented this out. Not needed when running on dosbox etc. would anyone run this from an actual disk? So...not needed?*/
+	/*C_2FB8();/*prepare player disk?*/
 	_ffree(D_6940);
 	/*-- clean & return to dos --*/
 	_ffree(pCharset);

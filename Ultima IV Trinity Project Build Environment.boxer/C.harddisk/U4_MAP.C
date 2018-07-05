@@ -170,10 +170,9 @@ unsigned bp04;
 {
     register int si;
     
-    u4_puts("\nWith a mighty rumble the entrance to the Crypt collapses\n");
-    
     Big_Shake();
-    u_delay(3, 0);
+    u4_puts("\nWith a mighty rumble the entrance to the Crypt collapses\n");
+    u_delay(1, 0);
     Gra_CR();
     
     D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = D_8742._npc._var[bp04] = TIL_Mount_08;

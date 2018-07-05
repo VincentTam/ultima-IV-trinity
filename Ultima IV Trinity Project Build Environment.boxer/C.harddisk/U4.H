@@ -197,7 +197,7 @@ extern w_OnlyOnFoot();
 extern w_SlowProgress();
 extern w_NoneLeft();
 extern AskLetter(char *, char, char);
-extern AskLetter2(char *, char, char);
+/*extern AskLetter2(char *, char, char);*/
 extern AskChara(char *);
 extern AskDir(char *, int *, int *);
 extern food_dec(int);
@@ -376,6 +376,7 @@ extern char *D_Virtues[];
 extern char *D_Assorted[];
 extern char *D_Principles[];
 extern char *D_Incantations[];
+extern char *D_Items[];
 
 extern unsigned char Enemy_HP[];
 extern unsigned char Weap_Dam[];

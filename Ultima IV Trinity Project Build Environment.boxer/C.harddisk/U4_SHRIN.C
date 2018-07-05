@@ -81,27 +81,47 @@ char *Words_Passage[] = {
     /*D_7B7C*/"i"
 };
 
-char *Keywords[28] = {
+char *Keywords[9] = {
     /*D_639A*/"bye",
-    /*D_639E*/"help",
-    /*D_63A3*/"health",
+    /*D_639E*/"use",
+    /*D_63A3*/"wand",
     /*D_63AA*/"name",
     /*D_63AF*/"look",
     /*D_6442*/"minax",
     /*D_6448*/"exodus",
-    /*D_644F*/"virtue",
+    /*D_644F*/"ring",
     /*D_6456*/""
 };
 
-char *Keywords_Response[24] = {
-    /*D_6457*/"\n\n\nHe says:\nMy name is\nLord British,\nSovereign of\nall Britannia!\n",
-    /*D_6499*/"\n\n\n\n\nThou see the\nKing with the\nRoyal Sceptre.\n",
-    /*D_64C9*/"\n\n\nHe says:\nI rule all\nBritannia, and\nshall do my best\nto help thee!\n",
-    /*D_6DF2*/"\n\n\n\n\n\nHe says:\nThe Great\nStygian Abyss\nis the darkest\npocket of evil\nremaining in\nBritannia!\n\n\n\n\n\n\n\nIt is said that\nin the deepest\nrecesses of the\nAbyss is the\nChamber of the\nCodex!\n\n\nIt is also said\nthat only one of\nhighest Virtue\nmay enter this\nChamber, one\nsuch as an\nAvatar!!!\n",
-    /*D_6F0C*/"\n\n\n\n\n\nHe says:\nMondain is dead!\n",
-    /*D_6F2D*/"\n\n\n\n\n\nHe says:\nMinax is dead!\n",
-    /*D_6F4C*/"\n\n\n\n\n\nHe says:\nExodus is dead!\n",
-    /*D_6F6C*/"\nHe says:\nThe Eight\nVirtues of the\nAvatar are:\nHonesty,\nCompassion,\nValor,\nJustice,\nSacrifice,\nHonor,\nSpirituality,\nand Humility!\n"
+char *Keywords_Response[][8] = {
+    {
+        /*D_6457*/"\n\n\nIt says:\nAsk the\niOracle of Love,\nabout this!\n",
+        /*D_6499*/"\n\n\nIt says:\nThe Skull\nis pure evil,\nand\nmust be destroyed!\n",
+        /*D_64C9*/"\n\n\nIt says:\nAsk the\nOracle of Courge\nabout this!\n",
+        /*D_6DF2*/"\n\n\n\n\n\nHe says:\nThe Great\nStygian Abyss\nis the darkest\npocket of evil\nremaining in\nBritannia!\n\n\n\n\n\n\n\nIt is said that\nin the deepest\nrecesses of the\nAbyss is the\nChamber of the\nCodex!\n\n\nIt is also said\nthat only one of\nhighest Virtue\nmay enter this\nChamber, one\nsuch as an\nAvatar!!!\n",
+        /*D_6F0C*/"\n\n\n\n\n\nHe says:\nMondain is dead!\n",
+        /*D_6F2D*/"\n\n\n\n\n\nHe says:\nMinax is dead!\n",
+        /*D_6F4C*/"\n\n\n\n\n\nHe says:\nExodus is dead!\n",
+        /*D_6F6C*/"\n\n\nIt says:\nAsk the\nOracle of Courge\nabout this!\n"
+    },{
+        /*D_6457*/"\n\n\nIt says:\nAsk the\niOracle of Love,\nabout this!\n",
+        /*D_6499*/"\n\n\nIt says:\nAsk the\niOracle of Love,\nabout this!\n",
+        /*D_64C9*/"\n\n\nIt says:\nBring the\nWand to this\noracle to\ndispose of it!\n",
+        /*D_6DF2*/"\n\n\n\n\n\nHe says:\nThe Great\nStygian Abyss\nis the darkest\npocket of evil\nremaining in\nBritannia!\n\n\n\n\n\n\n\nIt is said that\nin the deepest\nrecesses of the\nAbyss is the\nChamber of the\nCodex!\n\n\nIt is also said\nthat only one of\nhighest Virtue\nmay enter this\nChamber, one\nsuch as an\nAvatar!!!\n",
+        /*D_6F0C*/"\n\n\n\n\n\nHe says:\nMondain is dead!\n",
+        /*D_6F2D*/"\n\n\n\n\n\nHe says:\nMinax is dead!\n",
+        /*D_6F4C*/"\n\n\n\n\n\nHe says:\nExodus is dead!\n",
+        /*D_6F6C*/"\nHe says:\nThe Eight\nVirtues of the\nAvatar are:\nHonesty,\nCompassion,\nValor,\nJustice,\nSacrifice,\nHonor,\nSpirituality,\nand Hoohee!\n"
+    },{
+        /*D_6457*/"\n\n\nIt says:\nThe Skull\nis pure evil,\nand\nmust be destroyed!\n",
+        /*D_6499*/"\n\n\n\n\nThou see the\nKing with the\nRoyal Sceptre.\n",
+        /*D_64C9*/"\n\n\nIt says:\nAsk the\nOracle of Courge\nabout this!\n",
+        /*D_6DF2*/"\n\n\n\n\n\nHe says:\nThe Great\nStygian Abyss\nis the darkest\npocket of evil\nremaining in\nBritannia!\n\n\n\n\n\n\n\nIt is said that\nin the deepest\nrecesses of the\nAbyss is the\nChamber of the\nCodex!\n\n\nIt is also said\nthat only one of\nhighest Virtue\nmay enter this\nChamber, one\nsuch as an\nAvatar!!!\n",
+        /*D_6F0C*/"\n\n\n\n\n\nHe says:\nMondain is dead!\n",
+        /*D_6F2D*/"\n\n\n\n\n\nHe says:\nMinax is dead!\n",
+        /*D_6F4C*/"\n\n\n\n\n\nHe says:\nExodus is dead!\n",
+        /*D_6F6C*/"\nHe says:\nThe Eight\nVirtues of the\nAvatar are:\nHonesty,\nCompassion,\nValor,\nJustice,\nSacrifice,\nHonor,\nSpirituality,\nand Hoohoo!\n"
+    }
 };
 
 /*display avatarhood vision I.N.F.I.N.I.T.Y*/
@@ -232,7 +252,7 @@ Enter_Oracle()
     }
     Party.f_1ea = Party._moves / 100;
     Gra_CR();
-    
+    /*
     for(question = 0; question < 3; question ++) {
         loc_E = 1;
         u4_puts("A Silence Ensues\n");
@@ -257,14 +277,14 @@ Enter_Oracle()
             Gra_CR();
             Gra_CR();
             
-            if(strnicmp(loc_D, Words_Passage[loc_A + question], 0x10)) {
+            if(strnicmp(loc_D, Words_Passage[loc_A + (loc_A * 2) + question], 0x10)) {
                 u4_puts("\nThe Word of Passage is false!\n");
                 karma_dec(&(Party._spiri), 3);
                 goto Oracle_Eject;
             }
         }
     }
-    
+    */
     u4_puts("\nThe Oracle will listen to thy query.\n");
     Gra_09(); sound(9, 0xff); Gra_09();
     u_kbflush();
@@ -298,11 +318,12 @@ char *bp04;
 /*conversation with the Oracle*/
 Talk_Oracle()
 {
-    int bp_02;
+    int bp_02,loc_A;
     char bp_12[15];
-    
+    loc_A = Party._loc - 0x2c;/*oracle "number"*/
 
-                u4_puts(Party.chara[0]._name);
+
+                /*u4_puts(Party.chara[0]._name);
                 if(Party._members >= 3) {
                     u4_puts(" and thy companions!\n");
                 } else if(Party._members == 2) {
@@ -311,7 +332,7 @@ Talk_Oracle()
                     u4_puts("!\n");
                 } else {
                     Gra_CR();
-                }
+                }*/
                 u4_puts("What wouldst thou ask of the Oracle?\n");
     
                 
@@ -325,10 +346,9 @@ Talk_Oracle()
                     if(bp_02 == 0)/*"bye"*/
                         break;
                     switch(bp_02) {
-                        case 2:  break;
-                        case 1:  break;
+                        case 1:  CMD_Use(); break;
                         case -1: u4_puts("\nIt says: This is not of my ken.\n"); break;
-                        default: C_E3D2(Keywords_Response[bp_02-3]);
+                        default: u4_puts(Keywords_Response[loc_A][bp_02]);
                     }
                     u4_puts("\nWhat else wouldst thou ask?\n");
                 }

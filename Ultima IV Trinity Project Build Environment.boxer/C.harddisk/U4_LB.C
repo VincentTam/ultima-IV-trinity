@@ -8,7 +8,7 @@
 
 #include <string.h>
 
-char *D_6FF0[28] = {
+char *D_6FF0[32] = {
 	/*D_639A*/"bye",
 	/*D_639E*/"help",
 	/*D_63A3*/"health",
@@ -36,10 +36,14 @@ char *D_6FF0[28] = {
 	/*D_6442*/"minax",
 	/*D_6448*/"exodus",
 	/*D_644F*/"virtue",
+    /*D_644F*/"oracle",
+    /*D_644F*/"skull",
+    /*D_644F*/"wand",
+    /*D_644F*/"ring",
 	/*D_6456*/""
 };
 
-char *D_7028[24] = {
+char *D_7028[28] = {
 	/*D_6457*/"\n\n\nHe says:\nMy name is\nLord British,\nSovereign of\nall Britannia!\n",
 	/*D_6499*/"\n\n\n\n\nThou see the\nKing with the\nRoyal Sceptre.\n",
 	/*D_64C9*/"\n\n\nHe says:\nI rule all\nBritannia, and\nshall do my best\nto help thee!\n",
@@ -63,8 +67,13 @@ char *D_7028[24] = {
 	/*D_6F0C*/"\n\n\n\n\n\nHe says:\nMondain is dead!\n",
 	/*D_6F2D*/"\n\n\n\n\n\nHe says:\nMinax is dead!\n",
 	/*D_6F4C*/"\n\n\n\n\n\nHe says:\nExodus is dead!\n",
-	/*D_6F6C*/"\nHe says:\nThe Eight\nVirtues of the\nAvatar are:\nHonesty,\nCompassion,\nValor,\nJustice,\nSacrifice,\nHonor,\nSpirituality,\nand Humility!\n"
+	/*D_6F6C*/"\nHe says:\nThe Eight\nVirtues of the\nAvatar are:\nHonesty,\nCompassion,\nValor,\nJustice,\nSacrifice,\nHonor,\nSpirituality,\nand Humility!\n",
+    /*D_6F2D*/"\n\n\n\n\n\nHe says:\nI have heard of the Oracles.\nSeek thee to\nlearn more of\ntheir secrets!\n",
+    /*D_6F2D*/"\n\n\n\n\n\nHe says:\nAn evil\nartifact!\nIt must be dealt with!\n",
+    /*D_6F2D*/"\n\n\n\n\n\nHe says:\nAn evil\nartifact!\nIt must be dealt with!\n",
+    /*D_6F2D*/"\n\n\n\n\n\nHe says:\nAn evil\nartifact!\nIt must be dealt with!\n"
 };
+
 
 /*10 seconds delay*/
 C_E1FC() {
