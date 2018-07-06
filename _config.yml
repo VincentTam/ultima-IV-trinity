@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 title:            Balzac
-=======
-title:            Ultima IV Advent of the Trinity
->>>>>>> f17936e8d68c67f02d4f73b0603b64765294e146
 tagline:          A beautiful theme.
 description:      Describe your website.
-canonical: https://cambragol.github.io/ultima-IV-trinity
+canonical: http://jekyll.gtat.me
 
 # Owner/author information
 owner:
