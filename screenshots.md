@@ -1,7 +1,7 @@
 ---
 layout: post-light-feature
 title: "Screenshots"
-permalink: /index.html
+permalink: /screenshots.html
 description: "Some screenshots of the current state of the mod"
 comments: true
 image:
