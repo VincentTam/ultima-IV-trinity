@@ -28,6 +28,8 @@ opengraph:
 links:
   - title: About
     url: /about
+  - title: Articles
+    url: /articles
   - title: Github
     url: https://github.com/cambragol/ultima-IV-trinity
     external: true
