@@ -4,6 +4,9 @@ title: "Testing the Post"
 description: "Some screenshots of the current state of the mod"
 comments: true
 category: articles
+image:
+# local image 
+  feature: develop.jpg
 ---
 
 Here is a screenshot showing a ladder on the first floor 
