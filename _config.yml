@@ -1,25 +1,22 @@
-title:            Balzac
-tagline:          A beautiful theme.
-description:      Describe your website.
+title:            Ultima IV - Advent of the Trinity
+tagline:          The first mod for the original DOS Ultima IV.
+description:      Advent of the Trinity for Ultima IV
 url: https://cambragol.github.io/ultima-IV-trinity
 
 # Owner/author information
 owner:
-  name:           Cole Townsend
-  avatar:         avatar.png
-  bio:            "Aesthete & Athlete"
-  email:          cole@coletownsend.com
-  twitter:        twnsndco
-  github:         coletownsend
-  instagram:      ctrunsthis
-  dribbble:       coletownsend
-  disqus:         balzac
-  location:       "Buffalo, NY"
+  name:           Cambragol
+  avatar:         https://avatars1.githubusercontent.com/u/5019739?s=460&v=4
+  bio:            "Modding not Coding"
+  email:          griffon_academy@yahoo.ca
+  github:         cambragol
+  disqus:         camragol
+  location:       "Somewhere, Somewhere"
   # Plug in your disqus shortname!
 
 tools:
-  standards:      "HTML, SCSS, Jekyll"
-  software:       "git"
+  standards:      "Photoshop, Text editors, Hex Fiend"
+  software:       "Xcode?"
 
 # Open Graph customization
 opengraph:
@@ -31,11 +28,9 @@ links:
   - title: About
     url: /about
   - title: Github
-    url: https://github.com/ColeTownsend/Balzac-for-Jekyll
+    url: https://github.com/cambragol/ultima-IV-trinity
     external: true
-  - title: Cole Who?
-    url: http://coletownsend.com
-    external: true
+
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
