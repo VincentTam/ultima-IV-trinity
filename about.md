@@ -8,19 +8,32 @@ image:
   feature: soft-trees.jpg
 ---
 
-This is built on Semantic.gs grid framework which I edited a bit to make it fluid. I hope you enjoy using, forking, whatevering this theme as much as I did making it. 
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/Ultima_IV_Advent_Trinity.png" /><br>
+</h1>
 
-### Features
-* flexible, uses max-width for responsive goodness
-* responsive drop down menu
-* retina images using @2x
-* post loop in the footer showing 3 latest post
-* custom portfolio page for case studies
+This project aims to modify the original Ultima IV to add additional content, via quests, locations and features. It will also not alter the original quest content at all, permitting the game to be completed in the original fashion, whilst still making the new content available. A few bug fixes of the original code will also be added.
 
-### Acknowledgements
-I utilized my own HTML templates, but had no prior knowledge of liquid nor the required Jekyll system file format. I took [Michael Rose](http://twitter.com/mmistakes)'s theme [Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes/). Having a prebuilt archive and the YAML front-matter already set up was a great help. 
+## Features
 
- The lovely font shown here is Calendas. For full splendor on your blog, I suggest you [head over and buy that](http://calendasplus.com/). The full family is 3 weights and costs $3. Many thanks to Daniel Bruce for the wonderful Entypo icons. Those can be picked up at [entypo.com](http://entypo.com), but are included with the source files. It's also <b>retina ready</b> via retina.js. Check out how that works over at [retinajs.com](http://retinajs.com).
-
-### The Name
-Balzac was a famous writer, known for his beautiful prose. I read some Balzac in school, but mostly feel comfort in the name of my favorite coffee shop in Stratford, Ontario. 
+  ### Bug Fixes/Improvements
+  * Moonphases restored on save
+  * All chest trap types working
+  * No more infinite Mystic Weaps/Armor
+  * Other Small fixes
+  
+  ### New Features
+  * New Villages and Camps
+  * New Shops and Merchants
+  * Dozens of new Characters
+  * New Dungeons (Crypts)
+  * New, powerful Artifacts
+  * New Shrines (Oracles)
+  * 2nd levels for all Towns
+  * Many other small additions
+  
+  ### Other Highlights
+  * Saved games are compatible with vanilla Ultima IV
+  
+## Credits
+  * All credit goes to ergonomy-joe for making this possible, thanks to his u4-decompiled.
