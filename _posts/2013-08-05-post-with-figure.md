@@ -11,8 +11,10 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 ### Single Image Figure
 
 <figure>
-	<img src="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg">
-	<figcaption>Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr</figcaption>
+	<img src="river-village.jpg">
+	<figcaption>A village situated beside a river along the western coast of Britannia</figcaption>
+	<img src="valley-village.jpg">
+	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
 </figure>
 
 {% highlight html linenos %}
