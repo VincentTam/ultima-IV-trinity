@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 title:            Balzac
 tagline:          A beautiful theme.
 description:      Describe your website.
@@ -65,3 +66,6 @@ permalink:   /:categories/:title
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp"]
+=======
+remote_theme: balzac-for-jekyll
+>>>>>>> 164339870c6635d149c8520a2d20516fc334cdb6
