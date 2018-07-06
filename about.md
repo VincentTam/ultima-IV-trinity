@@ -10,13 +10,13 @@ image:
 
 ## Features
 
-  ## Bug Fixes/Improvements
+### Bug Fixes/Improvements
   * Moonphases restored on save
   * All chest trap types working
   * No more infinite Mystic Weaps/Armor
   * Other Small fixes
   
-  ## New Features
+### New Features
   * New Villages and Camps
   * New Shops and Merchants
   * Dozens of new Characters
@@ -26,7 +26,7 @@ image:
   * 2nd levels for all Towns
   * Many other small additions
   
-  ## Other Highlights
+### Other Highlights
   * Saved games are compatible with vanilla Ultima IV
   
 ## Credits
