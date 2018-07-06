@@ -42,7 +42,7 @@ timezone:    America/New_York
 future:      true
 highlighter: pygments
 markdown:    kramdown
-remote_theme: Balzac-for-Jekyll
+remote_theme: Balzac
 kramdown:
   auto_ids: true
   footnote_nr: 1
