@@ -1,28 +1,24 @@
 ---
 layout: post
 permalink: /about/index.html
-title: About the Theme
-description: Balzac is a new, fluid & responsive theme for Jekyll (and AnchorCMS). It's gloriously beautiful and suited to long form. Built on a SCSS foundation, it's organized and awesome.
-tags: [about, Jekyll, theme, responsive]
+title: <h1 align="center">
+  <img src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/Ultima_IV_Advent_Trinity.png" /><br>
+</h1>
+description: This project aims to modify the original Ultima IV to add additional content, via quests, locations and features. It will also not alter the original quest content at all, permitting the game to be completed in the original fashion, whilst still making the new content available. A few bug fixes of the original code will also be added.
+tags: [about, ultima iv, mod, dos]
 image:
   feature: soft-trees.jpg
 ---
 
-<h1 align="center">
-  <img src="https://raw.githubusercontent.com/cambragol/ultima-IV-trinity/master/Art/Ultima_IV_Advent_Trinity.png" /><br>
-</h1>
-
-This project aims to modify the original Ultima IV to add additional content, via quests, locations and features. It will also not alter the original quest content at all, permitting the game to be completed in the original fashion, whilst still making the new content available. A few bug fixes of the original code will also be added.
-
 ## Features
 
-  ### Bug Fixes/Improvements
+  ## Bug Fixes/Improvements
   * Moonphases restored on save
   * All chest trap types working
   * No more infinite Mystic Weaps/Armor
   * Other Small fixes
   
-  ### New Features
+  ## New Features
   * New Villages and Camps
   * New Shops and Merchants
   * Dozens of new Characters
@@ -32,7 +28,7 @@ This project aims to modify the original Ultima IV to add additional content, vi
   * 2nd levels for all Towns
   * Many other small additions
   
-  ### Other Highlights
+  ## Other Highlights
   * Saved games are compatible with vanilla Ultima IV
   
 ## Credits
