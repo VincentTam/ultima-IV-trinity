@@ -18,8 +18,6 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 </figure>
 
 {% highlight C linenos %}
-/*Leaving...*/
-MAP_Leaving()
 {
 	u4_puts("Leaving...\n");
 	CurMode = MOD_VISION;
@@ -46,7 +44,6 @@ MAP_Leaving()
 	Party.f_1dc = 0;
 	D_9440 = 1;
 
-    
 	if(Party._x == 0xef && Party._y == 0xf0) {
 		D_8742._npc._tile[31] = D_8742._npc._gtile[31] = TIL_18;
 		D_8742._npc._x[31] = 0xe9;
