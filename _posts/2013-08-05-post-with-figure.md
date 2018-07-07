@@ -17,7 +17,7 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
 </figure>
 
-{% highlight C linenos=table %}
+{% highlight c linenos=table %}
 
 	Party._x = Party.out_x;
 	Party._y = Party.out_y;
