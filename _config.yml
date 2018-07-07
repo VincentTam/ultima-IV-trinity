@@ -11,13 +11,15 @@ owner:
   bio:            "Modding not Coding"
   email:          griffon_academy@yahoo.ca
   github:         cambragol
-  disqus:         camragol
+  disqus:         mourfin
   location:       "Somewhere, Somewhere"
   # Plug in your disqus shortname!
 
 tools:
   standards:      "Photoshop, Text editors, Hex Fiend"
   software:       "Xcode?"
+  
+comments: true
 
 # Open Graph customization
 opengraph:
