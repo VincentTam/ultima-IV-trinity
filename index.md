@@ -31,3 +31,5 @@ image:
   
 ## Credits
   * All credit goes to ergonomy-joe for making this possible, thanks to his u4-decompiled.
+  * James Van Artsdalen for the conversion to C for Dos
+  * Lord British for the greatness that is Ultima IV
