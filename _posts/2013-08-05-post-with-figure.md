@@ -17,7 +17,7 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
 </figure>
 
-{% highlight c linenos=table %}
+{% highlight c++ linenos=table %}
 
 	if(Party._x == 0xef && Party._y == 0xf0) {
 		D_8742._npc._tile[31] = D_8742._npc._gtile[31] = TIL_18;
