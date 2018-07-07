@@ -7,14 +7,17 @@ comments: true
 image:
 ---
 
-These screenshots show some of the content added with this 'mod'
+These screenshots show some of the content added with this 'mod'. Currently only existing tiles have been used to extend content. Care has been taken to emulate the style of the original content whereever possible (I hope).
 
-![Screenshot 1]({{ site.url }}/images/valley_village.jpg)
- 
-![Screenshot 2]({{ site.url }}/images/river_village.jpg)
-
-![Screenshot 3]({{ site.url }}/images/title.jpg)
-
-![Screenshot 4]({{ site.url }}/images/village.jpg)
-
-![Screenshot 5]({{ site.url }}/images/crypt.jpg)
+<figure>
+	<img src="/ultima-IV-trinity/images/river_village.jpg">
+	<figcaption>A village situated beside a river along the western coast of Britannia</figcaption>
+	<img src="/ultima-IV-trinity/images/valley_village.jpg">
+	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
+ 	<img src="/ultima-IV-trinity/images/title.jpg">
+	<figcaption>A new title screen</figcaption>
+ 	<img src="/ultima-IV-trinity/images/2nd_floor.jpg">
+	<figcaption>A view from the second floor in Trinsic</figcaption>
+ 	<img src="/ultima-IV-trinity/images/crypt.jpg">
+	<figcaption>Entering a crypt</figcaption>
+</figure>
