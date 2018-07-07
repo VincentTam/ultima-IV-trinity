@@ -18,23 +18,7 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 </figure>
 
 {% highlight C %}
-{
-	u4_puts("Leaving...\n");
-	CurMode = MOD_VISION;
-	if(Load("OUTMONST.SAV", sizeof(struct tNPC), &(D_8742._npc)) == -1)
-		exit(3);
-	if(File_TLK) {
-		dclose(File_TLK);
-		File_TLK = 0;
-	}
-    if(File_TLK_2) {
-        dclose(File_TLK_2);
-        File_TLK_2 = 0;
-    }
-    if(File_TLK_Buff) {
-        dclose(File_TLK_Buff);
-        File_TLK_Buff = 0;
-    }
+
 	Party._x = Party.out_x;
 	Party._y = Party.out_y;
 	C_26B6();
@@ -50,5 +34,5 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 		D_8742._npc._y[31] = 0xf2;
 	}
 	u_kbflush();
-}
+
 {% endhighlight %}
