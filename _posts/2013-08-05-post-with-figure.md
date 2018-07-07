@@ -11,9 +11,9 @@ This is a post that uses a `figure`. It stacks these images and places a nice li
 ### Single Image Figure
 
 <figure>
-	![Screenshot 1]({{ site.url }}/images/river-village.jpg")
+	<img src="/images/river-village.jpg">
 	<figcaption>A village situated beside a river along the western coast of Britannia</figcaption>
-	![Screenshot 2]({{ site.url }}/images/valley-village.jpg")
+	<img src="/images/valley-village.jpg">
 	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
 </figure>
 
