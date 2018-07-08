@@ -8,9 +8,6 @@
 
 #include <string.h>
 
-int Oracle_1_x = 0;
-int Oracle_1_y = 0;
-
 char No_Effect[] = "Hmm...No effect!\n";
 char None_Owned[] = "None owned!\n";
 char D_010E[] = {/*colors masks*/

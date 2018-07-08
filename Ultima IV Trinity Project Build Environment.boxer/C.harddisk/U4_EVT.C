@@ -102,7 +102,7 @@ Random_Encounter()
 		if((tile_cur & 0xf0) == 0xa0) {
 			switch(tile_cur & 3) {
 				case 0: Poison(); break;
-				case 2: Party_Damage(); break;
+				case 2: Party_Damage(15); break;
 				case 3: Sleep(); break;
 			}
 		} else if((tile_cur & 0xf0) == 0x80) {
@@ -111,14 +111,14 @@ Random_Encounter()
 				Party.f_1dc = 0;
 			} else {
 				u4_puts((tile_cur < 0x88)?"\nFalling Rocks!\n":"\nPit!\n");
-				Party_Damage();
+				Party_Damage(15);
 			}
 		}
 		return;
 	}
 	switch(tile_cur) {
 		case TIL_Swamp_03: case TIL_44: Poison(); break;
-		case TIL_46: case TIL_4C: Party_Damage(); break;
+		case TIL_46: case TIL_4C: Party_Damage(15); break;
 		case TIL_47: Sleep(); break;
 	}
 }

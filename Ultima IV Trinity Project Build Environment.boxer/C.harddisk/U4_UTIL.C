@@ -551,7 +551,8 @@ char bp04;
 		}
 		si &= 0xff;
 		u4_toupper2(si);
-		if(si > ' ' && si < 0x7f)
+        /*pulled this conditional from Askletter2...not original behaviour, but better?*/
+		if((si > ' ' && si < 0x7f) && (bp06 <= si && si <= bp04))
 			u4_putc(si);
             if(bp08 != 0)
             Gra_CR();

@@ -131,6 +131,7 @@ MAP_Leaving()
     HorseTown = 0;
 	Party.f_1dc = 0;
 	D_9440 = 1;
+
     
 	if(Party._x == 0xef && Party._y == 0xf0) {
 		D_8742._npc._tile[31] = D_8742._npc._gtile[31] = TIL_18;

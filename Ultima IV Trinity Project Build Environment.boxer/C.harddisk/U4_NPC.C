@@ -325,7 +325,7 @@ int bp04;
 	hit_y = hit_x = 5;
 	hit_tile = TIL_4F;
 	C_36C7();
-	Party_Damage();
+	Party_Damage(15);
 	hit_tile = 0;
 	t_callback();
 }

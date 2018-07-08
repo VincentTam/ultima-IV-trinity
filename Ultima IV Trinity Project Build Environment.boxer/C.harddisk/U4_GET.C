@@ -57,7 +57,7 @@ int bp04;
 			dspl_Stats();
 			sleep_poisonfx(bp04);
 		} else {/*Bomb*/
-			Party_Damage();
+			Party_Damage(15);
 		}
 	}
 	C_70F1();
