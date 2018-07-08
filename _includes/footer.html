@@ -68,7 +68,16 @@
        fullscreen2();         
     });
 
-  $(".site-header").headroom();
+  $(".site-header").headroom( {
+	  classes : {
+        // when element is initialised
+        initial : "headroom",
+        // when scrolling up
+        pinned : "headroom--pinned",
+        // when scrolling down
+        unpinned : "headroom--unpinned"
+    	}
+  });
 
 });
 </script>
