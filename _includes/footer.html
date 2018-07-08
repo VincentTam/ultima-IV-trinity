@@ -45,6 +45,15 @@
 	}
   
 	fullscreen();
+		
+	function fullscreen2(){
+		jQuery('.overlay').css({
+            width: jQuery(window).width(),
+            height: jQuery(window).height()
+        });
+	}
+  
+	fullscreen2();
 
   // Run the function in case of window resize
   jQuery(window).resize(function() {
