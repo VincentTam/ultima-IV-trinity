@@ -5,7 +5,7 @@ description: "Trying out Jekyll, and saying hello world"
 category: articles
 comments: true
 tags: [first post, highlighting, code]
-image: book_2.jpg
+image: book_3.jpg
 ---
 
 Here is a first little test article. Just trying out this theme's features. Tweaking them a bit to fit my liking. I'm not sure about 'blogging' for this 'mod', but it might be fun just to air out the trials and travails I go through. Likely no one will ever take note, but it could still be fun. I got to learn how to use Jekyll a bit too, which has been neat. Github too.
