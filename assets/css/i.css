@@ -187,6 +187,12 @@ blockquote, blockquote p {
 .headroom--unpinned {
     transform: translateY(-100%);
 }
+.headroom--top {
+   background-color: transparent;
+}
+.headroom--not-top {
+   background-color: #3b3b3b;
+}
 
 @media only screen and (max-width: 480px) {
   p {
