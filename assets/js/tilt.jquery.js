@@ -299,7 +299,9 @@
     /**
      * Auto load
      */
-    $('[data-tilt]').tilt();
+    $('[data-tilt]').tilt({
+    	scale: 1.2
+	});
 
     return true;
 }));
