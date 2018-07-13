@@ -9,6 +9,7 @@ image:
 
 These screenshots show some of the content added with this 'mod'. Currently only existing tiles have been used to extend content. Care has been taken to emulate the style of the original content whereever possible (I hope).
 
+<figure>
 	<div data-tilt><img src="/ultima-IV-trinity/images/river_village.jpg"></div>
 	<figcaption>A village situated beside a river along the western coast of Britannia</figcaption>
 	<img src="/ultima-IV-trinity/images/valley_village.jpg">
@@ -19,3 +20,4 @@ These screenshots show some of the content added with this 'mod'. Currently only
 	<figcaption>A view from the second floor in Trinsic</figcaption>
  	<img src="/ultima-IV-trinity/images/crypt.jpg">
 	<figcaption>Entering a crypt</figcaption>
+</figure>
