@@ -303,8 +303,8 @@
     	scale: 1.1,
 	glare: true,
     	maxGlare: .5,
-	maxTilt:        10,
-	perspective:    3000
+	maxTilt:        15,
+	perspective:    2000
 	});
 
     return true;
