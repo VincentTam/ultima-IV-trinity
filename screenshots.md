@@ -10,14 +10,14 @@ image:
 These screenshots show some of the content added with this 'mod'. Currently only existing tiles have been used to extend content. Care has been taken to emulate the style of the original content whereever possible (I hope).
 
 <figure>
-	<div data-tilt><img src="/ultima-IV-trinity/images/river_village.jpg" /></div>
+	<img data-tilt src="/ultima-IV-trinity/images/river_village.jpg" />
 	<figcaption>A village situated beside a river along the western coast of Britannia</figcaption>
 	<img data-tilt src="/ultima-IV-trinity/images/valley_village.jpg" />
 	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
- 	<img src="/ultima-IV-trinity/images/title.jpg" />
+ 	<img data-tilt src="/ultima-IV-trinity/images/title.jpg" />
 	<figcaption>A new title screen</figcaption>
- 	<img src="/ultima-IV-trinity/images/2nd_floor.jpg" />
+ 	<img data-tilt src="/ultima-IV-trinity/images/2nd_floor.jpg" />
 	<figcaption>A view from the second floor in Trinsic</figcaption>
- 	<img src="/ultima-IV-trinity/images/crypt.jpg" />
+ 	<img data-tilt src="/ultima-IV-trinity/images/crypt.jpg" />
 	<figcaption>Entering a crypt</figcaption>
 </figure>
