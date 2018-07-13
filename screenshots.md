@@ -10,7 +10,7 @@ image:
 These screenshots show some of the content added with this 'mod'. Currently only existing tiles have been used to extend content. Care has been taken to emulate the style of the original content whereever possible (I hope).
 
 <figure>
-	<div data-tilt-perspective="300" data-tilt-speed="400" data-tilt-max="25" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);"><img src="/ultima-IV-trinity/images/river_village.jpg"></div>
+	<div data-tilt><img src="/ultima-IV-trinity/images/river_village.jpg"></div>
 	<figcaption>A village situated beside a river along the western coast of Britannia</figcaption>
 	<img src="/ultima-IV-trinity/images/valley_village.jpg">
 	<figcaption>A village in a valley of the Serpent's Spine mountains</figcaption>
