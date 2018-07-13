@@ -13,7 +13,7 @@ The gif below shows a couple of neat things included in the "mod".
 * 2nd floors in towns
 * Horses restored when descending ladders
 
-<span data-tilt>![A Tour of Trinsic]({{ site.url }}/images/Trinsic_Tour.gif)</span>
+![A Tour of Trinsic]({{ site.url }}/images/Trinsic_Tour.gif)
 
 In the original game riding a horse into Lord British's castle, climbing the ladder, then descending again, woudl lose you a perfectly good horse. 
 
