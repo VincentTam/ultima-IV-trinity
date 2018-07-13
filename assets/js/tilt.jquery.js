@@ -300,7 +300,9 @@
      * Auto load
      */
     $('[data-tilt]').tilt({
-    	scale: 1.2
+    	scale: 1.2,
+	glare: true,
+    	maxGlare: .5
 	});
 
     return true;
