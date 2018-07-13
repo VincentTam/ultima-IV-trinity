@@ -6,6 +6,8 @@ description: This project aims to modify the original Ultima IV to add additiona
 tags: [about, ultima iv, mod, dos]
 image:
   feature: map_1.jpg
+mockup:
+  feature
 ---
 
 ## Features
