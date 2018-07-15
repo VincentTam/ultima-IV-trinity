@@ -3,6 +3,7 @@ layout: post
 title: Artifacts
 description: Cogitating on the ideas behind the artifacts and magical items included in 'Advent of the Trinity'.'
 category: articles
+comments: true
 tags: [artifacts, magical items, Trinity, ideas]
 image:
   book_2.jpg
