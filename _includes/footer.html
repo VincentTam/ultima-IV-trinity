@@ -35,6 +35,7 @@
 
   <!-- Custom JS -->
   <script src="{{ site.url }}/assets/js/scripts.js"></script>
+  <script src="{{ site.url }}/assets/js/mockup.js"></script>
 
 <script> jQuery(document).ready(function($){
  // Defining a function to set size for #hero 
@@ -65,11 +66,13 @@
   jQuery(window).resize(function() {
        fullscreen2();         
     });
+		
+window.sr = ScrollReveal();
+sr.reveal('.ScrollRev');
 
 });
 </script>
   <script src="{{ site.url }}/assets/js/tilt.jquery.js"></script>
-  <script src="{{ site.url }}/assets/js/mockup.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
   </body>
 </html>
