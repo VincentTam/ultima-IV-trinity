@@ -66,9 +66,21 @@
   jQuery(window).resize(function() {
        fullscreen2();         
     });
-		
-window.sr = ScrollReveal();
-sr.reveal('.ScrollRev');
+	
+      (function(){
+
+        var config = {
+          viewFactor : 0.15,
+          duration   : 800,
+          distance   : "0px",
+          scale      : 0.8,
+        }
+
+        window.sr = new ScrollReveal(config)
+	sr.reveal('.ScrollRev');
+
+      })()		
+	
 
 });
 </script>
