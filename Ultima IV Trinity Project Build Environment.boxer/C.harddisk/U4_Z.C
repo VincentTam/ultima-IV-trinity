@@ -251,6 +251,17 @@ Ztats_Items()
         }
         txt_Y ++;
     }
+    if(TST_MSK(Party.mItems2, 5) || TST_MSK(Party.mItems2, 7) || TST_MSK(Party.mItems2, 9)) {
+        txt_X = 24;
+        u4_puts(/*D_197C*/"Moon Orbs:");
+        if(TST_MSK(Party.mItems2, 9))
+            u4_putc('I');
+        if(TST_MSK(Party.mItems2, 7))
+            u4_putc('I');
+        if(TST_MSK(Party.mItems2, 5))
+            u4_putc('I');
+        txt_Y ++;
+    }
 }
 
 Ztats_Reagents()

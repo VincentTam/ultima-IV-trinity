@@ -146,7 +146,11 @@ MAP_Leaving()
 Crypt_Exit(bp04)
 unsigned bp04;
 {
-    u4_puts("\nThe Tomb slides shut and seals...\n");
+    if(Party._loc > 43) {
+        u4_puts("\nThe altar fades away in a flash of light...\n");
+    } else {
+        u4_puts("\nThe Tomb slides shut and seals...\n");
+    }
     Gra_09(); sound(9, 0x60); Gra_09();
     Skull_Kill();
     Big_Karma_Inc();

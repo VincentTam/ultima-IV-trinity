@@ -224,9 +224,9 @@ char *D_Assorted[] = {
 };
 char *D_Principles[] = {
     /*151 - principles D_1FC6*/
-    /*D_1E48*/"Love",
-    /*D_1E50*/"Courage",
-    /*D_1E5B*/"Truth"
+    /*D_1E48*/"Control",
+    /*D_1E50*/"Passion",
+    /*D_1E5B*/"Diligence"
 };
 
 char *D_Incantations[] = {

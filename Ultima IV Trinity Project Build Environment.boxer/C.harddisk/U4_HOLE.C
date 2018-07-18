@@ -8,7 +8,8 @@
 
 #include <stdlib.h>
 
-unsigned char D_26B8[] = {TIL_C0,TIL_C4,TIL_C8,TIL_CC,TIL_B4,TIL_A0,TIL_A4,TIL_DC};
+unsigned char D_LAAM[] = {TIL_C0,TIL_C4,TIL_C8,TIL_CC,TIL_B4,TIL_A0,TIL_A4,TIL_DC};
+unsigned char D_SEAM[] = {TIL_84,TIL_F8,TIL_FC,TIL_88,TIL_86,TIL_84,TIL_8A,TIL_8A};
 
 Ambush()
 {
@@ -17,7 +18,11 @@ Ambush()
 	u4_puts(/*D_26AC*/"Ambushed!\n");
 	D_9772 = Party._x;
 	D_9140 = Party._y;
-	D_96F8 = D_9452 = D_26B8[U4_RND1(7)];
+    if(Party._tile <= TIL_ShipS_13 || (tile_cur & ~3) == TIL_ShipW_10) {
+        D_96F8 = D_9452 = D_SEAM[U4_RND1(7)];
+    } else {
+	D_96F8 = D_9452 = D_LAAM[U4_RND1(7)];
+    }
 	for(si = Party._members; --si >= 0; ) {
 		if(Party.chara[si]._stat == 'G')
 			Party.chara[si]._stat = 'S';
@@ -34,16 +39,17 @@ Ambush()
 		w_NotHere();
 		return;
 	}
-	if(Party._tile != TIL_1F) {
-		w_OnlyOnFoot();
-		return;
-	}
-#ifdef WIN32
-	if(Load(CurMode == MOD_DUNGEON?/*D_26D0*/"CAMP.DNG":/*D_26D9*/"CAMP.CON", sizeof(struct tCombat), &Combat) == -1)
-#else
+    if(Party._tile == TIL_HorseW_14 || Party._tile == TIL_HorseE_15 || Party._tile == TIL_18) {
+        w_OnlyOnFoot();
+        return;
+    }
+    if(Party._tile <= TIL_ShipS_13 || (tile_cur & ~3) == TIL_ShipW_10) {
+        if(Load(CurMode == MOD_DUNGEON?/*D_26D0*/"CAMP.DNG":/*D_26D9*/"SHIPSEA.CON", (char *)&Fighters - (char *)&Combat, &Combat) == -1)
+            exit(3);
+    } else
 	if(Load(CurMode == MOD_DUNGEON?/*D_26D0*/"CAMP.DNG":/*D_26D9*/"CAMP.CON", (char *)&Fighters - (char *)&Combat, &Combat) == -1)
-#endif
 		exit(3);
+    
 	for(si = 31; si >= 0; si--)
 		Fighters._tile[si] = 0;
 	for(si = Party._members; --si >= 0; ) {

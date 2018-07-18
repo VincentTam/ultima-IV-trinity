@@ -233,6 +233,23 @@ USE_Belt() {
     dspl_Stats();
 }
 
+/*use orb*/
+USE_Orbs() {
+    if(!TST_MSK(Party.mItems2, 5) && !TST_MSK(Party.mItems2, 7) && !TST_MSK(Party.mItems2, 9)) {
+        u4_puts(None_Owned);
+        return;
+    }
+    if(Party._loc >= 43) {
+        u4_puts("You place the Orb onto the altar!\n");
+        SET_MSK(Party.mItems2, 6);
+        RST_MSK(Party.mItems2, 5);
+    } else {
+        u4_puts(No_Effect);
+        return;
+    }
+    dspl_Stats();
+}
+
 /*use wheel*/
 C_058C() {
     if(!TST_MSK(Party.mItems, 9)) {
@@ -258,6 +275,13 @@ USE_Ring() {
         u4_puts("\nYou place the Ring of Exodus into the Tomb....\n");
         SET_MSK(Party.mItems2, 1);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
+        RST_MSK(Party.mItems2, 0);
+        Crypt_Exit(Party._loc);
+    }
+    else if(Party._loc - 0x2e == 0) {
+        u4_puts("\nYou place the Ring of Exodus onto the Altar!\n");
+        SET_MSK(Party.mItems2, 1);
+        /*put the mask here so the ring is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems2, 0);
         Crypt_Exit(Party._loc);
     }
@@ -315,6 +339,13 @@ USE_Skull() {
         RST_MSK(Party.mItems, 0);
         Crypt_Exit(Party._loc);
     }
+    else if(Party._loc - 0x2c == 0) {
+        u4_puts("\nYou place the Skull of Mondain onto the Altar!\n");
+        SET_MSK(Party.mItems, 1);
+        /*put the mask here so the skull is only destroyed when cast into the Abyss or entombed in the Crypt */
+        RST_MSK(Party.mItems, 0);
+        Crypt_Exit(Party._loc);
+    }
 	else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
 		u4_puts("\nYou hold the evil Skull of Mondain the Wizard aloft....\n");
         Big_Shake();
@@ -358,13 +389,12 @@ USE_Wand() {
         RST_MSK(Party.mItems, 13);
         Crypt_Exit(Party._loc);
     }
-    else if(Party._loc - 0x2c == 0) {
+    else if(Party._loc - 0x2d == 0) {
         u4_puts("\nYou place the Wand of Minax onto the Altar!\n");
         SET_MSK(Party.mItems, 14);
-        Big_Karma_Inc();
-        Gra_09(); sound(9, 0x60); Gra_09();
         /*put the mask here so the wand is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems, 13);
+        Crypt_Exit(Party._loc);
     }
     else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
         u4_puts("\nYou raise the enscorled Wand of Minax the Enchantress before thee....\n");
@@ -479,6 +509,7 @@ struct {
 	{/*D_0407*/"skull",  USE_Skull},
     {/*D_0407*/"wand",   USE_Wand},
     {/*D_0407*/"belt",   USE_Belt},
+    {/*D_0407*/"orb",   USE_Orbs},
 	{/*D_040D*/"",       0}
 };
 
@@ -486,7 +517,12 @@ CMD_Use() {
 	register int si;
 	char bp_0e[12];
 
-	u4_puts("Use which item:\n");
+    if(CurMode == MOD_SHRINE) {
+        u4_puts("Give what item:\n");
+    }
+    else {
+        u4_puts("Use which item:\n");
+    }
 	u4_gets(bp_0e, 11);
 	Gra_CR();
 	for(si = 0; D_0434[si]._00[0]; si++) {

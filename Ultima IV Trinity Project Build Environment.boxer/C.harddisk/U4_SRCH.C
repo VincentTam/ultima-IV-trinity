@@ -109,6 +109,42 @@ C_RING()
     XP_inc(0, 400);
 }
 
+C_ORB1()
+{
+    if(TST_MSK(Party.mItems2, 5) || TST_MSK(Party.mItems2, 6)) {
+        u4_puts(D_27A6);
+        return;
+    }
+    SET_MSK(Party.mItems2, 5);
+    C_8D4B();
+    u4_puts(/*D_27F7*/"An Orb of the Moon!\n");
+    XP_inc(0, 400);
+}
+
+C_ORB2()
+{
+    if(TST_MSK(Party.mItems2, 7) || TST_MSK(Party.mItems2, 8)) {
+        u4_puts(D_27A6);
+        return;
+    }
+    SET_MSK(Party.mItems2, 7);
+    C_8D4B();
+    u4_puts(/*D_27F7*/"An Orb of the Moon!\n");
+    XP_inc(0, 400);
+}
+
+C_ORB3()
+{
+    if(TST_MSK(Party.mItems2, 9) || TST_MSK(Party.mItems2, 10)) {
+        u4_puts(D_27A6);
+        return;
+    }
+    SET_MSK(Party.mItems2, 9);
+    C_8D4B();
+    u4_puts(/*D_27F7*/"An Orb of the Moon!\n");
+    XP_inc(0, 400);
+}
+
 C_BLAC()
 {
 	if(
@@ -306,6 +342,9 @@ struct t_05_local {
 	{0x0A,0x02,0x1D,C_90C5},/*rune of ...*/
 	{0x01,0x11,0x08,C_90C5},/*rune of ...*/
 	{0x0D,0x1D,0x1D,C_90C5},/*rune of ...*/
+    {0x00,0x50,0x66,C_ORB1},/*An Orb of the Moon!*/
+    {0x00,0x52,0x66,C_ORB2},/*An Orb of the Moon!*/
+    {0x00,0x54,0x66,C_ORB3},/*An Orb of the Moon!*/
 	{0x00,0x00,0x00,0}
 };
 

@@ -83,7 +83,7 @@ char *Words_Passage[] = {
 
 char *Keywords[9] = {
     /*D_639A*/"bye",
-    /*D_639E*/"use",
+    /*D_639E*/"give",
     /*D_63A3*/"wand",
     /*D_63AA*/"name",
     /*D_63AF*/"look",
@@ -95,7 +95,7 @@ char *Keywords[9] = {
 
 char *Keywords_Response[][8] = {
     {
-        /*D_6457*/"\n\n\nIt says:\nAsk the\niOracle of Love,\nabout this!\n",
+        /*D_6457*/"\n\n\nIt says:\nThe Wand embodies\na Spirit of Passion,\nwhich could serve\nus well",
         /*D_6499*/"\n\n\nIt says:\nThe Skull\nis pure evil,\nand\nmust be destroyed!\n",
         /*D_64C9*/"\n\n\nIt says:\nAsk the\nOracle of Courge\nabout this!\n",
         /*D_6DF2*/"\n\n\n\n\n\nHe says:\nThe Great\nStygian Abyss\nis the darkest\npocket of evil\nremaining in\nBritannia!\n\n\n\n\n\n\n\nIt is said that\nin the deepest\nrecesses of the\nAbyss is the\nChamber of the\nCodex!\n\n\nIt is also said\nthat only one of\nhighest Virtue\nmay enter this\nChamber, one\nsuch as an\nAvatar!!!\n",
@@ -113,7 +113,7 @@ char *Keywords_Response[][8] = {
         /*D_6F4C*/"\n\n\n\n\n\nHe says:\nExodus is dead!\n",
         /*D_6F6C*/"\nHe says:\nThe Eight\nVirtues of the\nAvatar are:\nHonesty,\nCompassion,\nValor,\nJustice,\nSacrifice,\nHonor,\nSpirituality,\nand Hoohee!\n"
     },{
-        /*D_6457*/"\n\n\nIt says:\nThe Skull\nis pure evil,\nand\nmust be destroyed!\n",
+        /*D_6457*/"\n\n\nIt says:\nAsk the\niOracle of Love,\nabout this!\n",
         /*D_6499*/"\n\n\n\n\nThou see the\nKing with the\nRoyal Sceptre.\n",
         /*D_64C9*/"\n\n\nIt says:\nAsk the\nOracle of Courge\nabout this!\n",
         /*D_6DF2*/"\n\n\n\n\n\nHe says:\nThe Great\nStygian Abyss\nis the darkest\npocket of evil\nremaining in\nBritannia!\n\n\n\n\n\n\n\nIt is said that\nin the deepest\nrecesses of the\nAbyss is the\nChamber of the\nCodex!\n\n\nIt is also said\nthat only one of\nhighest Virtue\nmay enter this\nChamber, one\nsuch as an\nAvatar!!!\n",
@@ -223,7 +223,7 @@ Enter_Oracle()
     loc_A = Party._loc - 0x2c;/*oracle "number"*/
     /* this check is not set yet...used runes in the Shrine version */
     if(Party._loc == 0) {
-        u4_puts(/*D_8372*/"\nThou dost not bear the rune of entry!  A strange force keeps you out!\n");
+        u4_puts("\nThou dost not bear the rune of entry!  A strange force keeps you out!\n");
         Oracle_Eject:
             CurMode = MOD_OUTDOORS;
             Party._loc = 0;
@@ -252,8 +252,8 @@ Enter_Oracle()
     }
     Party.f_1ea = Party._moves / 100;
     Gra_CR();
-    /*
-    for(question = 0; question < 3; question ++) {
+    
+    /*for(question = 0; question < 3; question ++) {
         loc_E = 1;
         u4_puts("A Silence Ensues\n");
         
@@ -283,8 +283,8 @@ Enter_Oracle()
                 goto Oracle_Eject;
             }
         }
-    }
-    */
+    }*/
+    
     u4_puts("\nThe Oracle will listen to thy query.\n");
     Gra_09(); sound(9, 0xff); Gra_09();
     u_kbflush();
@@ -322,19 +322,7 @@ Talk_Oracle()
     char bp_12[15];
     loc_A = Party._loc - 0x2c;/*oracle "number"*/
 
-
-                /*u4_puts(Party.chara[0]._name);
-                if(Party._members >= 3) {
-                    u4_puts(" and thy companions!\n");
-                } else if(Party._members == 2) {
-                    u4_puts(" and thy companions, ");
-                    u4_puts(Party.chara[1]._name);
-                    u4_puts("!\n");
-                } else {
-                    Gra_CR();
-                }*/
                 u4_puts("What wouldst thou ask of the Oracle?\n");
-    
                 
                 for(;;) {
                     u4_gets(bp_12, 15);
@@ -345,18 +333,19 @@ Talk_Oracle()
                         bp_02 = SHR_Keywords(bp_12);
                     if(bp_02 == 0)/*"bye"*/
                         break;
+                    if(bp_02 == 1)/*"give item"*/
+                        CMD_Use(); break;
                     switch(bp_02) {
-                        case 1:  CMD_Use(); break;
                         case -1: u4_puts("\nIt says: This is not of my ken.\n"); break;
                         default: u4_puts(Keywords_Response[loc_A][bp_02]);
                     }
                     u4_puts("\nWhat else wouldst thou ask?\n");
                 }
-                
+                if(bp_02 == 1) {
+                   /* u4_puts("With a rumble, the oracle disappears!");*/
+                } else {
                 u4_puts("Thy questions hath been answered.");
-
+                }
 }
-
-
 
 

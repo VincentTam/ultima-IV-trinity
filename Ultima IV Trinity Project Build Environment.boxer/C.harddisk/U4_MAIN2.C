@@ -146,8 +146,8 @@ char *Crypts[] = {
 
 /*oracles. not used at moment...*/
 /*char *Oracles[] = {
-    "Love",
-    "Courage",
-    "Truth"
+    "control",
+    "passion",
+    "diligence"
 };*/
 
