@@ -38,21 +38,7 @@
   <script src="{{ site.url }}/assets/js/mockup.js"></script>
 
 <script> jQuery(document).ready(function($){
-		
-		
-	function triggerAnimation(){
-   if($(window).width()>= MQ) {
-      $(window).on('scroll', function(){
-         window.requestAnimationFrame(animateIntro);
-      });
-   } else {
-      $(window).off('scroll');
-   }
-}	
-		
-function animateIntro(){var scrollPercentage=($(window).scrollTop()/introSectionHeight).toFixed(5),scaleValue=1-scrollPercentage*scaleSpeed;if($(window).scrollTop()<introSectionHeight){introSection.css({'-moz-transform':'scale('+scaleValue+') translateZ(0)','-webkit-transform':'scale('+scaleValue+') translateZ(0)','-ms-transform':'scale('+scaleValue+') translateZ(0)','-o-transform':'scale('+scaleValue+') translateZ(0)','transform':'scale('+scaleValue+') translateZ(0)','opacity':1-scrollPercentage*opacitySpeed});}}
-		
-		
+
  // Defining a function to set size for #hero 
 	function fullscreen(){
 		jQuery('.featured-image').css({
