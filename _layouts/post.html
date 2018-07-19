@@ -2,8 +2,6 @@
 
 <section class="article">
   
-  <div id="cd-intro">
-
 {% if page.image.feature %}
   <div class="overlay"></div>
   {% if page.image.feature contains 'https://' | escape or page.image.feature contains 'http://' | escape %}
@@ -15,7 +13,6 @@
   <div class="overlay"></div>
   <div class="featured-image" id="cd-intro-background" style="background-image: url({{ site.url }}/images/text_3.jpg)"></div>
 {% endif %}
-  </div>
 
       <article class="wrap post">
         <header class="post-header">
