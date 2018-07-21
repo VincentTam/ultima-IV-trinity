@@ -222,11 +222,16 @@ Enter_Oracle()
     int loc_E;
     loc_A = Party._loc - 0x2c;/*oracle "number"*/
     /* this check is not set yet...used runes in the Shrine version */
-    if(Party._loc == 0) {
-        u4_puts("\nThou dost not bear the rune of entry!  A strange force keeps you out!\n");
+    if((Party._loc == 46 && TST_MSK(Party.mItems2, 13)) || (Party._loc == 45 && TST_MSK(Party.mItems2, 12)) || (Party._loc == 44 && TST_MSK(Party.mItems2, 11))) {
+        u4_puts("\nA strange force keeps you out!\n");
         Oracle_Eject:
             CurMode = MOD_OUTDOORS;
             Party._loc = 0;
+        
+        if(TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13)) {
+            u4_puts("A strange blue light consumes all you see!\n");
+            Crypt_Close(11);
+        }
             return;
     }
     if(Load("ORACLE.CON", 11 * 11, Combat._map) == -1)
@@ -323,7 +328,6 @@ Talk_Oracle()
     loc_A = Party._loc - 0x2c;/*oracle "number"*/
 
                 u4_puts("What wouldst thou ask of the Oracle?\n");
-                
                 for(;;) {
                     u4_gets(bp_12, 15);
                     Gra_CR();
@@ -334,6 +338,7 @@ Talk_Oracle()
                     if(bp_02 == 0)/*"bye"*/
                         break;
                     if(bp_02 == 1)/*"give item"*/
+                        Gra_CR();
                         CMD_Use(); break;
                     switch(bp_02) {
                         case -1: u4_puts("\nIt says: This is not of my ken.\n"); break;
@@ -342,7 +347,7 @@ Talk_Oracle()
                     u4_puts("\nWhat else wouldst thou ask?\n");
                 }
                 if(bp_02 == 1) {
-                   /* u4_puts("With a rumble, the oracle disappears!");*/
+
                 } else {
                 u4_puts("Thy questions hath been answered.");
                 }

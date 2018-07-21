@@ -239,10 +239,21 @@ USE_Orbs() {
         u4_puts(None_Owned);
         return;
     }
-    if(Party._loc >= 43) {
-        u4_puts("You place the Orb onto the altar!\n");
+    if(Party._loc == 44) {
+        u4_puts("\nYou place the Orb onto the altar!\n");
         SET_MSK(Party.mItems2, 6);
         RST_MSK(Party.mItems2, 5);
+        SET_MSK(Party.mItems2, 11);/*Marks that Orb is in the Oracle's altar*/
+    } else if(Party._loc == 45) {
+        u4_puts("\nYou place the Orb onto the altar!\n");
+        SET_MSK(Party.mItems2, 8);
+        RST_MSK(Party.mItems2, 7);
+        SET_MSK(Party.mItems2, 12);/*Marks that Orb is in the Oracle's altar*/
+    } else if(Party._loc == 46) {
+        u4_puts("\nYou place the Orb onto the altar!\n");
+        SET_MSK(Party.mItems2, 10);
+        RST_MSK(Party.mItems2, 9);
+        SET_MSK(Party.mItems2, 13);/*Marks that Orb is in the Oracle's altar*/
     } else {
         u4_puts(No_Effect);
         return;
@@ -286,7 +297,7 @@ USE_Ring() {
         Crypt_Exit(Party._loc);
     }
     else if(Party._loc != 0 || Party._x != 0xe9 || Party._y != 0xe9) {
-        u4_puts("The Ring glows brighter and lets out a flash of light!\n");
+        u4_puts("\nThe Ring glows brighter and lets out a flash of light!\n");
     
         /* All Party Damage */
         Party_Damage(100);

@@ -192,8 +192,8 @@ Restore_Crypt() {
     for(si = 8;si <= 32; si++) {
         if(D_8742._npc._var[si] != 0){
     D_8742._npc._gtile[si] = D_8742._npc._tile[si] = D_8742._npc._var[si];
-    D_8742._npc._x[si] = D_8742._npc._var[si + 3];
-    D_8742._npc._y[si] = D_8742._npc._var[si + 6];
+    D_8742._npc._x[si] = D_8742._npc._var[si + 6];
+    D_8742._npc._y[si] = D_8742._npc._var[si + 12];
     }
     }
 }

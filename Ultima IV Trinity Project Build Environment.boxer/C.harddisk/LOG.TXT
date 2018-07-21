@@ -1,6 +1,6 @@
 MAKE  Version 2.0   Copyright (c) 1987, 1988 Borland International
 
-Available memory 597500 bytes
+Available memory 595992 bytes
 
 	msc /Gs /Osa /Zp /Gc u4_shrin,shr;
 u4_shrin.C(187) : warning 49: 'parameter' : indirection to different types

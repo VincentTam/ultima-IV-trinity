@@ -176,18 +176,34 @@ unsigned bp04;
     register int si;
     
     Big_Shake();
-    u4_puts("\nWith a mighty rumble the entrance to the Crypt collapses\n");
+    if(TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13)) {
+        u4_puts("\nWith a brilliant flash, the Oracle disappears!\n");
+    } else {
+        u4_puts("\nWith a mighty rumble the entrance to the Crypt collapses!\n");
+    }
     u_delay(1, 0);
     Gra_CR();
     
+    if(bp04 == 11){
+        for(si = 11; si < 14; si++) {
+            
+            D_8742._npc._gtile[si] = D_8742._npc._tile[si] = D_8742._npc._var[si] = TIL_43;
+            D_8742._npc._x[si] = D_8742._npc._var[si + 6] = D_0844[si + 32];
+            D_8742._npc._y[si] = D_8742._npc._var[si + 12] = D_0864[si + 32];
+        }
+    }
+    else {
+    
     D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = D_8742._npc._var[bp04] = TIL_Mount_08;
-    D_8742._npc._x[bp04] = D_8742._npc._var[bp04 + 3] = Party._x;
-    D_8742._npc._y[bp04] = D_8742._npc._var[bp04 + 6] = Party._y - 1;
+    D_8742._npc._x[bp04] = D_8742._npc._var[bp04 + 6] = Party._x;
+    D_8742._npc._y[bp04] = D_8742._npc._var[bp04 + 12] = Party._y - 1;
     /*
     D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = TIL_Mount_08;
     D_8742._npc._x[bp04] = Party._x;
     D_8742._npc._y[bp04] = Party._y - 1;*/
     /*D_8742._npc._var[si] = D_8742._npc._tlkidx[si] = 0;*/
+    
+    }
     
     Big_Shake();
     Gra_CR();
@@ -195,15 +211,17 @@ unsigned bp04;
 
 
 /*spawn daemons(if horn not used)*/
-C_27D9()
+C_27D9(bp04)
+unsigned bp04;
 {
 	if(spell_sta != 1) {
 		/*horn not in use*/
 		register int si;
 
-		for(si = 7; si >= 0; si--) {
+		for(si = bp04; si >= 0; si--) {
 			D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_F0;
-			D_8742._npc._x[si] = 0xe7;
+            D_8742._npc._x[si] = Party._x;
+			/*D_8742._npc._x[si] = 0xe7;*/
 			D_8742._npc._y[si] = Party._y + 1;
 		}
 	}
@@ -444,6 +462,17 @@ C_2B19()
 			sound(0);
 			C_2B19();
 		}
+        if(TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13)) {
+            /*do nothing*/
+        }
+        else if(
+           (Party._x >= 0x52 && Party._x < 0x56 &&
+            Party._y >= 0x65 && Party._y < 0x67) && ((TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12)) || (TST_MSK(Party.mItems2, 13) && TST_MSK(Party.mItems2, 12)) || (TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 13)))
+           ) {C_27D9(7);}
+        else if(
+           (Party._x >= 0x52 && Party._x < 0x56 &&
+           Party._y >= 0x65 && Party._y < 0x67) && (TST_MSK(Party.mItems2, 11) || TST_MSK(Party.mItems2, 12) || TST_MSK(Party.mItems2, 13))
+           ) {C_27D9(1);}
 	}
 }
 
@@ -502,7 +531,7 @@ C_2C25()
 		if(
 			Party._x >= 0xe5 && Party._x < 0xea &&
 			Party._y >= 0xd4 && Party._y < 0xd9
-           ) {C_27D9();}
+           ) {C_27D9(7);}
         /*seal the crypts after artifacts entombed - locations must be updated for final map*/
         else if(Party._x == 0x52 && Party._y == 0x64){
             if(closeCrypt == 1){
