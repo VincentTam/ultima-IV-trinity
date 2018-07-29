@@ -50,10 +50,6 @@ kramdown:
   toc_levels: 1..6
   use_coderay: false
 
-
-# Staticman comments (full configuration in staticman.yml)
-staticman:
-branch                 : "master"
   coderay:
     coderay_line_numbers:
     coderay_line_numbers_start: 1
