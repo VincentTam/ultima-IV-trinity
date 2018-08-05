@@ -85,6 +85,12 @@
 });
 </script>
 
+<script>
+	jQuery(document).ready(function($){var MQL=1170;if($(window).width()>MQL){var headerHeight=$('.site-header').height();$(window).on('scroll',{previousTop:0},function(){var currentTop=$(window).scrollTop();if(currentTop<this.previousTop){if(currentTop>0&&$('.site-header').hasClass('is-fixed')){$('.site-header').addClass('is-visible');}else{$('.site-header').removeClass('is-visible is-fixed');}}else{$('.site-header').removeClass('is-visible');if(currentTop>headerHeight&&!$('.site-header').hasClass('is-fixed'))$('.site-header').addClass('is-fixed');}
+this.previousTop=currentTop;});}
+$('.cd-primary-nav-trigger').on('click',function(){$('.cd-menu-icon').toggleClass('is-clicked');$('.site-header').toggleClass('menu-is-open');if($('.cd-primary-nav').hasClass('is-visible')){$('.cd-primary-nav').removeClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){$('body').removeClass('overflow-hidden');});}else{$('.cd-primary-nav').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){$('body').addClass('overflow-hidden');});}});});
+</script>
+
   <script src="{{ site.url }}/assets/js/tilt.jquery.js"></script>
 <script src="https://unpkg.com/scrollreveal@beta"></script>
 <!--<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>-->
