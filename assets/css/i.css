@@ -609,6 +609,8 @@ header.site-header nav ul li a:hover {
   position: absolute;
   z-index: 2;
   background: rgba(0, 0, 0, 0.55);
+      background-attachment:fixed;
+
 }
 .article .overlay-lighter {
   background: rgba(0, 0, 0, 0.1);
@@ -627,6 +629,7 @@ header.site-header nav ul li a:hover {
   position: relative;
   top: 0;
   z-index: -1;
+   background-attachment:fixed;
 }
 .article .featured-image img {
   max-height: 800px;
