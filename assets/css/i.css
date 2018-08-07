@@ -480,10 +480,22 @@ input {
 /* Header */
 header.site-header {
   padding: 20px 0;
-  position: absolute;
   width: 100%;
   z-index: 5000;
+ position:absolute;
+ top:0;
+ left:0;
+ background:rgba(2,23,37,.95);
+ box-shadow:0 1px 2px rgba(0,0,0,.3);
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
 }
+ header.site-header {
+  height:80px;
+  background:0 0;
+  box-shadow:none
+ }
+
 header.site-header .wrap {
   max-width: 90vw;
 }
@@ -609,6 +621,8 @@ header.site-header nav ul li a:hover {
   position: absolute;
   z-index: 2;
   background: rgba(0, 0, 0, 0.55);
+      background-attachment:fixed;
+
 }
 .article .overlay-lighter {
   background: rgba(0, 0, 0, 0.1);
@@ -627,6 +641,7 @@ header.site-header nav ul li a:hover {
   position: relative;
   top: 0;
   z-index: -1;
+   background-attachment:fixed;
 }
 .article .featured-image img {
   max-height: 800px;
@@ -1168,4 +1183,50 @@ footer .social ul li:last-child {
   small {
     font-size: 12px;
   }
+}
+@media only screen and (min-width:768px) {
+ .cd-header {
+  height:80px;
+  background:0 0;
+  box-shadow:none
+ }
+}
+@media only screen and (min-width:1170px) {
+ .site-header {
+  -webkit-transition:background-color .3s;
+  -moz-transition:background-color .3s;
+  transition:background-color .3s;
+  -webkit-transform:translate3d(0,0,0);
+  -moz-transform:translate3d(0,0,0);
+  -ms-transform:translate3d(0,0,0);
+  -o-transform:translate3d(0,0,0);
+  transform:translate3d(0,0,0);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden
+ }
+ .site-header.is-fixed {
+  position:fixed;
+  top:-80px;
+  background-color:rgb(59, 59, 59);
+  -webkit-transition:-webkit-transform .3s;
+  -moz-transition:-moz-transform .3s;
+  transition:transform .3s
+ }
+  .site-header.is-fixed.darken {
+      background-color:#3B3B3B;
+  }
+ #bump .is-fixed.darken a {
+      color: #ffffff;
+  }
+  
+ .site-header.is-visible {
+  -webkit-transform:translate3d(0,100%,0);
+  -moz-transform:translate3d(0,100%,0);
+  -ms-transform:translate3d(0,100%,0);
+  -o-transform:translate3d(0,100%,0);
+  transform:translate3d(0,100%,0)
+ }
+ .site-header.menu-is-open {
+  background-color:rgba(2,23,37,.96)
+ }
 }
