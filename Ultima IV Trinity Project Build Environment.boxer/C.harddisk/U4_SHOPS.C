@@ -961,11 +961,13 @@ C_D7D6()
 		ENC_inn();
 	} else if(D_9142 == 5 && U4_RND1(3) == 0) {
 		/*Isaac the ghost appears in skara brae*/
-		D_8742._npc._tile[0] = D_8742._npc._gtile[0] = TIL_9C;
-		D_8742._npc._x[0] = Party._x - 1;
-		D_8742._npc._y[0] = Party._y;
-		D_8742._npc._var[0] = 1;
-		D_8742._npc._tlkidx[0] = 0x10;
+        /*changed location to 1, from 0, to not interfere with horse*/
+        D_8742._npc._tile[1] = D_8742._npc._gtile[1] = TIL_9C;
+        D_8742._npc._x[1] = Party._x - 1;
+        D_8742._npc._y[1] = Party._y;
+        D_8742._npc._var[1] = 1;
+        D_8742._npc._tlkidx[1] = 0x10;
+
 	}
 	u4_puts(/*D_54D6*/"\nMorning!\n");
 }

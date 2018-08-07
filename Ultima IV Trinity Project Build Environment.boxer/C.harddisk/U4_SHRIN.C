@@ -252,7 +252,7 @@ Enter_Oracle()
     }
     
     if(Party._moves / 100 == Party.f_1ea) {
-        u4_puts("\nThy spirit is still weary from thy last Query!\n");
+        u4_puts("\nThe Oracle will not hear thy query now!\n");
         goto Oracle_Eject;
     }
     Party.f_1ea = Party._moves / 100;
@@ -337,11 +337,12 @@ Talk_Oracle()
                         bp_02 = SHR_Keywords(bp_12);
                     if(bp_02 == 0)/*"bye"*/
                         break;
-                    if(bp_02 == 1)/*"give item"*/
+                    if(bp_02 == 1)/*"give item"*/{
                         Gra_CR();
                         CMD_Use(); break;
+                    }
                     switch(bp_02) {
-                        case -1: u4_puts("\nIt says: This is not of my ken.\n"); break;
+                        case -1: u4_puts("\nIt says: Thy question bears no merit.\n"); break;
                         default: u4_puts(Keywords_Response[loc_A][bp_02]);
                     }
                     u4_puts("\nWhat else wouldst thou ask?\n");

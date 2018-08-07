@@ -282,17 +282,10 @@ USE_Ring() {
         u4_puts(None_Owned);
         return;
     }
-    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 2) {
-        u4_puts("\nYou place the Ring of Exodus into the Tomb....\n");
+    if((CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 2) || (Party._loc - 0x2e == 0)) {
+        u4_puts("\nYou place the Ring of Exodus into the Altar....\n");
         SET_MSK(Party.mItems2, 1);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
-        RST_MSK(Party.mItems2, 0);
-        Crypt_Exit(Party._loc);
-    }
-    else if(Party._loc - 0x2e == 0) {
-        u4_puts("\nYou place the Ring of Exodus onto the Altar!\n");
-        SET_MSK(Party.mItems2, 1);
-        /*put the mask here so the ring is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems2, 0);
         Crypt_Exit(Party._loc);
     }
@@ -343,17 +336,10 @@ USE_Skull() {
 		u4_puts(None_Owned);
 		return;
 	}
-    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 0) {
-        u4_puts("\nYou place the Skull of Mondain into the Tomb....\n");
+    if((CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 0) || (Party._loc - 0x2c == 0)) {
+        u4_puts("\nYou place the Skull of Mondain onto the altar....\n");
         SET_MSK(Party.mItems, 1);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
-        RST_MSK(Party.mItems, 0);
-        Crypt_Exit(Party._loc);
-    }
-    else if(Party._loc - 0x2c == 0) {
-        u4_puts("\nYou place the Skull of Mondain onto the Altar!\n");
-        SET_MSK(Party.mItems, 1);
-        /*put the mask here so the skull is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems, 0);
         Crypt_Exit(Party._loc);
     }
@@ -393,17 +379,10 @@ USE_Wand() {
         return;
     }
 
-    if(CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 1) {
-        u4_puts("\nYou place the Wand of Minax into the Tomb....\n");
+    if((CurMode == MOD_COM_ROOM && Combat._charaX[activeChara] == 5 && Combat._charaY[activeChara] == 5 && Tomb == 1) || (Party._loc - 0x2d == 0)) {
+        u4_puts("\nYou place the Wand of Minax into the Altar....\n");
         SET_MSK(Party.mItems, 14);
         /*Should this stay here or should it match the Wand and the Ring? Match it for now*/
-        RST_MSK(Party.mItems, 13);
-        Crypt_Exit(Party._loc);
-    }
-    else if(Party._loc - 0x2d == 0) {
-        u4_puts("\nYou place the Wand of Minax onto the Altar!\n");
-        SET_MSK(Party.mItems, 14);
-        /*put the mask here so the wand is only destroyed when cast into the Abyss or entombed in the Crypt */
         RST_MSK(Party.mItems, 13);
         Crypt_Exit(Party._loc);
     }

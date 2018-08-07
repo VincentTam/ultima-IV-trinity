@@ -111,35 +111,27 @@ C_RING()
 
 C_ORB1()
 {
-    if(TST_MSK(Party.mItems2, 5) || TST_MSK(Party.mItems2, 6)) {
-        u4_puts(D_27A6);
-        return;
-    }
-    SET_MSK(Party.mItems2, 5);
-    C_8D4B();
-    u4_puts(/*D_27F7*/"An Orb of the Moon!\n");
-    XP_inc(0, 400);
+    C_ORBS(5);
 }
 
 C_ORB2()
 {
-    if(TST_MSK(Party.mItems2, 7) || TST_MSK(Party.mItems2, 8)) {
-        u4_puts(D_27A6);
-        return;
-    }
-    SET_MSK(Party.mItems2, 7);
-    C_8D4B();
-    u4_puts(/*D_27F7*/"An Orb of the Moon!\n");
-    XP_inc(0, 400);
+    C_ORBS(7);
 }
 
 C_ORB3()
 {
-    if(TST_MSK(Party.mItems2, 9) || TST_MSK(Party.mItems2, 10)) {
+    C_ORBS(9);
+}
+
+C_ORBS(bp04)
+int bp04;
+{
+    if(TST_MSK(Party.mItems2, bp04) || TST_MSK(Party.mItems2, (bp04 + 1))) {
         u4_puts(D_27A6);
         return;
     }
-    SET_MSK(Party.mItems2, 9);
+    SET_MSK(Party.mItems2, bp04);
     C_8D4B();
     u4_puts(/*D_27F7*/"An Orb of the Moon!\n");
     XP_inc(0, 400);

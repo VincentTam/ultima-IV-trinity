@@ -764,6 +764,7 @@ int bp04;
 		Gra_11(loc_B);
 	if(CurMode >= MOD_COMBAT || Party._tile > TIL_ShipS_13) {
 		/*normal case*/
+
 		for(loc_B = Party._members - 1; loc_B >= 0; loc_B --) {
 			if(U4_RND1(1) && isCharaAlive(loc_B)) {
 				loc_A = U4_RND3(bp04) + 10;
