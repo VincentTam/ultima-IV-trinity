@@ -233,7 +233,7 @@ blockquote, blockquote p {
 /************ Basic *************/
 body {
   font-family: "Calendas Plus", "Crimson Text", "Hoefler Text", "Georgia", serif;
-  color: #3b3b3b;
+  color: #8ab9d1;
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
   text-size-adjust: 100%;
@@ -1212,6 +1212,13 @@ footer .social ul li:last-child {
   -moz-transition:-moz-transform .3s;
   transition:transform .3s
  }
+  .site-header.is-fixed.darken {
+      background-color:#3B3B3B;
+  }
+ #bump .is-fixed.darken a {
+      color: #ffffff;
+  }
+  
  .site-header.is-visible {
   -webkit-transform:translate3d(0,100%,0);
   -moz-transform:translate3d(0,100%,0);
