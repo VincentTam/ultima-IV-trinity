@@ -233,7 +233,7 @@ blockquote, blockquote p {
 /************ Basic *************/
 body {
   font-family: "Calendas Plus", "Crimson Text", "Hoefler Text", "Georgia", serif;
-  color: #8ab9d1;
+  color: #3b3b3b;
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
   text-size-adjust: 100%;
