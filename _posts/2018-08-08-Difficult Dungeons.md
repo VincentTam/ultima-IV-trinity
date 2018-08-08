@@ -1,13 +1,13 @@
 ---
 layout: post
-title: How Hard Should a Dungeon Be?
+title: How Difficult Should a Dungeon Be?
 description: Made a dungeon (crypt) for the mod, but I am wondering whether it is too challenging...
 category: articles
 comments: true
 tags: [Ultima IV, dungeon, crypt, difficulty, challenging]
 date: 2018-08-08
 image: 
-        feature: text_1.jpg
+        feature: text_2.jpg
 ---
 
 So, I am working on the second 'crypt' of the mod. Without revealing too many spoilers, the crypt is a bit...difficult. 
