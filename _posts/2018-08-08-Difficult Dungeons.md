@@ -7,7 +7,7 @@ comments: true
 tags: [Ultima IV, dungeon, crypt, difficulty, challenging]
 date: 2018-08-08
 image: 
-        feature: text_2.jpg
+        feature: text_3.jpg
 ---
 
 So, I am working on the second 'crypt' of the mod. Without revealing too many spoilers, the crypt is a bit...difficult. 
