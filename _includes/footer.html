@@ -90,7 +90,11 @@
 this.previousTop=currentTop;});}
 $('.cd-primary-nav-trigger').on('click',function(){$('.cd-menu-icon').toggleClass('is-clicked');$('.site-header').toggleClass('menu-is-open');if($('.cd-primary-nav').hasClass('is-visible')){$('.cd-primary-nav').removeClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){$('body').removeClass('overflow-hidden');});}else{$('.cd-primary-nav').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){$('body').addClass('overflow-hidden');});}});});
 </script>
-
+</script>
+jQuery(document).ready(function($){var introSection=$('#cd-intro-background'),introSectionHeight=introSection.height(),scaleSpeed=0.3,opacitySpeed=1;var MQ=1170;triggerAnimation();$(window).on('resize',function(){triggerAnimation();});function triggerAnimation(){if($(window).width()>=MQ){$(window).on('scroll',function(){window.requestAnimationFrame(animateIntro);});}else{$(window).off('scroll');}}
+function animateIntro(){var scrollPercentage=($(window).scrollTop()/introSectionHeight).toFixed(5),scaleValue=1-scrollPercentage*scaleSpeed;if($(window).scrollTop()<introSectionHeight){introSection.css({'-moz-transform':'scale('+scaleValue+') translateZ(0)','-webkit-transform':'scale('+scaleValue+') translateZ(0)','-ms-transform':'scale('+scaleValue+') translateZ(0)','-o-transform':'scale('+scaleValue+') translateZ(0)','transform':'scale('+scaleValue+') translateZ(0)','opacity':1-scrollPercentage*opacitySpeed});}}
+$('.cd-main-nav').on('click',function(event){if($(event.target).is('.cd-main-nav'))$(this).children('ul').toggleClass('is-visible');});});
+</script>
   <script src="{{ site.url }}/assets/js/tilt.jquery.js"></script>
 <script src="https://unpkg.com/scrollreveal"></script>
 <!--<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>-->
