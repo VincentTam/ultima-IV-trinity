@@ -34,7 +34,7 @@ I think these images are kindof spoilers, as they reveal the rooms in complete d
 
 <figure>
 	<img class="spoiler" data-tilt src="/ultima-IV-trinity/images/hythloth_eastern.jpg" />
-	<figcaption>Hythloth Eastern Room</figcaption>
+	<figcaption>The New Hythloth Eastern Room</figcaption>
 </figure>
 
 <figure>
