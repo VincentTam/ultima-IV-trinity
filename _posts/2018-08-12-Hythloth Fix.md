@@ -9,12 +9,12 @@ image:
         feature: text_3.jpg
 ---
 
-After building 3 dungeons, with dozens, and dozens of rooms, traps, layouts, monsters etc., I find myself a little bit skilled in this area. It's not that hard, but working almost strictly in a hexeditor, makes it a bit of a task. However, I have persevered, and the crypts are done. 
+After building 3 dungeons, with dozens, and dozens of rooms, traps, layouts, monsters etc., I find myself a little bit skilled in this area. It's not that hard, but working almost strictly in a hexeditor, makes it a bit of a task. Nevertheless, I have persevered, and the crypts are done. 
 
 While my skill in this area is still high, I thought I would take a look at the 'Hythloth' bug. The Hythloth bug refers to level 6 of Hythloth, where there is an impassable room, a room which should lead into an adjacent room, to allow one to continue through to level 7. Additionally, another room in the same 3 room chain of rooms is missing door data for the party, and so is really, also, impassable, as all the characters start in the room 'phased' into a wall in the north-west corner.
-I know there is a fix for this issue somewhere out there, but I couldn't track ito down. The fix, I believe, added a secret door to the first, eastern room, which allowed passage into the middle room. It also fixed the door data for the western room, so the player and his party could pass through that room properly as well.
+I know there is a fix for this issue somewhere out there, but I couldn't track it down. The fix, I believe, added a secret door to the first, eastern room, which allowed passage into the middle room. It also fixed the door data for the western room, so the player and his party could pass through that room properly as well.
 
-Since I couldn't find the fix, I decided to quickly whip one up myself. However, when doing this I noticed something a little weird. The eastern room did not at all mesh/match with the middle and western room. It was also not at all suitble for inclusion of a secret door. The central room has a big huge entrance into the western room, but the western room has only room for a one or two space wide door, with a lot of weird finicking with triggers.
+Since I couldn't find the fix, I decided to quickly whip one up myself. However, when doing this I noticed something a little weird. The eastern room did not at all mesh/match with the middle and western room. It was also not at all suitable for inclusion of a secret door. The central room has a big huge entrance into the eastern room, but the eastern room has only room for a one or two space wide door, with a lot of weird finicking with triggers.
 
 I went into the Apple II version and found that it suffered from the exact same flaws/bugs.
 
@@ -24,7 +24,7 @@ I went into the Apple II version and found that it suffered from the exact same 
 </figure>
 
 After consideration, I decided that a secret door in the eastern room was not likely part of the original plan/design. I concluded that a room which mirrored the eastern rooms design would work well, considering the 'mirror image' layout of the central room.
-So I made a new western room, tweaked the creatures inside, and added correct door data for all the rooms.
+So I made a new eastern room, tweaked the creatures inside, and added correct door data for all the rooms.
 
 Just drop this file directly into your Ultima IV folder, and overwrite the existing Hythloth.dng (backup first...)
 
