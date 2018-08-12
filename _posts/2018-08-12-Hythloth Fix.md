@@ -20,7 +20,7 @@ I went into the Apple II version and found that it suffered from the exact same 
 
 <figure>
 	<img class="ScrollRev" data-tilt src="/ultima-IV-trinity/images/apple_hythloth.jpg" />
-	<figcaption>Same room as the Dos version</figcaption>
+	<figcaption>Same room as the Dos version. No way out to the west, and no clean way to make a secret door open and logically mesh with the central room.</figcaption>
 </figure>
 
 After consideration, I decided that a secret door in the eastern room was not likely part of the original plan/design. I concluded that a room which mirrored the eastern rooms design would work well, considering the 'mirror image' layout of the central room.
