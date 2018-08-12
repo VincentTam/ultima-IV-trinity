@@ -6,7 +6,7 @@ comments: true
 tags: [Ultima IV, dungeons, Hythloth, bug, fix]
 date: 2018-08-12
 image: 
-        feature: text_3.jpg
+        feature: book_4.jpg
 ---
 
 After building 3 dungeons, with dozens, and dozens of rooms, traps, layouts, monsters etc., I find myself a little bit skilled in this area. It's not that hard, but working almost strictly in a hexeditor, makes it a bit of a task. Nevertheless, I have persevered, and the crypts are done. 
