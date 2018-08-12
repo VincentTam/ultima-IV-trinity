@@ -25,7 +25,7 @@ So I made a new western room, tweaked the creatures inside, and added correct do
 
 Just drop this file directly into your Ultima IV folder, and overwrite the existing Hythloth.dng (backup first...)
 
-<a href="/ultima-IV-trinity/assets/HYTHLOTH.dng">Hythloth Fix</a>
+<a href="https://github.com/cambragol/ultima-IV-trinity/blob/master/assets/HYTHLOTH.DNG?raw=true">Hythloth Fix</a>
 
 I think these images are kindof spoilers, as they reveal the rooms in complete detail. If you like/want to experience the rooms spoiler free, don't click on the images below.
 
