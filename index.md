@@ -16,6 +16,7 @@ mockup:
   * Moonphases restored on save
   * All chest trap types working
   * No more infinite Mystic Weaps/Armor
+  * Hythloth bug fixed
   * Other Small fixes
   
 ### New Features
