@@ -28,6 +28,10 @@ So I made a new eastern room, tweaked the creatures inside, and added correct do
 
 Just drop this file directly into your Ultima IV folder, and overwrite the existing Hythloth.dng (backup first...)
 
+<a href="https://www.moddb.com/games/ultima-iv-quest-of-the-avatar/downloads/hythloth-fix" title="Download Hythloth Fix - Mod DB" target="_blank"><img src="https://button.moddb.com/download/medium/140849.png" alt="Hythloth Fix" /></a>
+
+Get it directly from the repository:
+
 <a href="https://github.com/cambragol/ultima-IV-trinity/blob/master/assets/HYTHLOTH.DNG?raw=true">Hythloth Fix</a>
 
 I think these images are kindof spoilers, as they reveal the rooms in complete detail. If you like/want to experience the rooms spoiler free, don't click on the images below.
