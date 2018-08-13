@@ -37,17 +37,17 @@ Get it directly from the repository:
 I think these images are kindof spoilers, as they reveal the rooms in complete detail. If you like/want to experience the rooms spoiler free, don't click on the images below.
 
 <figure>
-	<img data-pixelate data-value="1"  data-revealonclick="true" data-tilt src="/ultima-IV-trinity/images/hythloth_eastern.jpg" />
+	<img data-pixelate data-value="1.0" data-revealonclick="true" data-tilt src="/ultima-IV-trinity/images/hythloth_eastern.jpg" />
 	<figcaption>The New Hythloth Eastern Room</figcaption>
 </figure>
 
 <figure>
-	<img data-pixelate data-value="1"  data-revealonclick="true" data-tilt src="/ultima-IV-trinity/images/hythloth_central.jpg" />
+	<img data-pixelate data-value="1"  data-reveal="true" data-tilt src="/ultima-IV-trinity/images/hythloth_central.jpg" />
 	<figcaption>Hythloth Central Room</figcaption>
 </figure>
 
 <figure>
-	<img data-pixelate data-value="1"  data-revealonclick="true" data-tilt src="/ultima-IV-trinity/images/hythloth_western.jpg" />
+	<img data-pixelate data-value="0.5" data-reveal="false" data-tilt src="/ultima-IV-trinity/images/hythloth_western.jpg" />
 	<figcaption>Hythloth Western Room</figcaption>
 </figure>
 
