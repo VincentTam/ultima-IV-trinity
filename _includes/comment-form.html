@@ -6,7 +6,6 @@
     </header>
 
 <form id="comment-form" class="page__form js-form form" method="post" action="https://api.staticman.net/v2/entry/cambragol/ultima-IV-trinity/master/comments">
-    <input name="options[redirect]" type="hidden" value="{{ page.url | relative_url }}">    
   <div class="form-group">
         <label class="sr-only" for="comment-form-name"><strong>Name</strong></label>
         <input type="text" id="comment-form-name" name="fields[name]" required spellcheck="false" placeholder="Name">
@@ -24,6 +23,7 @@
         <textarea type="text" rows="6" id="comment-form-message" name="fields[message]" required spellcheck="true" placeholder="Comment (Markdown is allowed)"></textarea>
       </div>
       <div class="form-group hidden" style="display: none;">
+        <input name="options[redirect]" type="hidden" value="{{ page.url | relative_url }}">    
         <input type="hidden" name="options[origin]" value="{{ page.url | relative_url }}">
         <input type="hidden" name="options[parent]" value="{{ page.url | relative_url }}">
         <input type="hidden" id="comment-replying-to" name="fields[replying_to]" value="">
