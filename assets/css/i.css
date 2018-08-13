@@ -641,7 +641,6 @@ header.site-header nav ul li a:hover {
   position: relative;
   top: 0;
   z-index: -1;
-   background-attachment:fixed;
 }
 .article .featured-image img {
   max-height: 800px;
@@ -1190,6 +1189,9 @@ footer .social ul li:last-child {
   background:0 0;
   box-shadow:none
  }
+  .article .featured-image {
+       background-attachment:fixed;
+  }
 }
 @media only screen and (min-width:1170px) {
  .site-header {
