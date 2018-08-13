@@ -1,5 +1,4 @@
 <div class="entry-comments">
-  {% if site.staticman.branch %}
   <P>passed</p>
     {% if site.data.comments[page.slug] %}
       <!-- Start static comments -->
@@ -24,5 +23,5 @@
     {% endif %}
 
     {% include comment-form.html %}
-  {% endif %}
+
 </div>
