@@ -3,6 +3,7 @@ tagline:          The first mod for the original DOS Ultima IV.
 description:      Advent of the Trinity for Ultima IV
 url: https://cambragol.github.io/ultima-IV-trinity
 home: https://cambragol.github.io/ultima-IV-trinity
+repository: "cambragol/ultima-IV-trinity"
 
 # Owner/author information
 owner:
@@ -40,7 +41,7 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
 future:      true
-highlighter: pygments
+highlighter: rouge
 markdown:    kramdown
 
 kramdown:
@@ -59,6 +60,10 @@ kramdown:
 
 sass:
     style: :compressed
+    
+# Staticman comments (full configuration in staticman.yml)
+staticman:
+branch                 : "master"
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title
