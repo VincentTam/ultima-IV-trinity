@@ -42,12 +42,12 @@ I think these images are kindof spoilers, as they reveal the rooms in complete d
 </figure>
 
 <figure>
-	<img data-pixelate data-value="1"  data-reveal="true" data-tilt src="/ultima-IV-trinity/images/hythloth_central.jpg" />
+	<img data-tilt src="/ultima-IV-trinity/images/hythloth_central.jpg" />
 	<figcaption>Hythloth Central Room</figcaption>
 </figure>
 
 <figure>
-	<img data-pixelate data-value="0.5" data-reveal="false" data-tilt src="/ultima-IV-trinity/images/hythloth_western.jpg" />
+	<img data-tilt src="/ultima-IV-trinity/images/hythloth_western.jpg" />
 	<figcaption>Hythloth Western Room</figcaption>
 </figure>
 
