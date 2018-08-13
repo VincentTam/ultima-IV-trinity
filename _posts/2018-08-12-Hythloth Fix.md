@@ -37,7 +37,7 @@ Get it directly from the repository:
 I think these images are kindof spoilers, as they reveal the rooms in complete detail. If you like/want to experience the rooms spoiler free, don't click on the images below.
 
 <figure>
-	<img class="spoiler" data-tilt src="/ultima-IV-trinity/images/hythloth_eastern.jpg" />
+	<img data-pixelate data-value="0.5" data-revealonclick="true" data-tilt src="/ultima-IV-trinity/images/hythloth_eastern.jpg" />
 	<figcaption>The New Hythloth Eastern Room</figcaption>
 </figure>
 
