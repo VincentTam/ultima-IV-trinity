@@ -42,7 +42,7 @@ I think these images are kindof spoilers, as they reveal the rooms in complete d
 </figure>
 
 <figure>
-	<img data-tilt src="/ultima-IV-trinity/images/hythloth_central.jpg" />
+	<img class="spoiler" data-tilt src="/ultima-IV-trinity/images/hythloth_central.jpg" />
 	<figcaption>Hythloth Central Room</figcaption>
 </figure>
 
