@@ -256,7 +256,8 @@ C_8A1F()
 	u4_puts(/*D_2693*/"Descend ");
 	if(
 		(tile_cur & 0xf0) == 0x20 ||
-		(tile_cur & 0xf0) == 0x30
+		(tile_cur & 0xf0) == 0x30 ||
+        (tile_cur & 0xf0) == 0x60
 	) {
 		Party._z ++;
 		u4_puts(/*D_269C*/"down to level ");

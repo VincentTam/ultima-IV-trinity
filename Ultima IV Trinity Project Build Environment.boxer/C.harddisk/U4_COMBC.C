@@ -290,10 +290,10 @@ C_7FFD()
 	}
     if((tile_cur & 0xf) == 0xf && Party._loc > 0x18) {
         u4_puts("\nThe Tomb of ");
-        if(Party._x == 1) {
+        if(Party._z == 7) {
             u4_puts("Mondain\n");
             Tomb = 0;
-        } else if(Party._x > 2) {
+        } else if(Party._z == 0) {
             u4_puts("Minax\n");
             Tomb = 1;
         } else {

@@ -1,8 +1,8 @@
 
 
  Start  Stop   Length Name                   Class
- 00000H 0FF83H 0FF84H _TEXT                  CODE
- 0FF84H 0FF84H 00000H C_ETEXT                ENDCODE
+ 00000H 0FF87H 0FF88H _TEXT                  CODE
+ 0FF88H 0FF88H 00000H C_ETEXT                ENDCODE
  0FF90H 0FFC5H 00036H NULL                   BEGDATA
  0FFC6H 19C75H 09CB0H _DATA                  DATA
  19C76H 19C83H 0000EH CDATA                  DATA
@@ -36,7 +36,7 @@
  0FF9:0BA8       ACTIVECHARAX
  0FF9:A240       activeCharaY
  0FF9:A0CE       Altar
- 0000:9469       AMBUSH
+ 0000:946D       AMBUSH
  0000:42E1       ANI_BALLOON
  0000:3C19       ANI_FIELDS
  0000:40C2       ANI_ICONZONE
@@ -54,7 +54,7 @@
  0000:6ABE       ATTACK_RANGED
  0000:0973       BIG_KARMA_INC
  0000:093F       BIG_SHAKE
- 0000:A6B9       CHECKJINX
+ 0000:A6BD       CHECKJINX
  0FF9:2C16       CLASS_MSK
  0FF9:A22E       closeCrypt
  0000:335A       CMDDIR_DOWN
@@ -68,19 +68,19 @@
  0000:483E       CMD_ENTER
  0000:7D8F       CMD_FIRE
  0000:7CC6       CMD_GET
- 0000:94E1       CMD_HOLEUP
+ 0000:94E5       CMD_HOLEUP
  0000:7EEB       CMD_IGNITE
  0000:4C9F       CMD_JIMMY
  0000:4D1E       CMD_KLIMB
  0000:7F24       CMD_LOCATE
- 0000:966B       CMD_MIX
+ 0000:966F       CMD_MIX
  0000:7A06       CMD_NEWORDER
  0000:4BFA       CMD_OPEN
- 0000:CFFF       CMD_PEER
+ 0000:D003       CMD_PEER
  0000:78DF       CMD_QUIT
  0000:7FF7       CMD_READY
- 0000:9CB0       CMD_SEARCH
- 0000:B2C0       CMD_TALK
+ 0000:9CB4       CMD_SEARCH
+ 0000:B2C4       CMD_TALK
  0000:0B1E       CMD_USE
  0000:7A7F       CMD_VOLUME
  0000:8114       CMD_WEAR
@@ -222,113 +222,113 @@
  0000:93CC       C_89BD
  0000:93EA       C_89DB
  0000:942E       C_8A1F
- 0000:97AE       C_8D4B
- 0000:9C3B       C_90C5
- 0000:9F79       C_93A5
- 0000:9FE8       C_9414
- 0000:A17E       C_95AA
- 0000:A257       C_9683
- 0000:A28D       C_96B9
- 0000:A335       C_9764
- 0000:A4AC       C_98E4
- 0000:A5F7       C_9A41
- 0000:A721       C_9B6B
- 0000:A75C       C_9BA6
- 0000:A79B       C_9BE5
- 0000:A80C       C_9C56
- 0000:A872       C_9CBC
- 0000:AB31       C_9F7B
- 0000:AD1B       C_A163
- 0000:ADE5       C_A22D
- 0000:AFFB       C_A443
- 0000:B037       C_A47F
- 0000:B06C       C_A4B4
- 0000:B23E       C_A686
- 0000:B3BF       C_A7F2
- 0000:B40F       C_A842
- 0000:B517       C_A94A
- 0000:B5F6       C_AA29
- 0000:B6D5       C_AB08
- 0000:B7B2       C_ABE5
- 0000:B7F0       C_AC23
- 0000:B937       C_AD6A
- 0000:B9BC       C_ADEF
- 0000:BA0E       C_AE41
- 0000:BB03       C_AF36
- 0000:BB82       C_AFB5
- 0000:BCB6       C_B0E9
- 0000:BDEA       C_B21D
- 0000:BE2B       C_B25E
- 0000:BE69       C_B29C
- 0000:BEA7       C_B2DA
- 0000:BEE8       C_B31B
- 0000:BF29       C_B35C
- 0000:BF7B       C_B3AE
- 0000:BFB0       C_B3E3
- 0000:BFE5       C_B418
- 0000:C047       C_B47A
- 0000:C0AC       C_B4DF
- 0000:C1E9       C_B61C
- 0000:C244       C_B677
- 0000:C2FD       C_B730
- 0000:C33D       C_B770
- 0000:C362       C_B795
- 0000:C430       C_B863
- 0000:C50C       C_B93F
- 0000:C57F       C_B9B2
- 0000:986A       C_BELL
- 0000:9886       C_BELT
- 0000:99D8       C_BLAC
- 0000:9A50       C_BOOK
- 0000:CFD0       C_C403
- 0000:D027       C_C445
- 0000:D02C       C_C44A
- 0000:D031       C_C44F
- 0000:D036       C_C454
- 0000:D0FE       C_C51C
- 0000:9A5E       C_CAND
- 0000:D951       C_CD1D
- 0000:D9B4       C_CD80
- 0000:DAF2       C_CEBE
- 0000:DDFB       C_D16D
- 0000:DE5E       C_D1D0
- 0000:DF86       C_D2F8
- 0000:E464       C_D7D6
- 0000:E693       C_DA05
- 0000:E6CC       C_DA3E
- 0000:E707       C_DA79
- 0000:E730       C_DAA2
- 0000:E7B7       C_DB29
- 0000:E821       C_DB93
- 0000:E883       C_DBF5
- 0000:E9B2       C_DD24
- 0000:EAC3       C_DE35
- 0000:EE8A       C_E1FC
- 0000:EEAC       C_E21E
- 0000:F00C       C_E37E
- 0000:F060       C_E3D2
- 0000:F096       C_E408
- 0000:F0D0       C_E442
- 0000:F126       C_E498
- 0000:F151       C_E4C3
- 0000:F229       C_E59B
- 0000:F36D       C_E6DF
- 0000:9878       C_HORN
- 0000:984E       C_MAND
- 0000:9BE0       C_MBOW
- 0000:9B2A       C_MYAR
- 0000:9B85       C_MYWE
- 0000:985C       C_NIGH
- 0000:9961       C_ORB1
- 0000:996F       C_ORB2
- 0000:997D       C_ORB3
- 0000:998B       C_ORBS
- 0000:992A       C_RING
- 0000:98A2       C_SKUL
- 0000:9AB4       C_TELE
- 0000:98F1       C_WAND
- 0000:9894       C_WHEL
- 0000:9A20       C_WHIT
+ 0000:97B2       C_8D4B
+ 0000:9C3F       C_90C5
+ 0000:9F7D       C_93A5
+ 0000:9FEC       C_9414
+ 0000:A182       C_95AA
+ 0000:A25B       C_9683
+ 0000:A291       C_96B9
+ 0000:A339       C_9764
+ 0000:A4B0       C_98E4
+ 0000:A5FB       C_9A41
+ 0000:A725       C_9B6B
+ 0000:A760       C_9BA6
+ 0000:A79F       C_9BE5
+ 0000:A810       C_9C56
+ 0000:A876       C_9CBC
+ 0000:AB35       C_9F7B
+ 0000:AD1F       C_A163
+ 0000:ADE9       C_A22D
+ 0000:AFFF       C_A443
+ 0000:B03B       C_A47F
+ 0000:B070       C_A4B4
+ 0000:B242       C_A686
+ 0000:B3C3       C_A7F2
+ 0000:B413       C_A842
+ 0000:B51B       C_A94A
+ 0000:B5FA       C_AA29
+ 0000:B6D9       C_AB08
+ 0000:B7B6       C_ABE5
+ 0000:B7F4       C_AC23
+ 0000:B93B       C_AD6A
+ 0000:B9C0       C_ADEF
+ 0000:BA12       C_AE41
+ 0000:BB07       C_AF36
+ 0000:BB86       C_AFB5
+ 0000:BCBA       C_B0E9
+ 0000:BDEE       C_B21D
+ 0000:BE2F       C_B25E
+ 0000:BE6D       C_B29C
+ 0000:BEAB       C_B2DA
+ 0000:BEEC       C_B31B
+ 0000:BF2D       C_B35C
+ 0000:BF7F       C_B3AE
+ 0000:BFB4       C_B3E3
+ 0000:BFE9       C_B418
+ 0000:C04B       C_B47A
+ 0000:C0B0       C_B4DF
+ 0000:C1ED       C_B61C
+ 0000:C248       C_B677
+ 0000:C301       C_B730
+ 0000:C341       C_B770
+ 0000:C366       C_B795
+ 0000:C434       C_B863
+ 0000:C510       C_B93F
+ 0000:C583       C_B9B2
+ 0000:986E       C_BELL
+ 0000:988A       C_BELT
+ 0000:99DC       C_BLAC
+ 0000:9A54       C_BOOK
+ 0000:CFD4       C_C403
+ 0000:D02B       C_C445
+ 0000:D030       C_C44A
+ 0000:D035       C_C44F
+ 0000:D03A       C_C454
+ 0000:D102       C_C51C
+ 0000:9A62       C_CAND
+ 0000:D955       C_CD1D
+ 0000:D9B8       C_CD80
+ 0000:DAF6       C_CEBE
+ 0000:DDFF       C_D16D
+ 0000:DE62       C_D1D0
+ 0000:DF8A       C_D2F8
+ 0000:E468       C_D7D6
+ 0000:E697       C_DA05
+ 0000:E6D0       C_DA3E
+ 0000:E70B       C_DA79
+ 0000:E734       C_DAA2
+ 0000:E7BB       C_DB29
+ 0000:E825       C_DB93
+ 0000:E887       C_DBF5
+ 0000:E9B6       C_DD24
+ 0000:EAC7       C_DE35
+ 0000:EE8E       C_E1FC
+ 0000:EEB0       C_E21E
+ 0000:F010       C_E37E
+ 0000:F064       C_E3D2
+ 0000:F09A       C_E408
+ 0000:F0D4       C_E442
+ 0000:F12A       C_E498
+ 0000:F155       C_E4C3
+ 0000:F22D       C_E59B
+ 0000:F371       C_E6DF
+ 0000:987C       C_HORN
+ 0000:9852       C_MAND
+ 0000:9BE4       C_MBOW
+ 0000:9B2E       C_MYAR
+ 0000:9B89       C_MYWE
+ 0000:9860       C_NIGH
+ 0000:9965       C_ORB1
+ 0000:9973       C_ORB2
+ 0000:9981       C_ORB3
+ 0000:998F       C_ORBS
+ 0000:992E       C_RING
+ 0000:98A6       C_SKUL
+ 0000:9AB8       C_TELE
+ 0000:98F5       C_WAND
+ 0000:9898       C_WHEL
+ 0000:9A24       C_WHIT
  0000:1273       DEATH_REVIVE
  0000:8EFB       DNG_MAIN
  0FF9:37B2       DOOR_Y0
@@ -506,11 +506,11 @@
  0FF9:2864       D_VIRTUES
  0FF9:2752       D_WEAPONS
  0FF9:2784       D_WEA_CODES
- 0000:E436       ENC_INN
+ 0000:E43A       ENC_INN
  0FF9:2CB6       ENEMY_HP
  0000:46D4       ENTER_DUNGEON
- 0000:F5CF       ENTER_ORACLE
- 0000:F3BA       ENTER_SHRINE
+ 0000:F5D3       ENTER_ORACLE
+ 0000:F3BE       ENTER_SHRINE
  0000:471B       ENTER_TOWNE
  0FF9:A419       equip_flags
  0000:479A       EXP_CLEAR_PARTYNPC
@@ -526,7 +526,7 @@
  0FF9:A38C       File_TLK
  0FF9:A38E       File_TLK_2
  0FF9:A390       File_TLK_Buff
- 0000:97D0       FIND_REAG
+ 0000:97D4       FIND_REAG
  0000:17A6       FOOD_DEC
  0000:2697       GRA_09
  0000:269C       GRA_10
@@ -582,18 +582,18 @@
  0000:20A9       PARTY_MAINT
  0FF9:A41B       patch_tandy
  0FF9:A234       pCharset
- 0000:CE08       PER_DUNG
- 0000:C5BC       PER_WORLD
+ 0000:CE0C       PER_DUNG
+ 0000:C5C0       PER_WORLD
  0FF9:0B98       PKARMAS
- 0000:9D47       POISON
- 0000:A35D       PROJ_ATTACK
+ 0000:9D4B       POISON
+ 0000:A361       PROJ_ATTACK
  0FF9:A0E6       pShapes
- 0000:9D86       RANDOM_ENCOUNTER
+ 0000:9D8A       RANDOM_ENCOUNTER
  0FF9:2D4E       RANGE_WEAP
  0FF9:37AA       RDOOR_X0
  0FF9:37AE       RDOOR_X1
  0000:7FA2       READY_WEAR_CANT
- 0000:D527       RESTORE_CRYPT
+ 0000:D52B       RESTORE_CRYPT
  0000:0E73       SAFEMODULO
  0000:0C4D       SAVE
  0FF9:0BC2       SECOND_FLOOR
@@ -604,22 +604,22 @@
  0000:0CDA       SHAKEFX
  0FF9:A0D4       ship_x
  0FF9:A0D5       ship_y
- 0000:E13C       SHP_ARMOR
- 0000:ED16       SHP_FOOD
- 0000:E2AC       SHP_GUILD
- 0000:D55F       SHP_HAWKWIND
- 0000:E8DB       SHP_HEALER
- 0000:E224       SHP_HORSE
- 0000:E56B       SHP_INN
- 0000:EC3D       SHP_PUB
- 0000:D733       SHP_REAGENT
- 0000:DD13       SHP_WEAPON
+ 0000:E140       SHP_ARMOR
+ 0000:ED1A       SHP_FOOD
+ 0000:E2B0       SHP_GUILD
+ 0000:D563       SHP_HAWKWIND
+ 0000:E8DF       SHP_HEALER
+ 0000:E228       SHP_HORSE
+ 0000:E56F       SHP_INN
+ 0000:EC41       SHP_PUB
+ 0000:D737       SHP_REAGENT
+ 0000:DD17       SHP_WEAPON
  0FF9:0CA2       SHRINES
- 0000:F722       SHR_KEYWORDS
+ 0000:F726       SHR_KEYWORDS
  0000:2797       sizzleCharset
  0000:2725       sizzleShapes
  0000:072C       SKULL_KILL
- 0000:9D10       SLEEP
+ 0000:9D14       SLEEP
  0000:0D9B       SLEEP_POISONFX
  0FF9:A416       speed_info
  0FF9:A100       spell_cnt
@@ -652,8 +652,8 @@
  0000:7777       SPL_Z_DOWN
  0FF9:1D28       TALK_FILES
  0FF9:1D84       TALK_FILES_2
- 0000:F776       TALK_ORACLE
- 0000:9A6C       TEST_ITEM
+ 0000:F77A       TALK_ORACLE
+ 0000:9A70       TEST_ITEM
  0FF9:A260       tile_back
  0FF9:A0D6       tile_cur
  0FF9:A232       tile_east
@@ -661,14 +661,14 @@
  0FF9:A23E       tile_north
  0FF9:A257       tile_south
  0FF9:A256       tile_west
- 0000:AF5A       TLK_GIVE
- 0000:AE63       TLK_HEALTH
- 0000:AE51       TLK_JOB
- 0000:AE75       TLK_JOIN
- 0000:AE38       TLK_LOOK
- 0000:AE19       TLK_NAME
- 0000:ADFD       TLK_SPECIAL1
- 0000:AE0B       TLK_SPECIAL2
+ 0000:AF5E       TLK_GIVE
+ 0000:AE67       TLK_HEALTH
+ 0000:AE55       TLK_JOB
+ 0000:AE79       TLK_JOIN
+ 0000:AE3C       TLK_LOOK
+ 0000:AE1D       TLK_NAME
+ 0000:AE01       TLK_SPECIAL1
+ 0000:AE0F       TLK_SPECIAL2
  0FF9:A0D0       Tomb
  0FF9:0BDA       TOWNE_CASTLE_VILLAGE
  0000:69EB       TRYDAMAGE
@@ -722,7 +722,7 @@
  0000:5629       ZTATS_MIXTURES
  0000:55AE       ZTATS_REAGENTS
  0000:511E       ZTATS_WEAP
- 0000:F7FF       _atol
+ 0000:F803       _atol
  0000:244A       _dalloc
  0000:2501       _dclose
  0000:2479       _dfree
@@ -734,7 +734,7 @@
  0FF9:AE30       _end
  0FF9:9CD8       _environ
  0FF9:9CB4       _errno
- 0000:F95B       _exit
+ 0000:F95F       _exit
  0000:2657       _Gra_00
  0000:265C       _Gra_01
  0000:2661       _Gra_02
@@ -752,17 +752,17 @@
  0000:26CC       _Gra_dot_XOR
  0000:2702       _Gra_init
  0000:25B0       _Gra_line
- 0000:FA35       _longjmp
+ 0000:FA39       _longjmp
  0000:1D76       _main
- 0000:F9C6       _memcpy
- 0000:FA18       _setjmp
+ 0000:F9CA       _memcpy
+ 0000:FA1C       _setjmp
  0000:219D       _sound
  0FF9:0906       _SoundFlag
- 0000:FA56       _strcat
- 0000:FA87       _strchr
- 0000:FAB1       _strcpy
- 0000:FAD6       _strlen
- 0000:FAF1       _strnicmp
+ 0000:FA5A       _strcat
+ 0000:FA8B       _strchr
+ 0000:FAB5       _strcpy
+ 0000:FADA       _strlen
+ 0000:FAF5       _strnicmp
  0000:1B25       _u_delay
  0000:1C5C       _u_kbflush
  0000:1C1D       _u_kbhit
@@ -773,40 +773,40 @@
  0000:9876  Abs  __acrtmsg
  0000:9876  Abs  __acrtused
  0FF9:9CA8       __aintdiv
- 0000:F8A1       __amsg_exit
- 0000:FD9F       __aNldiv
- 0000:FE42       __aNlmul
- 0000:FE6E       __aNlrem
- 0000:FF14       __aNuldiv
- 0000:FE42       __aNulmul
- 0000:FF79       __aNulshr
+ 0000:F8A5       __amsg_exit
+ 0000:FDA3       __aNldiv
+ 0000:FE46       __aNlmul
+ 0000:FE72       __aNlrem
+ 0000:FF18       __aNuldiv
+ 0000:FE46       __aNulmul
+ 0000:FF7D       __aNulshr
  0FF9:9C46       __asizds
- 0000:F802       __astart
+ 0000:F806       __astart
  0FF9:9C48       __atopsp
- 0000:FB48       __catox
+ 0000:FB4C       __catox
  0FF9:9CDA       __child
- 0000:F8AC       __cinit
- 0000:F89E       __cintDIV
+ 0000:F8B0       __cinit
+ 0000:F8A2       __cintDIV
  0FF9:9CDC       __csigtab
- 0000:F99E       __ctermsub
+ 0000:F9A2       __ctermsub
  0FF9:9CBE       __doserrno
  0FF9:9CBC       __dosvermajor
  0FF9:9CBD       __dosverminor
- 0000:F972       __exit
+ 0000:F976       __exit
  0FF9:9CAC       __fac
  0FF9:9CE8       __fpinit
- 0000:FD5D       __myalloc
- 0000:FBB9       __NMSG_TEXT
- 0000:FBE9       __NMSG_WRITE
- 0000:FB9D       __nullcheck
+ 0000:FD61       __myalloc
+ 0000:FBBD       __NMSG_TEXT
+ 0000:FBED       __NMSG_WRITE
+ 0000:FBA1       __nullcheck
  0FF9:9CBE       __oserr
  0FF9:9CC0       __osfile
  0FF9:9CBC       __osmajor
  0FF9:9CBD       __osminor
  0FF9:9CBA       __psp
  0FF9:9CB8       __pspadr
- 0000:FC12       __setargv
- 0000:FCF7       __setenvp
+ 0000:FC16       __setargv
+ 0000:FCFB       __setenvp
  0FF9:9CB6       __umaskval
  0FF9:9CD4       ___argc
  0FF9:9CD6       ___argv
@@ -1137,183 +1137,183 @@
  0000:93CC       C_89BD
  0000:93EA       C_89DB
  0000:942E       C_8A1F
- 0000:9469       AMBUSH
- 0000:94E1       CMD_HOLEUP
- 0000:966B       CMD_MIX
- 0000:97AE       C_8D4B
- 0000:97D0       FIND_REAG
- 0000:984E       C_MAND
- 0000:985C       C_NIGH
- 0000:986A       C_BELL
+ 0000:946D       AMBUSH
+ 0000:94E5       CMD_HOLEUP
+ 0000:966F       CMD_MIX
+ 0000:97B2       C_8D4B
+ 0000:97D4       FIND_REAG
+ 0000:9852       C_MAND
+ 0000:9860       C_NIGH
+ 0000:986E       C_BELL
  0000:9876  Abs  __acrtmsg
  0000:9876  Abs  __acrtused
- 0000:9878       C_HORN
- 0000:9886       C_BELT
- 0000:9894       C_WHEL
- 0000:98A2       C_SKUL
- 0000:98F1       C_WAND
- 0000:992A       C_RING
- 0000:9961       C_ORB1
- 0000:996F       C_ORB2
- 0000:997D       C_ORB3
- 0000:998B       C_ORBS
- 0000:99D8       C_BLAC
- 0000:9A20       C_WHIT
- 0000:9A50       C_BOOK
- 0000:9A5E       C_CAND
- 0000:9A6C       TEST_ITEM
- 0000:9AB4       C_TELE
- 0000:9B2A       C_MYAR
- 0000:9B85       C_MYWE
- 0000:9BE0       C_MBOW
- 0000:9C3B       C_90C5
- 0000:9CB0       CMD_SEARCH
- 0000:9D10       SLEEP
- 0000:9D47       POISON
- 0000:9D86       RANDOM_ENCOUNTER
- 0000:9F79       C_93A5
- 0000:9FE8       C_9414
- 0000:A17E       C_95AA
- 0000:A257       C_9683
- 0000:A28D       C_96B9
- 0000:A335       C_9764
- 0000:A35D       PROJ_ATTACK
- 0000:A4AC       C_98E4
- 0000:A5F7       C_9A41
- 0000:A6B9       CHECKJINX
- 0000:A721       C_9B6B
- 0000:A75C       C_9BA6
- 0000:A79B       C_9BE5
- 0000:A80C       C_9C56
- 0000:A872       C_9CBC
- 0000:AB31       C_9F7B
- 0000:AD1B       C_A163
- 0000:ADE5       C_A22D
- 0000:ADFD       TLK_SPECIAL1
- 0000:AE0B       TLK_SPECIAL2
- 0000:AE19       TLK_NAME
- 0000:AE38       TLK_LOOK
- 0000:AE51       TLK_JOB
- 0000:AE63       TLK_HEALTH
- 0000:AE75       TLK_JOIN
- 0000:AF5A       TLK_GIVE
- 0000:AFFB       C_A443
- 0000:B037       C_A47F
- 0000:B06C       C_A4B4
- 0000:B23E       C_A686
- 0000:B2C0       CMD_TALK
- 0000:B3BF       C_A7F2
- 0000:B40F       C_A842
- 0000:B517       C_A94A
- 0000:B5F6       C_AA29
- 0000:B6D5       C_AB08
- 0000:B7B2       C_ABE5
- 0000:B7F0       C_AC23
- 0000:B937       C_AD6A
- 0000:B9BC       C_ADEF
- 0000:BA0E       C_AE41
- 0000:BB03       C_AF36
- 0000:BB82       C_AFB5
- 0000:BCB6       C_B0E9
- 0000:BDEA       C_B21D
- 0000:BE2B       C_B25E
- 0000:BE69       C_B29C
- 0000:BEA7       C_B2DA
- 0000:BEE8       C_B31B
- 0000:BF29       C_B35C
- 0000:BF7B       C_B3AE
- 0000:BFB0       C_B3E3
- 0000:BFE5       C_B418
- 0000:C047       C_B47A
- 0000:C0AC       C_B4DF
- 0000:C1E9       C_B61C
- 0000:C244       C_B677
- 0000:C2FD       C_B730
- 0000:C33D       C_B770
- 0000:C362       C_B795
- 0000:C430       C_B863
- 0000:C50C       C_B93F
- 0000:C57F       C_B9B2
- 0000:C5BC       PER_WORLD
- 0000:CE08       PER_DUNG
- 0000:CFD0       C_C403
- 0000:CFFF       CMD_PEER
- 0000:D027       C_C445
- 0000:D02C       C_C44A
- 0000:D031       C_C44F
- 0000:D036       C_C454
- 0000:D0FE       C_C51C
- 0000:D527       RESTORE_CRYPT
- 0000:D55F       SHP_HAWKWIND
- 0000:D733       SHP_REAGENT
- 0000:D951       C_CD1D
- 0000:D9B4       C_CD80
- 0000:DAF2       C_CEBE
- 0000:DD13       SHP_WEAPON
- 0000:DDFB       C_D16D
- 0000:DE5E       C_D1D0
- 0000:DF86       C_D2F8
- 0000:E13C       SHP_ARMOR
- 0000:E224       SHP_HORSE
- 0000:E2AC       SHP_GUILD
- 0000:E436       ENC_INN
- 0000:E464       C_D7D6
- 0000:E56B       SHP_INN
- 0000:E693       C_DA05
- 0000:E6CC       C_DA3E
- 0000:E707       C_DA79
- 0000:E730       C_DAA2
- 0000:E7B7       C_DB29
- 0000:E821       C_DB93
- 0000:E883       C_DBF5
- 0000:E8DB       SHP_HEALER
- 0000:E9B2       C_DD24
- 0000:EAC3       C_DE35
- 0000:EC3D       SHP_PUB
- 0000:ED16       SHP_FOOD
- 0000:EE8A       C_E1FC
- 0000:EEAC       C_E21E
- 0000:F00C       C_E37E
- 0000:F060       C_E3D2
- 0000:F096       C_E408
- 0000:F0D0       C_E442
- 0000:F126       C_E498
- 0000:F151       C_E4C3
- 0000:F229       C_E59B
- 0000:F36D       C_E6DF
- 0000:F3BA       ENTER_SHRINE
- 0000:F5CF       ENTER_ORACLE
- 0000:F722       SHR_KEYWORDS
- 0000:F776       TALK_ORACLE
- 0000:F7FF       _atol
- 0000:F802       __astart
- 0000:F89E       __cintDIV
- 0000:F8A1       __amsg_exit
- 0000:F8AC       __cinit
- 0000:F95B       _exit
- 0000:F972       __exit
- 0000:F99E       __ctermsub
- 0000:F9C6       _memcpy
- 0000:FA18       _setjmp
- 0000:FA35       _longjmp
- 0000:FA56       _strcat
- 0000:FA87       _strchr
- 0000:FAB1       _strcpy
- 0000:FAD6       _strlen
- 0000:FAF1       _strnicmp
- 0000:FB48       __catox
- 0000:FB9D       __nullcheck
- 0000:FBB9       __NMSG_TEXT
- 0000:FBE9       __NMSG_WRITE
- 0000:FC12       __setargv
- 0000:FCF7       __setenvp
- 0000:FD5D       __myalloc
- 0000:FD9F       __aNldiv
- 0000:FE42       __aNulmul
- 0000:FE42       __aNlmul
- 0000:FE6E       __aNlrem
- 0000:FF14       __aNuldiv
- 0000:FF79       __aNulshr
+ 0000:987C       C_HORN
+ 0000:988A       C_BELT
+ 0000:9898       C_WHEL
+ 0000:98A6       C_SKUL
+ 0000:98F5       C_WAND
+ 0000:992E       C_RING
+ 0000:9965       C_ORB1
+ 0000:9973       C_ORB2
+ 0000:9981       C_ORB3
+ 0000:998F       C_ORBS
+ 0000:99DC       C_BLAC
+ 0000:9A24       C_WHIT
+ 0000:9A54       C_BOOK
+ 0000:9A62       C_CAND
+ 0000:9A70       TEST_ITEM
+ 0000:9AB8       C_TELE
+ 0000:9B2E       C_MYAR
+ 0000:9B89       C_MYWE
+ 0000:9BE4       C_MBOW
+ 0000:9C3F       C_90C5
+ 0000:9CB4       CMD_SEARCH
+ 0000:9D14       SLEEP
+ 0000:9D4B       POISON
+ 0000:9D8A       RANDOM_ENCOUNTER
+ 0000:9F7D       C_93A5
+ 0000:9FEC       C_9414
+ 0000:A182       C_95AA
+ 0000:A25B       C_9683
+ 0000:A291       C_96B9
+ 0000:A339       C_9764
+ 0000:A361       PROJ_ATTACK
+ 0000:A4B0       C_98E4
+ 0000:A5FB       C_9A41
+ 0000:A6BD       CHECKJINX
+ 0000:A725       C_9B6B
+ 0000:A760       C_9BA6
+ 0000:A79F       C_9BE5
+ 0000:A810       C_9C56
+ 0000:A876       C_9CBC
+ 0000:AB35       C_9F7B
+ 0000:AD1F       C_A163
+ 0000:ADE9       C_A22D
+ 0000:AE01       TLK_SPECIAL1
+ 0000:AE0F       TLK_SPECIAL2
+ 0000:AE1D       TLK_NAME
+ 0000:AE3C       TLK_LOOK
+ 0000:AE55       TLK_JOB
+ 0000:AE67       TLK_HEALTH
+ 0000:AE79       TLK_JOIN
+ 0000:AF5E       TLK_GIVE
+ 0000:AFFF       C_A443
+ 0000:B03B       C_A47F
+ 0000:B070       C_A4B4
+ 0000:B242       C_A686
+ 0000:B2C4       CMD_TALK
+ 0000:B3C3       C_A7F2
+ 0000:B413       C_A842
+ 0000:B51B       C_A94A
+ 0000:B5FA       C_AA29
+ 0000:B6D9       C_AB08
+ 0000:B7B6       C_ABE5
+ 0000:B7F4       C_AC23
+ 0000:B93B       C_AD6A
+ 0000:B9C0       C_ADEF
+ 0000:BA12       C_AE41
+ 0000:BB07       C_AF36
+ 0000:BB86       C_AFB5
+ 0000:BCBA       C_B0E9
+ 0000:BDEE       C_B21D
+ 0000:BE2F       C_B25E
+ 0000:BE6D       C_B29C
+ 0000:BEAB       C_B2DA
+ 0000:BEEC       C_B31B
+ 0000:BF2D       C_B35C
+ 0000:BF7F       C_B3AE
+ 0000:BFB4       C_B3E3
+ 0000:BFE9       C_B418
+ 0000:C04B       C_B47A
+ 0000:C0B0       C_B4DF
+ 0000:C1ED       C_B61C
+ 0000:C248       C_B677
+ 0000:C301       C_B730
+ 0000:C341       C_B770
+ 0000:C366       C_B795
+ 0000:C434       C_B863
+ 0000:C510       C_B93F
+ 0000:C583       C_B9B2
+ 0000:C5C0       PER_WORLD
+ 0000:CE0C       PER_DUNG
+ 0000:CFD4       C_C403
+ 0000:D003       CMD_PEER
+ 0000:D02B       C_C445
+ 0000:D030       C_C44A
+ 0000:D035       C_C44F
+ 0000:D03A       C_C454
+ 0000:D102       C_C51C
+ 0000:D52B       RESTORE_CRYPT
+ 0000:D563       SHP_HAWKWIND
+ 0000:D737       SHP_REAGENT
+ 0000:D955       C_CD1D
+ 0000:D9B8       C_CD80
+ 0000:DAF6       C_CEBE
+ 0000:DD17       SHP_WEAPON
+ 0000:DDFF       C_D16D
+ 0000:DE62       C_D1D0
+ 0000:DF8A       C_D2F8
+ 0000:E140       SHP_ARMOR
+ 0000:E228       SHP_HORSE
+ 0000:E2B0       SHP_GUILD
+ 0000:E43A       ENC_INN
+ 0000:E468       C_D7D6
+ 0000:E56F       SHP_INN
+ 0000:E697       C_DA05
+ 0000:E6D0       C_DA3E
+ 0000:E70B       C_DA79
+ 0000:E734       C_DAA2
+ 0000:E7BB       C_DB29
+ 0000:E825       C_DB93
+ 0000:E887       C_DBF5
+ 0000:E8DF       SHP_HEALER
+ 0000:E9B6       C_DD24
+ 0000:EAC7       C_DE35
+ 0000:EC41       SHP_PUB
+ 0000:ED1A       SHP_FOOD
+ 0000:EE8E       C_E1FC
+ 0000:EEB0       C_E21E
+ 0000:F010       C_E37E
+ 0000:F064       C_E3D2
+ 0000:F09A       C_E408
+ 0000:F0D4       C_E442
+ 0000:F12A       C_E498
+ 0000:F155       C_E4C3
+ 0000:F22D       C_E59B
+ 0000:F371       C_E6DF
+ 0000:F3BE       ENTER_SHRINE
+ 0000:F5D3       ENTER_ORACLE
+ 0000:F726       SHR_KEYWORDS
+ 0000:F77A       TALK_ORACLE
+ 0000:F803       _atol
+ 0000:F806       __astart
+ 0000:F8A2       __cintDIV
+ 0000:F8A5       __amsg_exit
+ 0000:F8B0       __cinit
+ 0000:F95F       _exit
+ 0000:F976       __exit
+ 0000:F9A2       __ctermsub
+ 0000:F9CA       _memcpy
+ 0000:FA1C       _setjmp
+ 0000:FA39       _longjmp
+ 0000:FA5A       _strcat
+ 0000:FA8B       _strchr
+ 0000:FAB5       _strcpy
+ 0000:FADA       _strlen
+ 0000:FAF5       _strnicmp
+ 0000:FB4C       __catox
+ 0000:FBA1       __nullcheck
+ 0000:FBBD       __NMSG_TEXT
+ 0000:FBED       __NMSG_WRITE
+ 0000:FC16       __setargv
+ 0000:FCFB       __setenvp
+ 0000:FD61       __myalloc
+ 0000:FDA3       __aNldiv
+ 0000:FE46       __aNulmul
+ 0000:FE46       __aNlmul
+ 0000:FE72       __aNlrem
+ 0000:FF18       __aNuldiv
+ 0000:FF7D       __aNulshr
  0FF9:0036       MSG_DSKERR
  0FF9:005E       MSG_SYSERR
  0FF9:0078       far_psp
@@ -1592,4 +1592,4 @@
  0FF9:A430       D_8742
  0FF9:AE30       _end
 
-Program entry point at 0000:F802
+Program entry point at 0000:F806
