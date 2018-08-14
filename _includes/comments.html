@@ -6,7 +6,7 @@
         <header class="section-title">
           <h3>{% if site.data.comments[page.slug].size > 1 %}{{ site.data.comments[page.slug] | size | append: ' ' }}{% endif %}Comments</h3>
         </header>
-        {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == blank' %}
+        {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' %}
         {% for comment in comments %}
           {% assign index       = forloop.index %}
           {% assign replying_to = comment[1].replying_to | to_integer %}
