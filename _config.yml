@@ -20,7 +20,8 @@ tools:
   standards:      "Photoshop, Text editors, Hex Fiend"
   software:       "Xcode?"
   
-comments: true
+comments:
+  provider               : "staticman_v2"
 
 # Open Graph customization
 opengraph:
