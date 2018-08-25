@@ -83,19 +83,19 @@
         window.sr = new ScrollReveal(config)
 	sr.reveal('.ScrollRev');
 	      
-	ScrollReveal().reveal('.post-header.h1');   
+	ScrollReveal().reveal('.post-header');   
 
       })()
 		
 });
 </script>
 
-  <script>
+  <!--<script>
     document.addEventListener("DOMContentLoaded", function(event) {
       spoilerAlert('spoiler');
       spoilerAlert('.spoiler', {max: 20, partial: 10});
     });
-  </script>
+  </script>-->
 
 <script>
 	jQuery(document).ready(function($){var MQL=1170;if($(window).width()>MQL){var headerHeight=$('.site-header').height();$(window).on('scroll',{previousTop:0},function(){var currentTop=$(window).scrollTop();if(currentTop<this.previousTop){if(currentTop>0&&$('.site-header').hasClass('is-fixed')){$('.site-header').addClass('is-visible');}else{$('.site-header').removeClass('is-visible is-fixed');}}else{$('.site-header').removeClass('is-visible');if(currentTop>headerHeight&&!$('.site-header').hasClass('is-fixed'))$('.site-header').addClass('is-fixed');}
