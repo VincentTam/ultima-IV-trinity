@@ -4,7 +4,7 @@ title: Towns and Stuff
 description: Making multi-level towns and castles
 comments: true
 tags: [Ultima IV, towns, multi-level, castles, stuff]
-date: 2018-08-24
+date: 2018-08-26
 image: 
         feature: text_3.jpg
 ---
