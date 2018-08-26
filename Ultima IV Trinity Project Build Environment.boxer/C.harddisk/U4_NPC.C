@@ -430,7 +430,7 @@ NPC_Turn()
 /*spawn creatures?*/
 C_5851()
 {
-	register int si;
+	register int si,di;
 	register unsigned char *loc_B;
 	unsigned char loc_C, loc_A;
 
@@ -478,6 +478,25 @@ C_5851()
 :59AF 80C1C0    ADD	CL,0C0h
 :59B2 888C428B  MOV	__8B42[SI],CL
 :59B6 888CA28B  MOV	__8B42[SI+60h],CL*/
+                
+                /* Adds more encounters with Daemons if any of the Orbs have been placed in an oracle
+                if(TST_MSK(Party.mItems2, 11) || TST_MSK(Party.mItems2, 12) || TST_MSK(Party.mItems2, 13)) {
+                    D_8742._npc._tile[si + 3] =
+                    D_8742._npc._gtile[si + 3] =
+                    TIL_F0;
+                }
+                Adds more encounters with Daemons if any of the Orbs have been placed in an oracle*/
+                if(!(Orb_Check())){
+                for(di = 13; di >= 11; di--) {
+                if(TST_MSK(Party.mItems2, di)) {
+                    D_8742._npc._x[si + (2 + si)] = loc_A + D_95A5.x*16;
+                    D_8742._npc._y[si + (2 + si)] = loc_C + D_95A5.y*16;
+                    D_8742._npc._tile[si + (2 + si)] =
+                    D_8742._npc._gtile[si + (2 + si)] =
+                    TIL_F0;
+                }
+                }
+                }
 				D_8742._npc._tile[si] =
 				D_8742._npc._gtile[si] =
 					U4_RND1(U4_RND1(bp_0a)) * 4 + TIL_C0;

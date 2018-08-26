@@ -46,6 +46,23 @@ char *Second_Floor[] = {
     /*D_073B*/"MAGINCI2.ULT"
 };
 
+char *Basement_Floor[] = {
+    /*Castles*/
+    /*0x56 0x6B*/"LCB_B.ULT",
+    /*D_06CC*/"LYCAEUMB.ULT",
+    /*D_06D8*/"EMPATHB.ULT",
+    /*D_06E3*/"SERPENTB.ULT",
+    /*Townes*/
+    /*D_06EF*/"MOONGLOB.ULT",
+    /*D_06FC*/"BRITAINB.ULT",
+    /*D_0708*/"JHELOMB.ULT",
+    /*D_0713*/"YEWB.ULT",
+    /*D_071B*/"MINOCB.ULT",
+    /*D_0725*/"TRINSIC2.ULT",
+    /*D_0731*/"SKARA2.ULT",
+    /*D_073B*/"MAGINCI2.ULT"
+};
+
 /*towns/castles files*/
 char *Towne_Castle_Village[] = {
 	/*Castles*/

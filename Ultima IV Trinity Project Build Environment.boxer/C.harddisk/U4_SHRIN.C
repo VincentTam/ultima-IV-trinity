@@ -213,6 +213,10 @@ Shrine_Eject:
 	goto Shrine_Eject;
 }
 
+Orb_Check() {
+    TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13);
+}
+
 /*enter an oracle*/
 Enter_Oracle()
 {
@@ -221,14 +225,14 @@ Enter_Oracle()
     char loc_D[16];
     int loc_E;
     loc_A = Party._loc - 0x2c;/*oracle "number"*/
-    /* this check is not set yet...used runes in the Shrine version */
+    /* this check is to temp close the oracle if an orb has been placed in it */
     if((Party._loc == 46 && TST_MSK(Party.mItems2, 13)) || (Party._loc == 45 && TST_MSK(Party.mItems2, 12)) || (Party._loc == 44 && TST_MSK(Party.mItems2, 11))) {
         u4_puts("\nA strange force keeps you out!\n");
         Oracle_Eject:
             CurMode = MOD_OUTDOORS;
             Party._loc = 0;
         
-        if(TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13)) {
+        if(Orb_Check()) {
             u4_puts("A strange blue light consumes all you see!\n");
             Crypt_Close(11);
         }

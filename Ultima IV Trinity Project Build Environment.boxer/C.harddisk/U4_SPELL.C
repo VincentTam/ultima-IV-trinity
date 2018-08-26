@@ -179,6 +179,7 @@ int bp04;
 		if((Party._x & Party._y) < 0xc0) {
 			loc_C = D_959C.x;
 			loc_D = D_959C.y;
+            CryptCollapse();
 			while(loc_C < 32 && loc_D < 32) {
 				loc_C += loc_A;
 				loc_D += loc_B;

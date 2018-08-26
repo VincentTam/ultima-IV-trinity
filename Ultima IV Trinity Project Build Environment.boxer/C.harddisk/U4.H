@@ -356,6 +356,7 @@ extern char D_080C[], D_0810[];
 extern char D_0814[], D_081C[];/*moongates positions*/
 extern char *Towne_Castle_Village[];
 extern char *Second_Floor[];
+extern char *Basement_Floor[];
 extern char D_0844[]; /*x-coordinate for locations*/
 extern char D_0864[]; /*y-coordinate for locations*/
 extern char *Shrines[];
@@ -457,6 +458,7 @@ extern unsigned WindDir;
 extern char D_96F4;
 extern int File_TLK;
 extern int File_TLK_2;
+extern int File_TLK_B;
 extern int File_TLK_Buff;
 extern unsigned char D_96F8;
 extern unsigned char D_96F9[11*11];

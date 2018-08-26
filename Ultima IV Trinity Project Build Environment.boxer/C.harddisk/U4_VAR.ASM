@@ -22,7 +22,7 @@ PUBLIC tile_west,tile_south,txt_Y,DoublePace
 PUBLIC D_95C8,tile_back,D_95CC,D_95CE
 PUBLIC D_96EE,File_MAP,WindDir,D_96F4
 PUBLIC File_TLK,D_96F8,D_96F9,D_9772
-PUBLIC HorseTown,File_TLK_2,File_TLK_Buff,Tomb
+PUBLIC HorseTown,File_TLK_2,File_TLK_B, File_TLK_Buff,Tomb
 ;actually, the next segment should be
 ;generated as a COMDEF record
 
@@ -94,6 +94,7 @@ D_96F4	db ?
 	db ?
 File_TLK	dw ?	;D_96F6
 File_TLK_2	dw ?	;D_96F6
+File_TLK_B	dw ?	;D_96F6
 File_TLK_Buff	dw ?	;D_96F6
 D_96F8	db ?
 D_96F9	db 11*11 dup (?)

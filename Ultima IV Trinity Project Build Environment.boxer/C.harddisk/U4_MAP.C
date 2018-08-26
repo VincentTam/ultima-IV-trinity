@@ -176,7 +176,7 @@ unsigned bp04;
     register int si;
     
     Big_Shake();
-    if(TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13)) {
+    if(bp04 == 11) {
         u4_puts("\nWith a brilliant flash, the Oracle disappears!\n");
     } else {
         u4_puts("\nWith a mighty rumble the entrance to the Crypt collapses!\n");
@@ -184,6 +184,7 @@ unsigned bp04;
     u_delay(1, 0);
     Gra_CR();
     
+    /*closes the oracles simultaneously...does this work when the are spread out?...yes it does*/
     if(bp04 == 11){
         for(si = 11; si < 14; si++) {
             
@@ -194,9 +195,10 @@ unsigned bp04;
     }
     else {
     
+    /*closes the crypts*/
     D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = D_8742._npc._var[bp04] = TIL_Mount_08;
     D_8742._npc._x[bp04] = D_8742._npc._var[bp04 + 6] = Party._x;
-    D_8742._npc._y[bp04] = D_8742._npc._var[bp04 + 12] = Party._y - 1;
+    D_8742._npc._y[bp04] = D_8742._npc._var[bp04 + 12] = Party._y;
     /*
     D_8742._npc._gtile[bp04] = D_8742._npc._tile[bp04] = TIL_Mount_08;
     D_8742._npc._x[bp04] = Party._x;
@@ -211,15 +213,15 @@ unsigned bp04;
 
 
 /*spawn daemons(if horn not used)*/
-C_27D9(bp04)
-unsigned bp04;
+Spawn_Daemons()
 {
 	if(spell_sta != 1) {
 		/*horn not in use*/
 		register int si;
 
-		for(si = bp04; si >= 0; si--) {
+		for(si = 7; si >= 0; si--) {
 			D_8742._npc._tile[si] = D_8742._npc._gtile[si] = TIL_F0;
+            /*changed this from humility shine x to party x so this function can also be used for oracles.*/
             D_8742._npc._x[si] = Party._x;
 			/*D_8742._npc._x[si] = 0xe7;*/
 			D_8742._npc._y[si] = Party._y + 1;
@@ -455,6 +457,8 @@ C_2B19()
 	} else if(Party._tile == TIL_18) {
 		w_DriftOnly();
 	} else {
+        CryptCollapse();
+
 		sound(0);
 		u4_puts("North\n");
 		if(C_2B19() && DoublePace) {
@@ -462,17 +466,13 @@ C_2B19()
 			sound(0);
 			C_2B19();
 		}
-        if(TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12) && TST_MSK(Party.mItems2, 13)) {
+        if(Orb_Check()) {
             /*do nothing*/
         }
         else if(
            (Party._x >= 0x52 && Party._x < 0x56 &&
-            Party._y >= 0x65 && Party._y < 0x67) && ((TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 12)) || (TST_MSK(Party.mItems2, 13) && TST_MSK(Party.mItems2, 12)) || (TST_MSK(Party.mItems2, 11) && TST_MSK(Party.mItems2, 13)))
-           ) {C_27D9(7);}
-        else if(
-           (Party._x >= 0x52 && Party._x < 0x56 &&
            Party._y >= 0x65 && Party._y < 0x67) && (TST_MSK(Party.mItems2, 11) || TST_MSK(Party.mItems2, 12) || TST_MSK(Party.mItems2, 13))
-           ) {C_27D9(1);}
+           ) {Spawn_Daemons();}
 	}
 }
 
@@ -520,7 +520,9 @@ C_2C25()
 			C_2891();
 		}
 	} else {
-		sound(0);
+        CryptCollapse();
+
+        sound(0);
 		u4_puts("South\n");
 		if(C_2C25() && DoublePace) {
 			t_callback();
@@ -531,27 +533,33 @@ C_2C25()
 		if(
 			Party._x >= 0xe5 && Party._x < 0xea &&
 			Party._y >= 0xd4 && Party._y < 0xd9
-           ) {C_27D9(7);}
-        /*seal the crypts after artifacts entombed - locations must be updated for final map*/
-        else if(Party._x == 0x52 && Party._y == 0x64){
-            if(closeCrypt == 1){
-                Crypt_Close(8);
-                closeCrypt = 0;
-            }
-        }
-        else if(Party._x == 0x54 && Party._y == 0x64){
-            if(closeCrypt == 1){
-                Crypt_Close(9);
-                closeCrypt = 0;
-            }
-        }
-        else if(Party._x == 0x56 && Party._y == 0x64){
-            if(closeCrypt == 1){
-                Crypt_Close(10);
-                closeCrypt = 0;
-            }
-        }
+           ) {Spawn_Daemons();}
 	}
+}
+
+CryptCollapse() {
+    /*seal the crypts after artifacts entombed - locations must be updated for final map*/
+    /*this is also being used to close either a tomb, or a crypt */
+    /*final version will use an 'or' statement with the parties (crypt or tombs) x location..so none of them can share an x locaton value */
+    /*wait...shrines should stay open to allow for closing via an Orb of the moon*/
+    if(Party._x == 0x52 && Party._y == 0x64){
+        if(closeCrypt == 1){
+            Crypt_Close(8);
+            closeCrypt = 0;
+        }
+    }
+    else if(Party._x == 0x54 && Party._y == 0x64){
+        if(closeCrypt == 1){
+            Crypt_Close(9);
+            closeCrypt = 0;
+        }
+    }
+    else if(Party._x == 0x56 && Party._y == 0x64){
+        if(closeCrypt == 1){
+            Crypt_Close(10);
+            closeCrypt = 0;
+        }
+    }
 }
 
 /*move West*/
@@ -598,6 +606,8 @@ C_2D44()
 			C_28E9();
 		}
 	} else {
+        CryptCollapse();
+        
 		if(Party._tile == TIL_HorseE_15)
 			Party._tile = TIL_HorseW_14;
 		sound(0);
@@ -659,6 +669,8 @@ C_2E4F()
 				C_280A();
 		}
 	} else {
+        CryptCollapse();
+
 		if(Party._tile == TIL_HorseW_14)
 			Party._tile = TIL_HorseE_15;
 		sound(0);

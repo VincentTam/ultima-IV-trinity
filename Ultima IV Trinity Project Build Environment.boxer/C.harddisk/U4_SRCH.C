@@ -192,10 +192,17 @@ C_TELE()
 {
 	int bp_02;
 
-	u4_puts(/*D_2897*/"You see a knob on the Telescope marked A-P\n");
-	if((bp_02 = AskLetter(/*D_28C3*/"You Select:\x12\x12\b", 'A', 'P')) < 0)
+	u4_puts(/*D_2897*/"You see a knob on the Telescope marked A-X\n");
+	if((bp_02 = AskLetter(/*D_28C3*/"You Select:\x12\x12\b", 'A', 'X')) < 0)
 		return;
 	bp_02 -= 'A';
+    
+    /*added this to include new villages in the view. Could this be handled better at 'Towne_Castle_Village'?*/
+    if(bp_02 > 15){
+        bp_02 = bp_02 + 16;
+    }
+    /*added this to include new villages in the view. Could this be handled better at 'Towne_Castle_Village'?*/
+    
 	if(Load(Towne_Castle_Village[bp_02], sizeof(tMap32x32), &(D_8742._map)) == -1)
 		exit(3);
 	PER_World(0);
@@ -300,6 +307,7 @@ struct t_05_local {
     /*{0x00,0xB6,0x36,C_MAND},/*Mandrake root*/
 
 	{0x00,0x64,0xA5,C_MAND},/*Mandrake root*/
+    {0x00,0x62,0x9D,C_MAND},/*New Mandrake root location*/
     
 	{0x00,0x54,0x69,C_NIGH},/*Nightshade*/
     /*{0x00,0x2E,0x95,C_NIGH},/*Nightshade*/
