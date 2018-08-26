@@ -6,7 +6,7 @@ comments: true
 tags: [Ultima IV, towns, multi-level, castles, stuff]
 date: 2018-08-24
 image: 
-        feature: book_3.jpg
+        feature: text_3.jpg
 ---
 
 Currently I am moving on to one of the final tasks, which is filling in the new townes(villages/camps/hamlets) and second stories of existing townes, with NPCs. This is not a technically difficult task, but to do it right, to fit in with the existing lore, plots etc., and to make it fun, etc., takes some thought.
