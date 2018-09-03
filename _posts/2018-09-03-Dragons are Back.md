@@ -14,7 +14,7 @@ So, I stripped out the code and got about 1000bytes. More than enough to bring d
 I've added a little gif below showing the dragon in action. I tried my best to make all interface interactions mirror or follow the standards from the vanilla game.
 
 <figure>
-	<img class="ScrollRev spoiler" data-tilt src="/ultima-IV-trinity/images/dragon.gif" />
+	<img class="ScrollRev" data-tilt src="/ultima-IV-trinity/images/dragon.gif" />
 	<figcaption>Houston, we have dragons, I repeat, we have dragons.</figcaption>
 </figure>
 
