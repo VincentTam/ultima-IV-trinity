@@ -31,7 +31,7 @@ But I did it. I also managed to fix up an old bug with the game, which would all
 </figure>
 
 <figure>
-	<img class="ScrollRev" data-tilt src="/ultima-IV-trinity/images/friage_1.png" />
+	<img class="ScrollRev" data-tilt src="/ultima-IV-trinity/images/frigate_2.png" />
 	<figcaption>Board my other firgate...man, these ships are beat!</figcaption>
 </figure>
 
