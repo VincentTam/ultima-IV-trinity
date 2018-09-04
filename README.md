@@ -11,6 +11,7 @@ This project aims to modify the original Ultima IV to add additional content, vi
   * All chest trap types working
   * No more infinite Mystic Weaps/Armor
   * Hythloth bug fixed
+  * Ship instant repair bug fixed
   * Other Small fixes
   
 ### New Features
