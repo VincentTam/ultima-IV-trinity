@@ -9,7 +9,7 @@ image:
         feature: text_3.jpg
 ---
 
-I could never quit let go of the idea of having a new kind of mount for Advent of the Trinity. And dragons always seemed like the best bet for that.
+I could never quite let go of the idea of having a new kind of mount for Advent of the Trinity. And dragons always seemed like the best bet for that.
 So, the other day I realised I could free up some coding space by removing all code related to switching disks. Anyone who ever plays this mod will be using an emulator, and the chance of them installing this onto floppy disks and trying to play it on an old system are quite low.
 So, I stripped out the code and got about 1000bytes. More than enough to bring dragons back in. It wasn't quite as easy as I had anticipated, mostly because the dozens of special cases I had to deal with for how the dragons interact with the map etc., not to even count the actual code of getting them flying, mountable, etc.
 I've added a little gif below showing the dragon in action. I tried my best to make all interface interactions mirror or follow the standards from the vanilla game.
