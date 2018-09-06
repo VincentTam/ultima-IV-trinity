@@ -2,6 +2,7 @@
 layout: post
 title: Dragons Back on the Menu
 description: Freed up a bunch of coding space, and managed to get Dragons fully integrated and working.
+comments: true
 tags: [Ultima IV, dragons, bug, bug fix, ride-able, mod, Trinity]
 date: 2018-09-03
 image: 
