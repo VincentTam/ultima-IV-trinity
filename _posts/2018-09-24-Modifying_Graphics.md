@@ -16,8 +16,7 @@ It turns out sprites can't really be added, without first removing another sprit
 
 However, I have found a way to do it, with minimal coding. What I have done is strip out the fourth 'animation' of each NPC sprite, leaving them with 3, and giving me more than two dozen freed-up slots for new sprites. It was a bit of a dodgy task, with a little bit too much room for bugs to have crept in. There is also the matter of the NPCs having slightly less animation. Which is a set-back from the original game. But I can now add in more than 2 dozen new sprites.
 
-Should I do it...
-I am torn. The new sprites are cool, and together start to give the game a bit of an Ultima IV part 2 vibe. Somewhere between IV and V. It's particularly evident on the new roofs of the towns and castles.
+Should I do it… I am torn. The new sprites are cool, and together start to give the game a bit of an Ultima IV part 2 vibe. Somewhere between IV and V. It’s particularly evident on the new roofs of the towns and castles. But I am somewhat of a purist, and really had hoped to keep any graphical changes to the absolute minimum. Nevertheless, all the coding work required to get just one sprite in, seems to warrant including a few others, at least enough to warrant the coding work.s
 
 I'll add screenshots here if I go any further with this.
 
