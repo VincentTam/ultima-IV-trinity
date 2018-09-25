@@ -30,5 +30,8 @@ I'll add screenshots here if I go any further with this.
 	<figcaption>So do these windows...</figcaption>
 </figure>
 
-
+<figure>
+	<img class="ScrollRev" data-tilt src="/ultima-IV-trinity/images/gargoyles.png" />
+	<figcaption>How many familiar sprites can you find in this screenshot?</figcaption>
+</figure>
 
