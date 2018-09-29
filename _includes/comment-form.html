@@ -1,22 +1,10 @@
-{% unless page.comments_locked == true %}
-  <!-- Start new comment form -->
-  <div id="respond">
-    <header class="section-title">
-      <h3>Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="{{ page.url | relative_url }}#respond" style="display:none;">Cancel reply</a></small></h3>
-    </header>
-    <form method="POST" action="https://api.staticman.net/v2/entry/cambragol/ultima-IV-trinity/comments">
-  <input name="options[redirect]" type="hidden" value="{{ page.url | relative_url }}">
-  <!-- e.g. "2016-01-02-this-is-a-post" -->
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <label><input name="fields[name]" type="text">Name</label>
-  <label><input name="fields[email]" type="email">E-mail</label>
-  <label><textarea name="fields[message]"></textarea>Message</label>
-  
-  <button type="submit">Go!</button>
+<form action="http://localhost:9000/hooks/add-comment">
+    <input type="hidden" name="reply_to" value="{{ include.reply_to }}" />
+    <div style="clear: both; padding-top: .5em;">Name</div>
+    <input type="text" name="author" />
+    <div>E-mail</div>
+    <input type="text" name="email" />
+    <div>Comment</div>
+    <textarea name="text"></textarea>
+    <input type="submit" value="Submit" />
 </form>
-  </div>
-  <!-- End new comment form -->
-  <script async src="https://www.google.com/recaptcha/api.js"></script>
-{% else %}
-  <p><em>Comments are closed. If you have a question concerning the content of this page, please feel free to <a href="/contact/">contact me</a>.</em></p>
-{% endunless %}
