@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: home1
 ---
 
 Testing comments, 1, 2, testing...
