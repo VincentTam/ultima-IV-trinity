@@ -23,6 +23,10 @@ tools:
 comments:
   provider               : "staticman_v2"
 
+staticman:
+  api: "https://staticman3.herokuapp.com/v3/entry/github/cambragol/ultima-IV-trinity/master/comments"
+  path: "_data/comments/test-slug"
+
 # Open Graph customization
 opengraph:
   locale:           en_US
