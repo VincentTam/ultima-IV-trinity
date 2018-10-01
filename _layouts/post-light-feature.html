@@ -30,6 +30,18 @@
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
       {% if page.comments %}
+        
+                <p>hello</p>
+  <form method="POST" action="{{ site.staticman.api }}">
+  <input name="options[redirect]" type="hidden" value="{{ site.url }}">
+  <input name="options[slug]" type="hidden" value="test-slug">
+  <label>Name: <input name="fields[name]" type="text"></label><br>
+  <label>Email: <input name="fields[email]" type="email"></label><br>
+  <label>Message: <br><textarea name="fields[message]" rows="12" cols="36"></textarea></label><br>
+  <input type="submit" value="Submit">
+</form>
+{% include comments.html %}
+        
       <aside class="disqus">
         <div id="disqus_thread"></div>
         <script type="text/javascript">
