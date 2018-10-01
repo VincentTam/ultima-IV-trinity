@@ -23,6 +23,7 @@ tools:
   
 comments:
   # provider               : "staticman_v2"
+  path                   : "_data/comments/{options.slug}"
 
 # Open Graph customization
 opengraph:
