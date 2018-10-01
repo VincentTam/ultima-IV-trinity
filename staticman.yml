@@ -29,9 +29,9 @@ comments:
 
   # (*) REQUIRED
   #
-  # Destination path (filename) for the data files. Accepts placeholders.
- filename: "entry{@timestamp}"
- 
+  # Destination path (filename) for the data files. Accepts placeholders
+  filename: "entry{@timestamp}"
+  
   # The format of the generated data files. Accepted values are "json", "yaml"
   # or "frontmatter"
   format: "yaml"
