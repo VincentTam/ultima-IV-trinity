@@ -4,7 +4,7 @@
       <section id="static-comments">
           <!-- Start static comments -->
           <div class="js-comments">
-            {% if site.data.comments[page.slug] %}
+            <!--{% if site.data.comments[page.slug] %}-->
               <h4 class="page__comments-title">{{ site.data.ui-text[site.locale].comments_title | default: "Comments" }}</h4>
               {% assign comments = site.data.comments[page.slug] | sort %}
 
@@ -16,7 +16,7 @@
                 {% assign message = comment[1].message %}
                 {% include comment.html index=forloop.index email=email name=name url=url date=date message=message %}
               {% endfor %}
-            {% endif %}
+            <!--{% endif %}-->
           </div>
           <!-- End static comments -->
 
