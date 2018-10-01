@@ -22,7 +22,7 @@ tools:
   software:       "Xcode?"
   
 comments:
-  provider               : "staticman_v2"
+  # provider               : "staticman_v2"
 
 # Open Graph customization
 opengraph:
@@ -67,7 +67,7 @@ sass:
 staticman:
 # branch                 : "master"
 api: "https://staticman3.herokuapp.com/v3/entry/github/cambragol/ultima-IV-trinity/master/comments"
-# path: "_data/comments/test-slug"
+path: "_data/comments/test-slug"
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title
