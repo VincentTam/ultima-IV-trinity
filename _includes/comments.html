@@ -2,7 +2,6 @@
   {% capture comments_label %}{{ site.data.ui-text[site.locale].comments_label | default: "Comments" }}{% endcapture %}
   
       <section id="static-comments">
-        {% if site.staticman.branch %}
           <!-- Start static comments -->
           <div class="js-comments">
             {% if site.data.comments[page.slug] %}
@@ -72,6 +71,5 @@
           </div>
           <!-- End new comment form -->
           {% if site.reCaptcha.siteKey %}<script async src="https://www.google.com/recaptcha/api.js"></script>{% endif %}
-        {% endif %}
       </section>
 </div>
