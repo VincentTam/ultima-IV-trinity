@@ -30,8 +30,8 @@ comments:
   # (*) REQUIRED
   #
   # Destination path (filename) for the data files. Accepts placeholders.
-  filename: "comment-{@timestamp}"
-
+ filename: "entry{@timestamp}"
+ 
   # The format of the generated data files. Accepted values are "json", "yaml"
   # or "frontmatter"
   format: "yaml"
