@@ -2,7 +2,7 @@
   {% capture comments_label %}{{ site.data.ui-text[site.locale].comments_label | default: "Comments" }}{% endcapture %}
   
       <section id="static-comments">
-        {% if site.repository and site.staticman.branch %}
+        {% if site.staticman.branch %}
           <!-- Start static comments -->
           <div class="js-comments">
             {% if site.data.comments[page.slug] %}
