@@ -250,6 +250,7 @@ h1, h2, h3, h4, h5 {
 
 p {
   margin-bottom: 33px;
+  margin-top: 20px;
 }
 
 a, a:visited, a:active {
@@ -943,6 +944,9 @@ header.site-header nav ul li a:hover {
  height:40px;
  border-radius:50%
 }
+.post .comment__avatar {
+ margin: 0px;
+}
 @media (min-width: 64em) {
  .post .comment__avatar {
   width:80px;
@@ -961,13 +965,16 @@ header.site-header nav ul li a:hover {
  }
 }
 .post .comment__author {
- margin:0
+ margin:0;
+ padding-top: 0px
 }
 .post .comment__author a {
  text-decoration:none
 }
 .post .comment__date {
- margin:0
+ margin:0;
+ font-size: 18px;
+ line-height: .75;
 }
 .post .comment__date a {
  text-decoration:none
