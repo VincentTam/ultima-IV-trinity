@@ -966,7 +966,8 @@ header.site-header nav ul li a:hover {
 }
 .post .comment__author {
  margin:0;
- padding-top: 0px
+ padding-top: 0px;
+ font-weight: bold;
 }
 .post .comment__author a {
  text-decoration:none
