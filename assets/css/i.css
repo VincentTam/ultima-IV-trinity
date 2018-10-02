@@ -1034,7 +1034,8 @@ input,textarea,select {
  background-color:#fff;
  border:#f2f3f3;
  border-radius:4px;
- box-shadow:0 1px 1px rgba(0,0,0,0.125)
+ box-shadow:0 1px 1px rgba(0,0,0,0.125);
+ font-size: 100%;
 }
 .input-mini {
  width:60px
@@ -1583,7 +1584,7 @@ footer .social ul li:last-child {
  margin-left:-0.5em
 }
 .btn--primary {
- background-color:#7a8288;
+ background-color:#3b3b3b;
  color:#fff
 }
 .btn--primary:visited {
