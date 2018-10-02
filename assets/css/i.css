@@ -177,6 +177,11 @@ blockquote, blockquote p {
   font-size: 48px;
 }
 
+.required {
+    color: #ee5f5b;
+    font-weight: bold;
+}
+
 
 @media only screen and (max-width: 480px) {
   p {
