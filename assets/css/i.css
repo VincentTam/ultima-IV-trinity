@@ -981,6 +981,16 @@ header.site-header nav ul li a:hover {
  text-decoration:none
 }
 
+.post .comment__date time {
+    color: rgba(217, 217, 217, 0.6);
+    width: 30.83333%;
+    position: relative;
+    font-size: 16px;
+    font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", "Arial", sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+}
+
 /*form stuff for comments */
 form {
  margin:0 0 5px 0;
@@ -1519,6 +1529,9 @@ footer .social ul li:last-child {
   small {
     font-size: 12px;
   }
+  .post .comment__date time {
+    font-size: 12px;
+}
 }
 @media only screen and (min-width:768px) {
  .cd-header {
