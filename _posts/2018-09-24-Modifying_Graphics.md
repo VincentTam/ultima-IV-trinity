@@ -10,7 +10,7 @@ image:
         feature: text_3.jpg
 ---
 
-Working away at the towns, I remembered I had wanted to have a custoom, two hut sprite to represent 'hamelets', to differntiate them from the three hut 'village' sprite. I needed a break from making NPCs, so I thought I would quickly mod in a new sprite and be done with it. Foolishly I imagined that the making of the sprite would be the hard part. Boy was I wrong.
+Working away at the towns, I remembered I had wanted to have a custoom, two hut sprite to represent 'hamlets', to differentiate them from the three hut 'village' sprite. I needed a break from making NPCs, so I thought I would quickly mod in a new sprite and be done with it. Foolishly I imagined that the making of the sprite would be the hard part. Boy was I wrong.
 
 It turns out sprites can't really be added, without first removing another sprite. There is a 255 sprite limit, short of doing some extensive coding to allow for more sprites, coding space which I just don't have. So it seemed that my hope of having custom sprites for hamlets, crypts and oracles, and a handful of other things, was not to be.
 
